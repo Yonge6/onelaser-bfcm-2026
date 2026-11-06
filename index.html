@@ -878,6 +878,32 @@ h1,h2,h3,h4,h5,h6,p{margin:0;text-wrap:pretty}h1,h2,h3,h4,h5,h6{text-wrap:balanc
 .gift b{font-size:14px;line-height:18px;font-weight:600;color:#fff}
 .gift small{font-size:12px;line-height:16px;color:rgba(255,255,255,.6)}
 .gift em{flex:none;padding:2px 8px;border-radius:3px;background:var(--gold);color:#1a1200;font-size:11px;line-height:16px;font-weight:700;font-style:italic;text-transform:uppercase;letter-spacing:.06em}
+
+/* XRF speed panel */
+.spd{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.1fr);gap:var(--s300) var(--s400);padding:var(--s400);border-radius:var(--r-3xl);background:linear-gradient(135deg,#1e0b07 0%,#111 55%);border:1px solid rgba(231,49,14,.35);position:relative;overflow:hidden}
+.spd:before{content:"";position:absolute;right:-40px;top:0;bottom:0;width:260px;background:repeating-linear-gradient(110deg,rgba(231,49,14,.12) 0 6px,transparent 6px 16px);-webkit-mask-image:linear-gradient(90deg,transparent,#000);mask-image:linear-gradient(90deg,transparent,#000);pointer-events:none}
+.spd__t{display:flex;flex-direction:column;gap:var(--s200)}
+.spd__h{font-size:34px;line-height:38px;font-weight:700;font-style:italic;text-transform:uppercase;letter-spacing:-.02em}
+.spd__h em{color:var(--red)}
+.spd__s{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:var(--s100);align-self:center;position:relative}
+.spd__s>div{display:flex;flex-direction:column;gap:6px;padding:var(--s200);border-radius:var(--r-xl);background:rgba(0,0,0,.45);border:1px solid rgba(255,255,255,.1);border-top:2px solid var(--red)}
+.spd__s b{font-size:44px;line-height:44px;font-weight:700;font-style:italic;letter-spacing:-.03em;color:#fff}
+.spd__s span{font-size:13px;line-height:18px;font-weight:600;color:#fff;text-transform:uppercase;letter-spacing:.04em}
+.spd__s small{display:block;margin-top:2px;font-size:11px;font-weight:500;color:var(--t3);text-transform:none;letter-spacing:0}
+.spd__b{grid-column:1/-1;display:flex;flex-direction:column;gap:10px;position:relative}
+.spd__b .row{display:grid;grid-template-columns:170px 1fr 56px;gap:var(--s200);align-items:center}
+.spd__b .row span{font-size:13px;font-weight:700;font-style:italic;text-transform:uppercase;letter-spacing:.04em}
+.spd__b .row em{font-style:italic;font-weight:700;font-size:18px;text-align:right}
+.spd__b .bar{position:relative;height:14px;border-radius:3px;background:rgba(255,255,255,.06);overflow:hidden}
+.spd__b .bar i{position:absolute;left:0;top:0;bottom:0;width:var(--w);transform-origin:left;transform:scaleX(0);transition:transform 1.4s var(--ease)}
+.spd.in .bar i{transform:scaleX(1)}
+.spd__b .bar i.x{background:linear-gradient(90deg,var(--red),#ff7a4d)}
+.spd__b .bar i.t{background:linear-gradient(90deg,rgba(255,255,255,.35) 40%,rgba(255,255,255,.12))}
+.spd__b .bar i.t2{background:rgba(255,255,255,.45)}
+.spd__b small{font-size:11px;line-height:16px;color:var(--t3)}
+.cmp td b{color:#fff}
+@media(max-width:1080px){.spd{grid-template-columns:minmax(0,1fr)}}
+@media(max-width:760px){.spd{padding:var(--s300) var(--s200)}.spd__h{font-size:26px;line-height:30px}.spd__s{gap:6px}.spd__s b{font-size:24px;line-height:28px;white-space:nowrap}.spd__s>div{padding:10px 8px}.spd__s span{font-size:10px;line-height:14px;letter-spacing:.02em}.spd__s small{font-size:10px;line-height:13px}.spd__b .row{grid-template-columns:96px 1fr 44px;gap:var(--s100)}.spd__b .row span{font-size:11px}}
 </style>
 </head>
 <body>
@@ -936,8 +962,8 @@ h1,h2,h3,h4,h5,h6,p{margin:0;text-wrap:pretty}h1,h2,h3,h4,h5,h6{text-wrap:balanc
 </div></nav>
 
 <div class="race" role="note" aria-label="Black Friday Deals: up to $3,000 off, free shipping on XRF 38W RF and VertiGo, final prices with no codes, ends Cyber Monday">
- <div class="race__b race__b2" aria-hidden="true"><div class="race__t rev"><div><span>Black Friday Deals</span><i aria-hidden="true"></i><span>Up to $3,000 off</span><i aria-hidden="true"></i><span>Free shipping on XRF 38W RF and VertiGo</span><i aria-hidden="true"></i><span>Final prices, no codes</span><i aria-hidden="true"></i><span>Ends Cyber Monday</span><i aria-hidden="true"></i></div><div><span>Black Friday Deals</span><i aria-hidden="true"></i><span>Up to $3,000 off</span><i aria-hidden="true"></i><span>Free shipping on XRF 38W RF and VertiGo</span><i aria-hidden="true"></i><span>Final prices, no codes</span><i aria-hidden="true"></i><span>Ends Cyber Monday</span><i aria-hidden="true"></i></div></div></div>
- <div class="race__b race__b1" aria-hidden="true"><div class="race__t"><div><span>Black Friday Deals</span><i aria-hidden="true"></i><span>Up to $3,000 off</span><i aria-hidden="true"></i><span>Free shipping on XRF 38W RF and VertiGo</span><i aria-hidden="true"></i><span>Final prices, no codes</span><i aria-hidden="true"></i><span>Ends Cyber Monday</span><i aria-hidden="true"></i></div><div><span>Black Friday Deals</span><i aria-hidden="true"></i><span>Up to $3,000 off</span><i aria-hidden="true"></i><span>Free shipping on XRF 38W RF and VertiGo</span><i aria-hidden="true"></i><span>Final prices, no codes</span><i aria-hidden="true"></i><span>Ends Cyber Monday</span><i aria-hidden="true"></i></div></div></div>
+ <div class="race__b race__b2" aria-hidden="true"><div class="race__t rev"><div><span>Black Friday Deals</span><i aria-hidden="true"></i><span>Up to $3,000 off</span><i aria-hidden="true"></i><span>Free shipping on XRF 38W RF and VertiGo</span><i aria-hidden="true"></i><span>XRF: true 3G, 1,200 mm/s</span><i aria-hidden="true"></i><span>Final prices, no codes</span><i aria-hidden="true"></i><span>Ends Cyber Monday</span><i aria-hidden="true"></i></div><div><span>Black Friday Deals</span><i aria-hidden="true"></i><span>Up to $3,000 off</span><i aria-hidden="true"></i><span>Free shipping on XRF 38W RF and VertiGo</span><i aria-hidden="true"></i><span>XRF: true 3G, 1,200 mm/s</span><i aria-hidden="true"></i><span>Final prices, no codes</span><i aria-hidden="true"></i><span>Ends Cyber Monday</span><i aria-hidden="true"></i></div></div></div>
+ <div class="race__b race__b1" aria-hidden="true"><div class="race__t"><div><span>Black Friday Deals</span><i aria-hidden="true"></i><span>Up to $3,000 off</span><i aria-hidden="true"></i><span>Free shipping on XRF 38W RF and VertiGo</span><i aria-hidden="true"></i><span>XRF: true 3G, 1,200 mm/s</span><i aria-hidden="true"></i><span>Final prices, no codes</span><i aria-hidden="true"></i><span>Ends Cyber Monday</span><i aria-hidden="true"></i></div><div><span>Black Friday Deals</span><i aria-hidden="true"></i><span>Up to $3,000 off</span><i aria-hidden="true"></i><span>Free shipping on XRF 38W RF and VertiGo</span><i aria-hidden="true"></i><span>XRF: true 3G, 1,200 mm/s</span><i aria-hidden="true"></i><span>Final prices, no codes</span><i aria-hidden="true"></i><span>Ends Cyber Monday</span><i aria-hidden="true"></i></div></div></div>
 </div>
 
 <!-- savings overview -->
@@ -1001,7 +1027,7 @@ h1,h2,h3,h4,h5,h6,p{margin:0;text-wrap:pretty}h1,h2,h3,h4,h5,h6{text-wrap:balanc
    <tr><th scope="row">Where it lives</th><td>On a workbench</td><td>On a shop counter</td><td>Floor standing</td><td>Floor standing</td></tr>
    <tr><th scope="row">Laser</th><td>38W RF metal tube</td><td>38W RF metal tube</td><td>90W, 100W or 130W CO₂ glass tube</td><td>70W RF, or CO₂ glass + 38W RF</td></tr>
    <tr><th scope="row">Work area</th><td>24" × 12"</td><td>Cups, tumblers and bottles, upright</td><td>31.5" × 19.7" to 55.1" × 35.4"</td><td>Up to 63" × 39.4" (Hydra 16)</td></tr>
-   <tr><th scope="row">Highlights</th><td>Up to 1,200 mm/s, 3G acceleration</td><td>Built-in rotary, no alignment</td><td>Autofocus, camera alignment, dual air assist</td><td>2,000 mm/s, 4G, servo motors (Gen2)</td></tr>
+   <tr><th scope="row">Highlights</th><td><b>True 3G, 1,200 mm/s</b>: 2 to 5× faster than typical desktop lasers</td><td>Built-in rotary, no alignment</td><td>Autofocus, camera alignment, dual air assist</td><td>2,000 mm/s, 4G, servo motors (Gen2)</td></tr>
    <tr><th scope="row">Best for</th><td>Leather, wood, acrylic, glass and coated metal goods</td><td>Drinkware shops, markets and events</td><td>Cutting and engraving wood, acrylic and signs</td><td>Daily production, fine detail plus cutting</td></tr>
    <tr class="pr"><th scope="row">Black Friday from</th><td>$4,499</td><td>$4,999</td><td>$3,999</td><td>$5,999</td></tr>
    <tr><th scope="row">Shipping</th><td class="fsc">Free</td><td class="fsc">Free</td><td>$499 to $699</td><td>$499 to $699</td></tr>
@@ -1313,7 +1339,7 @@ const STORIES=[['WD5has9K3IY','A six figure laser business','How a firefighter b
 
 /* ===== products: prices from the 2026-11-05 pricing sheet ===== */
 const SUPER=[
- {id:'xrf',tier:'super',th:'red',img:'xrf',rl:'xrf',name:'XRF 38W RF desktop laser engraver and cutter',tag:['gift','Free Air Assist Control'],lb:['38W RF tube','24" × 12" bed','1,200 mm/s'],def:1,stock:'xrf',
+ {id:'xrf',tier:'super',th:'red',img:'xrf',rl:'xrf',name:'XRF 38W RF desktop laser engraver and cutter',tag:['gift','Free Air Assist Control'],lb:['True 3G acceleration','1,200 mm/s','38W RF tube'],speed:1,def:1,stock:'xrf',
   up:{id:'43674371391522',n:'Auto Conveyor Feeder',p:999,u:P+'onelaser-automatic-conveyor-feeder'},
   v:[{l:'Starter Bundle · XRF + Air Assist Control',mn:'XRF 38W RF',p:4499,m:5499,f:0,site:399,vid:'43557890261026',u:U('onelaser-xrf-desktop-laser-machine','43557890261026'),gifts:[{n:'Air Assist Control',val:299.99,img:'lQDPJxo8d4MrtenND4zNE4iwYCxEbs-yL6sITkLfo74fAA_5000_3980.jpg'}]},
      {l:'Maker Bundle · + riser base + 2 material packs',mn:'XRF 38W RF',img:'xrfw',shown:'Shown with Riser Base + Auto Conveyor Feeder',p:4999,m:5499,f:0,site:399,vid:'43972592730146',u:U('onelaser-xrf-desktop-laser-machine','43972592730146'),gifts:[{n:'Air Assist Control',val:299.99,img:'lQDPJxo8d4MrtenND4zNE4iwYCxEbs-yL6sITkLfo74fAA_5000_3980.jpg'},{n:'Riser Base',val:599,img:'839d9e84510a0900681b9fc541852466.png'},{n:'2 material packs',sub:'Acrylic + leather'}]}]},
@@ -1334,7 +1360,7 @@ const LAST=[{n:'Hydra 7 80W glass tube laser',mn:'Hydra 7 80W',img:'h7g',p:5999,
 const FEAT={name:'Hydra Gen2 Hybrid CO₂ glass + RF industrial laser',desc:'Glass tube cutting and 38W RF fine engraving in one production machine, for batch work across wood, acrylic, leather, glass and coated metal.',lb:['Up to 150W glass','38W RF','2,000 mm/s'],
  v:[{l:'Hydra 9 Hybrid · 100W + 38W RF',mn:'Hydra 9 Hybrid',p:10999,f:599,img:'h9g2',stock:'hy09',vid:'44745765650466',u:U('hydra-9-gen-2-70w-rf-co2-dual-laser-machine','44745765650466')},{l:'Hydra 13 Hybrid · 130W + 38W RF',mn:'Hydra 13 Hybrid',p:12999,f:699,img:'h13g2',stock:'hy13',vid:'44745769156642',u:U('hydra-13-gen-2-70w-rf-co2-dual-laser-machine','44745769156642')},{l:'Hydra 16 Hybrid · 150W + 38W RF',mn:'Hydra 16 Hybrid',p:13999,f:699,img:'h16g2',stock:'hy16',vid:'44745771155490',u:U('hydra-16-gen-2-70w-rf-co2-dual-laser-machine','44745771155490')}]};
 /* [size, tier, $ off, name, note, scene, anchor, model shown in the photo, free shipping] */
-const BENTO=[['big','super',3000,'Hydra 7 Pro','First 14 units','h7g2','#p-h07','Hydra 7 Pro'],['big','super',2000,'Cobra 8 · 10 · 14','From $3,999','c8','#p-cob','Cobra 8 90W'],['big','super',1000,'XRF 38W RF','Plus free Air Assist Control','xrfw','#p-xrf','XRF 38W RF',1],
+const BENTO=[['big','super',3000,'Hydra 7 Pro','First 14 units','h7g2','#p-h07','Hydra 7 Pro'],['big','super',2000,'Cobra 8 · 10 · 14','From $3,999','c8','#p-cob','Cobra 8 90W'],['big','super',1000,'XRF 38W RF','True 3G · 1,200 mm/s','xrfw','#p-xrf','XRF 38W RF',1],
  ['sm','deal',2000,'Hydra Gen2 Pro','9, 13 and 16','h9g2','#p-g2p','Hydra 9 Pro'],['sm','deal',2000,'Hydra 9 Dual','Glass + RF','h9d','#p-h09d','Hydra 9 Dual'],['sm','deal',1000,'VertiGo','Drinkware laser','vtgs','#p-vtg','VertiGo 38W RF',1]];
 const PROJ=[['product-walnut-serving-board','Personalized serving board','XRF 38W RF'],['product-rocks-glass','Whiskey glass set','XRF 38W RF'],['home-project-etsy-whiskey-decanter-gift-set','Whiskey decanter gift set','XRF 38W RF'],['home-project-etsy-holiday-ornament-collection','Holiday ornament collection','XRF 38W RF'],['home-project-vertigo-event-tumbler-batch','Event tumbler batch','VertiGo'],['home-project-etsy-realtor-closing-gift-set','Closing gift set','XRF 38W RF'],['home-project-walnut-mountain-wall','Mountain feature wall','Hydra'],['product-custom-tumbler','Custom tumbler','VertiGo'],['home-project-batch-leather-gifts','Batch leather gift set','XRF 38W RF'],['home-project-large-acrylic-sign','Layered acrylic wall sign','Cobra'],['product-leather-patch-cap','Leather patch cap','XRF 38W RF'],['home-project-layered-city-map','Layered city map','Hydra']];
 const ACC={acc:[['OneLaser Air Assist Control, Dual Mode Airflow',299.99,'lQDPJxo8d4MrtenND4zNE4iwYCxEbs-yL6sITkLfo74fAA_5000_3980.jpg','air-assist-for-laser-engraver-cutter'],['Automatic Conveyor Feeder for OneLaser XRF',999,'9beab4683ad286661f4bb3a0568b2f8a.png','onelaser-automatic-conveyor-feeder'],['OneLaser X Series Riser Base',599,'839d9e84510a0900681b9fc541852466.png','onelaser-x-series-riser-base'],['OneLaser Chiller for Hydra and Cobra Glass Tube',699,'CW5200_Industrial_Chiller.png','onelaser-industrial-chiller-for-hydra-laser-engraver'],['PiBurn Lite Rotary for OneLaser',499,'PBL_main.0.png','piburn-lite-for-onelaser'],['FiltraBox Micro Compact Filtration System',1995,'4_9de31b3c-4d90-447f-9ff5-d5901da89c46.png','filtrabox-micro']],
@@ -1366,6 +1392,11 @@ function stockPill(key,first){const s=STOCK[key]||{us:0,tr:0};
  if(s.us>0)return `<div class="stk"><div class="row"><i class="ph-fill ph-check-circle"></i><span><b>${s.us} in stock</b> in our U.S. warehouse</span></div><div class="bar"><div class="tr"><i style="width:${Math.max(6,s.us/Math.max(tot,s.us)*100)}%"></i></div></div><span class="caption-5 muted">Limited quantity</span></div>`;
  return `<div class="stk"><div class="row amb"><i class="ph-fill ph-hourglass-medium"></i><span><b>Limited quantity</b></span></div></div>`;}
 const price1=(p,v)=>p.stage&&14-H07_SOLD<=0?v.p2:v.p;
+/* XRF speed: the claim, the numbers behind it, job time bars */
+function speedPanel(){return `<div class="spd"><div class="spd__t"><span class="kick"><i class="stripe" aria-hidden="true"></i>XRF performance</span><h3 class="spd__h">Real 3G. 1,200 mm/s.<br><em>2 to 5× faster.</em></h3><p class="body-6 muted">Most desktop lasers lose time slowing down and speeding up at every turn. XRF accelerates at a true 3G (29,430 mm/s²) and runs up to 1,200 mm/s on DSP motion control, so real jobs finish 2 to 5 times sooner than on typical desktop lasers.</p></div>
+ <div class="spd__s"><div><b>3G</b><span>True acceleration<small>29,430 mm/s²</small></span></div><div><b>1,200</b><span>mm/s top speed<small>DSP motion control</small></span></div><div><b>2–5×</b><span>Faster job times<small>vs typical desktop lasers</small></span></div></div>
+ <div class="spd__b" aria-label="Relative job time"><div class="row"><span>XRF 38W RF</span><div class="bar"><i class="x" style="--w:20%"></i></div><em>1×</em></div><div class="row"><span>Typical desktop laser</span><div class="bar"><i class="t" style="--w:100%"></i><i class="t2" style="--w:40%"></i></div><em>2–5×</em></div><small>Relative job time, shorter is better. Compared with typical G-code driven desktop diode and CO₂ lasers; actual times vary with design and material.</small></div>
+</div>`}
 /* Cobra 8 / 10 / 14: beds drawn to scale, XRF bed for reference */
 function sizeCmp(p,cur){const X=1400,Y=900;
  const box=(w,h,cls,lab,ix)=>`<div class="sz__r ${cls}" style="width:${w/X*100}%;height:${h/Y*100}%"${ix!=null?` data-sel="${p.id}:${ix}" role="button" tabindex="0" aria-label="Show ${lab}"`:''}><span>${lab}</span></div>`;
@@ -1392,7 +1423,7 @@ function apc(p){
     ${p.up?`<label class="up"><input type="checkbox" data-up="${p.id}" ${upOn[p.id]?'checked':''}><span><b>Complete the setup</b>+ ${p.up.n} ${$0(p.up.p)}, regular price${upOn[p.id]?` · total ${$0(price1(p,v)+p.up.p)}`:''}</span></label>`:''}
     ${acts({ids:[v.vid,...(p.up&&upOn[p.id]?[p.up.id]:[])],u:v.u,n:v.mn,v:price1(p,v)+(p.up&&upOn[p.id]?p.up.p:0)})}
    </div></div>
-  ${p.sizes?sizeCmp(p,i):''}
+  ${p.sizes?sizeCmp(p,i):''}${p.speed?speedPanel():''}
   <div class="reels"><div class="rhead"><span class="title-2">Real projects on this machine</span><div class="rbar"><button class="rentry" data-set="${p.rl}" data-k="0"><i class="ph-fill ph-play"></i>Watch all</button><div class="rarr"><button data-rp="${p.id}" aria-label="Previous videos"><i class="ph-bold ph-caret-left"></i></button><button data-rn="${p.id}" aria-label="Next videos"><i class="ph-bold ph-caret-right"></i></button></div></div></div><div class="rview"><div class="rtrack" data-r="${p.id}" data-i="0">${r.map((x,k)=>`<div class="reel" data-set="${p.rl}" data-k="${k}" role="button" tabindex="0" aria-label="Play video: ${x[1].replace(/"/g,'')}"><div class="thumb"><img src="https://i.ytimg.com/vi/${x[0]}/maxresdefault.jpg" onerror="this.onerror=null;this.src='https://i.ytimg.com/vi/${x[0]}/hqdefault.jpg'" alt="" loading="lazy"><span class="pl"><i class="ph-fill ph-play"></i></span></div><div class="cp"><p class="body-5">${x[1]}</p><div class="us caption-4"><i>${ini(x[2])}</i>@${x[2].replace(/\s+/g,'')}</div></div></div>`).join('')}</div></div></div>
  </div>`;
 }
@@ -1421,7 +1452,7 @@ function renderW(){const n=new Date();tlne.innerHTML=WK.map(x=>{const live=n>=pd
 
 /* finder */
 const FINDER={
- xrf:{n:'XRF 38W RF',why:'A 38W RF desktop laser at up to 1,200 mm/s with true 3G acceleration, for leather, wood, acrylic, glass and coated metal. $4,499 with a free Air Assist Control and free shipping.',img:'xrfw',a:'#p-xrf',p:'$4,499'},
+ xrf:{n:'XRF 38W RF',why:'True 3G acceleration and 1,200 mm/s: jobs finish 2 to 5 times faster than on typical desktop lasers. 38W RF for leather, wood, acrylic, glass and coated metal. $4,499 with a free Air Assist Control and free shipping.',img:'xrfw',a:'#p-xrf',p:'$4,499'},
  vtg:{n:'VertiGo 38W RF',why:'Built for drinkware. Loads a tumbler upright, focuses itself and engraves around the full cup. $4,999 with free shipping.',img:'vtgs',a:'#p-vtg',p:'$4,999'},
  c08:{n:'Cobra 8 90W',why:'A 90W glass tube for wood and acrylic cutting in a workshop footprint, with autofocus and 300+ supported materials. $3,999, save $2,000.',img:'c8',a:'#p-cob',sel:'cob:0',p:'$3,999'},
  c14:{n:'Cobra 14 130W',why:'A 130W glass tube and a larger bed for big signs and batch cutting. $6,999, save $2,000.',img:'c14',a:'#p-cob',sel:'cob:2',p:'$6,999'},
@@ -1579,6 +1610,10 @@ document.addEventListener('click',e=>{const t=e.target;
  const l=t.closest('[data-lead]');if(l){e.preventDefault();return openLead({n:l.dataset.lead,call:l.dataset.call,src:l.dataset.src||(l.closest('#sbar')?'sticky_bar':'card')})}
  const b=t.closest('[data-buy],[data-add]');if(b)dl({event:b.dataset.buy?'begin_checkout':'add_to_cart',ecommerce:{currency:'USD',value:+b.dataset.val||0,items:[{item_name:b.dataset.buy||b.dataset.add,price:+b.dataset.val||0,quantity:1}]}});
 });
+/* XRF speed bars fill when the panel comes into view, including after a re-render */
+const spdIO=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');spdIO.unobserve(e.target)}}),{rootMargin:'0px 0px -15% 0px'});
+const armSpd=()=>document.querySelectorAll('.spd:not(.armed)').forEach(e=>{e.classList.add('armed');reduce?e.classList.add('in'):spdIO.observe(e)});
+new MutationObserver(armSpd).observe(document.getElementById('main'),{childList:true,subtree:true});
 /* the popup shows itself once per visit at most: exit intent on desktop, deep scroll on phones, or after a minute */
 const seenLead=()=>{try{return localStorage.getItem('ol_bfcm_lead')||sessionStorage.getItem('ol_bfcm_pop')}catch(e){return 1}};
 function autoPop(src){if(seenLead()||!lm.hidden||vv.classList.contains('on'))return;try{sessionStorage.setItem('ol_bfcm_pop','1')}catch(e){}openLead({src})}
@@ -1612,7 +1647,7 @@ setInterval(()=>{const l=LIVE();if(l!==wasLive){wasLive=l;renderCards();renderLa
 
 const io=new IntersectionObserver(es=>es.forEach(en=>{if(en.isIntersecting){en.target.classList.add('in');en.target.querySelectorAll('[data-count]').forEach(countUp);io.unobserve(en.target)}}),{rootMargin:'0px 0px -10% 0px'});
 
-renderBento();renderCards();renderLast();renderFeat();renderProj();renderA();renderFinder();fitAll();tick();document.querySelectorAll('.apc,#fx').forEach(el=>sbo.observe(el));drawSb();syncLive();setInterval(()=>{if(!document.hidden)tick()},1000);onScroll();
+renderBento();renderCards();renderLast();renderFeat();renderProj();renderA();renderFinder();fitAll();tick();document.querySelectorAll('.apc,#fx').forEach(el=>sbo.observe(el));drawSb();syncLive();armSpd();setInterval(()=>{if(!document.hidden)tick()},1000);onScroll();
 document.querySelectorAll('.stag').forEach(g=>[...g.children].forEach((c,i)=>c.style.setProperty('--d',Math.min(i*70,560)+'ms')));
 document.querySelectorAll('.rv,.stag,.apc .stage').forEach(el=>{if(!el.classList.contains('stag'))el.classList.add('rv');io.observe(el)});
 </script>
