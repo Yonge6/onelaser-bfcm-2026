@@ -185,6 +185,9 @@ h1,h2,h3,h4,h5,h6,p{margin:0;text-wrap:pretty}h1,h2,h3,h4,h5,h6{text-wrap:balanc
 .kv__trust{display:flex;gap:var(--s300);flex-wrap:wrap;color:var(--t2);font-size:14px;line-height:20px}
 .kv__trust span{display:inline-flex;align-items:center;gap:var(--s75)}.kv__trust i{color:var(--gold);font-size:18px}
 
+/* ===== scene images (finished product renders) ===== */
+.scene{position:absolute;inset:0;overflow:hidden;background:#0b0b0b}
+.scene img{width:100%;height:100%;object-fit:cover;object-position:var(--op,30% 50%);transition:transform 1.2s var(--ease),opacity .4s var(--ease)}
 /* ===== floating section nav ===== */
 .snav{position:sticky;top:88px;z-index:45;display:flex;justify-content:center;pointer-events:none;margin-top:calc(-1 * var(--s600) - 2px)}
 .snav__in{pointer-events:auto;display:flex;gap:var(--s25);max-width:calc(100% - 32px);overflow-x:auto;scrollbar-width:none;padding:var(--s50);border-radius:var(--r-full);background:rgba(31,31,31,.9);-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px);border:1px solid var(--line);box-shadow:0 8px 32px rgba(0,0,0,.4)}
@@ -198,7 +201,7 @@ h1,h2,h3,h4,h5,h6,p{margin:0;text-wrap:pretty}h1,h2,h3,h4,h5,h6{text-wrap:balanc
 .sh .eb{color:var(--gold)}.sh .eb.blue{color:var(--blue)}
 .sh p{max-width:680px}
 .sh.left{align-items:flex-start;text-align:left}
-.tiertag{display:inline-flex;align-items:center;gap:var(--s75);padding:var(--s50) var(--s100);border-radius:var(--r-full);font-size:12px;line-height:16px;font-weight:600;letter-spacing:.04em;text-transform:uppercase}
+.tiertag{display:inline-flex;align-items:center;white-space:nowrap;flex:none;gap:var(--s75);padding:var(--s50) var(--s100);border-radius:var(--r-full);font-size:12px;line-height:16px;font-weight:600;letter-spacing:.04em;text-transform:uppercase}
 .tiertag.super{background:rgba(231,49,14,.16);color:#FF7A5C;border:1px solid rgba(231,49,14,.4)}
 .tiertag.deal{background:rgba(91,157,255,.14);color:var(--blue);border:1px solid rgba(91,157,255,.4)}
 .tiertag.best{background:rgba(252,199,123,.12);color:var(--gold);border:1px solid rgba(252,199,123,.32)}
@@ -216,17 +219,22 @@ h1,h2,h3,h4,h5,h6,p{margin:0;text-wrap:pretty}h1,h2,h3,h4,h5,h6{text-wrap:balanc
 
 /* savings bento */
 .bento{display:grid;grid-template-columns:repeat(12,1fr);gap:var(--s200)}
-.tl{position:relative;overflow:hidden;border-radius:var(--r-3xl);background:var(--c2);padding:var(--s300);display:flex;flex-direction:column;justify-content:space-between;gap:var(--s200);transition:background-color .3s var(--ease),transform .5s var(--ease)}
-.tl:hover{background:var(--c3);transform:translateY(-4px)}
-.tl.big{grid-column:span 4;min-height:280px}
-.tl.sm{grid-column:span 3;min-height:200px}
+.tl{position:relative;overflow:hidden;border-radius:var(--r-3xl);background:var(--c1);border:1px solid var(--line);display:flex;flex-direction:column;transition:border-color .3s var(--ease),transform .5s var(--ease)}
+.tl:hover{border-color:rgba(255,255,255,.24);transform:translateY(-4px)}
+.tl.big{grid-column:span 4}.tl.sm{grid-column:span 3}
+.tl .media{position:relative;aspect-ratio:16/10;overflow:hidden}
+.tl.sm .media{aspect-ratio:4/3}
+.tl:hover .scene img{transform:scale(1.04)}
+.tl .body{display:flex;flex-direction:column;gap:var(--s50);padding:var(--s200) var(--s300) var(--s300)}
 .tl .amt{display:flex;align-items:baseline;gap:var(--s75)}
-.tl .amt small{color:var(--gold);font-size:20px;line-height:28px;font-weight:600}
-.tl img{position:absolute;right:-8px;bottom:0;width:58%;transition:transform .5s var(--ease)}
-.tl:hover img{transform:scale(1.04)}
-.tl.sm img{width:50%;right:-8px}
-.tl .nm{position:relative;z-index:1;max-width:60%;display:flex;flex-direction:column;align-items:flex-start;gap:var(--s50)}
-.tl .tiertag{margin-bottom:var(--s50)}
+.tl .amt small{color:var(--gold);font-size:18px;line-height:28px;font-weight:600}
+.tl .row{display:flex;align-items:center;justify-content:space-between;gap:var(--s100)}
+.tl .row .caption-4{text-align:right;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.strip{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--s200);margin-top:var(--s200)}
+.strip>div{display:flex;gap:var(--s200);align-items:flex-start;padding:var(--s300);border-radius:var(--r-3xl);background:var(--c1);border:1px solid var(--line)}
+.strip i.ic{flex:none;width:40px;height:40px;display:grid;place-items:center;border-radius:var(--r-xl);font-size:20px}
+.strip .s1 i.ic{background:rgba(231,49,14,.16);color:#FF7A5C}.strip .s2 i.ic{background:rgba(91,157,255,.14);color:var(--blue)}.strip .s3 i.ic{background:rgba(252,199,123,.12);color:var(--gold)}
+.strip>div>div{display:flex;flex-direction:column;gap:var(--s50)}
 
 /* early access */
 .ea{position:relative;overflow:hidden;min-height:460px;border-radius:var(--r-3xl);background:var(--warm);display:flex;align-items:center}
@@ -256,18 +264,8 @@ h1,h2,h3,h4,h5,h6,p{margin:0;text-wrap:pretty}h1,h2,h3,h4,h5,h6{text-wrap:balanc
 .chips a:hover{background:var(--c3);color:#fff}
 .apc{overflow:hidden;padding-bottom:var(--s800);content-visibility:auto;contain-intrinsic-size:auto 760px}
 .stage{display:flex;flex-direction:column;gap:var(--s300);max-width:var(--wrap);margin:0 auto;padding:0 var(--gut)}
-.pbg{position:absolute;inset:0;overflow:hidden;background:#000}
-.pbg:before{content:"";position:absolute;inset:0;background:var(--pg)}
-.pbg.red{--pg:radial-gradient(70% 90% at 28% 72%,#4a1008 0%,#1a0604 45%,#050202 100%)}
-.pbg.blue{--pg:radial-gradient(70% 90% at 28% 72%,#0b2256 0%,#060e24 45%,#020408 100%)}
-.pbg.gold{--pg:radial-gradient(70% 90% at 28% 72%,#4a3210 0%,#1a1206 45%,#050402 100%)}
-.pbg .pct{position:absolute;left:var(--px,30%);top:var(--py,4%);width:var(--ps,50%);opacity:.92;animation:floaty 8s ease-in-out infinite;will-change:transform}
-@keyframes floaty{0%,100%{transform:translateY(0) rotate(0)}50%{transform:translateY(-14px) rotate(-1.5deg)}}
-.pbg .glow{display:none;position:absolute;left:var(--gx,30%);bottom:8%;width:46%;height:14%;border-radius:50%;background:radial-gradient(50% 50% at 50% 50%,var(--gc,rgba(231,49,14,.55)),transparent 70%);filter:blur(6px);animation:pulse 3.6s ease-in-out infinite}
-.pbg.blue .glow{--gc:rgba(91,157,255,.5)}.pbg.gold .glow{--gc:rgba(252,199,123,.45)}
-.hero{width:100%;min-height:560px;border-radius:var(--r-3xl);position:relative;overflow:hidden;background:#000;display:flex;justify-content:flex-end}
-.hero .pimg{position:absolute;left:6%;bottom:11%;width:calc(var(--pw,44%) * 1.12);z-index:1;transition:transform .6s var(--ease);will-change:transform}
-.hero:hover .pimg{--ty:-8px}
+.hero{width:100%;min-height:600px;border-radius:var(--r-3xl);position:relative;overflow:hidden;background:#0b0b0b;display:flex;justify-content:flex-end}
+.hero:hover .scene img{transform:scale(1.025)}
 .hero .tag{position:absolute;left:var(--s300);top:var(--s300);z-index:3}
 .hero .stk{position:absolute;left:var(--s300);bottom:var(--s300);z-index:3;max-width:300px}
 .tag{display:inline-flex;align-items:center;gap:var(--s50);padding:var(--s50) var(--s100);border-radius:var(--r-full);background:var(--gold);color:#000;font-size:12px;line-height:16px;font-weight:600}
@@ -358,16 +356,14 @@ h1,h2,h3,h4,h5,h6,p{margin:0;text-wrap:pretty}h1,h2,h3,h4,h5,h6{text-wrap:balanc
 .bg2{display:grid;grid-template-columns:repeat(2,1fr);gap:var(--s300)}
 .bc{display:flex;flex-direction:column;gap:var(--s300);padding:var(--s300);border-radius:var(--r-3xl);background:var(--c2);transition:transform .5s var(--ease)}
 .bc:hover{transform:translateY(-4px)}
-.bc .im{position:relative;aspect-ratio:5/4;border-radius:var(--r-2xl);overflow:hidden;background:#000}
-.bc .im .pbg .pct{--px:28%;--py:6%;--ps:60%}
-.bc .im>img.pr{position:absolute;left:50%;bottom:12%;width:var(--pw,52%);--tx:-50%;z-index:1}
+.bc .im{position:relative;aspect-ratio:16/9;border-radius:var(--r-2xl);overflow:hidden;background:#000}
+.bc:hover .scene img{transform:scale(1.04)}
 .bc .im .tag{position:absolute;left:var(--s200);top:var(--s200)}
 .bc h3{min-height:56px}
 .bc .acts{margin-top:auto}
 .fx{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,1fr);gap:var(--s200);align-items:stretch}
 .fx__art{position:relative;overflow:hidden;min-height:540px;border-radius:var(--r-3xl);background:#000}
-.fx__art .pbg .pct{--px:34%;--py:6%;--ps:50%}
-.fx__art .pr{position:absolute;left:50%;bottom:12%;width:var(--pw,56%);--tx:-50%;z-index:1}
+
 .fx__art .tag{position:absolute;left:var(--s300);top:var(--s300)}
 .fx__info{display:flex;flex-direction:column;gap:var(--s300);padding:var(--s400);border-radius:var(--r-3xl);background:var(--c2)}
 
@@ -416,9 +412,7 @@ h1,h2,h3,h4,h5,h6,p{margin:0;text-wrap:pretty}h1,h2,h3,h4,h5,h6{text-wrap:balanc
 .opts input:checked+span{background:#fff;color:#000;border-color:#fff}
 .opts input:focus-visible+span{outline:2px solid var(--gold);outline-offset:2px}
 .fr{display:flex;flex-direction:column;gap:var(--s200);padding:var(--s300);border-radius:var(--r-2xl);background:var(--c2);border:1px solid var(--line)}
-.fr .im{position:relative;aspect-ratio:5/4;border-radius:var(--r-xl);overflow:hidden;background:#000}
-.fr .im .pbg .pct{--px:28%;--py:6%;--ps:60%}
-.fr .im>img.pr{position:absolute;left:50%;bottom:12%;width:var(--pw,52%);--tx:-50%;z-index:1}
+.fr .im{position:relative;aspect-ratio:16/9;border-radius:var(--r-xl);overflow:hidden;background:#000}
 .fr .empty{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:var(--s100);min-height:300px;text-align:center;color:var(--t2)}
 .fr .empty i{font-size:40px;color:var(--t3)}
 
@@ -514,6 +508,7 @@ h1,h2,h3,h4,h5,h6,p{margin:0;text-wrap:pretty}h1,h2,h3,h4,h5,h6{text-wrap:balanc
 @media(max-width:1080px){
  .hd{grid-template-columns:44px 1fr 132px}.brand{justify-self:center;grid-column:2}.nav{display:none}.burger{display:block;grid-column:1;grid-row:1}
  .tl.big{grid-column:span 6}.tl.sm{grid-column:span 6}
+ .strip{grid-template-columns:1fr}
  .tlne,.ag,.bg3,.tiers,.fin2{grid-template-columns:1fr 1fr}
  .fx,.trust,.finder{grid-template-columns:1fr}.trust__img{min-height:360px}
  .pw{grid-template-columns:1fr 1fr 1fr}.pj:nth-child(1),.pj:nth-child(6){grid-column:span 2;grid-row:span 2}
@@ -535,15 +530,13 @@ h1,h2,h3,h4,h5,h6,p{margin:0;text-wrap:pretty}h1,h2,h3,h4,h5,h6{text-wrap:balanc
  .kv .chip{display:none}.kv .lead{font-size:16px;line-height:24px}
  .kv__cta .btn{width:100%}
  .cd>div{min-width:0;flex:1;padding:var(--s75)}
- .bento,.tlne,.ag,.bg3,.bg2,.vg,.tiers,.fin2,.tg2{grid-template-columns:1fr}
- .tl.big,.tl.sm{grid-column:auto;min-height:200px}.tl img,.tl.sm img{width:46%}
+ .bento,.tlne,.ag,.bg3,.bg2,.vg,.tiers,.fin2,.tg2,.strip{grid-template-columns:1fr}
+ .tl.big,.tl.sm{grid-column:auto}
  .ea{min-height:0;flex-direction:column;align-items:stretch}.ea>img.bg{position:relative;width:100%;height:220px;order:2}.ea:before{display:none}.ea__c{padding:var(--s400) var(--s300)}
  .form__row{flex-wrap:wrap;border-radius:var(--r-3xl);padding:var(--s75)}.form__row input{flex-basis:100%}.form__row .btn{flex:1}
  .fx__art{min-height:320px}.fx__info{padding:var(--s300)}
  .hero{height:auto;display:flex;flex-direction:column}
- .hero .pbg{position:relative;height:340px;flex:none}
- .hero .pbg .pct{--px:26%;--py:4%;--ps:56%}
- .hero .pimg{top:300px;bottom:auto;left:50%;width:calc(var(--pw,44%) * 1.5);--tx:-50%;--ty:-100%}
+ .hero .scene{position:relative;inset:auto;height:auto;aspect-ratio:16/10;flex:none}
  .hero .stk{position:relative;inset:auto;margin:var(--s100) var(--s100) 0;max-width:none}
  .hero .tag{top:var(--s300)}
  .info{width:auto;margin:var(--s100)}
@@ -612,20 +605,18 @@ h1,h2,h3,h4,h5,h6,p{margin:0;text-wrap:pretty}h1,h2,h3,h4,h5,h6{text-wrap:balanc
 </section>
 
 <nav class="snav" aria-label="Black Friday sections"><div class="snav__in" id="snav">
- <a href="#deals">Deals</a><a href="#super">Super deals</a><a href="#bfcm">BFCM deals</a><a href="#bestseller">Best seller</a><a href="#projects">Projects</a><a href="#why">Why OneLaser</a><a href="#finder">Find yours</a><a href="#addons">Add ons</a><a href="#faq">FAQ</a>
+ <a href="#deals">Deals</a><a href="#super">Super deals</a><a href="#bfcm">BFCM deals</a><a href="#bestseller">Best seller</a><a href="#projects">Projects</a><a href="#why">Why OneLaser</a><a href="#finder">Find yours</a><a href="#faq">FAQ</a>
 </div></nav>
 
 <!-- savings overview -->
 <section class="sec" id="deals"><div class="wrap">
  <div class="sh rv"><span class="caption-3 eb">Holiday savings for makers</span><h2 class="heading-2">Every machine line, on sale</h2><p class="body-3 muted">The lowest prices we have ever put on Hydra, Cobra, XRF and VertiGo. Prices are final and apply automatically at checkout.</p></div>
  <div class="bento stag" id="bento"></div>
- <div class="tiers stag" style="margin-top:var(--s200)">
-  <div class="tier super"><span class="tiertag super"><i class="ph-fill ph-fire"></i>Super Deal</span><h3 class="heading-5">Limited time, limited stock</h3><p class="body-6 muted">Final units of models we are retiring, at the deepest prices in the sale. When the last unit sells, the model comes off the site. No restock.</p>
-   <ul><li><i class="ph ph-check-circle"></i>Up to $3,000 off MSRP</li><li><i class="ph ph-check-circle"></i>Real unit counts, updated daily</li><li><i class="ph ph-check-circle"></i>Full warranty, support and 30 day returns, same as every machine we sell</li></ul></div>
-  <div class="tier deal"><span class="tiertag deal"><i class="ph-fill ph-tag"></i>BFCM Deal</span><h3 class="heading-5">Limited time</h3><p class="body-6 muted">Current models at a Black Friday price. The price ends Nov 30 at 11:59 PM Pacific and does not come back in December.</p>
-   <ul><li><i class="ph ph-check-circle"></i>Up to $2,000 off MSRP</li><li><i class="ph ph-check-circle"></i>Free or reduced shipping on select models</li><li><i class="ph ph-check-circle"></i>Lease to own financing for businesses</li></ul></div>
+ <div class="strip stag">
+  <div class="s1"><i class="ic ph-fill ph-fire"></i><div><span class="title-3">Super Deal</span><span class="body-6 muted">Retiring models at their deepest price. Limited time and limited stock, no restock.</span></div></div>
+  <div class="s2"><i class="ic ph-fill ph-tag"></i><div><span class="title-3">BFCM Deal</span><span class="body-6 muted">Current models at a Black Friday price until Nov 30, 11:59 PM Pacific.</span></div></div>
+  <div class="s3"><i class="ic ph-fill ph-seal-check"></i><div><span class="title-3">Real stock, real counts</span><span class="body-6 muted">Every "in stock" number is a unit in our Lake Forest, California warehouse.</span></div></div>
  </div>
- <div class="promise rv"><i class="ph ph-seal-check"></i><div><span class="title-2">Our stock promise</span><p class="body-6 muted" style="margin-top:4px">Every "in stock" number on this page is a unit sitting in our Lake Forest, California warehouse right now. Units on the way are marked as arriving. We never invent a "only 3 left".</p></div></div>
 </div></section>
 
 <!-- super deals -->
@@ -720,24 +711,12 @@ h1,h2,h3,h4,h5,h6,p{margin:0;text-wrap:pretty}h1,h2,h3,h4,h5,h6{text-wrap:balanc
  </div>
 </div></section>
 
-<!-- videos -->
-<section class="sec" id="stories" style="padding-top:0"><div class="wrap">
- <div class="sh rv"><span class="caption-3 eb">Customer stories</span><h2 class="heading-2">Makers on OneLaser, in their own words</h2></div>
- <div class="vg stag" id="vg"></div>
-</div></section>
-
 <!-- add ons -->
 <section class="sec light" id="addons"><div class="wrap">
  <div class="sh rv"><span class="caption-3 eb">Complete your setup</span><h2 class="heading-2">Accessories, materials and services</h2><p class="body-3 muted">Everything you need to start producing on day one.</p>
   <div class="toggle" role="tablist"><button data-a="acc" class="on" role="tab">Accessories</button><button data-a="mat" role="tab">Materials</button><button data-a="svc" role="tab">Software and service</button></div></div>
  <div class="ag stag" id="ag"></div>
  <p class="anote caption-5 muted">Accessories, materials and services are sold at regular prices.</p>
-</div></section>
-
-<!-- timeline -->
-<section class="sec" id="weeks"><div class="wrap">
- <div class="sh rv"><span class="caption-3 eb">What happens when</span><h2 class="heading-2">Three weeks, four moments</h2></div>
- <div class="tlne stag" id="tlne"></div>
 </div></section>
 
 <!-- faq -->
@@ -822,7 +801,9 @@ const PNG={xrf:'XRF_360cdcd1-c129-44be-a750-7da43a587a00.png',h7g2:'Hydra_7Gen2.
 const IMG=k=>S+PNG[k]+'?width=1400';
 /* transparent space under each photo (pad) and display width in the card (pw) */
 const FIT={xrf:[.354,'50%'],h7g2:[.251,'50%'],h9g2:[.251,'46%'],h13g2:[.271,'44%'],h16g2:[.267,'42%'],c8:[.269,'42%'],c10:[.248,'40%'],c14:[.02,'40%'],vtg:[.056,'34%'],h9d:[0,'40%'],h7g:[.079,'42%'],h16d:[.069,'40%']};
-const PBG=(th)=>`<div class="pbg ${th}"><img class="pct" src="assets/pct-${th}.png" alt="" loading="lazy"></div>`;
+/* finished product scenes: the official machine photo placed into a studio scene (ChatGPT image edit), one file per model */
+const SC=k=>`assets/scenes/${k}.jpg`;
+const SCENE=(k,op,alt='')=>`<div class="scene" style="--op:${op||'30% 50%'}"><img src="${SC(k)}" alt="${alt}" loading="lazy"></div>`;
 const P='https://www.1laser.com/products/';
 const U=(h,v)=>P+h+(v?'?variant='+v:'');
 const $=n=>'$'+n.toLocaleString('en-US',{minimumFractionDigits:2});
@@ -936,7 +917,7 @@ function apc(p){
   <div class="pb"><div><span class="caption-5 muted">You save</span><span class="saved">${$(v.m-(s1?v.p:v.p2))} off MSRP</span></div><div class="sep"></div><div><span class="caption-5 muted">MSRP</span><span class="title-2 ms num">${$(v.m)}</span></div></div>`;
  }else price=`<div class="pb"><div><span class="caption-5 muted">Black Friday price</span><span class="heading-5 num">${$(v.p)}</span><span class="saved">Save ${$(v.m-v.p)}${v.gifts&&v.gifts.length>1?' + gifts':''}</span></div><div class="sep"></div><div><span class="caption-5 muted">MSRP</span><span class="heading-5 ms num">${$(v.m)}</span></div></div>`;
  return `${p.ttl?`<h3 class="heading-3" style="text-align:center;margin-bottom:var(--s400)">${p.ttl}</h3>`:''}<div class="stage">
-  <div class="hero ${p.th}">${PBG(p.th)}${pimg(img,'pimg')}<span class="tag ${p.tier==='super'?'':'blue'}"><i class="ph-fill ph-${p.tag[0]}"></i>${p.tag[1]}</span>
+  <div class="hero ${p.th}">${SCENE(img,'22% 50%',p.name.replace(/™/g,''))}<span class="tag ${p.tier==='super'?'':'blue'}"><i class="ph-fill ph-${p.tag[0]}"></i>${p.tag[1]}</span>
    <div class="info">
     <div><span class="tiertag ${p.tier}" style="margin-bottom:8px">${p.tier==='super'?'<i class="ph-fill ph-fire"></i>Super Deal':'<i class="ph-fill ph-tag"></i>BFCM Deal'}</span><h3 class="heading-6">${p.name}</h3><div class="lbls" style="margin-top:8px">${p.lb.map(x=>`<span>${x}</span>`).join('')}</div></div>
     <div class="sel"><label class="sr-only" for="v-${p.id}">Model</label><select id="v-${p.id}" data-p="${p.id}" ${p.v.length<2?'disabled':''}>${opts}</select><i class="ph-bold ph-caret-down"></i></div>
@@ -950,14 +931,14 @@ function apc(p){
 }
 const ALLP=[...SUPER,...DEALS];
 function renderCards(){superCards.innerHTML=SUPER.map(p=>`<section class="apc" id="p-${p.id}">${apc(p)}</section>`).join('');dealCards.innerHTML=DEALS.map(p=>`<section class="apc" id="p-${p.id}">${apc(p)}</section>`).join('');ALLP.forEach(p=>slide(p.id,0));}
-function renderLast(){lastUnits.innerHTML=LAST.map(b=>`<div class="bc"><div class="im">${PBG('red','27%')}${pimg(b.img,'pr')}<span class="tag red">Last 1 in stock</span></div><div><h3 class="title-2">${b.n}</h3><div class="pb" style="margin-top:12px"><div><span class="caption-5 muted">Black Friday price</span><span class="heading-5 num">${$(b.p)}</span><span class="saved">Save ${$(b.m-b.p)}</span></div><div class="sep"></div><div><span class="caption-5 muted">MSRP</span><span class="heading-5 ms num">${$(b.m)}</span></div></div></div><div class="meta">${stockRow(b.stock)}${ship(b)}</div><div class="acts"><a class="btn primary sm" href="${b.u}" ${ext}>Add to cart</a><a class="btn light sm" href="${b.u}" ${ext}>Full specs</a></div></div>`).join('');}
-function renderFeat(){const i=sel.feat??0,v=FEAT.v[i];fx.innerHTML=`<div class="fx__art">${PBG('gold','27%')}<img class="pr pad" style="--pad:${FIT[v.img][0]};--pw:64%" src="${IMG(v.img)}" alt=""><span class="tag"><i class="ph-fill ph-star"></i>Best seller</span></div>
+function renderLast(){lastUnits.innerHTML=LAST.map(b=>`<div class="bc"><div class="im">${SCENE(b.img,'30% 50%',b.n)}<span class="tag red">Last 1 in stock</span></div><div><h3 class="title-2">${b.n}</h3><div class="pb" style="margin-top:12px"><div><span class="caption-5 muted">Black Friday price</span><span class="heading-5 num">${$(b.p)}</span><span class="saved">Save ${$(b.m-b.p)}</span></div><div class="sep"></div><div><span class="caption-5 muted">MSRP</span><span class="heading-5 ms num">${$(b.m)}</span></div></div></div><div class="meta">${stockRow(b.stock)}${ship(b)}</div><div class="acts"><a class="btn primary sm" href="${b.u}" ${ext}>Add to cart</a><a class="btn light sm" href="${b.u}" ${ext}>Full specs</a></div></div>`).join('');}
+function renderFeat(){const i=sel.feat??0,v=FEAT.v[i];fx.innerHTML=`<div class="fx__art">${SCENE(v.img,'30% 50%','Hydra Gen2 Hybrid')}<span class="tag"><i class="ph-fill ph-star"></i>Best seller</span></div>
  <div class="fx__info"><div><h3 class="heading-5">${FEAT.name}</h3><p class="body-6 muted" style="margin-top:8px">${FEAT.desc}</p><div class="lbls" style="margin-top:12px">${FEAT.lb.map(x=>`<span>${x}</span>`).join('')}</div></div>
  <div class="sel"><label class="sr-only" for="v-feat">Model</label><select id="v-feat" data-p="feat">${FEAT.v.map((x,j)=>`<option value="${j}" ${j===i?'selected':''}>${x.l}</option>`).join('')}</select><i class="ph-bold ph-caret-down"></i></div>
  <div><span class="caption-5 muted">Regular price</span><div class="heading-4 num">${$(v.p)}</div><span class="caption-5 muted">Not discounted during Black Friday</span></div>
  <div class="meta">${stockRow(v.stock)}${ship(v)}${fin}</div>
  <div class="acts" style="margin-top:auto"><a class="btn primary" href="${v.u}" ${ext}>Add to cart</a><a class="btn light" href="${v.u}" ${ext}>Full specs</a></div></div>`;}
-function renderBento(){bento.innerHTML=BENTO.map(b=>`<a class="tl ${b[0]}" href="${b[6]}"><div class="nm"><span class="tiertag ${b[1]}">${b[1]==='super'?'<i class="ph-fill ph-fire"></i>Super Deal':'<i class="ph-fill ph-tag"></i>BFCM Deal'}</span><span class="caption-4 muted">${b[4]}</span><div class="amt"><span class="${b[0]==='big'?'heading-2':'heading-4'} num" data-count="${b[2]}">$0</span><small>off</small></div></div><div class="nm"><span class="title-2">${b[3]}</span><span class="link">Shop <i class="ph-bold ph-arrow-right"></i></span></div>${pimg(b[5],'','',1)}</a>`).join('');}
+function renderBento(){bento.innerHTML=BENTO.map(b=>`<a class="tl ${b[0]}" href="${b[6]}"><div class="media">${SCENE(b[5],'28% 55%')}</div><div class="body"><div class="row"><span class="tiertag ${b[1]}">${b[1]==='super'?'<i class="ph-fill ph-fire"></i>Super Deal':'<i class="ph-fill ph-tag"></i>BFCM Deal'}</span><span class="caption-4 muted">${b[4]}</span></div><div class="amt" style="margin-top:8px"><span class="${b[0]==='big'?'heading-3':'heading-5'} num" data-count="${b[2]}">$0</span><small>off</small></div><div class="row"><span class="title-3">${b[3]}</span><i class="ph-bold ph-arrow-right gold"></i></div></div></a>`).join('');}
 function renderProj(){pw.innerHTML=PROJ.map(p=>`<div class="pj"><img src="assets/projects/${p[0]}.webp" alt="${p[1]}" loading="lazy"><span><span class="title-3">${p[1]}</span><span class="caption-3">Made on ${p[2]}</span></span></div>`).join('');}
 function renderStories(){vg.innerHTML=STORIES.map(c=>`<div class="vc"><div class="im" data-yt="${c[0]}" data-cap="${c[1]}" role="button" tabindex="0" aria-label="Play ${c[1]}"><img src="https://i.ytimg.com/vi/${c[0]}/maxresdefault.jpg" onerror="this.onerror=null;this.src='https://i.ytimg.com/vi/${c[0]}/hqdefault.jpg'" alt="" loading="lazy"><span class="pl"><i class="ph-fill ph-play"></i></span></div><div class="bd"><h3 class="title-2">${c[1]}</h3><p class="body-6 muted">${c[2]}</p><a class="link" href="https://www.youtube.com/watch?v=${c[0]}" ${ext}>Watch on YouTube <i class="ph-bold ph-arrow-up-right"></i></a></div></div>`).join('');}
 let aSel='acc';
@@ -984,7 +965,7 @@ function pick(m,s,b){
 function renderFinder(){const f=new FormData(fq),m=f.get('make'),s=f.get('space'),b=f.get('budget');
  if(!m||!s||!b){fr.innerHTML=`<div class="empty"><i class="ph ph-crosshair"></i><span class="title-2">Your match appears here</span><span class="body-6">Answer all three questions.</span></div>`;return;}
  const k=pick(m,s,b),x=FINDER[k];
- fr.innerHTML=`<div class="im">${PBG(k==='hyb'?'gold':['xrf','h07','c08'].includes(k)?'red':'blue','27%')}${pimg(x.img,'pr')}</div><div><span class="caption-3 gold">Our pick for you</span><h3 class="heading-5" style="margin-top:4px">${x.n}</h3><p class="body-6 muted" style="margin-top:8px">${x.why}</p></div><div class="acts"><a class="btn primary sm" href="${x.a}">See the deal · ${x.p}</a><a class="btn ghost sm" href="https://www.1laser.com/products/sales-consultation-call" ${ext}>Confirm on a call</a></div>`;}
+ fr.innerHTML=`<div class="im">${SCENE(x.img,'30% 50%',x.n)}</div><div><span class="caption-3 gold">Our pick for you</span><h3 class="heading-5" style="margin-top:4px">${x.n}</h3><p class="body-6 muted" style="margin-top:8px">${x.why}</p></div><div class="acts"><a class="btn primary sm" href="${x.a}">See the deal · ${x.p}</a><a class="btn ghost sm" href="https://www.1laser.com/products/sales-consultation-call" ${ext}>Confirm on a call</a></div>`;}
 fq.addEventListener('change',renderFinder);
 
 /* countdowns */
@@ -1049,7 +1030,7 @@ let rz;addEventListener('resize',()=>{clearTimeout(rz);rz=setTimeout(()=>ALLP.fo
 function countUp(el){const to=+el.dataset.count,t0=performance.now(),d=1200;if(reduce){el.textContent=$0(to);return}const f=now=>{const p=Math.min(1,(now-t0)/d),e=1-Math.pow(1-p,3);el.textContent=$0(Math.round(to*e));if(p<1)requestAnimationFrame(f)};requestAnimationFrame(f)}
 const io=new IntersectionObserver(es=>es.forEach(en=>{if(en.isIntersecting){en.target.classList.add('in');en.target.querySelectorAll('[data-count]').forEach(countUp);io.unobserve(en.target)}}),{rootMargin:'0px 0px -10% 0px'});
 
-renderBento();renderCards();renderLast();renderFeat();renderProj();renderStories();renderA();renderW();renderFinder();tick();setInterval(()=>{if(!document.hidden)tick()},1000);onScroll();
+renderBento();renderCards();renderLast();renderFeat();renderProj();renderA();renderFinder();tick();setInterval(()=>{if(!document.hidden)tick()},1000);onScroll();
 document.querySelectorAll('.stag').forEach(g=>[...g.children].forEach((c,i)=>c.style.setProperty('--d',Math.min(i*70,560)+'ms')));
 document.querySelectorAll('.rv,.stag,.apc .stage').forEach(el=>{if(!el.classList.contains('stag'))el.classList.add('rv');io.observe(el)});
 </script>
