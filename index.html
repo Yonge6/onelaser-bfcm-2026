@@ -13,7 +13,7 @@
 <meta name="twitter:card" content="summary_large_image">
 <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
 <link rel="preload" href="fonts/Certia-Medium.otf" as="font" type="font/otf" crossorigin>
-<link rel="preload" href="assets/hero2.jpg" as="image">
+<link rel="preload" href="assets/hero-workshop.webp" as="image">
 <script src="https://unpkg.com/@phosphor-icons/web@2.1.1"></script>
 <style>
 @font-face{font-family:"Certia";src:url("fonts/Certia-Regular.otf") format("opentype");font-weight:400;font-display:swap}
@@ -76,6 +76,10 @@ h1,h2,h3,h4,h5,h6,p{margin:0;text-wrap:pretty}h1,h2,h3,h4,h5,h6{text-wrap:balanc
 .pad{--pad:0;--tx:0px;--ty:0px;transform:translate(var(--tx),calc(var(--pad) * 100% + var(--ty)))}
 .rv{opacity:0;transform:translateY(32px);transition:opacity .7s var(--ease),transform .7s var(--ease)}
 .rv.in{opacity:1;transform:none}
+.stag>*{opacity:0;transform:translateY(24px);transition:opacity .6s var(--ease),transform .6s var(--ease);transition-delay:var(--d,0s)}
+.stag.in>*{opacity:1;transform:none}
+.bar .tr i{transform-origin:left;animation:grow 1.4s var(--ease) both}
+@keyframes grow{from{transform:scaleX(0)}}
 
 /* ===== announcement + header (homepage v3, white) ===== */
 .ann{position:relative;min-height:34px;display:grid;place-items:center;overflow:hidden;padding:0 44px;background:#f5f5f7;border-bottom:1px solid #e3e3e6;color:#4a4a4f;font-size:12px;line-height:16px}
@@ -154,16 +158,22 @@ h1,h2,h3,h4,h5,h6,p{margin:0;text-wrap:pretty}h1,h2,h3,h4,h5,h6{text-wrap:balanc
 
 /* ===== hero ===== */
 .kv{position:relative;height:720px;overflow:hidden;background:#000}
-.kv__art{position:absolute;right:0;top:50%;width:max(100%,1240px);aspect-ratio:3/2;transform:translateY(-54%)}
-.kv__art>img.bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
-.kv__art .pr{position:absolute}
-.kv__art .pr1{left:54%;bottom:32.5%;width:30%}
-.kv__art .pr2{left:76%;bottom:32%;width:20%}
-.kv:after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(0,0,0,.94) 0%,rgba(0,0,0,.62) 36%,transparent 58%),linear-gradient(180deg,transparent 80%,#000 100%);pointer-events:none}
+.kv__art{position:absolute;inset:0;overflow:hidden}
+.kv__art>img.bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:68% 50%;transform-origin:62% 55%;animation:kb 28s var(--ease) both}
+@keyframes kb{from{transform:scale(1.08)}to{transform:scale(1)}}
+.kv:after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(0,0,0,.92) 0%,rgba(0,0,0,.72) 30%,rgba(0,0,0,.2) 58%,transparent 72%),linear-gradient(180deg,rgba(0,0,0,.35) 0%,transparent 30%,transparent 78%,#000 100%);pointer-events:none}
+.kv__c>*{animation:rise .9s var(--ease) both}
+.kv__c>*:nth-child(2){animation-delay:.08s}.kv__c>*:nth-child(3){animation-delay:.16s}.kv__c>*:nth-child(4){animation-delay:.24s}.kv__c>*:nth-child(5){animation-delay:.32s}.kv__c>*:nth-child(6){animation-delay:.4s}
+@keyframes rise{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:none}}
+.btn.primary{position:relative;overflow:hidden}
+.btn.primary:after{content:"";position:absolute;top:0;bottom:0;left:-60%;width:40%;background:linear-gradient(90deg,transparent,rgba(255,255,255,.28),transparent);transform:skewX(-20deg);animation:shine 3.6s var(--ease) infinite}
+@keyframes shine{0%{left:-60%}35%{left:130%}100%{left:130%}}
+.cd b.flip{animation:flip .5s var(--ease)}
+@keyframes flip{0%{transform:translateY(-40%);opacity:0}100%{transform:none;opacity:1}}
 .kv__c{position:relative;z-index:2;height:100%;max-width:var(--wrap);margin:0 auto;padding:0 var(--gut);display:flex;flex-direction:column;justify-content:center;gap:var(--s300)}
 .chip{align-self:flex-start;display:inline-flex;align-items:center;gap:var(--s75);padding:var(--s50) var(--s100);border-radius:var(--r-full);background:rgba(252,199,123,.12);border:1px solid rgba(252,199,123,.32);color:var(--gold);font-size:12px;line-height:16px;font-weight:600;letter-spacing:.04em;text-transform:uppercase}
 .kv h1{max-width:680px;background:linear-gradient(90deg,#fff,#9B9B9B);-webkit-background-clip:text;background-clip:text;color:transparent}
-.kv .lead{max-width:560px;color:var(--t2)}
+.kv .lead{max-width:560px;color:rgba(255,255,255,.8)}
 .kv .lead b{color:#fff;font-weight:600}
 .kv__cta{display:flex;align-items:center;gap:var(--s100);flex-wrap:wrap}
 .cd{display:flex;align-items:center;gap:var(--s75)}
@@ -244,18 +254,35 @@ h1,h2,h3,h4,h5,h6,p{margin:0;text-wrap:pretty}h1,h2,h3,h4,h5,h6{text-wrap:balanc
 .chips a{padding:var(--s75) var(--s200);border-radius:var(--r-full);background:var(--c2);border:1px solid var(--line);color:var(--t2);font-size:14px;line-height:20px;font-weight:500;transition:background-color .3s var(--ease),color .3s var(--ease)}
 .chips a:hover{background:var(--c3);color:#fff}
 .apc{overflow:hidden;padding-bottom:var(--s800);content-visibility:auto;contain-intrinsic-size:auto 760px}
-.stage{display:flex;gap:var(--s300);max-width:var(--wrap);margin:0 auto;padding:0 var(--gut)}
-.hero{flex:none;width:880px;height:640px;border-radius:var(--r-3xl);position:relative;overflow:hidden;background:#000}
-.hero>img.bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:62% 50%}
-.hero .pimg{position:absolute;left:4%;bottom:var(--feet,28.5%);width:var(--pw,44%);z-index:1;will-change:transform}
-.hero.red{--feet:24%}.hero.blue{--feet:24.5%}.hero.gold{--feet:23.5%}
+.stage{display:flex;flex-direction:column;gap:var(--s300);max-width:var(--wrap);margin:0 auto;padding:0 var(--gut)}
+.pbg{position:absolute;inset:0;overflow:hidden;background:#000}
+.pbg:before{content:"";position:absolute;inset:0;background:var(--pg)}
+.pbg.red{--pg:radial-gradient(70% 90% at 28% 72%,#4a1008 0%,#1a0604 45%,#050202 100%)}
+.pbg.blue{--pg:radial-gradient(70% 90% at 28% 72%,#0b2256 0%,#060e24 45%,#020408 100%)}
+.pbg.gold{--pg:radial-gradient(70% 90% at 28% 72%,#4a3210 0%,#1a1206 45%,#050402 100%)}
+.pbg .pct{position:absolute;left:var(--px,26%);top:var(--py,-2%);width:var(--ps,62%);mix-blend-mode:screen;opacity:.95;animation:floaty 7s ease-in-out infinite;will-change:transform}
+@keyframes floaty{0%,100%{transform:translateY(0) rotate(0)}50%{transform:translateY(-14px) rotate(-1.5deg)}}
+.pbg .glow{position:absolute;left:var(--gx,30%);bottom:8%;width:46%;height:14%;border-radius:50%;background:radial-gradient(50% 50% at 50% 50%,var(--gc,rgba(231,49,14,.55)),transparent 70%);filter:blur(6px);animation:pulse 3.6s ease-in-out infinite}
+.pbg.blue .glow{--gc:rgba(91,157,255,.5)}.pbg.gold .glow{--gc:rgba(252,199,123,.45)}
+.hero{width:100%;min-height:560px;border-radius:var(--r-3xl);position:relative;overflow:hidden;background:#000;display:flex;justify-content:flex-end}
+.hero .pimg{position:absolute;left:5%;bottom:13%;width:var(--pw,44%);z-index:1;transition:transform .6s var(--ease);will-change:transform}
+.hero:hover .pimg{--ty:-8px}
 .hero .tag{position:absolute;left:var(--s300);top:var(--s300);z-index:3}
 .hero .stk{position:absolute;left:var(--s300);bottom:var(--s300);z-index:3;max-width:300px}
 .tag{display:inline-flex;align-items:center;gap:var(--s50);padding:var(--s50) var(--s100);border-radius:var(--r-full);background:var(--gold);color:#000;font-size:12px;line-height:16px;font-weight:600}
 .tag.red{background:var(--red);color:#fff}
 .tag.blue{background:var(--blue);color:#000}
 .tag.dim{background:rgba(255,255,255,.12);color:#fff}
-.info{position:absolute;right:var(--s300);top:var(--s300);bottom:var(--s300);width:360px;z-index:2;border-radius:var(--r-2xl);background:rgba(16,16,16,.84);border:1px solid rgba(255,255,255,.1);padding:var(--s300);display:flex;flex-direction:column;gap:var(--s200);overflow:auto;scrollbar-width:none}
+.info{position:relative;flex:none;margin:var(--s300);width:400px;z-index:2;border-radius:var(--r-2xl);background:#fff;color:#000;padding:var(--s300);display:flex;flex-direction:column;gap:var(--s200);box-shadow:0 24px 64px rgba(0,0,0,.45)}
+.info .muted{color:rgba(0,0,0,.56)}.info .faint{color:rgba(0,0,0,.4)}
+.info .lbls span{background:rgba(0,0,0,.06);color:#000}
+.info .sel select{background:#f5f5f7;border-color:rgba(0,0,0,.1);color:#000}.info .sel select:hover{border-color:rgba(0,0,0,.3)}.info .sel i{color:rgba(0,0,0,.5)}
+.info .pb .sep{background:rgba(0,0,0,.1)}.info .pb .ms{color:rgba(0,0,0,.4);text-decoration-color:rgba(0,0,0,.3)}
+.info .stg>div{background:#f5f5f7}.info .stg>div.on{border-color:var(--red);background:#fff4f1}.info .stg>div.on .caption-4{color:var(--action)}.info .stg>div:not(.on) .heading-6{color:rgba(0,0,0,.35)}
+.info .bar .tr{background:rgba(0,0,0,.1)}
+.info .gifts{background:#fff7e8;border-color:#f3d9a6}.info .gifts i{color:#c7891b}
+.info .meta div{color:rgba(0,0,0,.62)}.info .meta i,.info .meta b,.info .meta a{color:#000}.info .meta .amb{color:#b36b00}
+.info .btn.light{background:#000;color:#fff}.info .btn.light:hover{background:var(--c4)}
 .lbls{display:flex;flex-wrap:wrap;gap:var(--s50)}
 .lbls span{padding:var(--s25) var(--s75);border-radius:var(--r-sm);background:rgba(255,255,255,.12);font-size:12px;line-height:16px;font-weight:500}
 .sel{position:relative}
@@ -298,13 +325,14 @@ h1,h2,h3,h4,h5,h6,p{margin:0;text-wrap:pretty}h1,h2,h3,h4,h5,h6{text-wrap:balanc
 .stk .bar .tr{background:rgba(255,255,255,.12)}
 .stk .bar .tr i{background:var(--green)}
 /* reels */
-.reels{flex:none;width:612px;display:flex;flex-direction:column}
-.rview{overflow:visible}
+.reels{width:100%;display:flex;flex-direction:column}
+.rhead{display:flex;align-items:center;justify-content:space-between;gap:var(--s200);margin-bottom:var(--s200)}
+.rview{overflow:hidden;border-radius:var(--r-3xl)}
 .rtrack{display:flex;gap:var(--s300);transition:transform .5s var(--ease)}
-.reel{flex:none;width:294px;height:540px;border-radius:var(--r-3xl);background:var(--c2);position:relative;overflow:hidden;cursor:pointer}
+.reel{flex:none;width:264px;height:420px;border-radius:var(--r-3xl);background:var(--c2);position:relative;overflow:hidden;cursor:pointer}
 .reel img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .5s var(--ease)}
 .reel:hover img{transform:scale(1.04)}
-.reel .ifr{position:absolute;top:0;left:50%;height:100%;width:960px;transform:translateX(-50%);pointer-events:none;border:0;opacity:0;transition:opacity .5s var(--ease);z-index:1}
+.reel .ifr{position:absolute;top:0;left:50%;height:100%;width:748px;transform:translateX(-50%);pointer-events:none;border:0;opacity:0;transition:opacity .5s var(--ease);z-index:1}
 .reel .ifr.on{opacity:1}
 .reel .shade{position:absolute;inset:0;background:linear-gradient(rgba(0,0,0,.2) 0%,transparent 24%,transparent 52%,rgba(0,0,0,.86) 100%);z-index:2}
 .reel .cp{position:absolute;left:var(--s200);right:var(--s200);bottom:var(--s200);z-index:3;display:flex;flex-direction:column;gap:var(--s100)}
@@ -312,7 +340,7 @@ h1,h2,h3,h4,h5,h6,p{margin:0;text-wrap:pretty}h1,h2,h3,h4,h5,h6{text-wrap:balanc
 .reel .us{display:flex;align-items:center;gap:var(--s75)}
 .reel .us i{width:24px;height:24px;border-radius:var(--r-full);background:#fff;color:#000;display:grid;place-items:center;font-style:normal;font-size:12px;line-height:16px;font-weight:600}
 .reel .pl{position:absolute;top:var(--s200);right:var(--s200);z-index:3;width:32px;height:32px;border-radius:var(--r-full);background:rgba(0,0,0,.55);display:grid;place-items:center;font-size:14px}
-.rbar{display:flex;align-items:center;gap:var(--s200);margin-top:var(--s300)}
+.rbar{display:flex;align-items:center;gap:var(--s200)}
 .rentry{display:inline-flex;align-items:center;gap:var(--s75);padding:var(--s100) var(--s200);border-radius:var(--r-full);background:rgba(255,255,255,.1);border:0;color:#fff;font-size:14px;line-height:20px;font-weight:500;cursor:pointer;transition:background-color .3s var(--ease)}
 .rentry:hover{background:rgba(255,255,255,.16)}
 .rentry i{width:24px;height:24px;border-radius:var(--r-full);background:#fff;color:#000;display:grid;place-items:center;font-size:12px}
@@ -328,15 +356,15 @@ h1,h2,h3,h4,h5,h6,p{margin:0;text-wrap:pretty}h1,h2,h3,h4,h5,h6{text-wrap:balanc
 .bc{display:flex;flex-direction:column;gap:var(--s300);padding:var(--s300);border-radius:var(--r-3xl);background:var(--c2);transition:transform .5s var(--ease)}
 .bc:hover{transform:translateY(-4px)}
 .bc .im{position:relative;aspect-ratio:5/4;border-radius:var(--r-2xl);overflow:hidden;background:#000}
-.bc .im>img.bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 70%}
-.bc .im>img.pr{position:absolute;left:50%;bottom:24%;width:var(--pw,52%);--tx:-50%}
+.bc .im .pbg .pct{--px:30%;--py:4%;--ps:70%}
+.bc .im>img.pr{position:absolute;left:50%;bottom:12%;width:var(--pw,52%);--tx:-50%;z-index:1}
 .bc .im .tag{position:absolute;left:var(--s200);top:var(--s200)}
 .bc h3{min-height:56px}
 .bc .acts{margin-top:auto}
 .fx{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,1fr);gap:var(--s200);align-items:stretch}
 .fx__art{position:relative;overflow:hidden;min-height:540px;border-radius:var(--r-3xl);background:#000}
-.fx__art>img.bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
-.fx__art .pr{position:absolute;left:50%;bottom:23.5%;width:var(--pw,56%);--tx:-50%}
+.fx__art .pbg .pct{--px:34%;--py:2%;--ps:60%}
+.fx__art .pr{position:absolute;left:50%;bottom:12%;width:var(--pw,56%);--tx:-50%;z-index:1}
 .fx__art .tag{position:absolute;left:var(--s300);top:var(--s300)}
 .fx__info{display:flex;flex-direction:column;gap:var(--s300);padding:var(--s400);border-radius:var(--r-3xl);background:var(--c2)}
 
@@ -359,7 +387,7 @@ h1,h2,h3,h4,h5,h6,p{margin:0;text-wrap:pretty}h1,h2,h3,h4,h5,h6{text-wrap:balanc
 /* why / trust */
 .trust{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);gap:var(--s300);align-items:stretch}
 .trust__img{position:relative;overflow:hidden;border-radius:var(--r-3xl);min-height:520px;background:var(--c2)}
-.trust__img img{width:100%;height:100%;object-fit:cover;object-position:60% 50%}
+.trust__img img{width:100%;height:100%;object-fit:cover;object-position:50% 40%}
 .trust__img>span{position:absolute;left:var(--s300);bottom:var(--s300);right:var(--s300);display:flex;flex-direction:column;gap:var(--s50);padding:var(--s200);border-radius:var(--r-2xl);background:rgba(16,16,16,.84);border:1px solid var(--line)}
 .trust__img>span>span{position:static;padding:0;background:none;border:0}
 .tg2{display:grid;grid-template-columns:1fr 1fr;gap:var(--s200)}
@@ -386,8 +414,8 @@ h1,h2,h3,h4,h5,h6,p{margin:0;text-wrap:pretty}h1,h2,h3,h4,h5,h6{text-wrap:balanc
 .opts input:focus-visible+span{outline:2px solid var(--gold);outline-offset:2px}
 .fr{display:flex;flex-direction:column;gap:var(--s200);padding:var(--s300);border-radius:var(--r-2xl);background:var(--c2);border:1px solid var(--line)}
 .fr .im{position:relative;aspect-ratio:5/4;border-radius:var(--r-xl);overflow:hidden;background:#000}
-.fr .im>img.bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 70%}
-.fr .im>img.pr{position:absolute;left:50%;bottom:24%;width:var(--pw,52%);--tx:-50%}
+.fr .im .pbg .pct{--px:30%;--py:4%;--ps:70%}
+.fr .im>img.pr{position:absolute;left:50%;bottom:12%;width:var(--pw,52%);--tx:-50%;z-index:1}
 .fr .empty{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:var(--s100);min-height:300px;text-align:center;color:var(--t2)}
 .fr .empty i{font-size:40px;color:var(--t3)}
 
@@ -435,7 +463,7 @@ h1,h2,h3,h4,h5,h6,p{margin:0;text-wrap:pretty}h1,h2,h3,h4,h5,h6{text-wrap:balanc
 
 /* final cta */
 .final{position:relative;overflow:hidden;border-radius:var(--r-3xl);min-height:460px;display:flex;align-items:center;justify-content:center;text-align:center;background:#000}
-.final>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:60% 40%;opacity:.6}
+.final>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 40%;opacity:.35}
 .final__c{position:relative;z-index:1;display:flex;flex-direction:column;align-items:center;gap:var(--s300);padding:var(--s700) var(--s300)}
 .final h2{max-width:680px;background:linear-gradient(90deg,#fff,#9B9B9B);-webkit-background-clip:text;background-clip:text;color:transparent}
 
@@ -478,7 +506,6 @@ h1,h2,h3,h4,h5,h6,p{margin:0;text-wrap:pretty}h1,h2,h3,h4,h5,h6{text-wrap:balanc
 .vv .cap{position:absolute;bottom:var(--s300);left:var(--s300);right:var(--s300);text-align:center}
 
 @media(max-width:1240px){
- .stage{flex-direction:column}.hero{width:100%}.reels{width:100%}
  .vg{grid-template-columns:1fr 1fr}
 }
 @media(max-width:1080px){
@@ -497,9 +524,10 @@ h1,h2,h3,h4,h5,h6,p{margin:0;text-wrap:pretty}h1,h2,h3,h4,h5,h6{text-wrap:balanc
  .hd{height:64px;padding:0 var(--s200)}.brand{width:132px}.hd__act a:not(:nth-child(2)){display:none}.hd{grid-template-columns:44px 1fr 44px}
  .snav{top:72px}
  .kv{height:auto}
- .kv__art{position:relative;top:auto;right:auto;width:150%;margin:-56px 0 -112px -44%;transform:none}
- .kv:after{background:linear-gradient(180deg,rgba(0,0,0,.2) 0%,transparent 40%)}
- .kv__c{padding-top:0;padding-bottom:var(--s600);height:auto;gap:var(--s200)}
+ .kv__art{position:relative;inset:auto;height:360px}
+ .kv__art>img.bg{object-position:60% 50%}
+ .kv:after{background:linear-gradient(180deg,rgba(0,0,0,.25) 0,transparent 110px,transparent 230px,#000 360px)}
+ .kv__c{margin-top:-96px;padding-top:0;padding-bottom:var(--s600);height:auto;gap:var(--s200)}
  .kv .chip{display:none}.kv .lead{font-size:16px;line-height:24px}
  .kv__cta .btn{width:100%}
  .cd>div{min-width:0;flex:1;padding:var(--s75)}
@@ -509,12 +537,13 @@ h1,h2,h3,h4,h5,h6,p{margin:0;text-wrap:pretty}h1,h2,h3,h4,h5,h6{text-wrap:balanc
  .form__row{flex-wrap:wrap;border-radius:var(--r-3xl);padding:var(--s75)}.form__row input{flex-basis:100%}.form__row .btn{flex:1}
  .fx__art{min-height:320px}.fx__info{padding:var(--s300)}
  .hero{height:auto;display:flex;flex-direction:column}
- .hero>img.bg{position:relative;height:320px;object-position:50% 60%}
- .hero .pimg{top:236px;bottom:auto;left:50%;width:calc(var(--pw,44%) * 1.4);--tx:-50%;--ty:-100%}
+ .hero .pbg{position:relative;height:340px;flex:none}
+ .hero .pbg .pct{--px:22%;--py:2%;--ps:70%}
+ .hero .pimg{top:300px;bottom:auto;left:50%;width:calc(var(--pw,44%) * 1.5);--tx:-50%;--ty:-100%}
  .hero .stk{position:relative;inset:auto;margin:var(--s100) var(--s100) 0;max-width:none}
  .hero .tag{top:var(--s300)}
- .info{position:relative;inset:auto;width:auto;margin:var(--s100) var(--s100) var(--s100);background:rgba(39,39,39,.96);overflow:visible}
- .reel{width:240px;height:440px}
+ .info{width:auto;margin:var(--s100)}
+ .reel{width:232px;height:380px}.reel .ifr{width:676px}
  .pw{grid-template-columns:1fr 1fr}.pj:nth-child(1),.pj:nth-child(6){grid-column:span 2;grid-row:span 1;aspect-ratio:16/10}
  .finder{padding:var(--s300)}
  .ft__links{grid-template-columns:1fr 1fr;row-gap:var(--s400)}
@@ -564,11 +593,7 @@ h1,h2,h3,h4,h5,h6,p{margin:0;text-wrap:pretty}h1,h2,h3,h4,h5,h6{text-wrap:balanc
 
 <!-- hero -->
 <section class="kv" id="top">
- <div class="kv__art" aria-hidden="true">
-  <img class="bg" src="assets/hero2.jpg" alt="">
-  <img class="pr pr1 pad" style="--pad:.251" src="https://cdn.shopify.com/s/files/1/0747/8748/7778/files/Hydra_7Gen2.png?width=900" alt="">
-  <img class="pr pr2 pad" style="--pad:.354" src="https://cdn.shopify.com/s/files/1/0747/8748/7778/files/XRF_360cdcd1-c129-44be-a750-7da43a587a00.png?width=900" alt="">
- </div>
+ <div class="kv__art" aria-hidden="true"><img class="bg" src="assets/hero-workshop.webp" alt=""></div>
  <div class="kv__c">
   <span class="chip"><i class="ph-fill ph-lightning"></i>Black Friday and Cyber Monday · Nov 10 to Nov 30</span>
   <h1 class="heading-1">The best laser deals<br>of 2026</h1>
@@ -589,8 +614,8 @@ h1,h2,h3,h4,h5,h6,p{margin:0;text-wrap:pretty}h1,h2,h3,h4,h5,h6{text-wrap:balanc
 <!-- savings overview -->
 <section class="sec" id="deals"><div class="wrap">
  <div class="sh rv"><span class="caption-3 eb">Holiday savings for makers</span><h2 class="heading-2">Every machine line, on sale</h2><p class="body-3 muted">The lowest prices we have ever put on Hydra, Cobra, XRF and VertiGo. Prices are final and apply automatically at checkout.</p></div>
- <div class="bento rv" id="bento"></div>
- <div class="tiers rv" style="margin-top:var(--s200)">
+ <div class="bento stag" id="bento"></div>
+ <div class="tiers stag" style="margin-top:var(--s200)">
   <div class="tier super"><span class="tiertag super"><i class="ph-fill ph-fire"></i>Super Deal</span><h3 class="heading-5">Limited time, limited stock</h3><p class="body-6 muted">Final units of models we are retiring, at the deepest prices in the sale. When the last unit sells, the model comes off the site. No restock.</p>
    <ul><li><i class="ph ph-check-circle"></i>Up to $3,000 off MSRP</li><li><i class="ph ph-check-circle"></i>Real unit counts, updated daily</li><li><i class="ph ph-check-circle"></i>Full warranty, support and 30 day returns, same as every machine we sell</li></ul></div>
   <div class="tier deal"><span class="tiertag deal"><i class="ph-fill ph-tag"></i>BFCM Deal</span><h3 class="heading-5">Limited time</h3><p class="body-6 muted">Current models at a Black Friday price. The price ends Nov 30 at 11:59 PM Pacific and does not come back in December.</p>
@@ -625,7 +650,7 @@ h1,h2,h3,h4,h5,h6,p{margin:0;text-wrap:pretty}h1,h2,h3,h4,h5,h6{text-wrap:balanc
  <div class="wrap"><div class="sh rv"><span class="tiertag deal"><i class="ph-fill ph-tag"></i>BFCM Deals · limited time</span><h2 class="heading-2">Current models, Black Friday prices</h2><p class="body-3 muted">The machines we build today, priced for the holiday rush. Ends Nov 30.</p></div></div>
  <div id="dealCards"></div>
  <div class="wrap"><div class="sh left rv" style="margin-bottom:var(--s300)"><span class="tiertag super"><i class="ph-fill ph-fire"></i>Last units</span><h3 class="heading-4">One of each. Then they are gone.</h3></div>
- <div class="bg2 rv" id="lastUnits"></div></div>
+ <div class="bg2 stag" id="lastUnits"></div></div>
 </section>
 
 <!-- best seller -->
@@ -642,15 +667,15 @@ h1,h2,h3,h4,h5,h6,p{margin:0;text-wrap:pretty}h1,h2,h3,h4,h5,h6{text-wrap:balanc
 <!-- projects -->
 <section class="sec" id="projects" style="padding-top:0"><div class="wrap">
  <div class="sh rv"><span class="caption-3 eb">Buy a laser, run a holiday business</span><h2 class="heading-2">What OneLaser owners are selling this season</h2><p class="body-3 muted">Real projects from real shops. Ornaments, tumblers, signs and gifts that pay for the machine before the year ends.</p></div>
- <div class="pw rv" id="pw"></div>
+ <div class="pw stag" id="pw"></div>
 </div></section>
 
 <!-- why -->
 <section class="sec" id="why" style="padding-top:0"><div class="wrap">
  <div class="sh rv"><span class="caption-3 eb">Why buy from OneLaser</span><h2 class="heading-2">A U.S. laser company you can call</h2><p class="body-3 muted">We design, stock, support and service our machines from Lake Forest, California. Here is what that means when you buy during Black Friday.</p></div>
  <div class="trust rv">
-  <div class="trust__img"><img src="assets/projects/xrf-workshop-story.webp" alt="A OneLaser owner in his workshop with an XRF desktop laser and the products he makes with it" loading="lazy"><span><span class="title-3">Made in a real shop</span><span class="body-6 muted">Tumblers, signs, leather and acrylic, all from one XRF 38W RF desktop laser.</span></span></div>
-  <div class="tg2">
+  <div class="trust__img"><img src="assets/scene-hydra.webp" alt="A OneLaser owner in his sign shop next to a Hydra Gen2 industrial laser, holding an engraved wooden plaque" loading="lazy"><span><span class="title-3">Built for real shops</span><span class="body-6 muted">A Hydra Gen2 in a working sign shop: wood art, tumblers, leather and boxes, all from one machine.</span></span></div>
+  <div class="tg2 stag">
    <div class="tc2"><i class="ph ph-buildings"></i><h3 class="heading-6">U.S. company, local team</h3><p class="body-6 muted">Sales, service and product guidance from our own team in California.</p><a class="link" href="https://www.1laser.com/pages/about-us" target="_blank" rel="noopener">Our story <i class="ph-bold ph-arrow-up-right"></i></a></div>
    <div class="tc2"><i class="ph ph-arrow-counter-clockwise"></i><h3 class="heading-6">30 day returns</h3><p class="body-6 muted">Black Friday machines carry the same 30 day return policy as every machine we sell.</p><a class="link" href="https://www.1laser.com/pages/refund-policy" target="_blank" rel="noopener">Refund policy <i class="ph-bold ph-arrow-up-right"></i></a></div>
    <div class="tc2"><i class="ph ph-shield-check"></i><h3 class="heading-6">Official warranty</h3><p class="body-6 muted">Clearance models are retired from the catalog, not from support. Warranty and parts continue.</p><a class="link" href="https://www.1laser.com/pages/warranty-policy" target="_blank" rel="noopener">Warranty policy <i class="ph-bold ph-arrow-up-right"></i></a></div>
@@ -694,21 +719,21 @@ h1,h2,h3,h4,h5,h6,p{margin:0;text-wrap:pretty}h1,h2,h3,h4,h5,h6{text-wrap:balanc
 <!-- videos -->
 <section class="sec" id="stories" style="padding-top:0"><div class="wrap">
  <div class="sh rv"><span class="caption-3 eb">Customer stories</span><h2 class="heading-2">Makers on OneLaser, in their own words</h2></div>
- <div class="vg rv" id="vg"></div>
+ <div class="vg stag" id="vg"></div>
 </div></section>
 
 <!-- add ons -->
 <section class="sec light" id="addons"><div class="wrap">
  <div class="sh rv"><span class="caption-3 eb">Complete your setup</span><h2 class="heading-2">Accessories, materials and services</h2><p class="body-3 muted">Everything you need to start producing on day one.</p>
   <div class="toggle" role="tablist"><button data-a="acc" class="on" role="tab">Accessories</button><button data-a="mat" role="tab">Materials</button><button data-a="svc" role="tab">Software and service</button></div></div>
- <div class="ag rv" id="ag"></div>
+ <div class="ag stag" id="ag"></div>
  <p class="anote caption-5 muted">Accessories, materials and services are sold at regular prices.</p>
 </div></section>
 
 <!-- timeline -->
 <section class="sec" id="weeks"><div class="wrap">
  <div class="sh rv"><span class="caption-3 eb">What happens when</span><h2 class="heading-2">Three weeks, four moments</h2></div>
- <div class="tlne rv" id="tlne"></div>
+ <div class="tlne stag" id="tlne"></div>
 </div></section>
 
 <!-- faq -->
@@ -731,7 +756,7 @@ h1,h2,h3,h4,h5,h6,p{margin:0;text-wrap:pretty}h1,h2,h3,h4,h5,h6{text-wrap:balanc
 <!-- final cta -->
 <section class="sec" style="padding-top:0"><div class="wrap">
  <div class="final rv">
-  <img src="assets/hero2.jpg" alt="" aria-hidden="true" loading="lazy">
+  <img src="assets/scene-cobra.webp" alt="" aria-hidden="true" loading="lazy">
   <div class="final__c">
    <span class="chip"><i class="ph-fill ph-lightning"></i>Ends Nov 30 at 11:59 PM PT</span>
    <h2 class="heading-2">The best laser deals<br>of 2026</h2>
@@ -793,7 +818,7 @@ const PNG={xrf:'XRF_360cdcd1-c129-44be-a750-7da43a587a00.png',h7g2:'Hydra_7Gen2.
 const IMG=k=>S+PNG[k]+'?width=900';
 /* transparent space under each photo (pad) and display width in the card (pw) */
 const FIT={xrf:[.354,'50%'],h7g2:[.251,'50%'],h9g2:[.251,'46%'],h13g2:[.271,'44%'],h16g2:[.267,'42%'],c8:[.269,'42%'],c10:[.248,'40%'],c14:[.02,'40%'],vtg:[.056,'34%'],h9d:[0,'40%'],h7g:[.079,'42%'],h16d:[.069,'40%']};
-const STAGE={red:'assets/stage-red.jpg',blue:'assets/stage-blue.jpg',gold:'assets/stage-gold.jpg',wide:'assets/stage-wide.jpg'};
+const PBG=(th,gx)=>`<div class="pbg ${th}"><img class="pct" src="assets/pct-${th}.jpg" alt="" loading="lazy"><span class="glow" style="--gx:${gx||'16%'}"></span></div>`;
 const P='https://www.1laser.com/products/';
 const U=(h,v)=>P+h+(v?'?variant='+v:'');
 const $=n=>'$'+n.toLocaleString('en-US',{minimumFractionDigits:2});
@@ -907,7 +932,7 @@ function apc(p){
   <div class="pb"><div><span class="caption-5 muted">You save</span><span class="saved">${$(v.m-(s1?v.p:v.p2))} off MSRP</span></div><div class="sep"></div><div><span class="caption-5 muted">MSRP</span><span class="title-2 ms num">${$(v.m)}</span></div></div>`;
  }else price=`<div class="pb"><div><span class="caption-5 muted">Black Friday price</span><span class="heading-5 num">${$(v.p)}</span><span class="saved">Save ${$(v.m-v.p)}${v.gifts&&v.gifts.length>1?' + gifts':''}</span></div><div class="sep"></div><div><span class="caption-5 muted">MSRP</span><span class="heading-5 ms num">${$(v.m)}</span></div></div>`;
  return `${p.ttl?`<h3 class="heading-3" style="text-align:center;margin-bottom:var(--s400)">${p.ttl}</h3>`:''}<div class="stage">
-  <div class="hero ${p.th}"><img class="bg" src="${STAGE[p.th]}" alt="" loading="lazy">${pimg(img,'pimg')}<span class="tag ${p.tier==='super'?'':'blue'}"><i class="ph-fill ph-${p.tag[0]}"></i>${p.tag[1]}</span>
+  <div class="hero ${p.th}">${PBG(p.th)}${pimg(img,'pimg')}<span class="tag ${p.tier==='super'?'':'blue'}"><i class="ph-fill ph-${p.tag[0]}"></i>${p.tag[1]}</span>
    ${stockPill(sk,p.stage)}
    <div class="info">
     <div><span class="tiertag ${p.tier}" style="margin-bottom:8px">${p.tier==='super'?'<i class="ph-fill ph-fire"></i>Super Deal':'<i class="ph-fill ph-tag"></i>BFCM Deal'}</span><h3 class="heading-6">${p.name}</h3><div class="lbls" style="margin-top:8px">${p.lb.map(x=>`<span>${x}</span>`).join('')}</div></div>
@@ -917,20 +942,19 @@ function apc(p){
     <div class="meta">${stockRow(sk)}${ship(v)}${fin}</div>
     <div class="acts"><a class="btn primary" href="${v.u}" ${ext}>Add to cart</a><a class="btn light" href="${v.u}" ${ext}>Full specs</a></div>
    </div></div>
-  <div class="reels"><div class="rview"><div class="rtrack" data-r="${p.id}" data-i="0">${r.map((x,k)=>`<div class="reel" data-set="${p.rl}" data-k="${k}" role="button" tabindex="0" aria-label="Play video: ${x[1].replace(/"/g,'')}"><img src="https://i.ytimg.com/vi/${x[0]}/hqdefault.jpg" alt="" loading="lazy"><div class="shade"></div><span class="pl"><i class="ph-fill ph-play"></i></span><div class="cp"><p class="body-5">${x[1]}</p><div class="us caption-4"><i>${ini(x[2])}</i>@${x[2].replace(/\s+/g,'')}</div></div></div>`).join('')}</div></div>
-   <div class="rbar"><button class="rentry" data-set="${p.rl}" data-k="0"><i class="ph-fill ph-play"></i>Watch real projects</button><div class="rarr"><button data-rp="${p.id}" aria-label="Previous videos"><i class="ph-bold ph-caret-left"></i></button><button data-rn="${p.id}" aria-label="Next videos"><i class="ph-bold ph-caret-right"></i></button></div></div></div>
+  <div class="reels"><div class="rhead"><span class="title-2">Real projects on this machine</span><div class="rbar"><button class="rentry" data-set="${p.rl}" data-k="0"><i class="ph-fill ph-play"></i>Watch all</button><div class="rarr"><button data-rp="${p.id}" aria-label="Previous videos"><i class="ph-bold ph-caret-left"></i></button><button data-rn="${p.id}" aria-label="Next videos"><i class="ph-bold ph-caret-right"></i></button></div></div></div><div class="rview"><div class="rtrack" data-r="${p.id}" data-i="0">${r.map((x,k)=>`<div class="reel" data-set="${p.rl}" data-k="${k}" role="button" tabindex="0" aria-label="Play video: ${x[1].replace(/"/g,'')}"><img src="https://i.ytimg.com/vi/${x[0]}/hqdefault.jpg" alt="" loading="lazy"><div class="shade"></div><span class="pl"><i class="ph-fill ph-play"></i></span><div class="cp"><p class="body-5">${x[1]}</p><div class="us caption-4"><i>${ini(x[2])}</i>@${x[2].replace(/\s+/g,'')}</div></div></div>`).join('')}</div></div></div>
  </div>`;
 }
 const ALLP=[...SUPER,...DEALS];
 function renderCards(){superCards.innerHTML=SUPER.map(p=>`<section class="apc" id="p-${p.id}">${apc(p)}</section>`).join('');dealCards.innerHTML=DEALS.map(p=>`<section class="apc" id="p-${p.id}">${apc(p)}</section>`).join('');ALLP.forEach(p=>slide(p.id,0));}
-function renderLast(){lastUnits.innerHTML=LAST.map(b=>`<div class="bc"><div class="im"><img class="bg" src="${STAGE.red}" alt="" loading="lazy">${pimg(b.img,'pr')}<span class="tag red">Last 1 in stock</span></div><div><h3 class="title-2">${b.n}</h3><div class="pb" style="margin-top:12px"><div><span class="caption-5 muted">Black Friday price</span><span class="heading-5 num">${$(b.p)}</span><span class="saved">Save ${$(b.m-b.p)}</span></div><div class="sep"></div><div><span class="caption-5 muted">MSRP</span><span class="heading-5 ms num">${$(b.m)}</span></div></div></div><div class="meta">${stockRow(b.stock)}${ship(b)}</div><div class="acts"><a class="btn primary sm" href="${b.u}" ${ext}>Add to cart</a><a class="btn light sm" href="${b.u}" ${ext}>Full specs</a></div></div>`).join('');}
-function renderFeat(){const i=sel.feat??0,v=FEAT.v[i];fx.innerHTML=`<div class="fx__art"><img class="bg" src="${STAGE.gold}" alt=""><img class="pr pad" style="--pad:${FIT[v.img][0]};--pw:56%" src="${IMG(v.img)}" alt=""><span class="tag"><i class="ph-fill ph-star"></i>Best seller</span></div>
+function renderLast(){lastUnits.innerHTML=LAST.map(b=>`<div class="bc"><div class="im">${PBG('red','27%')}${pimg(b.img,'pr')}<span class="tag red">Last 1 in stock</span></div><div><h3 class="title-2">${b.n}</h3><div class="pb" style="margin-top:12px"><div><span class="caption-5 muted">Black Friday price</span><span class="heading-5 num">${$(b.p)}</span><span class="saved">Save ${$(b.m-b.p)}</span></div><div class="sep"></div><div><span class="caption-5 muted">MSRP</span><span class="heading-5 ms num">${$(b.m)}</span></div></div></div><div class="meta">${stockRow(b.stock)}${ship(b)}</div><div class="acts"><a class="btn primary sm" href="${b.u}" ${ext}>Add to cart</a><a class="btn light sm" href="${b.u}" ${ext}>Full specs</a></div></div>`).join('');}
+function renderFeat(){const i=sel.feat??0,v=FEAT.v[i];fx.innerHTML=`<div class="fx__art">${PBG('gold','27%')}<img class="pr pad" style="--pad:${FIT[v.img][0]};--pw:64%" src="${IMG(v.img)}" alt=""><span class="tag"><i class="ph-fill ph-star"></i>Best seller</span></div>
  <div class="fx__info"><div><h3 class="heading-5">${FEAT.name}</h3><p class="body-6 muted" style="margin-top:8px">${FEAT.desc}</p><div class="lbls" style="margin-top:12px">${FEAT.lb.map(x=>`<span>${x}</span>`).join('')}</div></div>
  <div class="sel"><label class="sr-only" for="v-feat">Model</label><select id="v-feat" data-p="feat">${FEAT.v.map((x,j)=>`<option value="${j}" ${j===i?'selected':''}>${x.l}</option>`).join('')}</select><i class="ph-bold ph-caret-down"></i></div>
  <div><span class="caption-5 muted">Regular price</span><div class="heading-4 num">${$(v.p)}</div><span class="caption-5 muted">Not discounted during Black Friday</span></div>
  <div class="meta">${stockRow(v.stock)}${ship(v)}${fin}</div>
  <div class="acts" style="margin-top:auto"><a class="btn primary" href="${v.u}" ${ext}>Add to cart</a><a class="btn light" href="${v.u}" ${ext}>Full specs</a></div></div>`;}
-function renderBento(){bento.innerHTML=BENTO.map(b=>`<a class="tl ${b[0]}" href="${b[6]}"><div class="nm"><span class="tiertag ${b[1]}">${b[1]==='super'?'<i class="ph-fill ph-fire"></i>Super Deal':'<i class="ph-fill ph-tag"></i>BFCM Deal'}</span><span class="caption-4 muted">${b[4]}</span><div class="amt"><span class="${b[0]==='big'?'heading-2':'heading-4'} num">${$0(b[2])}</span><small>off</small></div></div><div class="nm"><span class="title-2">${b[3]}</span><span class="link">Shop <i class="ph-bold ph-arrow-right"></i></span></div>${pimg(b[5],'','',1)}</a>`).join('');}
+function renderBento(){bento.innerHTML=BENTO.map(b=>`<a class="tl ${b[0]}" href="${b[6]}"><div class="nm"><span class="tiertag ${b[1]}">${b[1]==='super'?'<i class="ph-fill ph-fire"></i>Super Deal':'<i class="ph-fill ph-tag"></i>BFCM Deal'}</span><span class="caption-4 muted">${b[4]}</span><div class="amt"><span class="${b[0]==='big'?'heading-2':'heading-4'} num" data-count="${b[2]}">$0</span><small>off</small></div></div><div class="nm"><span class="title-2">${b[3]}</span><span class="link">Shop <i class="ph-bold ph-arrow-right"></i></span></div>${pimg(b[5],'','',1)}</a>`).join('');}
 function renderProj(){pw.innerHTML=PROJ.map(p=>`<div class="pj"><img src="assets/projects/${p[0]}.webp" alt="${p[1]}" loading="lazy"><span><span class="title-3">${p[1]}</span><span class="caption-3">Made on ${p[2]}</span></span></div>`).join('');}
 function renderStories(){vg.innerHTML=STORIES.map(c=>`<div class="vc"><div class="im" data-yt="${c[0]}" data-cap="${c[1]}" role="button" tabindex="0" aria-label="Play ${c[1]}"><img src="https://i.ytimg.com/vi/${c[0]}/hqdefault.jpg" alt="" loading="lazy"><span class="pl"><i class="ph-fill ph-play"></i></span></div><div class="bd"><h3 class="title-2">${c[1]}</h3><p class="body-6 muted">${c[2]}</p><a class="link" href="https://www.youtube.com/watch?v=${c[0]}" ${ext}>Watch on YouTube <i class="ph-bold ph-arrow-up-right"></i></a></div></div>`).join('');}
 let aSel='acc';
@@ -957,12 +981,13 @@ function pick(m,s,b){
 function renderFinder(){const f=new FormData(fq),m=f.get('make'),s=f.get('space'),b=f.get('budget');
  if(!m||!s||!b){fr.innerHTML=`<div class="empty"><i class="ph ph-crosshair"></i><span class="title-2">Your match appears here</span><span class="body-6">Answer all three questions.</span></div>`;return;}
  const k=pick(m,s,b),x=FINDER[k];
- fr.innerHTML=`<div class="im"><img class="bg" src="${STAGE[k==='hyb'?'gold':['xrf','h07','c08'].includes(k)?'red':'blue']}" alt="">${pimg(x.img,'pr')}</div><div><span class="caption-3 gold">Our pick for you</span><h3 class="heading-5" style="margin-top:4px">${x.n}</h3><p class="body-6 muted" style="margin-top:8px">${x.why}</p></div><div class="acts"><a class="btn primary sm" href="${x.a}">See the deal · ${x.p}</a><a class="btn ghost sm" href="https://www.1laser.com/products/sales-consultation-call" ${ext}>Confirm on a call</a></div>`;}
+ fr.innerHTML=`<div class="im">${PBG(k==='hyb'?'gold':['xrf','h07','c08'].includes(k)?'red':'blue','27%')}${pimg(x.img,'pr')}</div><div><span class="caption-3 gold">Our pick for you</span><h3 class="heading-5" style="margin-top:4px">${x.n}</h3><p class="body-6 muted" style="margin-top:8px">${x.why}</p></div><div class="acts"><a class="btn primary sm" href="${x.a}">See the deal · ${x.p}</a><a class="btn ghost sm" href="https://www.1laser.com/products/sales-consultation-call" ${ext}>Confirm on a call</a></div>`;}
 fq.addEventListener('change',renderFinder);
 
 /* countdowns */
 function tick(){const n=new Date(),z=v=>String(v).padStart(2,'0');
- const set=(el,t)=>{if(!el)return;const x=Math.max(0,t-n);el.querySelector('[data-u=d]').textContent=z(Math.floor(x/864e5));el.querySelector('[data-u=h]').textContent=z(Math.floor(x/36e5)%24);el.querySelector('[data-u=m]').textContent=z(Math.floor(x/6e4)%60);el.querySelector('[data-u=s]').textContent=z(Math.floor(x/1e3)%60);};
+ const put=(b,v)=>{if(b.textContent!==v){b.textContent=v;if(!reduce){b.classList.remove('flip');void b.offsetWidth;b.classList.add('flip')}}};
+ const set=(el,t)=>{if(!el)return;const x=Math.max(0,t-n);put(el.querySelector('[data-u=d]'),z(Math.floor(x/864e5)));put(el.querySelector('[data-u=h]'),z(Math.floor(x/36e5)%24));put(el.querySelector('[data-u=m]'),z(Math.floor(x/6e4)%60));put(el.querySelector('[data-u=s]'),z(Math.floor(x/1e3)%60));};
  const pre=n<LAUNCH;document.querySelectorAll('[data-cdl]').forEach(e=>e.textContent=pre?'Deals go live in':n<END?'Deals end in':'Black Friday has ended');
  set(document.querySelector('[data-cd=main]'),pre?LAUNCH:END);set(document.querySelector('[data-cd=final]'),pre?LAUNCH:END);set(document.querySelector('[data-cd=early]'),EARLY);}
 
@@ -970,7 +995,7 @@ function tick(){const n=new Date(),z=v=>String(v).padStart(2,'0');
 let hv,lastScroll=0;
 document.addEventListener('mouseover',e=>{if(!fine)return;const r=e.target.closest('.reel');if(!r||r.querySelector('iframe'))return;clearTimeout(hv);hv=setTimeout(()=>{if(performance.now()-lastScroll<400||!r.matches(':hover'))return;const x=RL[r.dataset.set][+r.dataset.k];const f=document.createElement('iframe');f.className='ifr';f.title='Video preview';f.allow='autoplay; encrypted-media';f.src=`https://www.youtube-nocookie.com/embed/${x[0]}?autoplay=1&mute=1&controls=0&loop=1&playlist=${x[0]}&modestbranding=1&playsinline=1&rel=0`;r.appendChild(f);setTimeout(()=>f.classList.add('on'),700)},350)});
 document.addEventListener('mouseout',e=>{const r=e.target.closest('.reel');if(!r||r.contains(e.relatedTarget))return;clearTimeout(hv);r.querySelector('iframe')?.remove()});
-function slide(id,d){const t=document.querySelector(`[data-r="${id}"]`);if(!t)return;const n=t.children.length,vis=Math.max(1,Math.floor((t.parentElement.clientWidth+24)/318)),max=Math.max(0,n-vis);const i=Math.min(Math.max(0,+t.dataset.i+d),max);t.dataset.i=i;t.style.transform=`translateX(${-i*318}px)`;const s=t.closest('.reels');s.querySelector('[data-rp]').disabled=i===0;s.querySelector('[data-rn]').disabled=i>=max}
+function slide(id,d){const t=document.querySelector(`[data-r="${id}"]`);if(!t)return;const n=t.children.length,vis=Math.max(1,Math.floor((t.parentElement.clientWidth+24)/288)),max=Math.max(0,n-vis);const i=Math.min(Math.max(0,+t.dataset.i+d),max);t.dataset.i=i;t.style.transform=`translateX(${-i*288}px)`;const s=t.closest('.reels');s.querySelector('[data-rp]').disabled=i===0;s.querySelector('[data-rn]').disabled=i>=max}
 let vs=null,vk=0,lastFocus=null;
 const lst=()=>Array.isArray(vs)?vs:RL[vs];
 function openV(set,k){lastFocus=document.activeElement;vs=set;vk=k;showV();vv.classList.add('on');document.body.style.overflow='hidden';vv.querySelector('.x').focus()}
@@ -1018,10 +1043,12 @@ function onScroll(){ticking=false;
 }
 addEventListener('scroll',()=>{lastScroll=performance.now();clearTimeout(hv);if(!ticking){ticking=true;requestAnimationFrame(onScroll)}},{passive:true});
 let rz;addEventListener('resize',()=>{clearTimeout(rz);rz=setTimeout(()=>ALLP.forEach(p=>slide(p.id,0)),150)});
-const io=new IntersectionObserver(es=>es.forEach(en=>{if(en.isIntersecting){en.target.classList.add('in');io.unobserve(en.target)}}),{rootMargin:'0px 0px -10% 0px'});
+function countUp(el){const to=+el.dataset.count,t0=performance.now(),d=1200;if(reduce){el.textContent=$0(to);return}const f=now=>{const p=Math.min(1,(now-t0)/d),e=1-Math.pow(1-p,3);el.textContent=$0(Math.round(to*e));if(p<1)requestAnimationFrame(f)};requestAnimationFrame(f)}
+const io=new IntersectionObserver(es=>es.forEach(en=>{if(en.isIntersecting){en.target.classList.add('in');en.target.querySelectorAll('[data-count]').forEach(countUp);io.unobserve(en.target)}}),{rootMargin:'0px 0px -10% 0px'});
 
 renderBento();renderCards();renderLast();renderFeat();renderProj();renderStories();renderA();renderW();renderFinder();tick();setInterval(()=>{if(!document.hidden)tick()},1000);onScroll();
-document.querySelectorAll('.rv,.apc .stage').forEach(el=>{el.classList.add('rv');io.observe(el)});
+document.querySelectorAll('.stag').forEach(g=>[...g.children].forEach((c,i)=>c.style.setProperty('--d',Math.min(i*70,560)+'ms')));
+document.querySelectorAll('.rv,.stag,.apc .stage').forEach(el=>{if(!el.classList.contains('stag'))el.classList.add('rv');io.observe(el)});
 </script>
 </body>
 </html>
