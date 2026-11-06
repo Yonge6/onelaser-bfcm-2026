@@ -250,7 +250,7 @@ h1,h2,h3,h4,h5,h6,p{margin:0;text-wrap:pretty}h1,h2,h3,h4,h5,h6{text-wrap:balanc
 .bento{display:grid;grid-template-columns:repeat(12,1fr);gap:var(--s200)}
 .tl{position:relative;overflow:hidden;border-radius:var(--r-3xl);background:var(--c1);border:1px solid var(--line);display:flex;flex-direction:column;transition:border-color .3s var(--ease),transform .5s var(--ease)}
 .tl:hover{border-color:rgba(255,255,255,.24);transform:translateY(-4px)}
-.tl.big{grid-column:span 4}.tl.sm{grid-column:span 3}
+.tl.big{grid-column:span 4}.tl.sm{grid-column:span 4}
 .tl .media{position:relative;aspect-ratio:16/10;overflow:hidden}
 .tl.sm .media{aspect-ratio:4/3}
 .tl:hover .scene img{--sc:1.05}
@@ -836,6 +836,35 @@ h1,h2,h3,h4,h5,h6,p{margin:0;text-wrap:pretty}h1,h2,h3,h4,h5,h6{text-wrap:balanc
  .ser__fit div,.vsc dl div{grid-template-columns:1fr;gap:2px}
  .ln__n{font-size:48px;line-height:48px}
 }
+
+/* Cobra size comparison */
+.csz{display:flex;flex-direction:column;gap:var(--s200);padding:var(--s300);border-radius:var(--r-3xl);background:var(--c1);border:1px solid var(--line)}
+.csz__h{display:flex;align-items:baseline;justify-content:space-between;gap:var(--s200);flex-wrap:wrap}
+.csz__h .title-2{font-style:italic;text-transform:uppercase;font-weight:700}
+.csz__g{display:grid;grid-template-columns:minmax(0,.7fr) minmax(0,1.6fr);gap:var(--s300);align-items:center}
+.sz{padding:8px 8px 0 0}
+.sz__in{position:relative;aspect-ratio:1400/900;border-left:1px solid rgba(255,255,255,.25);border-bottom:1px solid rgba(255,255,255,.25)}
+.sz__r{position:absolute;left:0;bottom:0;border:1.5px solid rgba(91,157,255,.7);background:rgba(91,157,255,.06);cursor:pointer;transition:background-color .3s var(--ease),border-color .3s var(--ease)}
+.sz__r span{position:absolute;right:6px;top:4px;font-size:11px;line-height:14px;font-weight:700;font-style:italic;letter-spacing:.04em;text-transform:uppercase;color:rgba(255,255,255,.85);white-space:nowrap}
+.sz__r:hover{background:rgba(91,157,255,.14)}
+.sz__r.on{border-color:var(--red);background:rgba(231,49,14,.18);z-index:1}
+.sz__r.on span{color:#fff}
+.sz__r.ref{border:1.5px dashed rgba(252,199,123,.8);background:transparent;cursor:default;z-index:2}
+.sz__r.ref span{left:6px;right:auto;color:var(--gold)}
+.szt{overflow-x:auto}
+.szt table{width:100%;min-width:560px;border-collapse:collapse;font-size:13px;line-height:18px}
+.szt th,.szt td{padding:10px 10px;white-space:nowrap;text-align:left;border-bottom:1px solid var(--line);vertical-align:top}
+.szt thead th{color:var(--t3);font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase}
+.szt tbody tr{cursor:pointer;transition:background-color .3s var(--ease)}
+.szt tbody tr:hover{background:rgba(255,255,255,.04)}
+.szt tbody tr.on{background:rgba(231,49,14,.12)}
+.szt tbody tr.on th{color:#fff;box-shadow:inset 3px 0 0 var(--red)}
+.szt tbody th{font-weight:700;font-style:italic;text-transform:uppercase;white-space:nowrap}
+.szt td small{display:block;color:var(--t3);font-size:11px}
+.szt td b{display:block;font-size:16px;font-style:italic}
+.szt td s{color:var(--t3);font-size:12px}
+@media(max-width:1080px){.csz__g{grid-template-columns:1fr}}
+@media(max-width:760px){.csz{padding:var(--s200)}.sz__r span{font-size:9px;right:3px;top:2px}}
 </style>
 </head>
 <body>
@@ -880,7 +909,7 @@ h1,h2,h3,h4,h5,h6,p{margin:0;text-wrap:pretty}h1,h2,h3,h4,h5,h6{text-wrap:balanc
   <div class="kv__hw"><h1 class="kv__h"><span class="l1">Black Friday</span> <span class="l2"><span>Deals</span></span></h1><span class="laser" aria-hidden="true"></span></div>
   <p class="kv__off">Up to <b>$3,000</b> off</p>
   <p class="lead title-2">Final prices on Hydra, Cobra, XRF and VertiGo. No codes, real U.S. stock, <b>free shipping on XRF 38W RF and VertiGo</b>.</p>
-  <div class="kv__cta"><a class="btn primary lg" href="#lines">Shop the deals <i class="ph-bold ph-arrow-down"></i></a><button class="btn ghost lg" type="button" data-lead="" data-src="hero" data-alt>Get early access</button></div>
+  <div class="kv__cta"><a class="btn primary lg" href="#super">Shop the deals <i class="ph-bold ph-arrow-down"></i></a><button class="btn ghost lg" type="button" data-lead="" data-src="hero" data-alt>Get early access</button></div>
   <div class="kv__proof">
    <div class="kv__cdh"><div class="lights" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></div><span class="caption-4" data-cdl>Black Friday Deals open in</span></div>
    <div class="cd" data-cd="main" role="timer" aria-live="off"><div><b data-u="d">00</b><small>Days</small></div><div><b data-u="h">00</b><small>Hours</small></div><div><b data-u="m">00</b><small>Mins</small></div><div><b data-u="s">00</b><small>Secs</small></div></div>
@@ -890,7 +919,7 @@ h1,h2,h3,h4,h5,h6,p{margin:0;text-wrap:pretty}h1,h2,h3,h4,h5,h6{text-wrap:balanc
 </section>
 
 <nav class="snav" aria-label="Black Friday sections"><div class="snav__in" id="snav">
- <a href="#lines">All lines</a><a href="#desktop">Desktop</a><a href="#vs">Cobra or Hydra</a><a href="#cobra">Cobra</a><a href="#hydra">Hydra</a><a href="#projects">Projects</a><a href="#why">Why OneLaser</a><a href="#finder">Find yours</a><a href="#faq">FAQ</a>
+ <a href="#deals">Deals</a><a href="#super">Super deals</a><a href="#bfcm">BFCM deals</a><a href="#bestseller">Best seller</a><a href="#compare">Compare</a><a href="#projects">Projects</a><a href="#why">Why OneLaser</a><a href="#finder">Find yours</a><a href="#faq">FAQ</a>
 </div></nav>
 
 <div class="race" role="note" aria-label="Black Friday Deals: up to $3,000 off, free shipping on XRF 38W RF and VertiGo, final prices with no codes, ends Cyber Monday">
@@ -898,41 +927,27 @@ h1,h2,h3,h4,h5,h6,p{margin:0;text-wrap:pretty}h1,h2,h3,h4,h5,h6{text-wrap:balanc
  <div class="race__b race__b1" aria-hidden="true"><div class="race__t"><div><span>Black Friday Deals</span><i aria-hidden="true"></i><span>Up to $3,000 off</span><i aria-hidden="true"></i><span>Free shipping on XRF 38W RF and VertiGo</span><i aria-hidden="true"></i><span>Final prices, no codes</span><i aria-hidden="true"></i><span>Ends Cyber Monday</span><i aria-hidden="true"></i></div><div><span>Black Friday Deals</span><i aria-hidden="true"></i><span>Up to $3,000 off</span><i aria-hidden="true"></i><span>Free shipping on XRF 38W RF and VertiGo</span><i aria-hidden="true"></i><span>Final prices, no codes</span><i aria-hidden="true"></i><span>Ends Cyber Monday</span><i aria-hidden="true"></i></div></div></div>
 </div>
 
-
-<!-- the three lines at a glance -->
-<section class="sec" id="lines"><div class="wrap">
- <div class="sh rv"><span class="caption-3 eb">Black Friday Deals by line</span><h2 class="heading-2">Pick your line first</h2><p class="body-3 muted">Three kinds of laser, one Black Friday. Start with where it will live and what you will make, then pick the model.</p></div>
- <div class="ln3 stag" id="ln3"></div>
- <div class="cmpw rv"><table class="cmp" aria-label="Compare OneLaser lines">
-  <thead><tr><th scope="col"><span class="sr-only">Spec</span></th><th scope="col">XRF 38W RF<small>Desktop</small></th><th scope="col">VertiGo<small>Desktop</small></th><th scope="col">Cobra 8 · 10 · 14<small>Workshop</small></th><th scope="col">Hydra series<small>Industrial</small></th></tr></thead>
-  <tbody>
-   <tr><th scope="row">Where it lives</th><td>On a workbench</td><td>On a shop counter</td><td>Floor standing</td><td>Floor standing</td></tr>
-   <tr><th scope="row">Laser</th><td>38W RF metal tube</td><td>38W RF metal tube</td><td>90W, 100W or 130W CO₂ glass tube</td><td>70W RF, or CO₂ glass + 38W RF</td></tr>
-   <tr><th scope="row">Work area</th><td>24" × 12"</td><td>Cups, tumblers and bottles, upright</td><td>31.5" × 19.7" to 55.1" × 35.4"</td><td>Up to 63" × 39.4" (Hydra 16)</td></tr>
-   <tr><th scope="row">Highlights</th><td>Up to 1,200 mm/s, 3G acceleration</td><td>Built-in rotary, no alignment</td><td>Autofocus, camera alignment, dual air assist</td><td>2,000 mm/s, 4G, servo motors (Gen2)</td></tr>
-   <tr><th scope="row">Best for</th><td>Leather, wood, acrylic, glass and coated metal goods</td><td>Drinkware shops, markets and events</td><td>Cutting and engraving wood, acrylic and signs</td><td>Daily production, fine detail plus cutting</td></tr>
-   <tr class="pr"><th scope="row">Black Friday from</th><td>$4,499</td><td>$4,999</td><td>$3,999</td><td>$5,999</td></tr>
-   <tr><th scope="row">Shipping</th><td class="fsc">Free</td><td class="fsc">Free</td><td>$499 to $699</td><td>$499 to $699</td></tr>
-  </tbody></table></div>
+<!-- savings overview -->
+<section class="sec" id="deals"><div class="wrap">
+ <div class="sh rv"><span class="caption-3 eb">Black Friday Deals</span><h2 class="heading-2">Black Friday Deals on every line</h2><p class="body-3 muted">Our biggest savings of the year on Hydra, Cobra, XRF and VertiGo. Prices are final and apply automatically at checkout.</p></div>
+ <div class="bento stag" id="bento"></div>
  <ol class="dates rv" aria-label="Key sale dates">
   <li><span class="caption-4 gold">Nov 10</span><span class="title-3">Sale opens</span></li>
   <li class="hl"><span class="caption-4 gold"><i class="ph-fill ph-leaf"></i> Nov 26</span><span class="title-3">Thanksgiving</span></li>
   <li><span class="caption-4 gold">Nov 27</span><span class="title-3">Black Friday</span></li>
   <li><span class="caption-4 gold">Nov 30</span><span class="title-3">Cyber Monday, ends 11:59 PM PT</span></li>
  </ol>
+ <div class="strip stag">
+  <div class="s1"><i class="ic ph-fill ph-fire"></i><div><span class="title-3">Super Deal</span><span class="body-6 muted">Retiring models at their deepest price. Limited time and limited stock, no restock.</span></div></div>
+  <div class="s2"><i class="ic ph-fill ph-tag"></i><div><span class="title-3">BFCM Deal</span><span class="body-6 muted">Current models at a Black Friday price until Nov 30, 11:59 PM Pacific.</span></div></div>
+  <div class="s3"><i class="ic ph-fill ph-seal-check"></i><div><span class="title-3">Real stock, real counts</span><span class="body-6 muted">Every "in stock" number is a unit in our Lake Forest, California warehouse.</span></div></div>
+ </div>
 </div></section>
 
-<!-- 01 desktop -->
-<section class="ser" id="desktop">
- <div class="wrap">
-  <header class="ser__hd rv"><span class="ser__n" aria-hidden="true">01</span><div class="ser__t"><span class="kick"><i class="stripe" aria-hidden="true"></i>Desktop lasers</span><h2 class="heading-2">XRF 38W RF and VertiGo</h2><p class="body-3 muted">Professional RF lasers that fit on a workbench or a shop counter. The simplest way to start or grow a laser business.</p></div><dl class="ser__fit"><div><dt>Best for</dt><dd>Home businesses, Etsy and craft sellers, gift and retail shops</dd></div><div><dt>Makes</dt><dd>Leather patches, signs, coasters, glassware, tumblers and bottles</dd></div><div><dt>Black Friday</dt><dd>From $4,499 · <b class="fst">Free shipping</b></dd></div></dl></header>
-  <div class="why4 stag"><div><i class="ph ph-ruler"></i><span class="title-3">Fits your space</span><span class="body-6 muted">Both sit on a workbench or a shop counter. No dedicated workshop needed to start.</span></div><div><i class="ph ph-sparkle"></i><span class="title-3">RF detail</span><span class="body-6 muted">A 38W RF metal tube makes a smaller laser dot than glass tubes, for sharp detail on leather, wood, glass and coated metal.</span></div><div><i class="ph ph-lightning"></i><span class="title-3">Fast to first sale</span><span class="body-6 muted">XRF engraves at up to 1,200 mm/s with 3G acceleration. VertiGo holds a tumbler upright with no alignment.</span></div><div><i class="ph ph-truck"></i><span class="title-3">Lowest price of the line</span><span class="body-6 muted">From $4,499 with free shipping, plus a free Air Assist box with XRF.</span></div></div>
-  <div class="pick2 rv">
-   <a class="pk" href="#p-xrf"><span class="pk__k">Choose XRF if you make flat items</span><span class="body-6 muted">Leather, wood, acrylic, glass and coated metal on a 24" × 12" bed. Add the Riser Base and Auto Conveyor Feeder for long boards.</span><span class="pk__p">XRF deal from $4,499<i class="ph-bold ph-arrow-down"></i></span></a>
-   <a class="pk" href="#p-vtg"><span class="pk__k">Choose VertiGo if you sell drinkware</span><span class="body-6 muted">Tumblers, cups, mugs and bottles engraved upright on a built-in rotary. Compact, event ready, with a lit glass door customers can watch.</span><span class="pk__p">VertiGo deal $4,999<i class="ph-bold ph-arrow-down"></i></span></a>
-  </div>
- </div>
- <div id="cardsDesk"></div>
+<!-- super deals -->
+<section id="super">
+ <div class="wrap"><div class="sh rv"><span class="tiertag super"><i class="ph-fill ph-fire"></i>Limited stock</span><h2 class="heading-2">Black Friday Super Deals</h2><p class="body-3 muted">The three biggest deals of the year: XRF, Hydra 7 Pro and the whole Cobra line, at the deepest savings of the sale. Pick a model, watch real makers use it, and lock in your unit.</p></div></div>
+ <div id="superCards"></div>
 </section>
 
 <!-- early access -->
@@ -950,62 +965,52 @@ h1,h2,h3,h4,h5,h6,p{margin:0;text-wrap:pretty}h1,h2,h3,h4,h5,h6{text-wrap:balanc
  </div>
 </div></section>
 
+<!-- bfcm deals -->
+<section id="bfcm">
+ <div class="wrap"><div class="sh rv"><span class="tiertag deal"><i class="ph-fill ph-tag"></i>Limited time</span><h2 class="heading-2">Black Friday Deals</h2><p class="body-3 muted">Current models at Black Friday prices, priced for the holiday rush. Ends Cyber Monday, Nov 30.</p></div></div>
+ <div id="dealCards"></div>
+ <div class="wrap"><div class="sh left rv" style="margin-bottom:var(--s300)"><span class="tiertag super"><i class="ph-fill ph-fire"></i>Black Friday last units</span><h3 class="heading-4">One of each. Then they are gone.</h3></div>
+ <div class="bg2 stag" id="lastUnits"></div></div>
+</section>
 
-<!-- cobra or hydra -->
-<section class="sec vs" id="vs" style="padding-top:0"><div class="wrap">
- <div class="sh rv"><span class="caption-3 eb">Cobra or Hydra?</span><h2 class="heading-2">Workshop or production</h2><p class="body-3 muted">Both are floor standing CO₂ lasers with big beds. The difference is how hard you will run it and how fine the detail needs to be.</p></div>
+<!-- best seller -->
+<section class="sec" id="bestseller"><div class="wrap">
+ <div class="sh left rv"><span class="tiertag best"><i class="ph-fill ph-star"></i>Best seller · not on sale</span><h2 class="heading-2">Hydra Gen2 Hybrid</h2><p class="body-3 muted">The machine most of our production customers choose. It is not discounted this Black Friday, and it is still the one we would buy first: glass tube cutting and 38W RF engraving in one cabinet, in stock, with financing.</p></div>
+ <div class="fx rv" id="fx"></div>
+</div></section>
+
+<!-- not sure: compare lines -->
+<section class="sec vs" id="compare"><div class="wrap">
+ <div class="sh rv"><span class="caption-3 eb">Not sure which one?</span><h2 class="heading-2">Compare before you buy</h2><p class="body-3 muted">XRF and VertiGo are desktop lasers. Cobra and Hydra are floor standing. Here is how they differ, and how to choose between Cobra and Hydra.</p></div>
+ <div class="cmpw rv"><table class="cmp" aria-label="Compare OneLaser lines">
+  <thead><tr><th scope="col"><span class="sr-only">Spec</span></th><th scope="col">XRF 38W RF<small>Desktop</small></th><th scope="col">VertiGo<small>Desktop</small></th><th scope="col">Cobra 8 · 10 · 14<small>Workshop</small></th><th scope="col">Hydra series<small>Industrial</small></th></tr></thead>
+  <tbody>
+   <tr><th scope="row">Where it lives</th><td>On a workbench</td><td>On a shop counter</td><td>Floor standing</td><td>Floor standing</td></tr>
+   <tr><th scope="row">Laser</th><td>38W RF metal tube</td><td>38W RF metal tube</td><td>90W, 100W or 130W CO₂ glass tube</td><td>70W RF, or CO₂ glass + 38W RF</td></tr>
+   <tr><th scope="row">Work area</th><td>24" × 12"</td><td>Cups, tumblers and bottles, upright</td><td>31.5" × 19.7" to 55.1" × 35.4"</td><td>Up to 63" × 39.4" (Hydra 16)</td></tr>
+   <tr><th scope="row">Highlights</th><td>Up to 1,200 mm/s, 3G acceleration</td><td>Built-in rotary, no alignment</td><td>Autofocus, camera alignment, dual air assist</td><td>2,000 mm/s, 4G, servo motors (Gen2)</td></tr>
+   <tr><th scope="row">Best for</th><td>Leather, wood, acrylic, glass and coated metal goods</td><td>Drinkware shops, markets and events</td><td>Cutting and engraving wood, acrylic and signs</td><td>Daily production, fine detail plus cutting</td></tr>
+   <tr class="pr"><th scope="row">Black Friday from</th><td>$4,499</td><td>$4,999</td><td>$3,999</td><td>$5,999</td></tr>
+   <tr><th scope="row">Shipping</th><td class="fsc">Free</td><td class="fsc">Free</td><td>$499 to $699</td><td>$499 to $699</td></tr>
+  </tbody></table></div>
+ 
+ <div class="sh rv" style="margin:var(--s700) 0 var(--s400)"><span class="caption-3 eb">Cobra or Hydra?</span><h3 class="heading-3">Workshop or production</h3><p class="body-3 muted">Both are floor standing CO₂ lasers with big beds. The difference is how hard you will run it and how fine the detail needs to be.</p></div>
  <div class="vs2 rv">
   <div class="vsc cobra">
    <span class="vsc__n" aria-hidden="true">02</span><span class="kick"><i class="stripe" aria-hidden="true"></i>Cobra · workshop</span><h3 class="heading-4">Choose Cobra if</h3>
    <ul><li><i class="ph-bold ph-check"></i>You mostly cut and engrave wood, acrylic and leather</li><li><i class="ph-bold ph-check"></i>You want the most bed for your budget</li><li><i class="ph-bold ph-check"></i>One CO₂ glass tube covers your work</li><li><i class="ph-bold ph-check"></i>You are setting up or growing a workshop</li></ul>
    <dl><div><dt>Laser</dt><dd>90W, 100W or 130W CO₂ glass</dd></div><div><dt>Work area</dt><dd>31.5" × 19.7" to 55.1" × 35.4"</dd></div><div><dt>Black Friday</dt><dd>$3,999 to $6,999 · save $2,000</dd></div></dl>
-   <a class="btn light" href="#cobra">See Cobra deals<i class="ph-bold ph-arrow-down"></i></a>
+   <a class="btn light" href="#p-cob">See Cobra deals<i class="ph-bold ph-arrow-up"></i></a>
   </div>
   <div class="vsc hydra">
    <span class="vsc__n" aria-hidden="true">03</span><span class="kick"><i class="stripe" aria-hidden="true"></i>Hydra · production</span><h3 class="heading-4">Choose Hydra if</h3>
    <ul><li><i class="ph-bold ph-check"></i>Your laser runs orders all day and speed is money</li><li><i class="ph-bold ph-check"></i>You need fine RF detail and cutting in one machine</li><li><i class="ph-bold ph-check"></i>You want a long life RF tube with no chiller</li><li><i class="ph-bold ph-check"></i>You are scaling a production business</li></ul>
    <dl><div><dt>Laser</dt><dd>70W RF, or CO₂ glass + 38W RF</dd></div><div><dt>Motion</dt><dd>2,000 mm/s, 4G, servo motors (Gen2)</dd></div><div><dt>Black Friday</dt><dd>$5,999 to $12,999 · up to $3,000 off</dd></div></dl>
-   <a class="btn primary" href="#hydra">See Hydra deals<i class="ph-bold ph-arrow-down"></i></a>
+   <a class="btn primary" href="#p-h07">See Hydra deals<i class="ph-bold ph-arrow-up"></i></a>
   </div>
  </div>
+
 </div></section>
-
-<!-- 02 cobra -->
-<section class="ser" id="cobra">
- <div class="wrap">
-  <header class="ser__hd rv"><span class="ser__n" aria-hidden="true">02</span><div class="ser__t"><span class="kick"><i class="stripe" aria-hidden="true"></i>Workshop CO₂ lasers</span><h2 class="heading-2">Cobra 8, 10 and 14</h2><p class="body-3 muted">Floor standing CO₂ glass tube lasers with big beds and real cutting power. The most work area for your money.</p></div><dl class="ser__fit"><div><dt>Best for</dt><dd>Woodworkers, sign makers, makerspaces and growing small shops</dd></div><div><dt>Makes</dt><dd>Signs, wood décor, acrylic displays, furniture panels and leather goods</dd></div><div><dt>Black Friday</dt><dd>From $3,999 · save $2,000 on every Cobra</dd></div></dl></header>
-  <div class="why4 stag"><div><i class="ph ph-frame-corners"></i><span class="title-3">Most bed for the money</span><span class="body-6 muted">31.5" × 19.7" (800 × 500 mm) for $3,999 on Cobra 8, up to 55.1" × 35.4" on Cobra 14.</span></div><div><i class="ph ph-scissors"></i><span class="title-3">Real cutting power</span><span class="body-6 muted">90W, 100W or 130W CO₂ glass tubes for wood and acrylic, with 11" (280 mm) of Z travel on Cobra 10 and 14.</span></div><div><i class="ph ph-crosshair"></i><span class="title-3">Less setup, more output</span><span class="body-6 muted">Autofocus, camera alignment and dual air assist come standard on every Cobra.</span></div><div><i class="ph ph-stack"></i><span class="title-3">300+ materials</span><span class="body-6 muted">Wood, acrylic, leather, glass, rubber and more. Add the optional IR module to engrave metal.</span></div></div>
-  <div class="pick3 rv">
-   <a class="pk" href="#p-c08"><span class="pk__k">Cobra 8 · 90W</span><span class="body-6 muted">31.5" × 19.7" bed. The compact workshop starter.</span><span class="pk__p">$3,999<s>$5,999</s></span></a>
-   <a class="pk" href="#p-cob" data-sel="cob:0"><span class="pk__k">Cobra 10 · 100W</span><span class="body-6 muted">39.4" × 23.6" bed, 11" Z travel for thicker stock.</span><span class="pk__p">$4,999<s>$6,999</s></span></a>
-   <a class="pk" href="#p-cob" data-sel="cob:1"><span class="pk__k">Cobra 14 · 130W</span><span class="body-6 muted">55.1" × 35.4" bed for large panels and batch runs.</span><span class="pk__p">$6,999<s>$8,999</s></span></a>
-  </div>
- </div>
- <div id="cardsCobra"></div>
-</section>
-
-<!-- 03 hydra -->
-<section class="ser" id="hydra">
- <div class="wrap">
-  <header class="ser__hd rv"><span class="ser__n" aria-hidden="true">03</span><div class="ser__t"><span class="kick"><i class="stripe" aria-hidden="true"></i>Industrial production lasers</span><h2 class="heading-2">Hydra series</h2><p class="body-3 muted">Built to run production every day: faster motion, RF detail and cutting in one machine.</p></div><dl class="ser__fit"><div><dt>Best for</dt><dd>Production shops, manufacturers and businesses filling large orders</dd></div><div><dt>Makes</dt><dd>Leather patches and tags, branded merchandise, signage and large panels</dd></div><div><dt>Black Friday</dt><dd>Up to $3,000 off · Hydra 7 Pro $7,999 for the first 14 units</dd></div></dl></header>
-  <div class="why4 stag"><div><i class="ph ph-gauge"></i><span class="title-3">Production speed</span><span class="body-6 muted">Gen2 runs at 2,000 mm/s with 4G acceleration on servo motors.</span></div><div><i class="ph ph-arrows-split"></i><span class="title-3">Engrave and cut in one job</span><span class="body-6 muted">Gen2 Hybrid pairs CO₂ glass for cutting with 38W RF for detail and switches automatically within one job. Gen2 Pro does both with one 70W RF tube.</span></div><div><i class="ph ph-timer"></i><span class="title-3">RF built to last</span><span class="body-6 muted">The RF tube is rated for 20,000 to 30,000 hours, with no chiller required.</span></div><div><i class="ph ph-cpu"></i><span class="title-3">Industrial control</span><span class="body-6 muted">GT5 DSP control with offline operation, and up to 63" × 39.4" of work area on Hydra 16.</span></div></div>
-  <div class="hpick rv">
-   <span class="title-2">Which Hydra?</span>
-   <a href="#p-h07"><b>Hydra 7 Pro</b><span>70W RF · Gen2</span><span class="muted">Our biggest saving. First 14 units only.</span><em>$7,999</em></a>
-   <a href="#p-g2p"><b>Hydra 9, 13, 16 Pro</b><span>70W RF · Gen2</span><span class="muted">Same RF power, bigger beds.</span><em>from $9,999</em></a>
-   <a href="#p-h09d"><b>Hydra 9 Dual</b><span>100W glass + 38W RF</span><span class="muted">Cutting power plus RF detail.</span><em>$8,999</em></a>
-   <a href="#bestseller"><b>Hydra 9, 13, 16 Hybrid</b><span>Glass + 38W RF · Gen2</span><span class="muted">Our best seller, regular price.</span><em>from $10,999</em></a>
-   <a href="#lastUnits"><b>Last units</b><span>Hydra 7 80W · Hydra 16 Dual</span><span class="muted">One of each, then gone.</span><em>from $5,999</em></a>
-  </div>
- </div>
- <div id="cardsHydra"></div>
- <div class="wrap" id="bestseller">
-  <div class="sh left rv"><span class="tiertag best"><i class="ph-fill ph-star"></i>Best seller · not on sale</span><h2 class="heading-3">Hydra Gen2 Hybrid</h2><p class="body-3 muted">The Hydra most of our production customers choose. It is not discounted this Black Friday, and it is still the one we would buy first: glass tube cutting and 38W RF engraving in one cabinet, in stock, with financing.</p></div>
-  <div class="fx rv" id="fx"></div>
-  <div class="sh left rv" style="margin:var(--s700) 0 var(--s300)"><span class="tiertag super"><i class="ph-fill ph-fire"></i>Black Friday last units</span><h3 class="heading-4">One of each. Then they are gone.</h3></div>
-  <div class="bg2 stag" id="lastUnits"></div>
- </div>
-</section>
 
 <!-- tagline -->
 <section class="tagline" aria-label="Why now"><div class="wrap">
@@ -1103,7 +1108,7 @@ h1,h2,h3,h4,h5,h6,p{margin:0;text-wrap:pretty}h1,h2,h3,h4,h5,h6{text-wrap:balanc
    <span class="kick"><i class="stripe" aria-hidden="true"></i>Ends Cyber Monday, Nov 30 at 11:59 PM PT</span>
    <h2 class="heading-2">Black Friday Deals<br>end Cyber Monday</h2>
    <div class="cd" data-cd="final"><div><b data-u="d">00</b><small>Days</small></div><div><b data-u="h">00</b><small>Hours</small></div><div><b data-u="m">00</b><small>Mins</small></div><div><b data-u="s">00</b><small>Secs</small></div></div>
-   <div class="kv__cta" style="justify-content:center"><a class="btn primary lg" href="#lines">Shop the deals <i class="ph-bold ph-arrow-up"></i></a><button class="btn ghost lg" type="button" data-lead="" data-call="1" data-src="final">Talk to a laser expert</button></div>
+   <div class="kv__cta" style="justify-content:center"><a class="btn primary lg" href="#super">Shop the deals <i class="ph-bold ph-arrow-up"></i></a><button class="btn ghost lg" type="button" data-lead="" data-call="1" data-src="final">Talk to a laser expert</button></div>
   </div>
  </div>
 </div></section>
@@ -1115,7 +1120,7 @@ h1,h2,h3,h4,h5,h6,p{margin:0;text-wrap:pretty}h1,h2,h3,h4,h5,h6{text-wrap:balanc
  <div class="sbar__t"><span class="sbar__k" id="sbK">Black Friday Deals</span><span class="sbar__n" id="sbN">Up to $3,000 off</span></div>
  <div class="sbar__p" id="sbP"></div>
  <a class="sbar__call" href="tel:+16268004130" aria-label="Call OneLaser at 626 800 4130"><i class="ph ph-phone"></i><span>626 800 4130</span></a>
- <div class="sbar__a" id="sbA"><a class="btn primary" href="#lines">Shop the deals</a></div>
+ <div class="sbar__a" id="sbA"><a class="btn primary" href="#super">Shop the deals</a></div>
 </div></div>
 
 <!-- lead capture -->
@@ -1239,7 +1244,7 @@ const ext='target="_blank" rel="noopener"';
 const pimg=(k,cls,extra='',nopad)=>`<img class="${cls}${nopad?'':' pad'}" style="--pad:${FIT[k][0]};--pw:${FIT[k][1]}${extra}" src="${IMG(k)}" alt="" loading="lazy">`;
 
 /* ===== header (homepage v3) ===== */
-const ANN=[['Black Friday Deals: up to $3,000 off through Cyber Monday','#lines','hot'],['Free shipping on XRF 38W RF and VertiGo','#p-xrf','hot'],['$0 Down Financing for Small Businesses','https://www.1laser.com/pages/financing'],['30 Day Easy Returns','https://www.1laser.com/pages/refund-policy']];
+const ANN=[['Black Friday Deals: up to $3,000 off through Cyber Monday','#super','hot'],['Free shipping on XRF 38W RF and VertiGo','#p-xrf','hot'],['$0 Down Financing for Small Businesses','https://www.1laser.com/pages/financing'],['30 Day Easy Returns','https://www.1laser.com/pages/refund-policy']];
 annTr.innerHTML=[0,1].map(d=>`<div class="ann__g" ${d?'aria-hidden="true"':''}>${ANN.map(a=>`<a href="${a[1]}" class="${a[2]||''}" ${d?'tabindex="-1"':''}>${a[0]}</a>`).join('')}</div>`).join('');
 document.querySelector('.ann__x').onclick=()=>{ann.remove();setMTop()};
 const MS={x:{label:'X Series',p:[['XRF™','Performance Desktop Laser Engraver (38W RF)','onelaser-xrf-desktop-laser-machine','XRF_360cdcd1-c129-44be-a750-7da43a587a00.png?v=1782463970']]},
@@ -1301,13 +1306,13 @@ const SUPER=[
      {l:'Maker Bundle · + riser base + 2 material packs',mn:'XRF 38W RF',img:'xrfw',shown:'Shown with Riser Base + Auto Conveyor Feeder',p:4999,m:5499,f:0,site:399,vid:'43972592730146',u:U('onelaser-xrf-desktop-laser-machine','43972592730146'),gifts:['Free Air Assist box','Free riser base','2 free material packs (acrylic + leather)']}]},
  {id:'h07',tier:'super',th:'red',img:'h7g2',rl:'h07',name:'Hydra 7 Pro 70W RF production laser',tag:['fire','First 14 units at $7,999'],lb:['70W RF tube','2,000 mm/s','4G acceleration'],stage:1,stock:'h07',
   v:[{l:'Hydra 7 Pro · 70W RF',mn:'Hydra 7 Pro',p:7999,p2:8999,m:10999,f:499,vid:'44667131822114',u:U('hydra-7-gen-2-70w-rf-co2-dual-laser-machine')}]},
- {id:'c08',tier:'super',th:'red',img:'c8',rl:'c08',name:'Cobra 8 90W CO₂ workshop laser',tag:['lightning','Save $2,000'],lb:['90W glass tube','300+ materials','Autofocus'],stock:'c08',
-  v:[{l:'Cobra 8 · 90W',mn:'Cobra 8 90W',p:3999,m:5999,f:499,vid:'44779582849058',u:U('cobra-8-90w-co2-laser-engraver-cutter')}]}];
+ {id:'cob',tier:'super',th:'red',img:'c8',rl:'cob',name:'Cobra 8, 10 and 14 CO₂ workshop lasers',tag:['tag','Save $2,000 on every size'],lb:['90W to 130W glass','300+ materials','Autofocus'],sizes:1,
+  v:[{l:'Cobra 8 · 90W · 31.5" × 19.7" bed',mn:'Cobra 8 90W',tier:'super',th:'red',img:'c8',lb:['90W glass tube','31.5" × 19.7" bed','300+ materials'],sz:{w:800,h:500,bed:'31.5" × 19.7"',mm:'800 × 500 mm',z:'5.9" (150 mm)',m:'58" × 41" × 26"',wt:'397 lb (180 kg)'},p:3999,m:5999,f:499,vid:'44779582849058',u:U('cobra-8-90w-co2-laser-engraver-cutter'),stock:'c08'},
+     {l:'Cobra 10 · 100W · 39.4" × 23.6" bed',mn:'Cobra 10 100W',tier:'deal',th:'blue',img:'c10',lb:['100W glass tube','39.4" × 23.6" bed','11" Z travel'],sz:{w:1000,h:600,bed:'39.4" × 23.6"',mm:'1000 × 600 mm',z:'11" (280 mm)',m:'66" × 43" × 37"',wt:'595 lb (270 kg)'},p:4999,m:6999,f:699,vid:'45095798046754',u:U('cobra-10-100w-co2-laser-engraver-cutter'),stock:'c10'},
+     {l:'Cobra 14 · 130W · 55.1" × 35.4" bed',mn:'Cobra 14 130W',tier:'deal',th:'blue',img:'c14',lb:['130W glass tube','55.1" × 35.4" bed','11" Z travel'],sz:{w:1400,h:900,bed:'55.1" × 35.4"',mm:'1400 × 900 mm',z:'11" (280 mm)',m:'76" × 54" × 37"',wt:'772 lb (350 kg)'},p:6999,m:8999,f:699,vid:'45095798341666',u:U('cobra-14-130w-co2-laser-engraver-cutter'),stock:'c14'}]}];
 const DEALS=[
  {id:'vtg',tier:'deal',th:'blue',img:'vtgs',rl:'vtg',name:'VertiGo 38W RF vertical laser for drinkware',tag:['coffee','Built for tumblers and bottles'],lb:['Cylindrical engraving','38W RF tube','Smart autofocus'],stock:'vtg',
   v:[{l:'VertiGo · 38W RF',mn:'VertiGo 38W RF',p:4999,m:5999,f:0,site:399,vid:'44483820224546',u:U('vertigo-vertical-laser-engraver')}]},
- {id:'cob',tier:'deal',th:'blue',img:'c10',rl:'cob',name:'Cobra 10 and 14 CO₂ workshop lasers',tag:['tag','Save $2,000'],lb:['100W or 130W glass','300+ materials','Autofocus'],
-  v:[{l:'Cobra 10 · 100W',mn:'Cobra 10 100W',p:4999,m:6999,f:699,vid:'45095798046754',u:U('cobra-10-100w-co2-laser-engraver-cutter'),img:'c10',stock:'c10'},{l:'Cobra 14 · 130W',mn:'Cobra 14 130W',p:6999,m:8999,f:699,vid:'45095798341666',u:U('cobra-14-130w-co2-laser-engraver-cutter'),img:'c14',stock:'c14'}]},
  {id:'h09d',tier:'deal',th:'blue',img:'h9d',rl:'h09d',name:'Hydra 9 Dual 100W glass + 38W RF laser',tag:['tag','Save $2,000'],lb:['100W glass cutting','38W RF engraving','Dual tube'],stock:'h09d',
   v:[{l:'Hydra 9 Dual · 100W + 38W RF',mn:'Hydra 9 Dual',p:8999,m:10999,f:499,site:599,vid:'43784477573154',u:U('onelaser-hydra-9-laser-engraving-machine')}]},
  {id:'g2p',tier:'deal',th:'blue',img:'h9g2',rl:'g2p',name:'Hydra Gen2 Pro 70W RF industrial laser',tag:['tag','Save $2,000'],lb:['70W RF tube','2,000 mm/s','4G acceleration'],
@@ -1316,8 +1321,8 @@ const LAST=[{n:'Hydra 7 80W glass tube laser',mn:'Hydra 7 80W',img:'h7g',p:5999,
 const FEAT={name:'Hydra Gen2 Hybrid CO₂ glass + RF industrial laser',desc:'Glass tube cutting and 38W RF fine engraving in one production machine, for batch work across wood, acrylic, leather, glass and coated metal.',lb:['Up to 150W glass','38W RF','2,000 mm/s'],
  v:[{l:'Hydra 9 Hybrid · 100W + 38W RF',mn:'Hydra 9 Hybrid',p:10999,f:599,img:'h9g2',stock:'hy09',vid:'44745765650466',u:U('hydra-9-gen-2-70w-rf-co2-dual-laser-machine','44745765650466')},{l:'Hydra 13 Hybrid · 130W + 38W RF',mn:'Hydra 13 Hybrid',p:12999,f:699,img:'h13g2',stock:'hy13',vid:'44745769156642',u:U('hydra-13-gen-2-70w-rf-co2-dual-laser-machine','44745769156642')},{l:'Hydra 16 Hybrid · 150W + 38W RF',mn:'Hydra 16 Hybrid',p:13999,f:699,img:'h16g2',stock:'hy16',vid:'44745771155490',u:U('hydra-16-gen-2-70w-rf-co2-dual-laser-machine','44745771155490')}]};
 /* [size, tier, $ off, name, note, scene, anchor, model shown in the photo, free shipping] */
-const BENTO=[['big','super',3000,'Hydra 7 Pro','First 14 units','h7g2','#p-h07','Hydra 7 Pro'],['big','super',2000,'Cobra 8 90W','90W glass tube','c8','#p-c08','Cobra 8 90W'],['big','super',1000,'XRF 38W RF','Plus free Air Assist box','xrfw','#p-xrf','XRF 38W RF',1],
- ['sm','deal',2000,'Hydra Gen2 Pro','9, 13 and 16','h9g2','#p-g2p','Hydra 9 Pro'],['sm','deal',2000,'Hydra 9 Dual','Glass + RF','h9d','#p-h09d','Hydra 9 Dual'],['sm','deal',2000,'Cobra 10 and 14','Up to 130W','c14','#p-cob','Cobra 14 130W'],['sm','deal',1000,'VertiGo','Drinkware laser','vtgs','#p-vtg','VertiGo 38W RF',1]];
+const BENTO=[['big','super',3000,'Hydra 7 Pro','First 14 units','h7g2','#p-h07','Hydra 7 Pro'],['big','super',2000,'Cobra 8 · 10 · 14','From $3,999','c8','#p-cob','Cobra 8 90W'],['big','super',1000,'XRF 38W RF','Plus free Air Assist box','xrfw','#p-xrf','XRF 38W RF',1],
+ ['sm','deal',2000,'Hydra Gen2 Pro','9, 13 and 16','h9g2','#p-g2p','Hydra 9 Pro'],['sm','deal',2000,'Hydra 9 Dual','Glass + RF','h9d','#p-h09d','Hydra 9 Dual'],['sm','deal',1000,'VertiGo','Drinkware laser','vtgs','#p-vtg','VertiGo 38W RF',1]];
 const PROJ=[['product-walnut-serving-board','Personalized serving board','XRF 38W RF'],['product-rocks-glass','Whiskey glass set','XRF 38W RF'],['home-project-etsy-whiskey-decanter-gift-set','Whiskey decanter gift set','XRF 38W RF'],['home-project-etsy-holiday-ornament-collection','Holiday ornament collection','XRF 38W RF'],['home-project-vertigo-event-tumbler-batch','Event tumbler batch','VertiGo'],['home-project-etsy-realtor-closing-gift-set','Closing gift set','XRF 38W RF'],['home-project-walnut-mountain-wall','Mountain feature wall','Hydra'],['product-custom-tumbler','Custom tumbler','VertiGo'],['home-project-batch-leather-gifts','Batch leather gift set','XRF 38W RF'],['home-project-large-acrylic-sign','Layered acrylic wall sign','Cobra'],['product-leather-patch-cap','Leather patch cap','XRF 38W RF'],['home-project-layered-city-map','Layered city map','Hydra']];
 const ACC={acc:[['OneLaser Air Assist Control, Dual Mode Airflow',299.99,'lQDPJxo8d4MrtenND4zNE4iwYCxEbs-yL6sITkLfo74fAA_5000_3980.jpg','air-assist-for-laser-engraver-cutter'],['Automatic Conveyor Feeder for OneLaser XRF',999,'9beab4683ad286661f4bb3a0568b2f8a.png','onelaser-automatic-conveyor-feeder'],['OneLaser X Series Riser Base',599,'839d9e84510a0900681b9fc541852466.png','onelaser-x-series-riser-base'],['OneLaser Chiller for Hydra and Cobra Glass Tube',699,'CW5200_Industrial_Chiller.png','onelaser-industrial-chiller-for-hydra-laser-engraver'],['PiBurn Lite Rotary for OneLaser',499,'PBL_main.0.png','piburn-lite-for-onelaser'],['FiltraBox Micro Compact Filtration System',1995,'4_9de31b3c-4d90-447f-9ff5-d5901da89c46.png','filtrabox-micro']],
  mat:[['MakerDepot 1/8" Mirror Acrylic Sheets, 4 Pack',35.99,'maker-depot-mirror-acrylic-sheets-pink-mirror-1.webp','1-8-mirror-acrylic-sheets-12-12-4-pack-for-laser-engraving-cutting'],['MakerDepot 1/8" Glitter Acrylic Sheets, 4 Pack',39.99,'glitter-acrylic-sheets-gold-glitter-cast-acrylic-four-pack.webp','1-8-glitter-acrylic-sheets-12-12-4-pack-for-laser-engraving-cutting'],['MakerDepot 1/8" Frosted Matte Acrylic, 4 Pack',35.99,'32_ca0658c8-9a39-49be-a5a7-6f8f345a1d07.webp','1-8-frosted-matte-acrylic-sheets-12-12-4-pack-for-laser-engraving-cutting'],['MakerDepot 1/8" Translucent Acrylic Sheets, 4 Pack',29.99,'6_18676b7d-35f3-4ed8-9c3c-e9fed69a30cd.webp','1-8-translucent-acrylic-sheets-12-12-4-pack-for-laser-engraving-cutting'],['MakerDepot 1.0mm No Foam Leatherette, 5 Pack',59,'1_f01ba7dc-7c51-462c-b2eb-65ff724cb0e3.webp','makerdepot-1-0mm-no-foam-leatherette-sheets-12-20-5-pack-for-laser-engraving-cutting'],['MakerDepot Carbon Fiber Leatherette, 5 Pack',64.9,'1_9b86f9fa-bdf9-4b66-87ad-892f54e34912.webp','makerdepot-carbon-fiber-leatherette-sheets-12-20-5-pack-for-laser-engraving-cutting']],
@@ -1349,8 +1354,15 @@ function stockPill(key,first){const s=STOCK[key]||{us:0,tr:0};
  if(s.us>0)return `<div class="stk"><div class="row"><i class="ph-fill ph-check-circle"></i><span><b>${s.us} in stock</b> in our U.S. warehouse</span></div><div class="bar"><div class="tr"><i style="width:${Math.max(6,s.us/Math.max(tot,s.us)*100)}%"></i></div></div><span class="caption-5 muted">Limited quantity</span></div>`;
  return `<div class="stk"><div class="row amb"><i class="ph-fill ph-hourglass-medium"></i><span><b>Limited quantity</b></span></div></div>`;}
 const price1=(p,v)=>p.stage&&14-H07_SOLD<=0?v.p2:v.p;
+/* Cobra 8 / 10 / 14: beds drawn to scale, XRF bed for reference */
+function sizeCmp(p,cur){const X=1400,Y=900;
+ const box=(w,h,cls,lab,ix)=>`<div class="sz__r ${cls}" style="width:${w/X*100}%;height:${h/Y*100}%"${ix!=null?` data-sel="${p.id}:${ix}" role="button" tabindex="0" aria-label="Show ${lab}"`:''}><span>${lab}</span></div>`;
+ return `<div class="csz"><div class="csz__h"><span class="title-2">Compare Cobra sizes</span><span class="caption-4 muted">Work areas drawn to scale. Tap a size to switch.</span></div><div class="csz__g">
+  <div class="sz"><div class="sz__in">${p.v.map((x,k)=>({x,k})).reverse().map(({x,k})=>box(x.sz.w,x.sz.h,k===cur?'on':'',`${x.mn.split(' ').slice(0,2).join(' ')} · ${x.sz.bed}`,k)).join('')}${box(610,305,'ref','XRF bed 24" × 12"',null)}</div></div>
+  <div class="szt"><table><thead><tr><th scope="col">Model</th><th scope="col">Work area</th><th scope="col">Z travel</th><th scope="col">Machine W × D × H</th><th scope="col">Weight</th><th scope="col">Black Friday</th></tr></thead><tbody>${p.v.map((x,k)=>`<tr class="${k===cur?'on':''}" data-sel="${p.id}:${k}" tabindex="0"><th scope="row">${x.mn}</th><td>${x.sz.bed}<small>${x.sz.mm}</small></td><td>${x.sz.z}</td><td>${x.sz.m}</td><td>${x.sz.wt}</td><td><b>${$0(x.p)}</b><s>${$0(x.m)}</s></td></tr>`).join('')}</tbody></table></div>
+ </div></div>`;}
 function apc(p){
- const i=sel[p.id]??(p.def||0),v=p.v[i],r=RL[p.rl]||[],img=v.img||p.img,sk=v.stock||p.stock;
+ const i=sel[p.id]??(p.def||0),v=p.v[i],r=RL[p.rl]||[],img=v.img||p.img,sk=v.stock||p.stock,tier=v.tier||p.tier,th=v.th||p.th,tg=v.tag||p.tag,lb=v.lb||p.lb;
  const opts=p.v.map((x,j)=>`<option value="${j}" ${j===i?'selected':''}>${x.l}</option>`).join('');
  let price;
  if(p.stage){const left=Math.max(0,14-H07_SOLD),s1=left>0;
@@ -1358,9 +1370,9 @@ function apc(p){
   <div class="pb"><div><span class="caption-5 muted">You save</span><span class="saved">${$(v.m-(s1?v.p:v.p2))} off MSRP</span></div><div class="sep"></div><div><span class="caption-5 muted">MSRP</span><span class="title-2 ms num">${$(v.m)}</span></div></div>`;
  }else price=`<div class="pb"><div><span class="caption-5 muted">Black Friday price</span><span class="heading-5 num">${$(v.p)}</span><span class="saved">Save ${$(v.m-v.p)}${v.gifts&&v.gifts.length>1?' + gifts':''}</span>${v.f===0?'<span class="fsl"><i class="ph-fill ph-truck"></i>+ Free shipping</span>':''}</div><div class="sep"></div><div><span class="caption-5 muted">MSRP</span><span class="heading-5 ms num">${$(v.m)}</span></div></div>`;
  return `${p.ttl?`<h3 class="heading-3" style="text-align:center;margin-bottom:var(--s400)">${p.ttl}</h3>`:''}<div class="stage">
-  <div class="hero ${p.th}">${SCENE(img,'22% 50%',v.mn+(v.shown?' '+v.shown.toLowerCase():''),MP(v.mn,v.shown||p.lb.slice(0,2).join(' · '),!!v.shown))}<div class="tags"><span class="tag ${p.tier==='super'?'':'blue'}"><i class="ph-fill ph-${p.tag[0]}"></i>${p.tag[1]}</span>${v.f===0?FSB:''}</div>
+  <div class="hero ${th}">${SCENE(img,'22% 50%',v.mn+(v.shown?' '+v.shown.toLowerCase():''),MP(v.mn,v.shown||lb.slice(0,2).join(' · '),!!v.shown))}<div class="tags"><span class="tag ${tier==='super'?'':'blue'}"><i class="ph-fill ph-${tg[0]}"></i>${tg[1]}</span>${v.f===0?FSB:''}</div>
    <div class="info">
-    <div><span class="tiertag ${p.tier}" style="margin-bottom:8px">${p.tier==='super'?'<i class="ph-fill ph-fire"></i>Black Friday Super Deal':'<i class="ph-fill ph-tag"></i>Black Friday Deal'}</span><h3 class="heading-6">${p.name}</h3><div class="lbls" style="margin-top:8px">${p.lb.map(x=>`<span>${x}</span>`).join('')}</div></div>
+    <div><span class="tiertag ${tier}" style="margin-bottom:8px">${tier==='super'?'<i class="ph-fill ph-fire"></i>Black Friday Super Deal':'<i class="ph-fill ph-tag"></i>Black Friday Deal'}</span><h3 class="heading-6">${p.name}</h3><div class="lbls" style="margin-top:8px">${lb.map(x=>`<span>${x}</span>`).join('')}</div></div>
     <div class="sel"><label class="sr-only" for="v-${p.id}">Model</label><select id="v-${p.id}" data-p="${p.id}" ${p.v.length<2?'disabled':''}>${opts}</select><i class="ph-bold ph-caret-down"></i></div>
     ${price}
     ${v.gifts?`<div class="gifts">${v.gifts.map(g=>`<div><i class="ph-fill ph-gift"></i>${g}</div>`).join('')}</div>`:''}
@@ -1368,11 +1380,12 @@ function apc(p){
     ${p.up?`<label class="up"><input type="checkbox" data-up="${p.id}" ${upOn[p.id]?'checked':''}><span><b>Complete the setup</b>+ ${p.up.n} ${$0(p.up.p)}, regular price${upOn[p.id]?` · total ${$0(price1(p,v)+p.up.p)}`:''}</span></label>`:''}
     ${acts({ids:[v.vid,...(p.up&&upOn[p.id]?[p.up.id]:[])],u:v.u,n:v.mn,v:price1(p,v)+(p.up&&upOn[p.id]?p.up.p:0)})}
    </div></div>
+  ${p.sizes?sizeCmp(p,i):''}
   <div class="reels"><div class="rhead"><span class="title-2">Real projects on this machine</span><div class="rbar"><button class="rentry" data-set="${p.rl}" data-k="0"><i class="ph-fill ph-play"></i>Watch all</button><div class="rarr"><button data-rp="${p.id}" aria-label="Previous videos"><i class="ph-bold ph-caret-left"></i></button><button data-rn="${p.id}" aria-label="Next videos"><i class="ph-bold ph-caret-right"></i></button></div></div></div><div class="rview"><div class="rtrack" data-r="${p.id}" data-i="0">${r.map((x,k)=>`<div class="reel" data-set="${p.rl}" data-k="${k}" role="button" tabindex="0" aria-label="Play video: ${x[1].replace(/"/g,'')}"><div class="thumb"><img src="https://i.ytimg.com/vi/${x[0]}/maxresdefault.jpg" onerror="this.onerror=null;this.src='https://i.ytimg.com/vi/${x[0]}/hqdefault.jpg'" alt="" loading="lazy"><span class="pl"><i class="ph-fill ph-play"></i></span></div><div class="cp"><p class="body-5">${x[1]}</p><div class="us caption-4"><i>${ini(x[2])}</i>@${x[2].replace(/\s+/g,'')}</div></div></div>`).join('')}</div></div></div>
  </div>`;
 }
 const ALLP=[...SUPER,...DEALS];
-const GROUP={cardsDesk:['xrf','vtg'],cardsCobra:['c08','cob'],cardsHydra:['h07','g2p','h09d']};
+const GROUP={superCards:['xrf','h07','cob'],dealCards:['vtg','h09d','g2p']};
 function renderCards(){Object.entries(GROUP).forEach(([c,ids])=>{document.getElementById(c).innerHTML=ids.map(id=>{const p=ALLP.find(x=>x.id===id);return `<section class="apc" id="p-${p.id}">${apc(p)}</section>`}).join('')});ALLP.forEach(p=>slide(p.id,0));}
 function renderLast(){lastUnits.innerHTML=LAST.map(b=>`<div class="bc"><div class="im">${SCENE(b.img,'30% 50%',b.n)}<span class="tag red">Last 1 in stock</span>${MP(b.mn)}</div><div><h3 class="title-2">${b.n}</h3><div class="pb" style="margin-top:12px"><div><span class="caption-5 muted">Black Friday price</span><span class="heading-5 num">${$(b.p)}</span><span class="saved">Save ${$(b.m-b.p)}</span></div><div class="sep"></div><div><span class="caption-5 muted">MSRP</span><span class="heading-5 ms num">${$(b.m)}</span></div></div></div><div class="meta">${stockRow(b.stock)}${ship(b)}</div>${acts({ids:[b.vid],u:b.u,n:b.mn,v:b.p,sm:1})}</div>`).join('');}
 function renderFeat(){const i=sel.feat??0,v=FEAT.v[i];fx.innerHTML=`<div class="fx__art">${SCENE(v.img,'30% 50%',v.mn)}<span class="tag"><i class="ph-fill ph-star"></i>Best seller</span>${MP(v.mn,'Glass + 38W RF')}</div>
@@ -1398,8 +1411,8 @@ function renderW(){const n=new Date();tlne.innerHTML=WK.map(x=>{const live=n>=pd
 const FINDER={
  xrf:{n:'XRF 38W RF',why:'A 38W RF desktop laser at up to 1,200 mm/s with true 3G acceleration, for leather, wood, acrylic, glass and coated metal. $4,499 with a free Air Assist box and free shipping.',img:'xrfw',a:'#p-xrf',p:'$4,499'},
  vtg:{n:'VertiGo 38W RF',why:'Built for drinkware. Loads a tumbler upright, focuses itself and engraves around the full cup. $4,999 with free shipping.',img:'vtgs',a:'#p-vtg',p:'$4,999'},
- c08:{n:'Cobra 8 90W',why:'A 90W glass tube for wood and acrylic cutting in a workshop footprint, with autofocus and 300+ supported materials. $3,999, save $2,000.',img:'c8',a:'#p-c08',p:'$3,999'},
- c14:{n:'Cobra 14 130W',why:'A 130W glass tube and a larger bed for big signs and batch cutting. $6,999, save $2,000.',img:'c14',a:'#p-cob',p:'$6,999'},
+ c08:{n:'Cobra 8 90W',why:'A 90W glass tube for wood and acrylic cutting in a workshop footprint, with autofocus and 300+ supported materials. $3,999, save $2,000.',img:'c8',a:'#p-cob',sel:'cob:0',p:'$3,999'},
+ c14:{n:'Cobra 14 130W',why:'A 130W glass tube and a larger bed for big signs and batch cutting. $6,999, save $2,000.',img:'c14',a:'#p-cob',sel:'cob:2',p:'$6,999'},
  h07:{n:'Hydra 7 Pro',why:'70W RF at 2,000 mm/s with 4G acceleration, built for leather, patches, tags and production runs. $7,999 for the first 14 units.',img:'h7g2',a:'#p-h07',p:'$7,999'},
  h09d:{n:'Hydra 9 Dual',why:'100W glass for cutting and a 38W RF tube for fine engraving in one cabinet. $8,999, 11 in stock.',img:'h9d',a:'#p-h09d',p:'$8,999'},
  h09p:{n:'Hydra 9 Pro',why:'A 70W RF Gen2 production platform at 2,000 mm/s with 4G acceleration. $9,999, save $2,000.',img:'h9g2',a:'#p-g2p',p:'$9,999'},
@@ -1413,7 +1426,7 @@ function pick(m,s,b){
 function renderFinder(){const f=new FormData(fq),m=f.get('make'),s=f.get('space'),b=f.get('budget');
  if(!m||!s||!b){fr.innerHTML=`<div class="empty"><i class="ph ph-crosshair"></i><span class="title-2">Your match appears here</span><span class="body-6">Answer all three questions.</span></div>`;return;}
  const k=pick(m,s,b),x=FINDER[k];
- fr.innerHTML=`<div class="im">${SCENE(x.img,'30% 50%',x.n)}${/free shipping/.test(x.why)?FSB:''}${MP(x.n)}</div><div><span class="caption-3 gold">Our pick for you</span><h3 class="heading-5" style="margin-top:4px">${x.n}</h3><p class="body-6 muted" style="margin-top:8px">${x.why}</p></div><div class="acts"><a class="btn primary sm" href="${x.a}">See the deal · ${x.p}</a><a class="btn ghost sm" href="https://www.1laser.com/products/sales-consultation-call" ${ext}>Confirm on a call</a></div>`;}
+ fr.innerHTML=`<div class="im">${SCENE(x.img,'30% 50%',x.n)}${/free shipping/.test(x.why)?FSB:''}${MP(x.n)}</div><div><span class="caption-3 gold">Our pick for you</span><h3 class="heading-5" style="margin-top:4px">${x.n}</h3><p class="body-6 muted" style="margin-top:8px">${x.why}</p></div><div class="acts"><a class="btn primary sm" href="${x.a}"${x.sel?` data-sel="${x.sel}"`:''}>See the deal · ${x.p}</a><a class="btn ghost sm" href="https://www.1laser.com/products/sales-consultation-call" ${ext}>Confirm on a call</a></div>`;}
 fq.addEventListener('change',()=>{renderFinder();fitAll(fr)});
 
 /* countdowns */
@@ -1445,7 +1458,7 @@ document.addEventListener('click',e=>{
  const a=t.closest('[data-a]');if(a){aSel=a.dataset.a;return renderA()}
 });
 addEventListener('keydown',e=>{
- if((e.key==='Enter'||e.key===' ')&&e.target.matches('.reel,[data-yt]')){e.preventDefault();e.target.click()}
+ if((e.key==='Enter'||e.key===' ')&&e.target.matches('.reel,[data-yt],.csz [data-sel]')){e.preventDefault();e.target.click()}
  if(!vv.classList.contains('on'))return;if(e.key==='Escape')closeV();if(e.key==='ArrowRight')vv.querySelector('.nx').click();if(e.key==='ArrowLeft')vv.querySelector('.pv').click()});
 document.addEventListener('change',e=>{const s=e.target.closest('select[data-p]');if(!s)return;sel[s.dataset.p]=+s.value;if(s.dataset.p==='feat'){renderFeat();fitAll(fx);fx.querySelector('select').focus()}else{const p=ALLP.find(x=>x.id===s.dataset.p);const sec=document.getElementById('p-'+p.id);sec.innerHTML=apc(p);slide(p.id,0);fitAll(sec);sec.querySelector('select').focus()}});
 
@@ -1566,9 +1579,9 @@ let deep=false;addEventListener('scroll',()=>{if(deep||fine)return;if(scrollY>(d
 const sbar=$id('sbar'),sbK=$id('sbK'),sbN=$id('sbN'),sbP=$id('sbP'),sbA=$id('sbA');let sbCur=null,heroIn=true,endIn=false;const ratios=new Map();
 function sbData(id){if(id==='fx'){const v=FEAT.v[sel.feat??0];return{n:v.mn,k:'Best seller · regular price',p:v.p,f:v.f,ids:[v.vid],always:1}}
  const p=ALLP.find(x=>'p-'+x.id===id);if(!p)return null;const v=p.v[sel[p.id]??(p.def||0)],pr=price1(p,v),up=p.up&&upOn[p.id];
- return{n:v.mn+(up?' + Auto Conveyor':''),k:p.tier==='super'?'Black Friday Super Deal':'Black Friday Deal',p:pr+(up?p.up.p:0),m:v.m+(up?p.up.p:0),f:v.f,ids:[v.vid,...(up?[p.up.id]:[])]}}
+ return{n:v.mn+(up?' + Auto Conveyor':''),k:(v.tier||p.tier)==='super'?'Black Friday Super Deal':'Black Friday Deal',p:pr+(up?p.up.p:0),m:v.m+(up?p.up.p:0),f:v.f,ids:[v.vid,...(up?[p.up.id]:[])]}}
 function drawSb(){const d=sbCur&&sbData(sbCur);
- if(!d){sbK.textContent='Black Friday Deals';sbN.textContent=LIVE()?'Up to $3,000 off · ends Cyber Monday':'Up to $3,000 off · opens Nov 10';sbP.innerHTML=FSB+'<span class="sbar__fs">XRF and VertiGo</span>';sbA.innerHTML='<a class="btn primary" href="#lines">Shop the deals</a>';return}
+ if(!d){sbK.textContent='Black Friday Deals';sbN.textContent=LIVE()?'Up to $3,000 off · ends Cyber Monday':'Up to $3,000 off · opens Nov 10';sbP.innerHTML=FSB+'<span class="sbar__fs">XRF and VertiGo</span>';sbA.innerHTML='<a class="btn primary" href="#super">Shop the deals</a>';return}
  sbK.textContent=d.k;sbN.textContent=d.n;sbP.innerHTML=`<b class="num">${$0(d.p)}</b>${d.m?`<s>${$0(d.m)}</s>`:''}${d.f===0?FSB:''}`;
  sbA.innerHTML=d.always||LIVE()?`<a class="btn primary" href="${BUY(d.ids)}" data-buy="${d.n}" data-val="${d.p}"><i class="ph-bold ph-lightning"></i>Buy now</a>`:`<button class="btn primary" type="button" data-lead="${d.n}" data-src="sticky_bar"><i class="ph-bold ph-bell-ringing"></i>Notify me</button>`}
 function sbShow(){sbar.classList.toggle('on',!heroIn&&!endIn&&lm.hidden)}
@@ -1587,7 +1600,7 @@ setInterval(()=>{const l=LIVE();if(l!==wasLive){wasLive=l;renderCards();renderLa
 
 const io=new IntersectionObserver(es=>es.forEach(en=>{if(en.isIntersecting){en.target.classList.add('in');en.target.querySelectorAll('[data-count]').forEach(countUp);io.unobserve(en.target)}}),{rootMargin:'0px 0px -10% 0px'});
 
-renderLines();renderCards();renderLast();renderFeat();renderProj();renderA();renderFinder();fitAll();tick();document.querySelectorAll('.apc,#fx').forEach(el=>sbo.observe(el));drawSb();syncLive();setInterval(()=>{if(!document.hidden)tick()},1000);onScroll();
+renderBento();renderCards();renderLast();renderFeat();renderProj();renderA();renderFinder();fitAll();tick();document.querySelectorAll('.apc,#fx').forEach(el=>sbo.observe(el));drawSb();syncLive();setInterval(()=>{if(!document.hidden)tick()},1000);onScroll();
 document.querySelectorAll('.stag').forEach(g=>[...g.children].forEach((c,i)=>c.style.setProperty('--d',Math.min(i*70,560)+'ms')));
 document.querySelectorAll('.rv,.stag,.apc .stage').forEach(el=>{if(!el.classList.contains('stag'))el.classList.add('rv');io.observe(el)});
 </script>
