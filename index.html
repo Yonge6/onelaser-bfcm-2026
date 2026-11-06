@@ -754,6 +754,88 @@ h1,h2,h3,h4,h5,h6,p{margin:0;text-wrap:pretty}h1,h2,h3,h4,h5,h6{text-wrap:balanc
  .hero .mp{left:12px;bottom:12px;padding:6px 20px 6px 10px}.hero .mp b{font-size:14px;line-height:18px}
  .hero .mp:not(.mp--note) small{display:none}.hero .mp--note small{white-space:normal;font-size:10px;line-height:13px}
 }
+
+/* ===== lines: overview, compare, series sections ===== */
+.ln3{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--s200)}
+.ln{position:relative;display:flex;flex-direction:column;overflow:hidden;border-radius:var(--r-3xl);background:var(--c1);border:1px solid var(--line);transition:border-color .3s var(--ease)}
+.ln:hover{border-color:rgba(255,255,255,.26)}
+.ln:hover .scene img{--sc:1.05}
+.ln.tilt.hov{transform:perspective(900px) rotateX(var(--rx,0deg)) rotateY(var(--ry,0deg)) translateY(-6px)!important}
+.ln__m{position:relative;aspect-ratio:16/10;overflow:hidden}
+.ln__m .fsb{position:absolute;right:12px;top:12px;z-index:2}
+.ln__m .mp{left:12px;bottom:12px;padding:6px 20px 6px 10px}.ln__m .mp b{font-size:14px;line-height:18px}
+.ln__n{position:absolute;right:14px;bottom:4px;z-index:2;font-size:64px;line-height:64px;font-weight:700;font-style:italic;color:rgba(255,255,255,.9);text-shadow:0 4px 24px rgba(0,0,0,.6);letter-spacing:-.04em}
+.ln__b{flex:1;display:flex;flex-direction:column;gap:var(--s100);padding:var(--s300)}
+.ln__b h3{font-style:italic;text-transform:uppercase;font-weight:700}
+.ln__b ul{margin:var(--s50) 0 0;padding:0;list-style:none;display:flex;flex-direction:column;gap:6px}
+.ln__b li{display:flex;gap:8px;align-items:flex-start;font-size:14px;line-height:20px;color:rgba(255,255,255,.86)}
+.ln__b li i{flex:none;margin-top:3px;color:var(--red);font-size:13px}
+.ln__pr{display:flex;align-items:flex-end;justify-content:space-between;gap:var(--s100);margin-top:auto;padding-top:var(--s200);border-top:1px solid var(--line)}
+.ln__pr>div{display:flex;flex-direction:column}
+.ln__pr b{font-size:30px;line-height:36px;font-weight:700;font-style:italic}
+.ln__pr .saved{align-self:auto}
+.ln .btn{margin-top:var(--s100)}
+.cmpw{margin-top:var(--s300);overflow-x:auto;border-radius:var(--r-3xl);border:1px solid var(--line);background:var(--c1)}
+.cmp{width:100%;min-width:760px;border-collapse:collapse;font-size:14px;line-height:20px}
+.cmp th,.cmp td{padding:14px 18px;text-align:left;vertical-align:top;border-bottom:1px solid var(--line)}
+.cmp tbody tr:last-child th,.cmp tbody tr:last-child td{border-bottom:0}
+.cmp thead th{font-size:15px;line-height:20px;font-weight:700;font-style:italic;text-transform:uppercase;color:#fff;background:#141414;border-bottom:2px solid var(--red)}
+.cmp thead th small{display:block;margin-top:2px;font-size:11px;font-style:normal;letter-spacing:.1em;color:var(--t3)}
+.cmp tbody th{width:150px;color:var(--t2);font-weight:500;white-space:nowrap}
+.cmp td{color:rgba(255,255,255,.88)}
+.cmp tr.pr td{font-size:20px;line-height:28px;font-weight:700;font-style:italic;color:#fff}
+.cmp td.fsc{color:var(--green);font-weight:700;text-transform:uppercase;font-style:italic;letter-spacing:.04em}
+.cmp th:first-child{position:sticky;left:0;background:#181818;z-index:1}
+.ser{padding:var(--s900) 0 0}
+.ser__hd{display:grid;grid-template-columns:auto minmax(0,1.2fr) minmax(0,1fr);gap:var(--s400);align-items:start;padding-bottom:var(--s400);border-bottom:1px solid var(--line)}
+.ser__n{font-size:120px;line-height:96px;font-weight:700;font-style:italic;letter-spacing:-.05em;color:transparent;-webkit-text-stroke:2px var(--red)}
+.ser__t{display:flex;flex-direction:column;gap:var(--s200)}
+.ser__t .heading-2{font-style:italic;text-transform:uppercase;font-weight:700}
+.ser__fit{margin:0;display:flex;flex-direction:column;gap:var(--s100);padding:var(--s300);border-radius:var(--r-2xl);background:var(--c1);border:1px solid var(--line);border-left:3px solid var(--red)}
+.ser__fit div{display:grid;grid-template-columns:118px 1fr;gap:var(--s100)}
+.ser__fit dt{color:var(--t3);font-size:12px;line-height:20px;font-weight:700;letter-spacing:.1em;text-transform:uppercase}
+.ser__fit dd{margin:0;font-size:14px;line-height:20px;color:#fff}
+.ser__fit .fst{color:var(--green);text-transform:uppercase;font-style:italic}
+.why4{display:grid;grid-template-columns:repeat(4,1fr);gap:var(--s200);margin-top:var(--s400)}
+.why4>div{display:flex;flex-direction:column;gap:var(--s75);padding:var(--s300);border-radius:var(--r-2xl);background:var(--c1);border:1px solid var(--line)}
+.why4 i{font-size:26px;color:var(--red);margin-bottom:var(--s50)}
+.pick2,.pick3{display:grid;gap:var(--s200);margin:var(--s300) 0 var(--s600)}
+.pick2{grid-template-columns:1fr 1fr}.pick3{grid-template-columns:repeat(3,1fr)}
+.pk{display:flex;flex-direction:column;gap:var(--s75);padding:var(--s300);border-radius:var(--r-2xl);background:linear-gradient(135deg,#1c1c1c,#121212);border:1px solid var(--line);transition:border-color .3s var(--ease),transform .5s var(--ease)}
+.pk:hover{border-color:var(--red);transform:translateY(-3px)}
+.pk__k{font-size:18px;line-height:24px;font-weight:700;font-style:italic;text-transform:uppercase}
+.pk__p{display:inline-flex;align-items:center;gap:8px;margin-top:auto;padding-top:var(--s100);color:var(--gold);font-weight:700;font-style:italic}
+.pk__p s{color:var(--t3);font-weight:400;font-style:normal}
+.hpick{display:grid;grid-template-columns:repeat(5,1fr);gap:var(--s100);margin:var(--s300) 0 var(--s600);align-items:stretch}
+.hpick>.title-2{grid-column:1/-1;font-style:italic;text-transform:uppercase;font-weight:700}
+.hpick a{display:flex;flex-direction:column;gap:4px;padding:var(--s200);border-radius:var(--r-2xl);background:var(--c1);border:1px solid var(--line);font-size:13px;line-height:18px;transition:border-color .3s var(--ease),transform .5s var(--ease)}
+.hpick a:hover{border-color:var(--red);transform:translateY(-3px)}
+.hpick b{font-size:15px;line-height:20px;font-style:italic;text-transform:uppercase}
+.hpick em{margin-top:auto;padding-top:6px;color:var(--gold);font-style:italic;font-weight:700;font-size:16px}
+.vs2{display:grid;grid-template-columns:1fr 1fr;gap:var(--s200)}
+.vsc{position:relative;overflow:hidden;display:flex;flex-direction:column;gap:var(--s200);padding:var(--s500) var(--s400);border-radius:var(--r-3xl);background:var(--c1);border:1px solid var(--line)}
+.vsc.cobra{border-top:3px solid var(--blue)}.vsc.hydra{border-top:3px solid var(--red);background:linear-gradient(160deg,#1d0c08,#121212 60%)}
+.vsc.cobra .stripe{background:repeating-linear-gradient(110deg,var(--blue) 0 4px,transparent 4px 8px)}
+.vsc__n{position:absolute;right:20px;top:4px;font-size:110px;line-height:110px;font-weight:700;font-style:italic;color:rgba(255,255,255,.05)}
+.vsc h3{font-style:italic;text-transform:uppercase;font-weight:700}
+.vsc ul{margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:10px}
+.vsc li{display:flex;gap:10px;align-items:flex-start;font-size:16px;line-height:24px}
+.vsc li i{flex:none;margin-top:4px;color:var(--green)}
+.vsc dl{margin:0;display:flex;flex-direction:column;gap:8px;padding-top:var(--s200);border-top:1px solid var(--line)}
+.vsc dl div{display:grid;grid-template-columns:110px 1fr;gap:var(--s100);font-size:14px;line-height:20px}
+.vsc dt{color:var(--t3);font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase}
+.vsc dd{margin:0}
+.vsc .btn{align-self:flex-start;margin-top:auto}
+#bestseller{padding-top:var(--s300)}
+@media(max-width:1080px){.ln3{grid-template-columns:1fr}.ser__hd{grid-template-columns:auto 1fr}.ser__fit{grid-column:1/-1}.why4{grid-template-columns:1fr 1fr}.hpick{grid-template-columns:repeat(3,1fr)}}
+@media(max-width:760px){
+ .ser{padding-top:var(--s700)}
+ .ser__hd{grid-template-columns:1fr;gap:var(--s200)}.ser__n{font-size:72px;line-height:64px}
+ .why4,.pick2,.pick3,.vs2,.hpick{grid-template-columns:1fr}
+ .vsc{padding:var(--s400) var(--s300)}
+ .ser__fit div,.vsc dl div{grid-template-columns:1fr;gap:2px}
+ .ln__n{font-size:48px;line-height:48px}
+}
 </style>
 </head>
 <body>
@@ -798,7 +880,7 @@ h1,h2,h3,h4,h5,h6,p{margin:0;text-wrap:pretty}h1,h2,h3,h4,h5,h6{text-wrap:balanc
   <div class="kv__hw"><h1 class="kv__h"><span class="l1">Black Friday</span> <span class="l2"><span>Deals</span></span></h1><span class="laser" aria-hidden="true"></span></div>
   <p class="kv__off">Up to <b>$3,000</b> off</p>
   <p class="lead title-2">Final prices on Hydra, Cobra, XRF and VertiGo. No codes, real U.S. stock, <b>free shipping on XRF 38W RF and VertiGo</b>.</p>
-  <div class="kv__cta"><a class="btn primary lg" href="#super">Shop the deals <i class="ph-bold ph-arrow-down"></i></a><button class="btn ghost lg" type="button" data-lead="" data-src="hero" data-alt>Get early access</button></div>
+  <div class="kv__cta"><a class="btn primary lg" href="#lines">Shop the deals <i class="ph-bold ph-arrow-down"></i></a><button class="btn ghost lg" type="button" data-lead="" data-src="hero" data-alt>Get early access</button></div>
   <div class="kv__proof">
    <div class="kv__cdh"><div class="lights" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></div><span class="caption-4" data-cdl>Black Friday Deals open in</span></div>
    <div class="cd" data-cd="main" role="timer" aria-live="off"><div><b data-u="d">00</b><small>Days</small></div><div><b data-u="h">00</b><small>Hours</small></div><div><b data-u="m">00</b><small>Mins</small></div><div><b data-u="s">00</b><small>Secs</small></div></div>
@@ -808,7 +890,7 @@ h1,h2,h3,h4,h5,h6,p{margin:0;text-wrap:pretty}h1,h2,h3,h4,h5,h6{text-wrap:balanc
 </section>
 
 <nav class="snav" aria-label="Black Friday sections"><div class="snav__in" id="snav">
- <a href="#deals">Deals</a><a href="#super">Super deals</a><a href="#bfcm">BFCM deals</a><a href="#bestseller">Best seller</a><a href="#projects">Projects</a><a href="#why">Why OneLaser</a><a href="#finder">Find yours</a><a href="#faq">FAQ</a>
+ <a href="#lines">All lines</a><a href="#desktop">Desktop</a><a href="#vs">Cobra or Hydra</a><a href="#cobra">Cobra</a><a href="#hydra">Hydra</a><a href="#projects">Projects</a><a href="#why">Why OneLaser</a><a href="#finder">Find yours</a><a href="#faq">FAQ</a>
 </div></nav>
 
 <div class="race" role="note" aria-label="Black Friday Deals: up to $3,000 off, free shipping on XRF 38W RF and VertiGo, final prices with no codes, ends Cyber Monday">
@@ -816,27 +898,41 @@ h1,h2,h3,h4,h5,h6,p{margin:0;text-wrap:pretty}h1,h2,h3,h4,h5,h6{text-wrap:balanc
  <div class="race__b race__b1" aria-hidden="true"><div class="race__t"><div><span>Black Friday Deals</span><i aria-hidden="true"></i><span>Up to $3,000 off</span><i aria-hidden="true"></i><span>Free shipping on XRF 38W RF and VertiGo</span><i aria-hidden="true"></i><span>Final prices, no codes</span><i aria-hidden="true"></i><span>Ends Cyber Monday</span><i aria-hidden="true"></i></div><div><span>Black Friday Deals</span><i aria-hidden="true"></i><span>Up to $3,000 off</span><i aria-hidden="true"></i><span>Free shipping on XRF 38W RF and VertiGo</span><i aria-hidden="true"></i><span>Final prices, no codes</span><i aria-hidden="true"></i><span>Ends Cyber Monday</span><i aria-hidden="true"></i></div></div></div>
 </div>
 
-<!-- savings overview -->
-<section class="sec" id="deals"><div class="wrap">
- <div class="sh rv"><span class="caption-3 eb">Black Friday Deals</span><h2 class="heading-2">Black Friday Deals on every line</h2><p class="body-3 muted">Our biggest savings of the year on Hydra, Cobra, XRF and VertiGo. Prices are final and apply automatically at checkout.</p></div>
- <div class="bento stag" id="bento"></div>
+
+<!-- the three lines at a glance -->
+<section class="sec" id="lines"><div class="wrap">
+ <div class="sh rv"><span class="caption-3 eb">Black Friday Deals by line</span><h2 class="heading-2">Pick your line first</h2><p class="body-3 muted">Three kinds of laser, one Black Friday. Start with where it will live and what you will make, then pick the model.</p></div>
+ <div class="ln3 stag" id="ln3"></div>
+ <div class="cmpw rv"><table class="cmp" aria-label="Compare OneLaser lines">
+  <thead><tr><th scope="col"><span class="sr-only">Spec</span></th><th scope="col">XRF 38W RF<small>Desktop</small></th><th scope="col">VertiGo<small>Desktop</small></th><th scope="col">Cobra 8 · 10 · 14<small>Workshop</small></th><th scope="col">Hydra series<small>Industrial</small></th></tr></thead>
+  <tbody>
+   <tr><th scope="row">Where it lives</th><td>On a workbench</td><td>On a shop counter</td><td>Floor standing</td><td>Floor standing</td></tr>
+   <tr><th scope="row">Laser</th><td>38W RF metal tube</td><td>38W RF metal tube</td><td>90W, 100W or 130W CO₂ glass tube</td><td>70W RF, or CO₂ glass + 38W RF</td></tr>
+   <tr><th scope="row">Work area</th><td>24" × 12"</td><td>Cups, tumblers and bottles, upright</td><td>31.5" × 19.7" to 55.1" × 35.4"</td><td>Up to 63" × 39.4" (Hydra 16)</td></tr>
+   <tr><th scope="row">Highlights</th><td>Up to 1,200 mm/s, 3G acceleration</td><td>Built-in rotary, no alignment</td><td>Autofocus, camera alignment, dual air assist</td><td>2,000 mm/s, 4G, servo motors (Gen2)</td></tr>
+   <tr><th scope="row">Best for</th><td>Leather, wood, acrylic, glass and coated metal goods</td><td>Drinkware shops, markets and events</td><td>Cutting and engraving wood, acrylic and signs</td><td>Daily production, fine detail plus cutting</td></tr>
+   <tr class="pr"><th scope="row">Black Friday from</th><td>$4,499</td><td>$4,999</td><td>$3,999</td><td>$5,999</td></tr>
+   <tr><th scope="row">Shipping</th><td class="fsc">Free</td><td class="fsc">Free</td><td>$499 to $699</td><td>$499 to $699</td></tr>
+  </tbody></table></div>
  <ol class="dates rv" aria-label="Key sale dates">
   <li><span class="caption-4 gold">Nov 10</span><span class="title-3">Sale opens</span></li>
   <li class="hl"><span class="caption-4 gold"><i class="ph-fill ph-leaf"></i> Nov 26</span><span class="title-3">Thanksgiving</span></li>
   <li><span class="caption-4 gold">Nov 27</span><span class="title-3">Black Friday</span></li>
   <li><span class="caption-4 gold">Nov 30</span><span class="title-3">Cyber Monday, ends 11:59 PM PT</span></li>
  </ol>
- <div class="strip stag">
-  <div class="s1"><i class="ic ph-fill ph-fire"></i><div><span class="title-3">Super Deal</span><span class="body-6 muted">Retiring models at their deepest price. Limited time and limited stock, no restock.</span></div></div>
-  <div class="s2"><i class="ic ph-fill ph-tag"></i><div><span class="title-3">BFCM Deal</span><span class="body-6 muted">Current models at a Black Friday price until Nov 30, 11:59 PM Pacific.</span></div></div>
-  <div class="s3"><i class="ic ph-fill ph-seal-check"></i><div><span class="title-3">Real stock, real counts</span><span class="body-6 muted">Every "in stock" number is a unit in our Lake Forest, California warehouse.</span></div></div>
- </div>
 </div></section>
 
-<!-- super deals -->
-<section id="super">
- <div class="wrap"><div class="sh rv"><span class="tiertag super"><i class="ph-fill ph-fire"></i>Limited stock</span><h2 class="heading-2">Black Friday Super Deals</h2><p class="body-3 muted">The three biggest deals of the year: our most wanted machines with the deepest savings of the sale. Pick a model, watch real makers use it, and lock in your unit.</p></div></div>
- <div id="superCards"></div>
+<!-- 01 desktop -->
+<section class="ser" id="desktop">
+ <div class="wrap">
+  <header class="ser__hd rv"><span class="ser__n" aria-hidden="true">01</span><div class="ser__t"><span class="kick"><i class="stripe" aria-hidden="true"></i>Desktop lasers</span><h2 class="heading-2">XRF 38W RF and VertiGo</h2><p class="body-3 muted">Professional RF lasers that fit on a workbench or a shop counter. The simplest way to start or grow a laser business.</p></div><dl class="ser__fit"><div><dt>Best for</dt><dd>Home businesses, Etsy and craft sellers, gift and retail shops</dd></div><div><dt>Makes</dt><dd>Leather patches, signs, coasters, glassware, tumblers and bottles</dd></div><div><dt>Black Friday</dt><dd>From $4,499 · <b class="fst">Free shipping</b></dd></div></dl></header>
+  <div class="why4 stag"><div><i class="ph ph-ruler"></i><span class="title-3">Fits your space</span><span class="body-6 muted">Both sit on a workbench or a shop counter. No dedicated workshop needed to start.</span></div><div><i class="ph ph-sparkle"></i><span class="title-3">RF detail</span><span class="body-6 muted">A 38W RF metal tube makes a smaller laser dot than glass tubes, for sharp detail on leather, wood, glass and coated metal.</span></div><div><i class="ph ph-lightning"></i><span class="title-3">Fast to first sale</span><span class="body-6 muted">XRF engraves at up to 1,200 mm/s with 3G acceleration. VertiGo holds a tumbler upright with no alignment.</span></div><div><i class="ph ph-truck"></i><span class="title-3">Lowest price of the line</span><span class="body-6 muted">From $4,499 with free shipping, plus a free Air Assist box with XRF.</span></div></div>
+  <div class="pick2 rv">
+   <a class="pk" href="#p-xrf"><span class="pk__k">Choose XRF if you make flat items</span><span class="body-6 muted">Leather, wood, acrylic, glass and coated metal on a 24" × 12" bed. Add the Riser Base and Auto Conveyor Feeder for long boards.</span><span class="pk__p">XRF deal from $4,499<i class="ph-bold ph-arrow-down"></i></span></a>
+   <a class="pk" href="#p-vtg"><span class="pk__k">Choose VertiGo if you sell drinkware</span><span class="body-6 muted">Tumblers, cups, mugs and bottles engraved upright on a built-in rotary. Compact, event ready, with a lit glass door customers can watch.</span><span class="pk__p">VertiGo deal $4,999<i class="ph-bold ph-arrow-down"></i></span></a>
+  </div>
+ </div>
+ <div id="cardsDesk"></div>
 </section>
 
 <!-- early access -->
@@ -854,19 +950,62 @@ h1,h2,h3,h4,h5,h6,p{margin:0;text-wrap:pretty}h1,h2,h3,h4,h5,h6{text-wrap:balanc
  </div>
 </div></section>
 
-<!-- bfcm deals -->
-<section id="bfcm">
- <div class="wrap"><div class="sh rv"><span class="tiertag deal"><i class="ph-fill ph-tag"></i>Limited time</span><h2 class="heading-2">Black Friday Deals</h2><p class="body-3 muted">Current models at Black Friday prices, priced for the holiday rush. Ends Cyber Monday, Nov 30.</p></div></div>
- <div id="dealCards"></div>
- <div class="wrap"><div class="sh left rv" style="margin-bottom:var(--s300)"><span class="tiertag super"><i class="ph-fill ph-fire"></i>Black Friday last units</span><h3 class="heading-4">One of each. Then they are gone.</h3></div>
- <div class="bg2 stag" id="lastUnits"></div></div>
+
+<!-- cobra or hydra -->
+<section class="sec vs" id="vs" style="padding-top:0"><div class="wrap">
+ <div class="sh rv"><span class="caption-3 eb">Cobra or Hydra?</span><h2 class="heading-2">Workshop or production</h2><p class="body-3 muted">Both are floor standing CO₂ lasers with big beds. The difference is how hard you will run it and how fine the detail needs to be.</p></div>
+ <div class="vs2 rv">
+  <div class="vsc cobra">
+   <span class="vsc__n" aria-hidden="true">02</span><span class="kick"><i class="stripe" aria-hidden="true"></i>Cobra · workshop</span><h3 class="heading-4">Choose Cobra if</h3>
+   <ul><li><i class="ph-bold ph-check"></i>You mostly cut and engrave wood, acrylic and leather</li><li><i class="ph-bold ph-check"></i>You want the most bed for your budget</li><li><i class="ph-bold ph-check"></i>One CO₂ glass tube covers your work</li><li><i class="ph-bold ph-check"></i>You are setting up or growing a workshop</li></ul>
+   <dl><div><dt>Laser</dt><dd>90W, 100W or 130W CO₂ glass</dd></div><div><dt>Work area</dt><dd>31.5" × 19.7" to 55.1" × 35.4"</dd></div><div><dt>Black Friday</dt><dd>$3,999 to $6,999 · save $2,000</dd></div></dl>
+   <a class="btn light" href="#cobra">See Cobra deals<i class="ph-bold ph-arrow-down"></i></a>
+  </div>
+  <div class="vsc hydra">
+   <span class="vsc__n" aria-hidden="true">03</span><span class="kick"><i class="stripe" aria-hidden="true"></i>Hydra · production</span><h3 class="heading-4">Choose Hydra if</h3>
+   <ul><li><i class="ph-bold ph-check"></i>Your laser runs orders all day and speed is money</li><li><i class="ph-bold ph-check"></i>You need fine RF detail and cutting in one machine</li><li><i class="ph-bold ph-check"></i>You want a long life RF tube with no chiller</li><li><i class="ph-bold ph-check"></i>You are scaling a production business</li></ul>
+   <dl><div><dt>Laser</dt><dd>70W RF, or CO₂ glass + 38W RF</dd></div><div><dt>Motion</dt><dd>2,000 mm/s, 4G, servo motors (Gen2)</dd></div><div><dt>Black Friday</dt><dd>$5,999 to $12,999 · up to $3,000 off</dd></div></dl>
+   <a class="btn primary" href="#hydra">See Hydra deals<i class="ph-bold ph-arrow-down"></i></a>
+  </div>
+ </div>
+</div></section>
+
+<!-- 02 cobra -->
+<section class="ser" id="cobra">
+ <div class="wrap">
+  <header class="ser__hd rv"><span class="ser__n" aria-hidden="true">02</span><div class="ser__t"><span class="kick"><i class="stripe" aria-hidden="true"></i>Workshop CO₂ lasers</span><h2 class="heading-2">Cobra 8, 10 and 14</h2><p class="body-3 muted">Floor standing CO₂ glass tube lasers with big beds and real cutting power. The most work area for your money.</p></div><dl class="ser__fit"><div><dt>Best for</dt><dd>Woodworkers, sign makers, makerspaces and growing small shops</dd></div><div><dt>Makes</dt><dd>Signs, wood décor, acrylic displays, furniture panels and leather goods</dd></div><div><dt>Black Friday</dt><dd>From $3,999 · save $2,000 on every Cobra</dd></div></dl></header>
+  <div class="why4 stag"><div><i class="ph ph-frame-corners"></i><span class="title-3">Most bed for the money</span><span class="body-6 muted">31.5" × 19.7" (800 × 500 mm) for $3,999 on Cobra 8, up to 55.1" × 35.4" on Cobra 14.</span></div><div><i class="ph ph-scissors"></i><span class="title-3">Real cutting power</span><span class="body-6 muted">90W, 100W or 130W CO₂ glass tubes for wood and acrylic, with 11" (280 mm) of Z travel on Cobra 10 and 14.</span></div><div><i class="ph ph-crosshair"></i><span class="title-3">Less setup, more output</span><span class="body-6 muted">Autofocus, camera alignment and dual air assist come standard on every Cobra.</span></div><div><i class="ph ph-stack"></i><span class="title-3">300+ materials</span><span class="body-6 muted">Wood, acrylic, leather, glass, rubber and more. Add the optional IR module to engrave metal.</span></div></div>
+  <div class="pick3 rv">
+   <a class="pk" href="#p-c08"><span class="pk__k">Cobra 8 · 90W</span><span class="body-6 muted">31.5" × 19.7" bed. The compact workshop starter.</span><span class="pk__p">$3,999<s>$5,999</s></span></a>
+   <a class="pk" href="#p-cob" data-sel="cob:0"><span class="pk__k">Cobra 10 · 100W</span><span class="body-6 muted">39.4" × 23.6" bed, 11" Z travel for thicker stock.</span><span class="pk__p">$4,999<s>$6,999</s></span></a>
+   <a class="pk" href="#p-cob" data-sel="cob:1"><span class="pk__k">Cobra 14 · 130W</span><span class="body-6 muted">55.1" × 35.4" bed for large panels and batch runs.</span><span class="pk__p">$6,999<s>$8,999</s></span></a>
+  </div>
+ </div>
+ <div id="cardsCobra"></div>
 </section>
 
-<!-- best seller -->
-<section class="sec" id="bestseller"><div class="wrap">
- <div class="sh left rv"><span class="tiertag best"><i class="ph-fill ph-star"></i>Best seller · not on sale</span><h2 class="heading-2">Hydra Gen2 Hybrid</h2><p class="body-3 muted">The machine most of our production customers choose. It is not discounted this Black Friday, and it is still the one we would buy first: glass tube cutting and 38W RF engraving in one cabinet, in stock, with financing.</p></div>
- <div class="fx rv" id="fx"></div>
-</div></section>
+<!-- 03 hydra -->
+<section class="ser" id="hydra">
+ <div class="wrap">
+  <header class="ser__hd rv"><span class="ser__n" aria-hidden="true">03</span><div class="ser__t"><span class="kick"><i class="stripe" aria-hidden="true"></i>Industrial production lasers</span><h2 class="heading-2">Hydra series</h2><p class="body-3 muted">Built to run production every day: faster motion, RF detail and cutting in one machine.</p></div><dl class="ser__fit"><div><dt>Best for</dt><dd>Production shops, manufacturers and businesses filling large orders</dd></div><div><dt>Makes</dt><dd>Leather patches and tags, branded merchandise, signage and large panels</dd></div><div><dt>Black Friday</dt><dd>Up to $3,000 off · Hydra 7 Pro $7,999 for the first 14 units</dd></div></dl></header>
+  <div class="why4 stag"><div><i class="ph ph-gauge"></i><span class="title-3">Production speed</span><span class="body-6 muted">Gen2 runs at 2,000 mm/s with 4G acceleration on servo motors.</span></div><div><i class="ph ph-arrows-split"></i><span class="title-3">Engrave and cut in one job</span><span class="body-6 muted">Gen2 Hybrid pairs CO₂ glass for cutting with 38W RF for detail and switches automatically within one job. Gen2 Pro does both with one 70W RF tube.</span></div><div><i class="ph ph-timer"></i><span class="title-3">RF built to last</span><span class="body-6 muted">The RF tube is rated for 20,000 to 30,000 hours, with no chiller required.</span></div><div><i class="ph ph-cpu"></i><span class="title-3">Industrial control</span><span class="body-6 muted">GT5 DSP control with offline operation, and up to 63" × 39.4" of work area on Hydra 16.</span></div></div>
+  <div class="hpick rv">
+   <span class="title-2">Which Hydra?</span>
+   <a href="#p-h07"><b>Hydra 7 Pro</b><span>70W RF · Gen2</span><span class="muted">Our biggest saving. First 14 units only.</span><em>$7,999</em></a>
+   <a href="#p-g2p"><b>Hydra 9, 13, 16 Pro</b><span>70W RF · Gen2</span><span class="muted">Same RF power, bigger beds.</span><em>from $9,999</em></a>
+   <a href="#p-h09d"><b>Hydra 9 Dual</b><span>100W glass + 38W RF</span><span class="muted">Cutting power plus RF detail.</span><em>$8,999</em></a>
+   <a href="#bestseller"><b>Hydra 9, 13, 16 Hybrid</b><span>Glass + 38W RF · Gen2</span><span class="muted">Our best seller, regular price.</span><em>from $10,999</em></a>
+   <a href="#lastUnits"><b>Last units</b><span>Hydra 7 80W · Hydra 16 Dual</span><span class="muted">One of each, then gone.</span><em>from $5,999</em></a>
+  </div>
+ </div>
+ <div id="cardsHydra"></div>
+ <div class="wrap" id="bestseller">
+  <div class="sh left rv"><span class="tiertag best"><i class="ph-fill ph-star"></i>Best seller · not on sale</span><h2 class="heading-3">Hydra Gen2 Hybrid</h2><p class="body-3 muted">The Hydra most of our production customers choose. It is not discounted this Black Friday, and it is still the one we would buy first: glass tube cutting and 38W RF engraving in one cabinet, in stock, with financing.</p></div>
+  <div class="fx rv" id="fx"></div>
+  <div class="sh left rv" style="margin:var(--s700) 0 var(--s300)"><span class="tiertag super"><i class="ph-fill ph-fire"></i>Black Friday last units</span><h3 class="heading-4">One of each. Then they are gone.</h3></div>
+  <div class="bg2 stag" id="lastUnits"></div>
+ </div>
+</section>
 
 <!-- tagline -->
 <section class="tagline" aria-label="Why now"><div class="wrap">
@@ -964,7 +1103,7 @@ h1,h2,h3,h4,h5,h6,p{margin:0;text-wrap:pretty}h1,h2,h3,h4,h5,h6{text-wrap:balanc
    <span class="kick"><i class="stripe" aria-hidden="true"></i>Ends Cyber Monday, Nov 30 at 11:59 PM PT</span>
    <h2 class="heading-2">Black Friday Deals<br>end Cyber Monday</h2>
    <div class="cd" data-cd="final"><div><b data-u="d">00</b><small>Days</small></div><div><b data-u="h">00</b><small>Hours</small></div><div><b data-u="m">00</b><small>Mins</small></div><div><b data-u="s">00</b><small>Secs</small></div></div>
-   <div class="kv__cta" style="justify-content:center"><a class="btn primary lg" href="#super">Shop the deals <i class="ph-bold ph-arrow-up"></i></a><button class="btn ghost lg" type="button" data-lead="" data-call="1" data-src="final">Talk to a laser expert</button></div>
+   <div class="kv__cta" style="justify-content:center"><a class="btn primary lg" href="#lines">Shop the deals <i class="ph-bold ph-arrow-up"></i></a><button class="btn ghost lg" type="button" data-lead="" data-call="1" data-src="final">Talk to a laser expert</button></div>
   </div>
  </div>
 </div></section>
@@ -976,7 +1115,7 @@ h1,h2,h3,h4,h5,h6,p{margin:0;text-wrap:pretty}h1,h2,h3,h4,h5,h6{text-wrap:balanc
  <div class="sbar__t"><span class="sbar__k" id="sbK">Black Friday Deals</span><span class="sbar__n" id="sbN">Up to $3,000 off</span></div>
  <div class="sbar__p" id="sbP"></div>
  <a class="sbar__call" href="tel:+16268004130" aria-label="Call OneLaser at 626 800 4130"><i class="ph ph-phone"></i><span>626 800 4130</span></a>
- <div class="sbar__a" id="sbA"><a class="btn primary" href="#super">Shop the deals</a></div>
+ <div class="sbar__a" id="sbA"><a class="btn primary" href="#lines">Shop the deals</a></div>
 </div></div>
 
 <!-- lead capture -->
@@ -1100,7 +1239,7 @@ const ext='target="_blank" rel="noopener"';
 const pimg=(k,cls,extra='',nopad)=>`<img class="${cls}${nopad?'':' pad'}" style="--pad:${FIT[k][0]};--pw:${FIT[k][1]}${extra}" src="${IMG(k)}" alt="" loading="lazy">`;
 
 /* ===== header (homepage v3) ===== */
-const ANN=[['Black Friday Deals: up to $3,000 off through Cyber Monday','#super','hot'],['Free shipping on XRF 38W RF and VertiGo','#p-xrf','hot'],['$0 Down Financing for Small Businesses','https://www.1laser.com/pages/financing'],['30 Day Easy Returns','https://www.1laser.com/pages/refund-policy']];
+const ANN=[['Black Friday Deals: up to $3,000 off through Cyber Monday','#lines','hot'],['Free shipping on XRF 38W RF and VertiGo','#p-xrf','hot'],['$0 Down Financing for Small Businesses','https://www.1laser.com/pages/financing'],['30 Day Easy Returns','https://www.1laser.com/pages/refund-policy']];
 annTr.innerHTML=[0,1].map(d=>`<div class="ann__g" ${d?'aria-hidden="true"':''}>${ANN.map(a=>`<a href="${a[1]}" class="${a[2]||''}" ${d?'tabindex="-1"':''}>${a[0]}</a>`).join('')}</div>`).join('');
 document.querySelector('.ann__x').onclick=()=>{ann.remove();setMTop()};
 const MS={x:{label:'X Series',p:[['XRF™','Performance Desktop Laser Engraver (38W RF)','onelaser-xrf-desktop-laser-machine','XRF_360cdcd1-c129-44be-a750-7da43a587a00.png?v=1782463970']]},
@@ -1233,7 +1372,8 @@ function apc(p){
  </div>`;
 }
 const ALLP=[...SUPER,...DEALS];
-function renderCards(){superCards.innerHTML=SUPER.map(p=>`<section class="apc" id="p-${p.id}">${apc(p)}</section>`).join('');dealCards.innerHTML=DEALS.map(p=>`<section class="apc" id="p-${p.id}">${apc(p)}</section>`).join('');ALLP.forEach(p=>slide(p.id,0));}
+const GROUP={cardsDesk:['xrf','vtg'],cardsCobra:['c08','cob'],cardsHydra:['h07','g2p','h09d']};
+function renderCards(){Object.entries(GROUP).forEach(([c,ids])=>{document.getElementById(c).innerHTML=ids.map(id=>{const p=ALLP.find(x=>x.id===id);return `<section class="apc" id="p-${p.id}">${apc(p)}</section>`}).join('')});ALLP.forEach(p=>slide(p.id,0));}
 function renderLast(){lastUnits.innerHTML=LAST.map(b=>`<div class="bc"><div class="im">${SCENE(b.img,'30% 50%',b.n)}<span class="tag red">Last 1 in stock</span>${MP(b.mn)}</div><div><h3 class="title-2">${b.n}</h3><div class="pb" style="margin-top:12px"><div><span class="caption-5 muted">Black Friday price</span><span class="heading-5 num">${$(b.p)}</span><span class="saved">Save ${$(b.m-b.p)}</span></div><div class="sep"></div><div><span class="caption-5 muted">MSRP</span><span class="heading-5 ms num">${$(b.m)}</span></div></div></div><div class="meta">${stockRow(b.stock)}${ship(b)}</div>${acts({ids:[b.vid],u:b.u,n:b.mn,v:b.p,sm:1})}</div>`).join('');}
 function renderFeat(){const i=sel.feat??0,v=FEAT.v[i];fx.innerHTML=`<div class="fx__art">${SCENE(v.img,'30% 50%',v.mn)}<span class="tag"><i class="ph-fill ph-star"></i>Best seller</span>${MP(v.mn,'Glass + 38W RF')}</div>
  <div class="fx__info"><div><h3 class="heading-5">${FEAT.name}</h3><p class="body-6 muted" style="margin-top:8px">${FEAT.desc}</p><div class="lbls" style="margin-top:12px">${FEAT.lb.map(x=>`<span>${x}</span>`).join('')}</div></div>
@@ -1241,6 +1381,11 @@ function renderFeat(){const i=sel.feat??0,v=FEAT.v[i];fx.innerHTML=`<div class="
  <div><span class="caption-5 muted">Regular price</span><div class="heading-4 num">${$(v.p)}</div><span class="caption-5 muted">Not discounted during Black Friday</span></div>
  <div class="meta">${stockRow(v.stock)}${ship(v)}${fin}</div>
  <div style="margin-top:auto">${acts({ids:[v.vid],u:v.u,n:v.mn,v:v.p,always:1})}</div></div>`;}
+const LINES=[
+ {id:'desktop',n:'01',k:'Desktop lasers',t:'XRF 38W RF · VertiGo',img:'xrf',mp:'XRF 38W RF',who:'For home businesses, craft sellers and retail shops.',f:['Fits on a workbench or a shop counter','38W RF metal tube','Flat goods or drinkware'],from:'$4,499',off:'Up to $1,000 off',fs:1,cta:'See desktop deals'},
+ {id:'cobra',n:'02',k:'Workshop CO₂ lasers',t:'Cobra 8 · 10 · 14',img:'c14',mp:'Cobra 14 130W',who:'For woodworkers, sign makers and growing shops.',f:['Floor standing, 90W to 130W glass tube','Beds up to 55.1" × 35.4"','Autofocus and camera alignment'],from:'$3,999',off:'Save $2,000',cta:'See Cobra deals'},
+ {id:'hydra',n:'03',k:'Industrial production lasers',t:'Hydra series',img:'h7g2',mp:'Hydra 7 Pro',who:'For production shops running orders every day.',f:['2,000 mm/s and 4G acceleration (Gen2)','RF detail and cutting in one machine','Beds up to 63" × 39.4"'],from:'$5,999',off:'Up to $3,000 off',cta:'See Hydra deals'}];
+function renderLines(){ln3.innerHTML=LINES.map(l=>`<a class="ln" href="#${l.id}"><div class="ln__m">${SCENE(l.img,'',l.mp,MP(l.mp))}${l.fs?FSB:''}<span class="ln__n" aria-hidden="true">${l.n}</span></div><div class="ln__b"><span class="kick"><i class="stripe" aria-hidden="true"></i>${l.k}</span><h3 class="heading-5">${l.t}</h3><p class="body-6 muted">${l.who}</p><ul>${l.f.map(x=>`<li><i class="ph-bold ph-check"></i>${x}</li>`).join('')}</ul><div class="ln__pr"><div><span class="caption-4 muted">Black Friday from</span><b>${l.from}</b></div><span class="saved">${l.off}</span></div><span class="btn primary">${l.cta}<i class="ph-bold ph-arrow-down"></i></span></div></a>`).join('')}
 function renderBento(){bento.innerHTML=BENTO.map(b=>`<a class="tl ${b[0]}" href="${b[6]}"><div class="media">${SCENE(b[5],'',b[7])}${b[8]?FSB:''}${MP(b[7])}</div><div class="body"><div class="row"><span class="tiertag ${b[1]}">${b[1]==='super'?'<i class="ph-fill ph-fire"></i>Super Deal':'<i class="ph-fill ph-tag"></i>Black Friday Deal'}</span>${b[0]==='big'?`<span class="caption-4 muted">${b[4]}</span>`:''}</div><div class="amt" style="margin-top:8px"><span class="${b[0]==='big'?'heading-3':'heading-5'} num" data-count="${b[2]}">$0</span><small>off</small></div><div class="row"><span class="title-3">${b[3]}${b[0]==='sm'?`<small class="caption-4 muted" style="display:block">${b[4]}</small>`:''}</span><i class="ph-bold ph-arrow-right gold"></i></div></div></a>`).join('');}
 function renderProj(){pw.innerHTML=PROJ.slice(0,8).map(p=>`<figure class="pj" style="margin:0"><div class="ph"><img src="assets/projects/${p[0]}.webp" alt="${p[1]}" loading="lazy"></div><figcaption><span class="title-3" style="display:block">${p[1]}</span><span class="mk caption-4"><i class="ph-fill ph-lightning"></i>Made on ${p[2]}</span></figcaption></figure>`).join('');}
 function renderStories(){vg.innerHTML=STORIES.map(c=>`<div class="vc"><div class="im" data-yt="${c[0]}" data-cap="${c[1]}" role="button" tabindex="0" aria-label="Play ${c[1]}"><img src="https://i.ytimg.com/vi/${c[0]}/maxresdefault.jpg" onerror="this.onerror=null;this.src='https://i.ytimg.com/vi/${c[0]}/hqdefault.jpg'" alt="" loading="lazy"><span class="pl"><i class="ph-fill ph-play"></i></span></div><div class="bd"><h3 class="title-2">${c[1]}</h3><p class="body-6 muted">${c[2]}</p><a class="link" href="https://www.youtube.com/watch?v=${c[0]}" ${ext}>Watch on YouTube <i class="ph-bold ph-arrow-up-right"></i></a></div></div>`).join('');}
@@ -1338,7 +1483,7 @@ function countUp(el){const to=+el.dataset.count,t0=performance.now(),d=1200;if(r
 (()=>{if(reduce)return;
  const kv=document.querySelector('.kv'),art=kv.querySelector('.kv__art'),txt=kv.querySelector('.kv__c'),prog=document.getElementById('progress');
  const vis=new Set();const pio=new IntersectionObserver(es=>es.forEach(e=>e.isIntersecting?vis.add(e.target):vis.delete(e.target)),{rootMargin:'100px'});
- const watch=()=>document.querySelectorAll('.hero .scene,.tl .scene,.bc .scene,.fx__art .scene,.pj').forEach(el=>{if(!el.dataset.px){el.dataset.px=1;pio.observe(el)}});watch();
+ const watch=()=>document.querySelectorAll('.hero .scene,.tl .scene,.ln .scene,.bc .scene,.fx__art .scene,.pj').forEach(el=>{if(!el.dataset.px){el.dataset.px=1;pio.observe(el)}});watch();
  new MutationObserver(watch).observe(document.getElementById('main'),{childList:true,subtree:true});
  let mx=0,my=0,tick2=false;
  function frame(){tick2=false;const y=scrollY,vh=innerHeight;
@@ -1351,7 +1496,7 @@ function countUp(el){const to=+el.dataset.count,t0=performance.now(),d=1200;if(r
  addEventListener('scroll',req,{passive:true});addEventListener('resize',req);req();
  if(fine){kv.addEventListener('pointermove',e=>{const r=kv.getBoundingClientRect();mx=(e.clientX-r.left)/r.width-.5;my=(e.clientY-r.top)/r.height-.5;req()});kv.addEventListener('pointerleave',()=>{mx=0;req()});
   /* tilt + sheen on deal tiles and last-unit cards */
-  document.addEventListener('pointermove',e=>{const t=e.target.closest('.tl,.bc');document.querySelectorAll('.tilt.hov').forEach(x=>{if(x!==t){x.classList.remove('hov');x.style.setProperty('--rx','0deg');x.style.setProperty('--ry','0deg')}});
+  document.addEventListener('pointermove',e=>{const t=e.target.closest('.tl,.bc,.ln');document.querySelectorAll('.tilt.hov').forEach(x=>{if(x!==t){x.classList.remove('hov');x.style.setProperty('--rx','0deg');x.style.setProperty('--ry','0deg')}});
    if(t){t.classList.add('tilt','hov');const r=t.getBoundingClientRect(),px=(e.clientX-r.left)/r.width,py=(e.clientY-r.top)/r.height;t.style.setProperty('--ry',((px-.5)*7).toFixed(2)+'deg');t.style.setProperty('--rx',((.5-py)*6).toFixed(2)+'deg');t.style.setProperty('--gx',(px*100)+'%');t.style.setProperty('--gy',(py*100)+'%')}
    const inf=e.target.closest('.info');if(inf){const r=inf.getBoundingClientRect();inf.style.setProperty('--sx',(e.clientX-r.left)+'px');inf.style.setProperty('--sy',(e.clientY-r.top)+'px')}
    const b=e.target.closest('.btn.primary.lg');document.querySelectorAll('.btn.mag').forEach(x=>{if(x!==b){x.style.transform=''}});
@@ -1405,6 +1550,7 @@ addEventListener('keydown',e=>{if(lm.hidden)return;if(e.key==='Escape')return cl
  if(e.key==='Tab'){const f=[...lm.querySelectorAll('button,input,select,a[href]')].filter(x=>x.offsetParent);const a=f[0],z=f[f.length-1];if(e.shiftKey&&document.activeElement===a){e.preventDefault();z.focus()}else if(!e.shiftKey&&document.activeElement===z){e.preventDefault();a.focus()}}});
 document.addEventListener('click',e=>{const t=e.target;
  if(t.closest('[data-lmx]'))return closeLead();
+ const ds=t.closest('[data-sel]');if(ds){const [id,ix]=ds.dataset.sel.split(':'),p=ALLP.find(x=>x.id===id),sec=$id('p-'+id);sel[id]=+ix;sec.innerHTML=apc(p);slide(id,0);fitAll(sec);drawSb()}
  const l=t.closest('[data-lead]');if(l){e.preventDefault();return openLead({n:l.dataset.lead,call:l.dataset.call,src:l.dataset.src||(l.closest('#sbar')?'sticky_bar':'card')})}
  const b=t.closest('[data-buy],[data-add]');if(b)dl({event:b.dataset.buy?'begin_checkout':'add_to_cart',ecommerce:{currency:'USD',value:+b.dataset.val||0,items:[{item_name:b.dataset.buy||b.dataset.add,price:+b.dataset.val||0,quantity:1}]}});
 });
@@ -1422,7 +1568,7 @@ function sbData(id){if(id==='fx'){const v=FEAT.v[sel.feat??0];return{n:v.mn,k:'B
  const p=ALLP.find(x=>'p-'+x.id===id);if(!p)return null;const v=p.v[sel[p.id]??(p.def||0)],pr=price1(p,v),up=p.up&&upOn[p.id];
  return{n:v.mn+(up?' + Auto Conveyor':''),k:p.tier==='super'?'Black Friday Super Deal':'Black Friday Deal',p:pr+(up?p.up.p:0),m:v.m+(up?p.up.p:0),f:v.f,ids:[v.vid,...(up?[p.up.id]:[])]}}
 function drawSb(){const d=sbCur&&sbData(sbCur);
- if(!d){sbK.textContent='Black Friday Deals';sbN.textContent=LIVE()?'Up to $3,000 off · ends Cyber Monday':'Up to $3,000 off · opens Nov 10';sbP.innerHTML=FSB+'<span class="sbar__fs">XRF and VertiGo</span>';sbA.innerHTML='<a class="btn primary" href="#super">Shop the deals</a>';return}
+ if(!d){sbK.textContent='Black Friday Deals';sbN.textContent=LIVE()?'Up to $3,000 off · ends Cyber Monday':'Up to $3,000 off · opens Nov 10';sbP.innerHTML=FSB+'<span class="sbar__fs">XRF and VertiGo</span>';sbA.innerHTML='<a class="btn primary" href="#lines">Shop the deals</a>';return}
  sbK.textContent=d.k;sbN.textContent=d.n;sbP.innerHTML=`<b class="num">${$0(d.p)}</b>${d.m?`<s>${$0(d.m)}</s>`:''}${d.f===0?FSB:''}`;
  sbA.innerHTML=d.always||LIVE()?`<a class="btn primary" href="${BUY(d.ids)}" data-buy="${d.n}" data-val="${d.p}"><i class="ph-bold ph-lightning"></i>Buy now</a>`:`<button class="btn primary" type="button" data-lead="${d.n}" data-src="sticky_bar"><i class="ph-bold ph-bell-ringing"></i>Notify me</button>`}
 function sbShow(){sbar.classList.toggle('on',!heroIn&&!endIn&&lm.hidden)}
@@ -1441,7 +1587,7 @@ setInterval(()=>{const l=LIVE();if(l!==wasLive){wasLive=l;renderCards();renderLa
 
 const io=new IntersectionObserver(es=>es.forEach(en=>{if(en.isIntersecting){en.target.classList.add('in');en.target.querySelectorAll('[data-count]').forEach(countUp);io.unobserve(en.target)}}),{rootMargin:'0px 0px -10% 0px'});
 
-renderBento();renderCards();renderLast();renderFeat();renderProj();renderA();renderFinder();fitAll();tick();document.querySelectorAll('.apc,#fx').forEach(el=>sbo.observe(el));drawSb();syncLive();setInterval(()=>{if(!document.hidden)tick()},1000);onScroll();
+renderLines();renderCards();renderLast();renderFeat();renderProj();renderA();renderFinder();fitAll();tick();document.querySelectorAll('.apc,#fx').forEach(el=>sbo.observe(el));drawSb();syncLive();setInterval(()=>{if(!document.hidden)tick()},1000);onScroll();
 document.querySelectorAll('.stag').forEach(g=>[...g.children].forEach((c,i)=>c.style.setProperty('--d',Math.min(i*70,560)+'ms')));
 document.querySelectorAll('.rv,.stag,.apc .stage').forEach(el=>{if(!el.classList.contains('stag'))el.classList.add('rv');io.observe(el)});
 </script>
