@@ -68,7 +68,7 @@ h1,h2,h3,h4,h5,h6,p{margin:0;text-wrap:pretty}h1,h2,h3,h4,h5,h6{text-wrap:balanc
 .btn.sm{font-size:14px;line-height:20px}
 .btn.primary{background:var(--action);color:#fff}.btn.primary:hover{background:var(--red)}
 .btn.light{background:#fff;color:#000}.btn.light:hover{background:#e8e8ea}
-.btn.ghost{border-color:rgba(255,255,255,.28);color:#fff}.btn.ghost:hover{background:rgba(255,255,255,.08)}
+.btn.ghost{background:transparent;border-color:rgba(255,255,255,.28);color:#fff}.btn.ghost:hover{background:rgba(255,255,255,.08)}
 .btn.dark{background:#000;color:#fff}.btn.dark:hover{background:var(--c4)}
 .btn i{font-size:18px}
 .link{display:inline-flex;align-items:center;gap:var(--s50);color:var(--gold);font-size:14px;line-height:20px;font-weight:600;transition:gap .3s var(--ease)}
@@ -165,10 +165,10 @@ h1,h2,h3,h4,h5,h6,p{margin:0;text-wrap:pretty}h1,h2,h3,h4,h5,h6{text-wrap:balanc
 .kv__c{will-change:transform,opacity;transform:translate3d(0,var(--ty,0px),0);opacity:var(--to,1)}
 .embers{position:absolute;inset:0;z-index:1;pointer-events:none;mix-blend-mode:screen}
 /* laser scan reveal on the headline */
-.kv__c .kv__h{position:relative;display:inline-block;clip-path:inset(-10% 100% -10% 0);animation:engrave 1.5s cubic-bezier(.65,0,.35,1) .35s forwards}
+.kv__c .kv__h{position:relative;display:inline-block;clip-path:inset(-20% 100% -30% -8%);animation:engrave 1.5s cubic-bezier(.65,0,.35,1) .35s forwards}
 .kv__hw{position:relative;align-self:flex-start;animation:none!important}
 .kv__hw .laser{position:absolute;top:-4%;bottom:-4%;left:0;width:3px;pointer-events:none;border-radius:3px;background:#fff;box-shadow:0 0 6px 2px #ffd9a8,0 0 18px 6px rgba(231,49,14,.85),0 0 42px 14px rgba(231,49,14,.45);opacity:0;animation:laser 1.5s cubic-bezier(.65,0,.35,1) .35s forwards}
-@keyframes engrave{to{clip-path:inset(-10% -2% -10% 0)}}
+@keyframes engrave{to{clip-path:inset(-20% -40% -30% -8%)}}
 @keyframes laser{0%{left:0;opacity:1}92%{left:100%;opacity:1}100%{left:100%;opacity:0}}
 @media(prefers-reduced-motion:reduce){.kv__c .kv__h{clip-path:none;animation:none}.kv__hw .laser{display:none}}
 .kv__c .kv__off{animation:rise .9s var(--ease) 1.5s both}
@@ -186,8 +186,8 @@ h1,h2,h3,h4,h5,h6,p{margin:0;text-wrap:pretty}h1,h2,h3,h4,h5,h6{text-wrap:balanc
 .kv__c{position:relative;z-index:2;height:100%;max-width:var(--wrap);margin:0 auto;padding:0 var(--gut);display:flex;flex-direction:column;justify-content:center;gap:var(--s300)}
 .kv__c>*{max-width:480px}
 .chip{align-self:flex-start;display:inline-flex;align-items:center;gap:var(--s75);padding:var(--s50) var(--s100);border-radius:var(--r-full);background:rgba(252,199,123,.12);border:1px solid rgba(252,199,123,.32);color:var(--gold);font-size:12px;line-height:16px;font-weight:600;letter-spacing:.04em;text-transform:uppercase}
-.kv__h{margin:0;font-size:72px;line-height:72px;font-weight:600;letter-spacing:-.03em;text-transform:none;background:linear-gradient(90deg,#fff,#B8B8B8);-webkit-background-clip:text;background-clip:text;color:transparent}
-.kv__off{margin-top:calc(-1 * var(--s100));font-size:48px;line-height:48px;font-weight:600;letter-spacing:-.02em;color:#fff}
+.kv__h{margin:0;font-size:84px;line-height:80px;font-weight:700;font-style:italic;letter-spacing:-.03em;text-transform:uppercase;color:#fff}
+.kv__off{margin-top:calc(-1 * var(--s50));font-size:44px;line-height:48px;font-weight:700;font-style:italic;text-transform:uppercase;letter-spacing:-.02em;color:#fff}
 .kv__off b{color:var(--gold);font-weight:600}
 .kv .lead{max-width:560px;color:rgba(255,255,255,.8)}
 .kv .lead b{color:#fff;font-weight:600}
@@ -300,7 +300,7 @@ h1,h2,h3,h4,h5,h6,p{margin:0;text-wrap:pretty}h1,h2,h3,h4,h5,h6{text-wrap:balanc
 .stage{display:flex;flex-direction:column;gap:var(--s300);max-width:var(--wrap);margin:0 auto;padding:0 var(--gut)}
 .hero{width:100%;min-height:600px;border-radius:var(--r-3xl);position:relative;overflow:hidden;background:#0b0b0b;display:flex;justify-content:flex-end}
 .hero:hover .scene img{--sc:1.03}
-.hero .tag{position:absolute;left:var(--s300);top:var(--s300);z-index:3}
+.hero .tags{position:absolute;left:var(--s300);top:var(--s300);z-index:3;display:flex;flex-wrap:wrap;align-items:center;gap:var(--s75);max-width:calc(100% - 480px)}
 .hero .stk{position:absolute;left:var(--s300);bottom:var(--s300);z-index:3;max-width:300px}
 .tag{display:inline-flex;align-items:center;gap:var(--s50);padding:var(--s50) var(--s100);border-radius:var(--r-full);background:var(--gold);color:#000;font-size:12px;line-height:16px;font-weight:600}
 .tag.red{background:var(--red);color:#fff}
@@ -341,7 +341,7 @@ h1,h2,h3,h4,h5,h6,p{margin:0;text-wrap:pretty}h1,h2,h3,h4,h5,h6{text-wrap:balanc
 .meta i{flex:none;font-size:18px;color:#fff;margin-top:1px}
 .meta b{color:#fff;font-weight:600}.meta .amb{color:var(--gold)}
 .meta a{color:#fff;text-decoration:underline;text-underline-offset:2px}
-.gifts{display:flex;flex-direction:column;gap:var(--s50);padding:var(--s100);border-radius:var(--r-lg);background:rgba(252,199,123,.08);border:1px solid rgba(252,199,123,.2)}
+.gifts{display:flex;flex-wrap:wrap;column-gap:var(--s200);row-gap:var(--s50);padding:var(--s100);border-radius:var(--r-lg);background:rgba(252,199,123,.08);border:1px solid rgba(252,199,123,.2)}
 .gifts div{display:flex;gap:var(--s75);align-items:center;font-size:14px;line-height:20px}
 .gifts i{color:var(--gold);font-size:18px}
 .acts{display:flex;gap:var(--s100)}
@@ -567,7 +567,7 @@ h1,h2,h3,h4,h5,h6,p{margin:0;text-wrap:pretty}h1,h2,h3,h4,h5,h6{text-wrap:balanc
  .kv:after{background:linear-gradient(180deg,transparent 0,transparent 200px,#000 300px)}
  .kv__c{margin-top:-40px;padding:0 var(--gut) var(--s600);height:auto;gap:var(--s200)}
  .kv .chip{display:none}.kv .lead{font-size:16px;line-height:24px}
- .kv__h{font-size:48px;line-height:48px}.kv__off{font-size:30px;line-height:36px;margin-top:0}
+ .kv__h{font-size:11.2vw;line-height:1}.kv__h .l2{margin-top:6px;padding:0 14px 2px 10px}.kv__h .l2:after{width:64px}.kv__off{font-size:30px;line-height:36px;margin-top:0}
  .kv__cta .btn{width:100%}
  .cd>div{min-width:0;flex:1;padding:var(--s75)}
  .bento,.tlne,.ag,.bg3,.bg2,.vg,.tiers,.fin2,.tg2,.strip,.feats{grid-template-columns:1fr}
@@ -579,7 +579,7 @@ h1,h2,h3,h4,h5,h6,p{margin:0;text-wrap:pretty}h1,h2,h3,h4,h5,h6{text-wrap:balanc
  .hero{height:auto;display:flex;flex-direction:column}
  .hero .scene{position:relative;inset:auto;height:auto;aspect-ratio:16/10;flex:none}
  .hero .stk{position:relative;inset:auto;margin:var(--s100) var(--s100) 0;max-width:none}
- .hero .tag{top:var(--s300)}
+ .hero .tags{top:var(--s200);left:var(--s200);max-width:calc(100% - 32px)}
  .info{width:auto;margin:var(--s100)}
  .reel{width:300px}
  .rhead{flex-direction:column;align-items:flex-start;gap:var(--s100)}.rhead .rbar{width:100%;justify-content:space-between}
@@ -595,6 +595,164 @@ h1,h2,h3,h4,h5,h6,p{margin:0;text-wrap:pretty}h1,h2,h3,h4,h5,h6{text-wrap:balanc
  html{scroll-behavior:auto}
  .rv{transform:none}.ann__tr{animation:none}
  .tagline .w{color:#fff}
+}
+
+/* ===== motorsport language: italic caps, livery stripes, timing boards ===== */
+.kick{align-self:flex-start;display:inline-flex;align-items:center;gap:10px;color:#fff;font-size:12px;line-height:16px;font-weight:700;font-style:italic;letter-spacing:.14em;text-transform:uppercase}
+.kick .stripe{width:30px;height:10px;flex:none;background:repeating-linear-gradient(110deg,var(--red) 0 4px,transparent 4px 8px)}
+.final .kick{align-self:center}
+.kv__c>.kv__hw{max-width:none}
+.kv__h .l1{display:block;white-space:nowrap;padding-right:.12em;background:linear-gradient(90deg,#fff 45%,#BDBDBD);-webkit-background-clip:text;background-clip:text;color:transparent}
+.kv__h .l2{position:relative;display:inline-block;margin-top:10px;padding:0 22px 4px 14px;background:var(--red);transform:skewX(-12deg);box-shadow:0 14px 44px rgba(231,49,14,.45)}
+.kv__h .l2>span{display:inline-block;transform:skewX(12deg)}
+.kv__h .l2:after{content:"";position:absolute;left:100%;top:18%;bottom:18%;width:150px;margin-left:12px;background:repeating-linear-gradient(180deg,var(--red) 0 5px,transparent 5px 13px);-webkit-mask-image:linear-gradient(90deg,#000,transparent);mask-image:linear-gradient(90deg,#000,transparent)}
+.kv__off b{font-style:italic}
+.kv .lead b{color:var(--green)}
+.kv__cdh{display:flex;align-items:center;gap:12px;color:#fff}
+.kv__cdh .caption-4{font-weight:700;font-style:italic;letter-spacing:.12em;text-transform:uppercase}
+.lights{display:flex;gap:6px;padding:6px 8px;border-radius:6px;background:#0a0a0a;border:1px solid rgba(255,255,255,.14)}
+.lights i{width:12px;height:12px;border-radius:50%;background:#2b0d08}
+.lights i:nth-child(1){animation:lt1 4.8s infinite}.lights i:nth-child(2){animation:lt2 4.8s infinite}.lights i:nth-child(3){animation:lt3 4.8s infinite}.lights i:nth-child(4){animation:lt4 4.8s infinite}.lights i:nth-child(5){animation:lt5 4.8s infinite}
+@keyframes lt1{0%,5%,74%,100%{background:#2b0d08;box-shadow:none}6%,73%{background:#ff2a12;box-shadow:0 0 10px 2px rgba(255,42,18,.75)}}
+@keyframes lt2{0%,17%,74%,100%{background:#2b0d08;box-shadow:none}18%,73%{background:#ff2a12;box-shadow:0 0 10px 2px rgba(255,42,18,.75)}}
+@keyframes lt3{0%,29%,74%,100%{background:#2b0d08;box-shadow:none}30%,73%{background:#ff2a12;box-shadow:0 0 10px 2px rgba(255,42,18,.75)}}
+@keyframes lt4{0%,41%,74%,100%{background:#2b0d08;box-shadow:none}42%,73%{background:#ff2a12;box-shadow:0 0 10px 2px rgba(255,42,18,.75)}}
+@keyframes lt5{0%,53%,74%,100%{background:#2b0d08;box-shadow:none}54%,73%{background:#ff2a12;box-shadow:0 0 10px 2px rgba(255,42,18,.75)}}
+.lights.out i{animation:none;background:#16a34a;box-shadow:0 0 8px 1px rgba(74,222,128,.6)}
+.cd>div{border-radius:6px;background:rgba(0,0,0,.5);border:1px solid rgba(255,255,255,.12);border-top:2px solid var(--red)}
+.cd b{font-style:italic;font-weight:700}
+.cd small{font-size:10px;letter-spacing:.14em;text-transform:uppercase;font-weight:600}
+.kv__trust .fs{color:#fff;font-weight:600}.kv__trust .fs i{color:var(--green)}
+/* model call-outs on the hero lineup */
+.pins{position:absolute;left:0;top:0;pointer-events:none;opacity:0;animation:pinIn .8s var(--ease) 2.3s forwards}
+@keyframes pinIn{to{opacity:1}}
+.pin{position:absolute;transform:translate(-50%,-100%);display:flex;flex-direction:column;align-items:center}
+.pin b{padding:4px 12px 4px 9px;background:rgba(0,0,0,.74);-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px);border-left:3px solid var(--red);color:#fff;font-size:12px;line-height:16px;font-weight:700;font-style:italic;letter-spacing:.06em;text-transform:uppercase;white-space:nowrap}
+.pin:after{content:"";width:1px;height:20px;background:linear-gradient(rgba(255,255,255,.8),rgba(255,255,255,.15))}
+.pin.lo{transform:translate(-50%,0);flex-direction:column-reverse}
+.pin.lo:after{background:linear-gradient(rgba(255,255,255,.15),rgba(255,255,255,.8))}
+/* racing ticker */
+.race{position:relative;height:150px;overflow:hidden;margin-top:var(--s200)}
+.race+.sec{padding-top:var(--s600)}
+.race__b{position:absolute;left:-4%;right:-4%;top:50%;height:52px;display:flex;align-items:center;overflow:hidden}
+.race__b1{z-index:2;background:var(--red);color:#fff;transform:translateY(-50%) rotate(-2.2deg);box-shadow:0 12px 32px rgba(0,0,0,.5)}
+.race__b2{background:#f2f2f2;color:#0a0a0a;transform:translateY(-50%) rotate(1.8deg)}
+.race__t{display:flex;width:max-content;animation:marq 40s linear infinite;will-change:transform}
+.race__t.rev{animation-direction:reverse;animation-duration:52s}
+.race__t>div{display:flex;align-items:center}
+.race__t span{padding:0 22px;font-size:22px;line-height:28px;font-weight:700;font-style:italic;letter-spacing:.01em;text-transform:uppercase;white-space:nowrap}
+.race__t i{width:26px;height:14px;flex:none;background:repeating-linear-gradient(110deg,currentColor 0 4px,transparent 4px 8px);opacity:.55}
+/* headings and tier tags */
+.sh .heading-2,.final h2,.lm__h,#bestseller .heading-2{font-style:italic;text-transform:uppercase;font-weight:700;letter-spacing:-.02em}
+.sh .eb{display:inline-flex;align-items:center;gap:10px;font-style:italic;font-weight:700;letter-spacing:.14em;text-transform:uppercase}
+.sh .eb:before{content:"";width:30px;height:10px;background:repeating-linear-gradient(110deg,var(--red) 0 4px,transparent 4px 8px)}
+.tiertag{border-radius:3px;font-style:italic;font-weight:700;letter-spacing:.08em;transform:skewX(-10deg)}
+.tiertag.super{background:var(--red);color:#fff;border-color:var(--red)}
+.tiertag.deal{background:var(--blue);color:#04122b;border-color:var(--blue)}
+.tiertag.best{background:var(--gold);color:#1a1200;border-color:var(--gold)}
+.info:after{content:"";position:absolute;left:24px;top:-1px;width:80px;height:3px;background:var(--red);transform:skewX(-30deg)}
+.hero.blue .info:after{background:var(--blue)}
+.info .pb .heading-5:not(.ms),.bc .pb .heading-5:not(.ms),.stg .heading-6,.tl .amt .num,.fx__info .heading-4{font-style:italic;font-weight:700}
+.tl .amt small{font-style:italic;text-transform:uppercase}
+/* free shipping */
+.fsb{display:inline-flex;align-items:center;gap:6px;padding:4px 10px;border-radius:3px;background:var(--green);color:#04210f;font-size:12px;line-height:16px;font-weight:700;font-style:italic;letter-spacing:.06em;text-transform:uppercase;white-space:nowrap}
+.fsb i{font-size:14px}
+.tl .media .fsb,.fr .im .fsb{position:absolute;right:12px;top:12px;z-index:2}
+.fsl{align-self:flex-start;display:inline-flex;align-items:center;gap:4px;color:var(--green);font-size:12px;line-height:16px;font-weight:700;letter-spacing:.04em;text-transform:uppercase}
+.meta .fsr,.meta .fsr i,.meta .fsr b{color:var(--green)}
+/* model nameplate on every product photo */
+.mp{position:absolute;left:var(--s300);bottom:var(--s300);z-index:3;display:flex;flex-direction:column;gap:2px;max-width:calc(100% - 48px);padding:8px 24px 8px 12px;background:rgba(0,0,0,.68);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);border-left:3px solid var(--red);clip-path:polygon(0 0,100% 0,calc(100% - 14px) 100%,0 100%);pointer-events:none}
+.mp b{color:#fff;font-size:18px;line-height:22px;font-weight:700;font-style:italic;letter-spacing:.01em;text-transform:uppercase;white-space:nowrap}
+.mp small{color:rgba(255,255,255,.7);font-size:11px;line-height:14px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.tl .mp,.bc .mp,.fr .mp{left:12px;bottom:12px;padding:6px 20px 6px 10px}
+.tl .mp b,.bc .mp b,.fr .mp b{font-size:14px;line-height:18px}
+/* buying helpers */
+.help{display:flex;align-items:center;justify-content:space-between;gap:var(--s100);flex-wrap:wrap;margin-top:calc(-1 * var(--s100));font-size:13px;line-height:18px;color:rgba(255,255,255,.7)}
+.help a,.help button{display:inline-flex;align-items:center;gap:6px;padding:0;border:0;background:none;color:#fff;cursor:pointer;font-size:13px;line-height:18px;font-weight:500;text-decoration:underline;text-underline-offset:3px;text-decoration-color:rgba(255,255,255,.35)}
+.help span{display:inline-flex;align-items:center;gap:6px}
+.help i{font-size:15px}
+.up{display:flex;gap:10px;align-items:flex-start;padding:10px 12px;border-radius:var(--r-lg);border:1px dashed rgba(255,255,255,.3);font-size:13px;line-height:18px;color:rgba(255,255,255,.8);cursor:pointer;transition:border-color .3s var(--ease),background-color .3s var(--ease)}
+.up:hover{border-color:rgba(255,255,255,.55)}
+.up:has(input:checked){border-style:solid;border-color:var(--gold);background:rgba(252,199,123,.08)}
+.up input{accent-color:var(--red);width:18px;height:18px;margin:0;flex:none}
+.up b{display:block;color:#fff;font-size:12px;font-style:italic;letter-spacing:.06em;text-transform:uppercase}
+/* sticky deal bar */
+.sbar{position:fixed;left:0;right:0;bottom:0;z-index:90;display:flex;justify-content:center;padding:0 16px 16px;pointer-events:none;transform:translateY(130%);transition:transform .5s var(--ease)}
+.sbar.on{transform:none}
+.sbar__in{pointer-events:auto;display:flex;align-items:center;gap:16px;width:min(940px,100%);padding:10px 10px 10px 20px;border-radius:14px;background:rgba(14,14,14,.88);-webkit-backdrop-filter:blur(18px) saturate(1.3);backdrop-filter:blur(18px) saturate(1.3);border:1px solid rgba(255,255,255,.14);border-left:4px solid var(--red);box-shadow:0 18px 50px rgba(0,0,0,.55)}
+.sbar__t{display:flex;flex-direction:column;min-width:0;flex:1}
+.sbar__k{color:#FF6A4D;font-size:11px;line-height:14px;font-weight:700;font-style:italic;letter-spacing:.12em;text-transform:uppercase}
+.sbar__n{color:#fff;font-size:17px;line-height:22px;font-weight:700;font-style:italic;text-transform:uppercase;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.sbar__p{display:flex;align-items:center;gap:10px;flex:none}
+.sbar__p b{color:#fff;font-size:22px;line-height:28px;font-weight:700;font-style:italic}
+.sbar__p s{color:rgba(255,255,255,.5);font-size:14px}
+.sbar__fs{color:rgba(255,255,255,.7);font-size:13px}
+.sbar__call{flex:none;display:inline-flex;align-items:center;gap:6px;color:rgba(255,255,255,.8);font-size:14px;transition:color .3s var(--ease)}
+.sbar__call:hover{color:#fff}.sbar__call i{font-size:18px}
+.sbar__a{flex:none}
+/* lead capture dialog */
+.lm{position:fixed;inset:0;z-index:200;display:grid;place-items:center;padding:16px}
+.lm[hidden]{display:none}
+.lm__bd{position:absolute;inset:0;background:rgba(0,0,0,.72);-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px);opacity:0;transition:opacity .3s var(--ease)}
+.lm__box{position:relative;display:grid;grid-template-columns:minmax(0,.85fr) minmax(0,1.15fr);width:min(920px,100%);max-height:calc(100vh - 32px);overflow:auto;border-radius:18px;background:#0e0e0e;border:1px solid rgba(255,255,255,.12);border-top:4px solid var(--red);box-shadow:0 40px 120px rgba(0,0,0,.6);opacity:0;transform:translateY(24px) scale(.98);transition:opacity .35s var(--ease),transform .5s var(--ease)}
+.lm.on .lm__bd{opacity:1}.lm.on .lm__box{opacity:1;transform:none}
+.lm__art{position:relative;overflow:hidden;background:#150000;min-height:360px}
+.lm__art img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:70% 62%}
+.lm__art:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 45%,rgba(0,0,0,.8))}
+.lm__plate{position:absolute;left:20px;bottom:22px;z-index:1;display:flex;align-items:baseline;gap:8px;padding:4px 20px 6px 12px;background:var(--red);transform:skewX(-10deg);color:#fff;font-style:italic;font-weight:700;text-transform:uppercase}
+.lm__plate b{font-size:36px;line-height:42px}.lm__plate span{font-size:14px;letter-spacing:.06em}
+.lm__c{padding:36px 36px 28px}
+.lm__f,.lm__ok{display:flex;flex-direction:column;gap:14px}
+.lm__f[hidden],.lm__ok[hidden]{display:none}
+.lm__h{font-size:34px;line-height:36px}
+.lm__f .btn{width:100%}
+.fld{display:flex;flex-direction:column;gap:6px;font-size:13px;line-height:18px;font-weight:600;color:rgba(255,255,255,.88)}
+.fld em{font-style:normal;font-weight:400;color:var(--t3)}
+.fld input,.fld select{width:100%;height:46px;padding:0 14px;border-radius:10px;border:1px solid rgba(255,255,255,.18);background:#1a1a1a;color:#fff;font-size:16px;outline:0;transition:border-color .2s var(--ease)}
+.fld .sel select{padding-right:40px}
+.fld input:focus,.fld select:focus{border-color:var(--gold)}
+.fld input::placeholder{color:var(--t3)}
+.ck{display:flex;gap:10px;align-items:center;font-size:14px;line-height:20px;color:rgba(255,255,255,.88);cursor:pointer}
+.ck input{width:18px;height:18px;accent-color:var(--red);margin:0;flex:none}
+.lm .msg{min-height:20px;font-size:14px;line-height:20px}.lm .msg.err{color:#ff8a7a}
+.lm .caption-5 a{text-decoration:underline}
+.lm__x{position:absolute;right:12px;top:12px;z-index:2;width:36px;height:36px;display:grid;place-items:center;border:0;border-radius:50%;background:rgba(0,0,0,.55);color:#fff;cursor:pointer}
+.lm__x:hover{background:rgba(255,255,255,.14)}
+.lm__ok{align-items:flex-start;justify-content:center;min-height:100%}.lm__ok>i{font-size:44px;color:var(--gold)}
+@media(max-width:1080px){.hero .tags{max-width:calc(100% - 460px)}}
+@media(max-width:760px){
+ .race{height:110px}.race__b{height:40px}.race__t span{font-size:16px;line-height:20px;padding:0 14px}
+ .pin b{font-size:10px;line-height:14px;padding:3px 8px 3px 6px}.pin:after{height:12px}
+ .mp{left:var(--s200);bottom:var(--s200)}.mp b{font-size:15px;line-height:19px}
+ .sbar{padding:0}
+ .sbar__in{gap:10px;border-radius:0;border:0;border-top:3px solid var(--red);padding:10px 12px calc(10px + env(safe-area-inset-bottom)) 14px}
+ .sbar__n{font-size:14px;line-height:18px}
+ .sbar__p{flex-direction:column;align-items:flex-end;gap:2px}.sbar__p b{font-size:18px;line-height:22px}.sbar__p s,.sbar__fs{display:none}.sbar__p .fsb{font-size:10px;padding:1px 6px}.sbar__p .fsb i{display:none}
+ .sbar__call{width:40px;height:40px;justify-content:center;border:1px solid rgba(255,255,255,.22);border-radius:50%}.sbar__call span{display:none}
+ .sbar .btn{padding:8px 14px;font-size:14px;line-height:20px}
+ .lm{padding:0;place-items:end center}
+ .lm__box{grid-template-columns:1fr;border-radius:18px 18px 0 0;max-height:94vh}
+ .lm__art{min-height:0;height:130px}.lm__plate b{font-size:26px;line-height:32px}
+ .lm__c{padding:22px 20px calc(20px + env(safe-area-inset-bottom))}
+ .lm__h{font-size:26px;line-height:28px}
+}
+
+.tags .tag,.tags .fsb{flex:none;white-space:nowrap}
+.sbar__k,.sbar__n{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+@media(max-width:760px){
+ .sbar__in{display:grid;grid-template-columns:minmax(0,1fr) auto auto;grid-template-areas:"t c a" "p c a";column-gap:10px;row-gap:2px;align-items:center}
+ .sbar__t{grid-area:t}.sbar__call{grid-area:c}.sbar__a{grid-area:a}
+ .sbar__p{grid-area:p;flex-direction:row;align-items:center;justify-content:flex-start;gap:8px}
+ .sbar__p b{font-size:17px;line-height:22px}
+ .race__b1{transform:translateY(-50%) rotate(-3.2deg)}.race__b2{transform:translateY(-50%) rotate(3deg)}
+}
+
+.mp{text-align:left;align-items:flex-start}
+@media(max-width:760px){
+ .hero .scene{aspect-ratio:4/3}
+ .hero .tags .tag,.hero .tags .fsb{font-size:11px;padding:3px 8px}
+ .hero .mp{left:12px;bottom:12px;padding:6px 20px 6px 10px}.hero .mp b{font-size:14px;line-height:18px}
+ .hero .mp:not(.mp--note) small{display:none}.hero .mp--note small{white-space:normal;font-size:10px;line-height:13px}
 }
 </style>
 </head>
@@ -633,16 +791,16 @@ h1,h2,h3,h4,h5,h6,p{margin:0;text-wrap:pretty}h1,h2,h3,h4,h5,h6{text-wrap:balanc
 
 <!-- hero -->
 <section class="kv" id="top">
- <div class="kv__art scene" data-k="lineup" data-tx=".75" data-tw=".46" data-twm=".96" aria-hidden="true"><img src="assets/scenes/lineup.jpg" alt=""></div>
+ <div class="kv__art scene" data-k="lineup" data-tx=".75" data-tw=".46" data-twm=".96"><img src="assets/scenes/lineup.jpg" alt="OneLaser VertiGo, Hydra 7 Pro, XRF 38W RF and Cobra 10 on a Thanksgiving table"><div class="pins" aria-hidden="true"><span class="pin" style="left:44%;top:39%"><b>VertiGo</b></span><span class="pin" style="left:58.5%;top:26%"><b>Hydra 7 Pro</b></span><span class="pin lo" style="left:62%;top:52%"><b>XRF 38W RF</b></span><span class="pin" style="left:83%;top:32%"><b>Cobra 10</b></span></div></div>
  <canvas class="embers" id="embers" aria-hidden="true"></canvas>
  <div class="kv__c">
-  <span class="chip"><i class="ph-fill ph-leaf"></i>Thanksgiving week · Nov 10 to Cyber Monday</span>
-  <div class="kv__hw"><h1 class="kv__h">Black Friday<br>Deals</h1><span class="laser" aria-hidden="true"></span></div>
+  <span class="kick"><i class="stripe" aria-hidden="true"></i>Thanksgiving week · Nov 10 to Cyber Monday</span>
+  <div class="kv__hw"><h1 class="kv__h"><span class="l1">Black Friday</span> <span class="l2"><span>Deals</span></span></h1><span class="laser" aria-hidden="true"></span></div>
   <p class="kv__off">Up to <b>$3,000</b> off</p>
-  <p class="lead title-2">Final prices on Hydra, Cobra, XRF and VertiGo. No codes, real U.S. stock, our biggest sale of the year.</p>
-  <div class="kv__cta"><a class="btn primary lg" href="#super">Shop the deals <i class="ph-bold ph-arrow-down"></i></a><a class="btn ghost lg" href="#early">Get early access</a></div>
+  <p class="lead title-2">Final prices on Hydra, Cobra, XRF and VertiGo. No codes, real U.S. stock, <b>free shipping on XRF 38W RF and VertiGo</b>.</p>
+  <div class="kv__cta"><a class="btn primary lg" href="#super">Shop the deals <i class="ph-bold ph-arrow-down"></i></a><button class="btn ghost lg" type="button" data-lead="" data-src="hero" data-alt>Get early access</button></div>
   <div class="kv__proof">
-   <span class="caption-4 muted" data-cdl>Black Friday Deals open in</span>
+   <div class="kv__cdh"><div class="lights" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></div><span class="caption-4" data-cdl>Black Friday Deals open in</span></div>
    <div class="cd" data-cd="main" role="timer" aria-live="off"><div><b data-u="d">00</b><small>Days</small></div><div><b data-u="h">00</b><small>Hours</small></div><div><b data-u="m">00</b><small>Mins</small></div><div><b data-u="s">00</b><small>Secs</small></div></div>
   </div>
   <div class="kv__trust"><span><i class="ph ph-map-pin"></i>U.S. company, U.S. warehouse</span><span><i class="ph ph-arrow-counter-clockwise"></i>30 day returns</span><span><i class="ph ph-shield-check"></i>Official warranty</span><span><i class="ph ph-headset"></i>Real technicians</span></div>
@@ -653,9 +811,14 @@ h1,h2,h3,h4,h5,h6,p{margin:0;text-wrap:pretty}h1,h2,h3,h4,h5,h6{text-wrap:balanc
  <a href="#deals">Deals</a><a href="#super">Super deals</a><a href="#bfcm">BFCM deals</a><a href="#bestseller">Best seller</a><a href="#projects">Projects</a><a href="#why">Why OneLaser</a><a href="#finder">Find yours</a><a href="#faq">FAQ</a>
 </div></nav>
 
+<div class="race" role="note" aria-label="Black Friday Deals: up to $3,000 off, free shipping on XRF 38W RF and VertiGo, final prices with no codes, ends Cyber Monday">
+ <div class="race__b race__b2" aria-hidden="true"><div class="race__t rev"><div><span>Black Friday Deals</span><i aria-hidden="true"></i><span>Up to $3,000 off</span><i aria-hidden="true"></i><span>Free shipping on XRF 38W RF and VertiGo</span><i aria-hidden="true"></i><span>Final prices, no codes</span><i aria-hidden="true"></i><span>Ends Cyber Monday</span><i aria-hidden="true"></i></div><div><span>Black Friday Deals</span><i aria-hidden="true"></i><span>Up to $3,000 off</span><i aria-hidden="true"></i><span>Free shipping on XRF 38W RF and VertiGo</span><i aria-hidden="true"></i><span>Final prices, no codes</span><i aria-hidden="true"></i><span>Ends Cyber Monday</span><i aria-hidden="true"></i></div></div></div>
+ <div class="race__b race__b1" aria-hidden="true"><div class="race__t"><div><span>Black Friday Deals</span><i aria-hidden="true"></i><span>Up to $3,000 off</span><i aria-hidden="true"></i><span>Free shipping on XRF 38W RF and VertiGo</span><i aria-hidden="true"></i><span>Final prices, no codes</span><i aria-hidden="true"></i><span>Ends Cyber Monday</span><i aria-hidden="true"></i></div><div><span>Black Friday Deals</span><i aria-hidden="true"></i><span>Up to $3,000 off</span><i aria-hidden="true"></i><span>Free shipping on XRF 38W RF and VertiGo</span><i aria-hidden="true"></i><span>Final prices, no codes</span><i aria-hidden="true"></i><span>Ends Cyber Monday</span><i aria-hidden="true"></i></div></div></div>
+</div>
+
 <!-- savings overview -->
 <section class="sec" id="deals"><div class="wrap">
- <div class="sh rv"><span class="caption-3 eb">Black Friday Deals</span><h2 class="heading-2">Every machine line, on sale</h2><p class="body-3 muted">Our biggest savings of the year on Hydra, Cobra, XRF and VertiGo. Prices are final and apply automatically at checkout.</p></div>
+ <div class="sh rv"><span class="caption-3 eb">Black Friday Deals</span><h2 class="heading-2">Black Friday Deals on every line</h2><p class="body-3 muted">Our biggest savings of the year on Hydra, Cobra, XRF and VertiGo. Prices are final and apply automatically at checkout.</p></div>
  <div class="bento stag" id="bento"></div>
  <ol class="dates rv" aria-label="Key sale dates">
   <li><span class="caption-4 gold">Nov 10</span><span class="title-3">Sale opens</span></li>
@@ -672,7 +835,7 @@ h1,h2,h3,h4,h5,h6,p{margin:0;text-wrap:pretty}h1,h2,h3,h4,h5,h6{text-wrap:balanc
 
 <!-- super deals -->
 <section id="super">
- <div class="wrap"><div class="sh rv"><span class="tiertag super"><i class="ph-fill ph-fire"></i>Black Friday Super Deals · limited stock</span><h2 class="heading-2">The three biggest deals of the year</h2><p class="body-3 muted">Our most wanted machines with the deepest savings of the sale. Pick a model, watch real makers use it, and lock in your unit.</p></div></div>
+ <div class="wrap"><div class="sh rv"><span class="tiertag super"><i class="ph-fill ph-fire"></i>Limited stock</span><h2 class="heading-2">Black Friday Super Deals</h2><p class="body-3 muted">The three biggest deals of the year: our most wanted machines with the deepest savings of the sale. Pick a model, watch real makers use it, and lock in your unit.</p></div></div>
  <div id="superCards"></div>
 </section>
 
@@ -681,21 +844,21 @@ h1,h2,h3,h4,h5,h6,p{margin:0;text-wrap:pretty}h1,h2,h3,h4,h5,h6{text-wrap:balanc
  <div class="ea rv">
   <img class="bg" src="assets/gift.jpg" alt="" aria-hidden="true" loading="lazy">
   <div class="ea__c">
-   <span class="caption-3 gold">Beat the Thanksgiving rush · list open Nov 6 to Nov 9</span>
+   <span class="kick"><i class="stripe" aria-hidden="true"></i>Black Friday early access · list open Nov 6 to Nov 9</span>
    <h2 class="heading-3">Shop Super Deals<br>24 hours early</h2>
    <p class="body-6 muted">With 14 Hydra 7 Pro units at $7,999 and 9 XRF units in the U.S., the early list is the surest way to get one. We email you the moment the doors open.</p>
    <div><span class="caption-4 muted">Early access opens in</span>
     <div class="cd" data-cd="early" style="margin-top:8px"><div><b data-u="d">00</b><small>Days</small></div><div><b data-u="h">00</b><small>Hours</small></div><div><b data-u="m">00</b><small>Mins</small></div><div><b data-u="s">00</b><small>Secs</small></div></div></div>
-   <form class="form" data-form novalidate><label class="sr-only" for="eaEmail">Email address</label><div class="form__row"><input id="eaEmail" type="email" autocomplete="email" placeholder="Your email address" required><button class="btn primary" type="submit">Get early access</button></div><div class="msg" aria-live="polite"></div></form>
+   <form class="form" data-form data-src="early_access" novalidate><label class="sr-only" for="eaEmail">Email address</label><div class="form__row"><input id="eaEmail" type="email" autocomplete="email" placeholder="Your email address" required><button class="btn primary" type="submit">Get early access</button></div><div class="msg" aria-live="polite"></div></form>
   </div>
  </div>
 </div></section>
 
 <!-- bfcm deals -->
 <section id="bfcm">
- <div class="wrap"><div class="sh rv"><span class="tiertag deal"><i class="ph-fill ph-tag"></i>Black Friday Deals · limited time</span><h2 class="heading-2">Current models, Black Friday prices</h2><p class="body-3 muted">The machines we build today, priced for the holiday rush. Ends Nov 30.</p></div></div>
+ <div class="wrap"><div class="sh rv"><span class="tiertag deal"><i class="ph-fill ph-tag"></i>Limited time</span><h2 class="heading-2">Black Friday Deals</h2><p class="body-3 muted">Current models at Black Friday prices, priced for the holiday rush. Ends Cyber Monday, Nov 30.</p></div></div>
  <div id="dealCards"></div>
- <div class="wrap"><div class="sh left rv" style="margin-bottom:var(--s300)"><span class="tiertag super"><i class="ph-fill ph-fire"></i>Last units</span><h3 class="heading-4">One of each. Then they are gone.</h3></div>
+ <div class="wrap"><div class="sh left rv" style="margin-bottom:var(--s300)"><span class="tiertag super"><i class="ph-fill ph-fire"></i>Black Friday last units</span><h3 class="heading-4">One of each. Then they are gone.</h3></div>
  <div class="bg2 stag" id="lastUnits"></div></div>
 </section>
 
@@ -798,22 +961,59 @@ h1,h2,h3,h4,h5,h6,p{margin:0;text-wrap:pretty}h1,h2,h3,h4,h5,h6{text-wrap:balanc
  <div class="final rv">
   <img src="assets/scene-cobra.webp" alt="" aria-hidden="true" loading="lazy">
   <div class="final__c">
-   <span class="chip"><i class="ph-fill ph-leaf"></i>Ends Cyber Monday, Nov 30 at 11:59 PM PT</span>
+   <span class="kick"><i class="stripe" aria-hidden="true"></i>Ends Cyber Monday, Nov 30 at 11:59 PM PT</span>
    <h2 class="heading-2">Black Friday Deals<br>end Cyber Monday</h2>
    <div class="cd" data-cd="final"><div><b data-u="d">00</b><small>Days</small></div><div><b data-u="h">00</b><small>Hours</small></div><div><b data-u="m">00</b><small>Mins</small></div><div><b data-u="s">00</b><small>Secs</small></div></div>
-   <div class="kv__cta" style="justify-content:center"><a class="btn primary lg" href="#super">Shop the deals <i class="ph-bold ph-arrow-up"></i></a><a class="btn ghost lg" href="https://www.1laser.com/products/sales-consultation-call" target="_blank" rel="noopener">Book a free call</a></div>
+   <div class="kv__cta" style="justify-content:center"><a class="btn primary lg" href="#super">Shop the deals <i class="ph-bold ph-arrow-up"></i></a><button class="btn ghost lg" type="button" data-lead="" data-call="1" data-src="final">Talk to a laser expert</button></div>
   </div>
  </div>
 </div></section>
 
 </main>
 
+<!-- sticky deal bar -->
+<div class="sbar" id="sbar"><div class="sbar__in">
+ <div class="sbar__t"><span class="sbar__k" id="sbK">Black Friday Deals</span><span class="sbar__n" id="sbN">Up to $3,000 off</span></div>
+ <div class="sbar__p" id="sbP"></div>
+ <a class="sbar__call" href="tel:+16268004130" aria-label="Call OneLaser at 626 800 4130"><i class="ph ph-phone"></i><span>626 800 4130</span></a>
+ <div class="sbar__a" id="sbA"><a class="btn primary" href="#super">Shop the deals</a></div>
+</div></div>
+
+<!-- lead capture -->
+<div class="lm" id="lm" hidden>
+ <div class="lm__bd" data-lmx></div>
+ <div class="lm__box" role="dialog" aria-modal="true" aria-labelledby="lmT">
+  <button class="lm__x" type="button" data-lmx aria-label="Close"><i class="ph-bold ph-x"></i></button>
+  <div class="lm__art" aria-hidden="true"><img src="assets/scenes/lineup.jpg" alt=""><div class="lm__plate"><span>Up to</span><b>$3,000</b><span>off</span></div></div>
+  <div class="lm__c">
+   <form class="lm__f" id="lmF" novalidate>
+    <span class="kick"><i class="stripe" aria-hidden="true"></i><span id="lmK">Black Friday Deals · Nov 10 to Nov 30</span></span>
+    <h2 class="lm__h" id="lmT">Get the deals first</h2>
+    <p class="body-6 muted" id="lmP">Shop the Super Deals 24 hours early, get the real stock count on the first 14 Hydra 7 Pro units, and a reminder before prices end on Cyber Monday.</p>
+    <label class="fld"><span>Email</span><input id="lmE" type="email" autocomplete="email" placeholder="you@business.com" required></label>
+    <label class="fld"><span>Phone <em>optional, for a call from a laser expert</em></span><input id="lmPh" type="tel" autocomplete="tel" inputmode="tel" placeholder="(555) 555 0123"></label>
+    <label class="fld"><span>Machine you are looking at</span><span class="sel"><select id="lmI"><option value="">Not sure yet</option><option>XRF 38W RF</option><option>Hydra 7 Pro</option><option>Cobra 8 90W</option><option>VertiGo 38W RF</option><option>Cobra 10 100W</option><option>Cobra 14 130W</option><option>Hydra 9 Dual</option><option>Hydra 9 Pro</option><option>Hydra 13 Pro</option><option>Hydra 16 Pro</option><option>Hydra 9 Hybrid</option><option>Hydra 13 Hybrid</option><option>Hydra 16 Hybrid</option><option>Hydra 7 80W</option><option>Hydra 16 Dual</option></select><i class="ph-bold ph-caret-down"></i></span></label>
+    <label class="ck"><input id="lmC" type="checkbox"><span>Have a laser expert call me about this deal</span></label>
+    <button class="btn primary lg" type="submit" id="lmS">Get early access</button>
+    <div class="msg" id="lmM" aria-live="polite"></div>
+    <p class="caption-5 muted">By signing up you agree to receive marketing emails from OneLaser. Unsubscribe anytime. We never sell your details. <a href="https://www.1laser.com/pages/privacy-policy" target="_blank" rel="noopener">Privacy Policy</a></p>
+   </form>
+   <div class="lm__ok" id="lmOk" hidden>
+    <i class="ph-fill ph-flag-checkered"></i>
+    <h2 class="lm__h">You are on the list</h2>
+    <p class="body-6 muted" id="lmOkP">We will email you before Black Friday Deals open.</p>
+    <button class="btn light lg" type="button" data-lmx>Keep browsing the deals</button>
+   </div>
+  </div>
+ </div>
+</div>
+
 <!-- footer: OneLaser homepage v3 -->
 <footer class="ft">
  <div class="ft__lead">
   <section><h2>Talk to a rep</h2><p>Have questions or need help?</p><a class="btn primary lg" href="https://www.1laser.com/products/sales-consultation-call" target="_blank" rel="noopener">Book a free call</a></section>
   <section><h2>Unlock exclusive updates and savings</h2><p>Receive tips, promotions and project inspiration.</p>
-   <form class="form ft__form" data-form novalidate><label class="sr-only" for="ftEmail">Email address</label><div class="form__row"><input id="ftEmail" type="email" autocomplete="email" placeholder="Email address" required><button class="btn primary" type="submit">Subscribe</button></div><div class="msg" aria-live="polite"></div></form></section>
+   <form class="form ft__form" data-form data-src="footer" novalidate><label class="sr-only" for="ftEmail">Email address</label><div class="form__row"><input id="ftEmail" type="email" autocomplete="email" placeholder="Email address" required><button class="btn primary" type="submit">Subscribe</button></div><div class="msg" aria-live="polite"></div></form></section>
  </div>
  <div class="ft__main">
   <div class="ft__links">
@@ -860,12 +1060,13 @@ const IMG=k=>S+PNG[k]+'?width=1400';
 const FIT={xrf:[.354,'50%'],h7g2:[.251,'50%'],h9g2:[.251,'46%'],h13g2:[.271,'44%'],h16g2:[.267,'42%'],c8:[.269,'42%'],c10:[.248,'40%'],c14:[.02,'40%'],vtg:[.056,'34%'],h9d:[0,'40%'],h7g:[.079,'42%'],h16d:[.069,'40%']};
 /* finished product scenes: the official machine photo placed into a studio scene (ChatGPT image edit), one file per model */
 const SC=k=>`assets/scenes/${k}.jpg`;
-const SCENE=(k,op,alt='')=>`<div class="scene" data-k="${k}"><img src="${SC(k)}" alt="${alt}" loading="lazy"></div>`;
+const SCENE=(k,op,alt='',inner='')=>`<div class="scene" data-k="${k}"><img src="${SC(k)}" alt="${alt}" loading="lazy">${inner}</div>`;
 /* where the machine sits in each scene (fractions of image width/height), measured on a ruler grid */
 /* [machine center x, machine+engraving group center x, center y] as fractions of the image */
-const MPOS={xrf:[.29,.44,.47],h7g2:[.33,.49,.47],c8:[.32,.47,.47],h7g:[.31,.45,.47],h16d:[.32,.45,.47],vtg:[.23,.5,.48],c10:[.33,.48,.47],c14:[.33,.46,.47],h9d:[.33,.46,.47],h9g2:[.33,.44,.47],h13g2:[.34,.49,.47],h16g2:[.37,.49,.47],lineup:[.66,.66,.55]};
+const MPOS={xrf:[.29,.44,.47],xrff:[.36,.4,.5],vtgs:[.4,.43,.5],h7g2:[.33,.49,.47],c8:[.32,.47,.47],h7g:[.31,.45,.47],h16d:[.32,.45,.47],vtg:[.23,.5,.48],c10:[.33,.48,.47],c14:[.33,.46,.47],h9d:[.33,.46,.47],h9g2:[.33,.44,.47],h13g2:[.34,.49,.47],h16g2:[.37,.49,.47],lineup:[.66,.66,.55]};
 const SCN_AR=941/1672;
-const EDGE={c10:'#081935',c14:'#011333',c8:'#290c07',h13g2:'#081028',h16d:'#190806',h16g2:'#09122d',h7g:'#330c02',h7g2:'#170300',h9d:'#051943',h9g2:'#051335',vtg:'#091531',xrf:'#1f0600',lineup:'#150000'};
+const NOSLACK={xrff:1};  /* wide scenes shown whole: no parallax zoom */
+const EDGE={xrff:'#100d0e',vtgs:'#644a36',c10:'#081935',c14:'#011333',c8:'#290c07',h13g2:'#081028',h16d:'#190806',h16g2:'#09122d',h7g:'#330c02',h7g2:'#170300',h9d:'#051943',h9g2:'#051335',vtg:'#091531',xrf:'#1f0600',lineup:'#150000'};
 /* size and place each scene so the machine is centered in its frame (or in the open area beside the price panel) */
 function fitScene(sc){const img=sc.querySelector('img'),m=MPOS[sc.dataset.k];if(!img||!m)return;
  const W=sc.clientWidth,H=sc.clientHeight;if(!W||!H)return;
@@ -882,11 +1083,12 @@ function fitScene(sc){const img=sc.querySelector('img'),m=MPOS[sc.dataset.k];if(
   img.style.width=iw+'px';img.style.left=left+'px';img.style.top=(ih<H?H-ih:Math.min(0,.5*H-cy*ih))+'px';
   const m=`linear-gradient(90deg,transparent,#000 14%),linear-gradient(180deg,${ih<H?'transparent,#000 22%':'#000,#000'})`;
   img.style.webkitMaskImage=img.style.maskImage=m;img.style.webkitMaskComposite='source-in';img.style.maskComposite='intersect';
-  sc.style.setProperty('--fo',`${(gcx*iw+left)/W*100}% 60%`);return;}
- const iw=Math.max(W,H/SCN_AR)*(z*(sc.closest('.kv')?1:1.08)),ih=iw*SCN_AR;
+  sc.style.setProperty('--fo',`${(gcx*iw+left)/W*100}% 60%`);syncPins(sc,img,iw);return;}
+ const iw=Math.max(W,H/SCN_AR)*(z*(sc.closest('.kv')||NOSLACK[sc.dataset.k]?1:1.08)),ih=iw*SCN_AR;
  const left=Math.min(0,Math.max(W-iw,tx*W-c*iw)),top=Math.min(0,Math.max(H-ih,.5*H-cy*ih));
  img.style.width=iw+'px';img.style.left=left+'px';img.style.top=top+'px';img.style.webkitMaskImage=img.style.maskImage='';
- sc.style.setProperty('--fo',`${(c*iw+left)/W*100}% ${(cy*ih+top)/H*100}%`);}
+ sc.style.setProperty('--fo',`${(c*iw+left)/W*100}% ${(cy*ih+top)/H*100}%`);syncPins(sc,img,iw);}
+function syncPins(sc,img,iw){const pn=sc.querySelector('.pins');if(pn)pn.style.cssText=`left:${img.style.left};top:${img.style.top};width:${iw}px;height:${iw*SCN_AR}px`}
 const sro=new ResizeObserver(es=>es.forEach(e=>fitScene(e.target)));
 function fitAll(root=document){root.querySelectorAll('.scene').forEach(sc=>{if(!sc.dataset.obs){sc.dataset.obs=1;sro.observe(sc)}fitScene(sc)})}
 const P='https://www.1laser.com/products/';
@@ -898,7 +1100,7 @@ const ext='target="_blank" rel="noopener"';
 const pimg=(k,cls,extra='',nopad)=>`<img class="${cls}${nopad?'':' pad'}" style="--pad:${FIT[k][0]};--pw:${FIT[k][1]}${extra}" src="${IMG(k)}" alt="" loading="lazy">`;
 
 /* ===== header (homepage v3) ===== */
-const ANN=[['Black Friday Deals: up to $3,000 off through Cyber Monday','#super','hot'],['$0 Down Financing for Small Businesses','https://www.1laser.com/pages/financing'],['30 Day Easy Returns','https://www.1laser.com/pages/refund-policy']];
+const ANN=[['Black Friday Deals: up to $3,000 off through Cyber Monday','#super','hot'],['Free shipping on XRF 38W RF and VertiGo','#p-xrf','hot'],['$0 Down Financing for Small Businesses','https://www.1laser.com/pages/financing'],['30 Day Easy Returns','https://www.1laser.com/pages/refund-policy']];
 annTr.innerHTML=[0,1].map(d=>`<div class="ann__g" ${d?'aria-hidden="true"':''}>${ANN.map(a=>`<a href="${a[1]}" class="${a[2]||''}" ${d?'tabindex="-1"':''}>${a[0]}</a>`).join('')}</div>`).join('');
 document.querySelector('.ann__x').onclick=()=>{ann.remove();setMTop()};
 const MS={x:{label:'X Series',p:[['XRF™','Performance Desktop Laser Engraver (38W RF)','onelaser-xrf-desktop-laser-machine','XRF_360cdcd1-c129-44be-a750-7da43a587a00.png?v=1782463970']]},
@@ -955,26 +1157,28 @@ const STORIES=[['WD5has9K3IY','A six figure laser business','How a firefighter b
 /* ===== products: prices from the 2026-11-05 pricing sheet ===== */
 const SUPER=[
  {id:'xrf',tier:'super',th:'red',img:'xrf',rl:'xrf',name:'XRF 38W RF desktop laser engraver and cutter',tag:['gift','Free Air Assist box'],lb:['38W RF tube','24" × 12" bed','1,200 mm/s'],def:1,stock:'xrf',
-  v:[{l:'Starter Bundle · XRF + Air Assist box',p:4499,m:5499,f:0,site:399,u:U('onelaser-xrf-desktop-laser-machine','43557890261026'),gifts:['Free Air Assist box','Free shipping']},
-     {l:'Maker Bundle · + riser base + 2 material packs',p:4999,m:5499,f:0,site:399,u:U('onelaser-xrf-desktop-laser-machine','43972592730146'),gifts:['Free Air Assist box','Free riser base','2 free material packs (acrylic + leather)','Free shipping']}]},
+  up:{id:'43674371391522',n:'Auto Conveyor Feeder',p:999,u:P+'onelaser-automatic-conveyor-feeder'},
+  v:[{l:'Starter Bundle · XRF + Air Assist box',mn:'XRF 38W RF',p:4499,m:5499,f:0,site:399,vid:'43557890261026',u:U('onelaser-xrf-desktop-laser-machine','43557890261026'),gifts:['Free Air Assist box']},
+     {l:'Maker Bundle · + riser base + 2 material packs',mn:'XRF 38W RF',img:'xrff',shown:'Shown with Riser Base + Auto Conveyor Feeder',p:4999,m:5499,f:0,site:399,vid:'43972592730146',u:U('onelaser-xrf-desktop-laser-machine','43972592730146'),gifts:['Free Air Assist box','Free riser base','2 free material packs (acrylic + leather)']}]},
  {id:'h07',tier:'super',th:'red',img:'h7g2',rl:'h07',name:'Hydra 7 Pro 70W RF production laser',tag:['fire','First 14 units at $7,999'],lb:['70W RF tube','2,000 mm/s','4G acceleration'],stage:1,stock:'h07',
-  v:[{l:'Hydra 7 Pro · 70W RF',p:7999,p2:8999,m:10999,f:499,u:U('hydra-7-gen-2-70w-rf-co2-dual-laser-machine')}]},
+  v:[{l:'Hydra 7 Pro · 70W RF',mn:'Hydra 7 Pro',p:7999,p2:8999,m:10999,f:499,vid:'44667131822114',u:U('hydra-7-gen-2-70w-rf-co2-dual-laser-machine')}]},
  {id:'c08',tier:'super',th:'red',img:'c8',rl:'c08',name:'Cobra 8 90W CO₂ workshop laser',tag:['lightning','Save $2,000'],lb:['90W glass tube','300+ materials','Autofocus'],stock:'c08',
-  v:[{l:'Cobra 8 · 90W',p:3999,m:5999,f:499,u:U('cobra-8-90w-co2-laser-engraver-cutter')}]}];
+  v:[{l:'Cobra 8 · 90W',mn:'Cobra 8 90W',p:3999,m:5999,f:499,vid:'44779582849058',u:U('cobra-8-90w-co2-laser-engraver-cutter')}]}];
 const DEALS=[
- {id:'vtg',tier:'deal',th:'blue',img:'vtg',rl:'vtg',name:'VertiGo 38W RF vertical laser for drinkware',tag:['truck','Free shipping, normally $399'],lb:['Cylindrical engraving','38W RF tube','Smart autofocus'],stock:'vtg',
-  v:[{l:'VertiGo · 38W RF',p:4999,m:5999,f:0,site:399,u:U('vertigo-vertical-laser-engraver'),gifts:['Free shipping']}]},
+ {id:'vtg',tier:'deal',th:'blue',img:'vtgs',rl:'vtg',name:'VertiGo 38W RF vertical laser for drinkware',tag:['coffee','Built for tumblers and bottles'],lb:['Cylindrical engraving','38W RF tube','Smart autofocus'],stock:'vtg',
+  v:[{l:'VertiGo · 38W RF',mn:'VertiGo 38W RF',p:4999,m:5999,f:0,site:399,vid:'44483820224546',u:U('vertigo-vertical-laser-engraver')}]},
  {id:'cob',tier:'deal',th:'blue',img:'c10',rl:'cob',name:'Cobra 10 and 14 CO₂ workshop lasers',tag:['tag','Save $2,000'],lb:['100W or 130W glass','300+ materials','Autofocus'],
-  v:[{l:'Cobra 10 · 100W',p:4999,m:6999,f:699,u:U('cobra-10-100w-co2-laser-engraver-cutter'),img:'c10',stock:'c10'},{l:'Cobra 14 · 130W',p:6999,m:8999,f:699,u:U('cobra-14-130w-co2-laser-engraver-cutter'),img:'c14',stock:'c14'}]},
+  v:[{l:'Cobra 10 · 100W',mn:'Cobra 10 100W',p:4999,m:6999,f:699,vid:'45095798046754',u:U('cobra-10-100w-co2-laser-engraver-cutter'),img:'c10',stock:'c10'},{l:'Cobra 14 · 130W',mn:'Cobra 14 130W',p:6999,m:8999,f:699,vid:'45095798341666',u:U('cobra-14-130w-co2-laser-engraver-cutter'),img:'c14',stock:'c14'}]},
  {id:'h09d',tier:'deal',th:'blue',img:'h9d',rl:'h09d',name:'Hydra 9 Dual 100W glass + 38W RF laser',tag:['tag','Save $2,000'],lb:['100W glass cutting','38W RF engraving','Dual tube'],stock:'h09d',
-  v:[{l:'Hydra 9 Dual · 100W + 38W RF',p:8999,m:10999,f:499,site:599,u:U('onelaser-hydra-9-laser-engraving-machine')}]},
+  v:[{l:'Hydra 9 Dual · 100W + 38W RF',mn:'Hydra 9 Dual',p:8999,m:10999,f:499,site:599,vid:'43784477573154',u:U('onelaser-hydra-9-laser-engraving-machine')}]},
  {id:'g2p',tier:'deal',th:'blue',img:'h9g2',rl:'g2p',name:'Hydra Gen2 Pro 70W RF industrial laser',tag:['tag','Save $2,000'],lb:['70W RF tube','2,000 mm/s','4G acceleration'],
-  v:[{l:'Hydra 9 Pro',p:9999,m:11999,f:499,site:599,u:U('hydra-9-gen-2-70w-rf-co2-dual-laser-machine','44745765617698'),img:'h9g2',stock:'h09p'},{l:'Hydra 13 Pro',p:11999,m:13999,f:599,site:699,u:U('hydra-13-gen-2-70w-rf-co2-dual-laser-machine','44745769123874'),img:'h13g2',stock:'h13p'},{l:'Hydra 16 Pro',p:12999,m:14999,f:699,u:U('hydra-16-gen-2-70w-rf-co2-dual-laser-machine','44745771122722'),img:'h16g2',stock:'h16p'}]}];
-const LAST=[{n:'Hydra 7 80W glass tube laser',img:'h7g',p:5999,m:7999,f:499,u:U('onelaser-hydra-7-cabinet-dual-laser-system-with-80-glass-tube-and-38w-rf-metal-tube'),stock:'h07g'},{n:'Hydra 16 Dual 150W glass + 38W RF laser',img:'h16d',p:11999,m:13999,f:699,u:U('onelaser-hydra-16-cabinet-dual-laser-system-with150w-glass-tube-and-38w-rf-metal-tube'),stock:'h16d'}];
+  v:[{l:'Hydra 9 Pro',mn:'Hydra 9 Pro',p:9999,m:11999,f:499,site:599,vid:'44745765617698',u:U('hydra-9-gen-2-70w-rf-co2-dual-laser-machine','44745765617698'),img:'h9g2',stock:'h09p'},{l:'Hydra 13 Pro',mn:'Hydra 13 Pro',p:11999,m:13999,f:599,site:699,vid:'44745769123874',u:U('hydra-13-gen-2-70w-rf-co2-dual-laser-machine','44745769123874'),img:'h13g2',stock:'h13p'},{l:'Hydra 16 Pro',mn:'Hydra 16 Pro',p:12999,m:14999,f:699,vid:'44745771122722',u:U('hydra-16-gen-2-70w-rf-co2-dual-laser-machine','44745771122722'),img:'h16g2',stock:'h16p'}]}];
+const LAST=[{n:'Hydra 7 80W glass tube laser',mn:'Hydra 7 80W',img:'h7g',p:5999,m:7999,f:499,vid:'43519835439138',u:U('onelaser-hydra-7-cabinet-dual-laser-system-with-80-glass-tube-and-38w-rf-metal-tube'),stock:'h07g'},{n:'Hydra 16 Dual 150W glass + 38W RF laser',mn:'Hydra 16 Dual',img:'h16d',p:11999,m:13999,f:699,vid:'43551549587490',u:U('onelaser-hydra-16-cabinet-dual-laser-system-with150w-glass-tube-and-38w-rf-metal-tube'),stock:'h16d'}];
 const FEAT={name:'Hydra Gen2 Hybrid CO₂ glass + RF industrial laser',desc:'Glass tube cutting and 38W RF fine engraving in one production machine, for batch work across wood, acrylic, leather, glass and coated metal.',lb:['Up to 150W glass','38W RF','2,000 mm/s'],
- v:[{l:'Hydra 9 Hybrid · 100W + 38W RF',p:10999,f:599,img:'h9g2',stock:'hy09',u:U('hydra-9-gen-2-70w-rf-co2-dual-laser-machine','44745765650466')},{l:'Hydra 13 Hybrid · 130W + 38W RF',p:12999,f:699,img:'h13g2',stock:'hy13',u:U('hydra-13-gen-2-70w-rf-co2-dual-laser-machine','44745769156642')},{l:'Hydra 16 Hybrid · 150W + 38W RF',p:13999,f:699,img:'h16g2',stock:'hy16',u:U('hydra-16-gen-2-70w-rf-co2-dual-laser-machine','44745771155490')}]};
-const BENTO=[['big','super',3000,'Hydra 7 Pro','First 14 units','h7g2','#p-h07'],['big','super',2000,'Cobra 8 90W','90W glass tube','c8','#p-c08'],['big','super',1000,'XRF 38W RF','Plus free Air Assist box','xrf','#p-xrf'],
- ['sm','deal',2000,'Hydra Gen2 Pro','09, 13 and 16','h9g2','#p-g2p'],['sm','deal',2000,'Hydra 9 Dual','Glass + RF','h9d','#p-h09d'],['sm','deal',2000,'Cobra 10 and 14','Up to 130W','c14','#p-cob'],['sm','deal',1000,'VertiGo','Plus free shipping','vtg','#p-vtg']];
+ v:[{l:'Hydra 9 Hybrid · 100W + 38W RF',mn:'Hydra 9 Hybrid',p:10999,f:599,img:'h9g2',stock:'hy09',vid:'44745765650466',u:U('hydra-9-gen-2-70w-rf-co2-dual-laser-machine','44745765650466')},{l:'Hydra 13 Hybrid · 130W + 38W RF',mn:'Hydra 13 Hybrid',p:12999,f:699,img:'h13g2',stock:'hy13',vid:'44745769156642',u:U('hydra-13-gen-2-70w-rf-co2-dual-laser-machine','44745769156642')},{l:'Hydra 16 Hybrid · 150W + 38W RF',mn:'Hydra 16 Hybrid',p:13999,f:699,img:'h16g2',stock:'hy16',vid:'44745771155490',u:U('hydra-16-gen-2-70w-rf-co2-dual-laser-machine','44745771155490')}]};
+/* [size, tier, $ off, name, note, scene, anchor, model shown in the photo, free shipping] */
+const BENTO=[['big','super',3000,'Hydra 7 Pro','First 14 units','h7g2','#p-h07','Hydra 7 Pro'],['big','super',2000,'Cobra 8 90W','90W glass tube','c8','#p-c08','Cobra 8 90W'],['big','super',1000,'XRF 38W RF','Plus free Air Assist box','xrff','#p-xrf','XRF 38W RF',1],
+ ['sm','deal',2000,'Hydra Gen2 Pro','9, 13 and 16','h9g2','#p-g2p','Hydra 9 Pro'],['sm','deal',2000,'Hydra 9 Dual','Glass + RF','h9d','#p-h09d','Hydra 9 Dual'],['sm','deal',2000,'Cobra 10 and 14','Up to 130W','c14','#p-cob','Cobra 14 130W'],['sm','deal',1000,'VertiGo','Drinkware laser','vtgs','#p-vtg','VertiGo 38W RF',1]];
 const PROJ=[['product-walnut-serving-board','Personalized serving board','XRF 38W RF'],['product-rocks-glass','Whiskey glass set','XRF 38W RF'],['home-project-etsy-whiskey-decanter-gift-set','Whiskey decanter gift set','XRF 38W RF'],['home-project-etsy-holiday-ornament-collection','Holiday ornament collection','XRF 38W RF'],['home-project-vertigo-event-tumbler-batch','Event tumbler batch','VertiGo'],['home-project-etsy-realtor-closing-gift-set','Closing gift set','XRF 38W RF'],['home-project-walnut-mountain-wall','Mountain feature wall','Hydra'],['product-custom-tumbler','Custom tumbler','VertiGo'],['home-project-batch-leather-gifts','Batch leather gift set','XRF 38W RF'],['home-project-large-acrylic-sign','Layered acrylic wall sign','Cobra'],['product-leather-patch-cap','Leather patch cap','XRF 38W RF'],['home-project-layered-city-map','Layered city map','Hydra']];
 const ACC={acc:[['OneLaser Air Assist Control, Dual Mode Airflow',299.99,'lQDPJxo8d4MrtenND4zNE4iwYCxEbs-yL6sITkLfo74fAA_5000_3980.jpg','air-assist-for-laser-engraver-cutter'],['Automatic Conveyor Feeder for OneLaser XRF',999,'9beab4683ad286661f4bb3a0568b2f8a.png','onelaser-automatic-conveyor-feeder'],['OneLaser X Series Riser Base',599,'839d9e84510a0900681b9fc541852466.png','onelaser-x-series-riser-base'],['OneLaser Chiller for Hydra and Cobra Glass Tube',699,'CW5200_Industrial_Chiller.png','onelaser-industrial-chiller-for-hydra-laser-engraver'],['PiBurn Lite Rotary for OneLaser',499,'PBL_main.0.png','piburn-lite-for-onelaser'],['FiltraBox Micro Compact Filtration System',1995,'4_9de31b3c-4d90-447f-9ff5-d5901da89c46.png','filtrabox-micro']],
  mat:[['MakerDepot 1/8" Mirror Acrylic Sheets, 4 Pack',35.99,'maker-depot-mirror-acrylic-sheets-pink-mirror-1.webp','1-8-mirror-acrylic-sheets-12-12-4-pack-for-laser-engraving-cutting'],['MakerDepot 1/8" Glitter Acrylic Sheets, 4 Pack',39.99,'glitter-acrylic-sheets-gold-glitter-cast-acrylic-four-pack.webp','1-8-glitter-acrylic-sheets-12-12-4-pack-for-laser-engraving-cutting'],['MakerDepot 1/8" Frosted Matte Acrylic, 4 Pack',35.99,'32_ca0658c8-9a39-49be-a5a7-6f8f345a1d07.webp','1-8-frosted-matte-acrylic-sheets-12-12-4-pack-for-laser-engraving-cutting'],['MakerDepot 1/8" Translucent Acrylic Sheets, 4 Pack',29.99,'6_18676b7d-35f3-4ed8-9c3c-e9fed69a30cd.webp','1-8-translucent-acrylic-sheets-12-12-4-pack-for-laser-engraving-cutting'],['MakerDepot 1.0mm No Foam Leatherette, 5 Pack',59,'1_f01ba7dc-7c51-462c-b2eb-65ff724cb0e3.webp','makerdepot-1-0mm-no-foam-leatherette-sheets-12-20-5-pack-for-laser-engraving-cutting'],['MakerDepot Carbon Fiber Leatherette, 5 Pack',64.9,'1_9b86f9fa-bdf9-4b66-87ad-892f54e34912.webp','makerdepot-carbon-fiber-leatherette-sheets-12-20-5-pack-for-laser-engraving-cutting']],
@@ -984,7 +1188,19 @@ const WK=[{n:'Early access',d:'Nov 6 to Nov 9',s:'2026-11-06',e:'2026-11-10',t:'
 /* ===== render helpers ===== */
 const sel={};
 const fin=`<div><i class="ph ph-credit-card"></i><span>Lease to own financing with <a href="https://www.1laser.com/pages/financing" ${ext}>Clicklease</a></span></div>`;
-const ship=v=>`<div><i class="ph ph-truck"></i><span>${v.f===0?'<b>Free shipping</b>':'Shipping '+$(v.f)}${v.site&&v.site>v.f?` <s style="opacity:.5">${$(v.site)}</s>`:''}</span></div>`;
+const ship=v=>`<div${v.f===0?' class="fsr"':''}><i class="ph${v.f===0?'-fill':''} ph-truck"></i><span>${v.f===0?'<b>FREE SHIPPING</b>':'Shipping '+$(v.f)}${v.site&&v.site>v.f?` <s style="opacity:.5">${$(v.site)}</s>`:''}</span></div>`;
+/* quick checkout: Shopify cart links. BUY goes straight to checkout, ADD drops it in the cart */
+const SHOP='https://www.1laser.com';
+const BUY=ids=>`${SHOP}/cart/${ids.map(i=>i+':1').join(',')}`;
+const ADD=ids=>ids.length>1?`${SHOP}/cart/${ids.map(i=>i+':1').join(',')}?storefront=true`:`${SHOP}/cart/add?id=${ids[0]}&quantity=1`;
+const LIVE=()=>new Date()>=LAUNCH||/[?&]live=1/.test(location.search);
+const FSB='<span class="fsb"><i class="ph-fill ph-truck"></i>Free shipping</span>';
+const MP=(n,s,note)=>`<div class="mp${note?' mp--note':''}"><b>${n}</b>${s?`<small>${s}</small>`:''}</div>`;
+const upOn={};
+/* buy buttons: before launch they collect leads instead of sending people to a pre-sale price */
+function acts(o){const sm=o.sm?' sm':'';
+ if(o.always||LIVE())return `<div class="acts"><a class="btn primary${sm}" href="${BUY(o.ids)}" data-buy="${o.n}" data-val="${o.v}"><i class="ph-bold ph-lightning"></i>Buy now</a><a class="btn light${sm}" href="${ADD(o.ids)}" data-add="${o.n}" data-val="${o.v}">Add to cart</a></div><div class="help"><a href="${o.u}" ${ext}>Full specs<i class="ph-bold ph-arrow-up-right"></i></a><button type="button" data-lead="${o.n}" data-call="1"><i class="ph ph-headset"></i>Talk to a laser expert</button></div>`;
+ return `<div class="acts"><button class="btn primary${sm}" type="button" data-lead="${o.n}"><i class="ph-bold ph-bell-ringing"></i>Notify me Nov 10</button><a class="btn light${sm}" href="${o.u}" ${ext}>Full specs</a></div><div class="help"><span><i class="ph ph-clock"></i>Deal opens Nov 10. Early access gets it 24h sooner.</span></div>`;}
 function stockRow(key){const s=STOCK[key]||{us:0,tr:0};
  if(s.us>0)return `<div><i class="ph ph-package"></i><span><b>${s.us} in stock</b> in Lake Forest, CA${s.tr?` · ${s.tr} more arriving${ETA[key]?' by '+ETA[key]:''}`:''}</span></div>`;
  return `<div><i class="ph ph-airplane-tilt"></i><span class="amb">Next shipment of ${s.tr} arriving${ETA[key]?' by '+ETA[key]:''} · <a href="https://www.1laser.com/pages/pre-order-backorder-policy" ${ext}>backorder</a></span></div>`;}
@@ -993,6 +1209,7 @@ function stockPill(key,first){const s=STOCK[key]||{us:0,tr:0};
  const tot=s.us+s.tr;
  if(s.us>0)return `<div class="stk"><div class="row"><i class="ph-fill ph-check-circle"></i><span><b>${s.us} in stock</b> in our U.S. warehouse</span></div><div class="bar"><div class="tr"><i style="width:${Math.max(6,s.us/Math.max(tot,s.us)*100)}%"></i></div></div><span class="caption-5 muted">${s.tr?`${s.tr} more on the way${ETA[key]?', landing '+ETA[key]:''}`:'No restock after these sell'}</span></div>`;
  return `<div class="stk"><div class="row amb"><i class="ph-fill ph-airplane-tilt"></i><span><b>${s.tr} arriving</b>${ETA[key]?' by '+ETA[key]:' soon'}</span></div><span class="caption-5 muted">Reserve yours now. Orders ship in sequence from the next shipment.</span></div>`;}
+const price1=(p,v)=>p.stage&&14-H07_SOLD<=0?v.p2:v.p;
 function apc(p){
  const i=sel[p.id]??(p.def||0),v=p.v[i],r=RL[p.rl]||[],img=v.img||p.img,sk=v.stock||p.stock;
  const opts=p.v.map((x,j)=>`<option value="${j}" ${j===i?'selected':''}>${x.l}</option>`).join('');
@@ -1000,30 +1217,31 @@ function apc(p){
  if(p.stage){const left=Math.max(0,14-H07_SOLD),s1=left>0;
   price=`<div class="stg"><div class="${s1?'on':''}"><span class="caption-4 muted">First 14 units</span><div class="heading-6 num">${$(v.p)}</div></div><div class="${s1?'':'on'}"><span class="caption-4 muted">Unit 15 onward</span><div class="heading-6 num">${$(v.p2)}</div></div></div>
   <div class="pb"><div><span class="caption-5 muted">You save</span><span class="saved">${$(v.m-(s1?v.p:v.p2))} off MSRP</span></div><div class="sep"></div><div><span class="caption-5 muted">MSRP</span><span class="title-2 ms num">${$(v.m)}</span></div></div>`;
- }else price=`<div class="pb"><div><span class="caption-5 muted">Black Friday price</span><span class="heading-5 num">${$(v.p)}</span><span class="saved">Save ${$(v.m-v.p)}${v.gifts&&v.gifts.length>1?' + gifts':''}</span></div><div class="sep"></div><div><span class="caption-5 muted">MSRP</span><span class="heading-5 ms num">${$(v.m)}</span></div></div>`;
+ }else price=`<div class="pb"><div><span class="caption-5 muted">Black Friday price</span><span class="heading-5 num">${$(v.p)}</span><span class="saved">Save ${$(v.m-v.p)}${v.gifts&&v.gifts.length>1?' + gifts':''}</span>${v.f===0?'<span class="fsl"><i class="ph-fill ph-truck"></i>+ Free shipping</span>':''}</div><div class="sep"></div><div><span class="caption-5 muted">MSRP</span><span class="heading-5 ms num">${$(v.m)}</span></div></div>`;
  return `${p.ttl?`<h3 class="heading-3" style="text-align:center;margin-bottom:var(--s400)">${p.ttl}</h3>`:''}<div class="stage">
-  <div class="hero ${p.th}">${SCENE(img,'22% 50%',p.name.replace(/™/g,''))}<span class="tag ${p.tier==='super'?'':'blue'}"><i class="ph-fill ph-${p.tag[0]}"></i>${p.tag[1]}</span>
+  <div class="hero ${p.th}">${SCENE(img,'22% 50%',v.mn+(v.shown?' '+v.shown.toLowerCase():''),MP(v.mn,v.shown||p.lb.slice(0,2).join(' · '),!!v.shown))}<div class="tags"><span class="tag ${p.tier==='super'?'':'blue'}"><i class="ph-fill ph-${p.tag[0]}"></i>${p.tag[1]}</span>${v.f===0?FSB:''}</div>
    <div class="info">
-    <div><span class="tiertag ${p.tier}" style="margin-bottom:8px">${p.tier==='super'?'<i class="ph-fill ph-fire"></i>Super Deal':'<i class="ph-fill ph-tag"></i>BFCM Deal'}</span><h3 class="heading-6">${p.name}</h3><div class="lbls" style="margin-top:8px">${p.lb.map(x=>`<span>${x}</span>`).join('')}</div></div>
+    <div><span class="tiertag ${p.tier}" style="margin-bottom:8px">${p.tier==='super'?'<i class="ph-fill ph-fire"></i>Black Friday Super Deal':'<i class="ph-fill ph-tag"></i>Black Friday Deal'}</span><h3 class="heading-6">${p.name}</h3><div class="lbls" style="margin-top:8px">${p.lb.map(x=>`<span>${x}</span>`).join('')}</div></div>
     <div class="sel"><label class="sr-only" for="v-${p.id}">Model</label><select id="v-${p.id}" data-p="${p.id}" ${p.v.length<2?'disabled':''}>${opts}</select><i class="ph-bold ph-caret-down"></i></div>
     ${price}
     ${v.gifts?`<div class="gifts">${v.gifts.map(g=>`<div><i class="ph-fill ph-gift"></i>${g}</div>`).join('')}</div>`:''}
     <div class="meta">${stockRow(sk)}${ship(v)}${fin}</div>
-    <div class="acts"><a class="btn primary" href="${v.u}" ${ext}>Add to cart</a><a class="btn light" href="${v.u}" ${ext}>Full specs</a></div>
+    ${p.up?`<label class="up"><input type="checkbox" data-up="${p.id}" ${upOn[p.id]?'checked':''}><span><b>Complete the setup</b>+ ${p.up.n} ${$0(p.up.p)}, regular price${upOn[p.id]?` · total ${$0(price1(p,v)+p.up.p)}`:''}</span></label>`:''}
+    ${acts({ids:[v.vid,...(p.up&&upOn[p.id]?[p.up.id]:[])],u:v.u,n:v.mn,v:price1(p,v)+(p.up&&upOn[p.id]?p.up.p:0)})}
    </div></div>
   <div class="reels"><div class="rhead"><span class="title-2">Real projects on this machine</span><div class="rbar"><button class="rentry" data-set="${p.rl}" data-k="0"><i class="ph-fill ph-play"></i>Watch all</button><div class="rarr"><button data-rp="${p.id}" aria-label="Previous videos"><i class="ph-bold ph-caret-left"></i></button><button data-rn="${p.id}" aria-label="Next videos"><i class="ph-bold ph-caret-right"></i></button></div></div></div><div class="rview"><div class="rtrack" data-r="${p.id}" data-i="0">${r.map((x,k)=>`<div class="reel" data-set="${p.rl}" data-k="${k}" role="button" tabindex="0" aria-label="Play video: ${x[1].replace(/"/g,'')}"><div class="thumb"><img src="https://i.ytimg.com/vi/${x[0]}/maxresdefault.jpg" onerror="this.onerror=null;this.src='https://i.ytimg.com/vi/${x[0]}/hqdefault.jpg'" alt="" loading="lazy"><span class="pl"><i class="ph-fill ph-play"></i></span></div><div class="cp"><p class="body-5">${x[1]}</p><div class="us caption-4"><i>${ini(x[2])}</i>@${x[2].replace(/\s+/g,'')}</div></div></div>`).join('')}</div></div></div>
  </div>`;
 }
 const ALLP=[...SUPER,...DEALS];
 function renderCards(){superCards.innerHTML=SUPER.map(p=>`<section class="apc" id="p-${p.id}">${apc(p)}</section>`).join('');dealCards.innerHTML=DEALS.map(p=>`<section class="apc" id="p-${p.id}">${apc(p)}</section>`).join('');ALLP.forEach(p=>slide(p.id,0));}
-function renderLast(){lastUnits.innerHTML=LAST.map(b=>`<div class="bc"><div class="im">${SCENE(b.img,'30% 50%',b.n)}<span class="tag red">Last 1 in stock</span></div><div><h3 class="title-2">${b.n}</h3><div class="pb" style="margin-top:12px"><div><span class="caption-5 muted">Black Friday price</span><span class="heading-5 num">${$(b.p)}</span><span class="saved">Save ${$(b.m-b.p)}</span></div><div class="sep"></div><div><span class="caption-5 muted">MSRP</span><span class="heading-5 ms num">${$(b.m)}</span></div></div></div><div class="meta">${stockRow(b.stock)}${ship(b)}</div><div class="acts"><a class="btn primary sm" href="${b.u}" ${ext}>Add to cart</a><a class="btn light sm" href="${b.u}" ${ext}>Full specs</a></div></div>`).join('');}
-function renderFeat(){const i=sel.feat??0,v=FEAT.v[i];fx.innerHTML=`<div class="fx__art">${SCENE(v.img,'30% 50%','Hydra Gen2 Hybrid')}<span class="tag"><i class="ph-fill ph-star"></i>Best seller</span></div>
+function renderLast(){lastUnits.innerHTML=LAST.map(b=>`<div class="bc"><div class="im">${SCENE(b.img,'30% 50%',b.n)}<span class="tag red">Last 1 in stock</span>${MP(b.mn)}</div><div><h3 class="title-2">${b.n}</h3><div class="pb" style="margin-top:12px"><div><span class="caption-5 muted">Black Friday price</span><span class="heading-5 num">${$(b.p)}</span><span class="saved">Save ${$(b.m-b.p)}</span></div><div class="sep"></div><div><span class="caption-5 muted">MSRP</span><span class="heading-5 ms num">${$(b.m)}</span></div></div></div><div class="meta">${stockRow(b.stock)}${ship(b)}</div>${acts({ids:[b.vid],u:b.u,n:b.mn,v:b.p,sm:1})}</div>`).join('');}
+function renderFeat(){const i=sel.feat??0,v=FEAT.v[i];fx.innerHTML=`<div class="fx__art">${SCENE(v.img,'30% 50%',v.mn)}<span class="tag"><i class="ph-fill ph-star"></i>Best seller</span>${MP(v.mn,'Glass + 38W RF')}</div>
  <div class="fx__info"><div><h3 class="heading-5">${FEAT.name}</h3><p class="body-6 muted" style="margin-top:8px">${FEAT.desc}</p><div class="lbls" style="margin-top:12px">${FEAT.lb.map(x=>`<span>${x}</span>`).join('')}</div></div>
  <div class="sel"><label class="sr-only" for="v-feat">Model</label><select id="v-feat" data-p="feat">${FEAT.v.map((x,j)=>`<option value="${j}" ${j===i?'selected':''}>${x.l}</option>`).join('')}</select><i class="ph-bold ph-caret-down"></i></div>
  <div><span class="caption-5 muted">Regular price</span><div class="heading-4 num">${$(v.p)}</div><span class="caption-5 muted">Not discounted during Black Friday</span></div>
  <div class="meta">${stockRow(v.stock)}${ship(v)}${fin}</div>
- <div class="acts" style="margin-top:auto"><a class="btn primary" href="${v.u}" ${ext}>Add to cart</a><a class="btn light" href="${v.u}" ${ext}>Full specs</a></div></div>`;}
-function renderBento(){bento.innerHTML=BENTO.map(b=>`<a class="tl ${b[0]}" href="${b[6]}"><div class="media">${SCENE(b[5])}</div><div class="body"><div class="row"><span class="tiertag ${b[1]}">${b[1]==='super'?'<i class="ph-fill ph-fire"></i>Super Deal':'<i class="ph-fill ph-tag"></i>BFCM Deal'}</span><span class="caption-4 muted">${b[4]}</span></div><div class="amt" style="margin-top:8px"><span class="${b[0]==='big'?'heading-3':'heading-5'} num" data-count="${b[2]}">$0</span><small>off</small></div><div class="row"><span class="title-3">${b[3]}</span><i class="ph-bold ph-arrow-right gold"></i></div></div></a>`).join('');}
+ <div style="margin-top:auto">${acts({ids:[v.vid],u:v.u,n:v.mn,v:v.p,always:1})}</div></div>`;}
+function renderBento(){bento.innerHTML=BENTO.map(b=>`<a class="tl ${b[0]}" href="${b[6]}"><div class="media">${SCENE(b[5],'',b[7])}${b[8]?FSB:''}${MP(b[7])}</div><div class="body"><div class="row"><span class="tiertag ${b[1]}">${b[1]==='super'?'<i class="ph-fill ph-fire"></i>Super Deal':'<i class="ph-fill ph-tag"></i>Black Friday Deal'}</span>${b[0]==='big'?`<span class="caption-4 muted">${b[4]}</span>`:''}</div><div class="amt" style="margin-top:8px"><span class="${b[0]==='big'?'heading-3':'heading-5'} num" data-count="${b[2]}">$0</span><small>off</small></div><div class="row"><span class="title-3">${b[3]}${b[0]==='sm'?`<small class="caption-4 muted" style="display:block">${b[4]}</small>`:''}</span><i class="ph-bold ph-arrow-right gold"></i></div></div></a>`).join('');}
 function renderProj(){pw.innerHTML=PROJ.slice(0,8).map(p=>`<figure class="pj" style="margin:0"><div class="ph"><img src="assets/projects/${p[0]}.webp" alt="${p[1]}" loading="lazy"></div><figcaption><span class="title-3" style="display:block">${p[1]}</span><span class="mk caption-4"><i class="ph-fill ph-lightning"></i>Made on ${p[2]}</span></figcaption></figure>`).join('');}
 function renderStories(){vg.innerHTML=STORIES.map(c=>`<div class="vc"><div class="im" data-yt="${c[0]}" data-cap="${c[1]}" role="button" tabindex="0" aria-label="Play ${c[1]}"><img src="https://i.ytimg.com/vi/${c[0]}/maxresdefault.jpg" onerror="this.onerror=null;this.src='https://i.ytimg.com/vi/${c[0]}/hqdefault.jpg'" alt="" loading="lazy"><span class="pl"><i class="ph-fill ph-play"></i></span></div><div class="bd"><h3 class="title-2">${c[1]}</h3><p class="body-6 muted">${c[2]}</p><a class="link" href="https://www.youtube.com/watch?v=${c[0]}" ${ext}>Watch on YouTube <i class="ph-bold ph-arrow-up-right"></i></a></div></div>`).join('');}
 let aSel='acc';
@@ -1033,8 +1251,8 @@ function renderW(){const n=new Date();tlne.innerHTML=WK.map(x=>{const live=n>=pd
 
 /* finder */
 const FINDER={
- xrf:{n:'XRF 38W RF',why:'A 38W RF desktop laser at up to 1,200 mm/s with true 3G acceleration, for leather, wood, acrylic, glass and coated metal. $4,499 with a free Air Assist box and free shipping.',img:'xrf',a:'#p-xrf',p:'$4,499'},
- vtg:{n:'VertiGo 38W RF',why:'Built for drinkware. Loads a tumbler upright, focuses itself and engraves around the full cup. $4,999 with free shipping.',img:'vtg',a:'#p-vtg',p:'$4,999'},
+ xrf:{n:'XRF 38W RF',why:'A 38W RF desktop laser at up to 1,200 mm/s with true 3G acceleration, for leather, wood, acrylic, glass and coated metal. $4,499 with a free Air Assist box and free shipping.',img:'xrff',a:'#p-xrf',p:'$4,499'},
+ vtg:{n:'VertiGo 38W RF',why:'Built for drinkware. Loads a tumbler upright, focuses itself and engraves around the full cup. $4,999 with free shipping.',img:'vtgs',a:'#p-vtg',p:'$4,999'},
  c08:{n:'Cobra 8 90W',why:'A 90W glass tube for wood and acrylic cutting in a workshop footprint, with autofocus and 300+ supported materials. $3,999, save $2,000.',img:'c8',a:'#p-c08',p:'$3,999'},
  c14:{n:'Cobra 14 130W',why:'A 130W glass tube and a larger bed for big signs and batch cutting. $6,999, save $2,000.',img:'c14',a:'#p-cob',p:'$6,999'},
  h07:{n:'Hydra 7 Pro',why:'70W RF at 2,000 mm/s with 4G acceleration, built for leather, patches, tags and production runs. $7,999 for the first 14 units.',img:'h7g2',a:'#p-h07',p:'$7,999'},
@@ -1050,7 +1268,7 @@ function pick(m,s,b){
 function renderFinder(){const f=new FormData(fq),m=f.get('make'),s=f.get('space'),b=f.get('budget');
  if(!m||!s||!b){fr.innerHTML=`<div class="empty"><i class="ph ph-crosshair"></i><span class="title-2">Your match appears here</span><span class="body-6">Answer all three questions.</span></div>`;return;}
  const k=pick(m,s,b),x=FINDER[k];
- fr.innerHTML=`<div class="im">${SCENE(x.img,'30% 50%',x.n)}</div><div><span class="caption-3 gold">Our pick for you</span><h3 class="heading-5" style="margin-top:4px">${x.n}</h3><p class="body-6 muted" style="margin-top:8px">${x.why}</p></div><div class="acts"><a class="btn primary sm" href="${x.a}">See the deal · ${x.p}</a><a class="btn ghost sm" href="https://www.1laser.com/products/sales-consultation-call" ${ext}>Confirm on a call</a></div>`;}
+ fr.innerHTML=`<div class="im">${SCENE(x.img,'30% 50%',x.n)}${/free shipping/.test(x.why)?FSB:''}${MP(x.n)}</div><div><span class="caption-3 gold">Our pick for you</span><h3 class="heading-5" style="margin-top:4px">${x.n}</h3><p class="body-6 muted" style="margin-top:8px">${x.why}</p></div><div class="acts"><a class="btn primary sm" href="${x.a}">See the deal · ${x.p}</a><a class="btn ghost sm" href="https://www.1laser.com/products/sales-consultation-call" ${ext}>Confirm on a call</a></div>`;}
 fq.addEventListener('change',()=>{renderFinder();fitAll(fr)});
 
 /* countdowns */
@@ -1086,13 +1304,16 @@ addEventListener('keydown',e=>{
  if(!vv.classList.contains('on'))return;if(e.key==='Escape')closeV();if(e.key==='ArrowRight')vv.querySelector('.nx').click();if(e.key==='ArrowLeft')vv.querySelector('.pv').click()});
 document.addEventListener('change',e=>{const s=e.target.closest('select[data-p]');if(!s)return;sel[s.dataset.p]=+s.value;if(s.dataset.p==='feat'){renderFeat();fitAll(fx);fx.querySelector('select').focus()}else{const p=ALLP.find(x=>x.id===s.dataset.p);const sec=document.getElementById('p-'+p.id);sec.innerHTML=apc(p);slide(p.id,0);fitAll(sec);sec.querySelector('select').focus()}});
 
-/* forms */
-document.querySelectorAll('[data-form]').forEach(f=>f.addEventListener('submit',e=>{
- e.preventDefault();const inp=f.querySelector('input'),row=f.querySelector('.form__row'),msg=f.querySelector('.msg'),v=inp.value.trim();
- const bad=!v?'Enter your email address.':!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(v)?'That email looks incomplete. Check the address and try again.':'';
+/* forms: inline signups go to Klaviyo like the popup */
+document.querySelectorAll('[data-form]').forEach(f=>f.addEventListener('submit',async e=>{
+ e.preventDefault();const inp=f.querySelector('input'),row=f.querySelector('.form__row'),msg=f.querySelector('.msg'),btn=f.querySelector('button'),v=inp.value.trim();
+ const bad=!v?'Enter your email address.':!EMAIL.test(v)?'That email looks incomplete. Check the address and try again.':'';
  row.classList.toggle('err',!!bad);msg.className='msg '+(bad?'err':'ok');inp.setAttribute('aria-invalid',!!bad);
  if(bad){msg.textContent=bad;inp.focus();return}
- msg.textContent=`Thanks. We'll email ${v} before early access opens.`;f.reset();
+ btn.disabled=true;msg.textContent='Sending…';const ok=await submitLead({email:v,src:f.dataset.src});btn.disabled=false;
+ msg.className='msg '+(ok?'ok':'err');
+ msg.textContent=ok?(f.dataset.src==='footer'?`Thanks. ${v} is subscribed.`:`You are on the early access list. We will email ${v} before doors open.`):'We could not save that just now. Try again, or call us at 626 800 4130.';
+ if(ok)f.reset();
 }));
 
 /* tagline reveal */
@@ -1148,9 +1369,79 @@ function countUp(el){const to=+el.dataset.count,t0=performance.now(),d=1200;if(r
   requestAnimationFrame(loop)}
  document.addEventListener('visibilitychange',()=>{if(!document.hidden&&run)loop()});loop();
 })();
+/* ===== conversion: lead capture (Klaviyo), quick checkout, sticky deal bar ===== */
+const EMAIL=/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
+const KL={co:'WcMKq4',list:'T6hLmh',rev:'2024-10-15'};   /* 1laser.com public Klaviyo key and the list its signup forms use */
+const dl=o=>{(window.dataLayer=window.dataLayer||[]).push(o)};
+const normPhone=v=>{const d=(v||'').replace(/\D/g,'');return d.length===10?'+1'+d:d.length===11&&d[0]==='1'?'+'+d:''};
+async function submitLead(d){
+ const h={'Content-Type':'application/json',accept:'application/json',revision:KL.rev},ph=normPhone(d.phone);
+ const post=(path,body)=>fetch(`https://a.klaviyo.com/client/${path}/?company_id=${KL.co}`,{method:'POST',headers:h,body:JSON.stringify(body)}).then(r=>r.ok).catch(()=>false);
+ const sub=post('subscriptions',{data:{type:'subscription',attributes:{custom_source:'BFCM 2026 landing page',profile:{data:{type:'profile',attributes:{email:d.email}}}},relationships:{list:{data:{type:'list',id:KL.list}}}}});
+ const ev=post('events',{data:{type:'event',attributes:{properties:{source:d.src||'page',interest:d.interest||'',wants_call:!!d.call,phone:d.phone||'',page:location.origin+location.pathname},metric:{data:{type:'metric',attributes:{name:'BFCM 2026 Lead'}}},profile:{data:{type:'profile',attributes:{email:d.email,...(ph?{phone_number:ph}:{}),properties:{bfcm2026_interest:d.interest||'',bfcm2026_wants_call:!!d.call}}}}}}});
+ const [a,b]=await Promise.all([sub,ev]),ok=a||b;
+ if(ok){try{localStorage.setItem('ol_bfcm_lead','1')}catch(e){}dl({event:'generate_lead',lead_source:d.src||'page',interest:d.interest||''})}
+ return ok;}
+const lm=document.getElementById('lm'),lmF=document.getElementById('lmF'),lmOk=document.getElementById('lmOk'),$id=x=>document.getElementById(x);
+const [lmE,lmPh,lmI,lmC,lmS,lmM,lmK,lmT,lmP]=['lmE','lmPh','lmI','lmC','lmS','lmM','lmK','lmT','lmP'].map($id);
+let lmLast=null,lmSrc='page';
+function openLead(o={}){if(!lm.hidden)return;lmLast=document.activeElement;lmSrc=o.src||'page';const n=o.n||'',call=!!o.call;
+ lmF.hidden=false;lmOk.hidden=true;lmM.textContent='';lmM.className='msg';lmS.disabled=false;
+ lmI.value=[...lmI.options].some(x=>x.text===n)?n:'';lmC.checked=call;
+ if(call){lmK.textContent='Free advice, no pressure';lmT.textContent='Talk to a laser expert';lmP.textContent=`Leave your number and a OneLaser laser expert will call you${n?' about the '+n:''}. Prefer to call now? 626 800 4130.`;lmS.textContent='Request a call'}
+ else if(!LIVE()){lmK.textContent='Black Friday Deals · Nov 10 to Nov 30';lmT.textContent=n?`Get the ${n} deal first`:'Get the deals first';lmP.textContent='Early access subscribers shop the Super Deals 24 hours before everyone else. We email you the moment doors open, with the real stock count.';lmS.textContent='Get early access'}
+ else{lmK.textContent='Black Friday Deals end Cyber Monday';lmT.textContent='Not ready today?';lmP.textContent='Get a reminder before Black Friday prices end, and a heads up when stock runs low on the machine you want.';lmS.textContent='Remind me'}
+ lm.hidden=false;document.body.style.overflow='hidden';requestAnimationFrame(()=>requestAnimationFrame(()=>lm.classList.add('on')));setTimeout(()=>(call?lmPh:lmE).focus(),80);dl({event:'bfcm_lead_open',lead_source:lmSrc})}
+function closeLead(){if(lm.hidden)return;lm.classList.remove('on');document.body.style.overflow='';setTimeout(()=>{lm.hidden=true},300);lmLast?.focus?.()}
+lmF.addEventListener('submit',async e=>{e.preventDefault();const email=lmE.value.trim(),phone=lmPh.value.trim(),call=lmC.checked;
+ const bad=!email?'Enter your email address.':!EMAIL.test(email)?'That email looks incomplete. Check it and try again.':call&&!normPhone(phone)?'Add a 10 digit U.S. phone number so our expert can call you.':phone&&!normPhone(phone)?'Enter a 10 digit U.S. phone number, or leave it blank.':'';
+ lmM.className='msg'+(bad?' err':'');lmM.textContent=bad;if(bad){(/phone/.test(bad)?lmPh:lmE).focus();return}
+ lmS.disabled=true;const lbl=lmS.textContent;lmS.textContent='Sending…';
+ const ok=await submitLead({email,phone,call,interest:lmI.value,src:lmSrc});
+ lmS.disabled=false;lmS.textContent=lbl;
+ if(!ok){lmM.className='msg err';lmM.textContent='We could not save that just now. Try again, or call us at 626 800 4130.';return}
+ lmF.hidden=true;lmOk.hidden=false;$id('lmOkP').textContent=call?`Thanks. A laser expert will call you at ${phone}.`:LIVE()?`We will remind ${email} before Black Friday prices end.`:`We will email ${email} before Black Friday Deals open.`;lmOk.querySelector('button').focus()});
+addEventListener('keydown',e=>{if(lm.hidden)return;if(e.key==='Escape')return closeLead();
+ if(e.key==='Tab'){const f=[...lm.querySelectorAll('button,input,select,a[href]')].filter(x=>x.offsetParent);const a=f[0],z=f[f.length-1];if(e.shiftKey&&document.activeElement===a){e.preventDefault();z.focus()}else if(!e.shiftKey&&document.activeElement===z){e.preventDefault();a.focus()}}});
+document.addEventListener('click',e=>{const t=e.target;
+ if(t.closest('[data-lmx]'))return closeLead();
+ const l=t.closest('[data-lead]');if(l){e.preventDefault();return openLead({n:l.dataset.lead,call:l.dataset.call,src:l.dataset.src||(l.closest('#sbar')?'sticky_bar':'card')})}
+ const b=t.closest('[data-buy],[data-add]');if(b)dl({event:b.dataset.buy?'begin_checkout':'add_to_cart',ecommerce:{currency:'USD',value:+b.dataset.val||0,items:[{item_name:b.dataset.buy||b.dataset.add,price:+b.dataset.val||0,quantity:1}]}});
+});
+/* the popup shows itself once per visit at most: exit intent on desktop, deep scroll on phones, or after a minute */
+const seenLead=()=>{try{return localStorage.getItem('ol_bfcm_lead')||sessionStorage.getItem('ol_bfcm_pop')}catch(e){return 1}};
+function autoPop(src){if(seenLead()||!lm.hidden||vv.classList.contains('on'))return;try{sessionStorage.setItem('ol_bfcm_pop','1')}catch(e){}openLead({src})}
+const tLoad=performance.now();
+if(fine)document.addEventListener('mouseout',e=>{if(!e.relatedTarget&&e.clientY<=4&&performance.now()-tLoad>8000)autoPop('exit_intent')});
+setTimeout(()=>autoPop('timer'),60000);
+let deep=false;addEventListener('scroll',()=>{if(deep||fine)return;if(scrollY>(document.documentElement.scrollHeight-innerHeight)*.55){deep=true;autoPop('scroll_depth')}},{passive:true});
+
+/* sticky deal bar: follows the product in view, one tap to checkout */
+const sbar=$id('sbar'),sbK=$id('sbK'),sbN=$id('sbN'),sbP=$id('sbP'),sbA=$id('sbA');let sbCur=null,heroIn=true,endIn=false;const ratios=new Map();
+function sbData(id){if(id==='fx'){const v=FEAT.v[sel.feat??0];return{n:v.mn,k:'Best seller · regular price',p:v.p,f:v.f,ids:[v.vid],always:1}}
+ const p=ALLP.find(x=>'p-'+x.id===id);if(!p)return null;const v=p.v[sel[p.id]??(p.def||0)],pr=price1(p,v),up=p.up&&upOn[p.id];
+ return{n:v.mn+(up?' + Auto Conveyor':''),k:p.tier==='super'?'Black Friday Super Deal':'Black Friday Deal',p:pr+(up?p.up.p:0),m:v.m+(up?p.up.p:0),f:v.f,ids:[v.vid,...(up?[p.up.id]:[])]}}
+function drawSb(){const d=sbCur&&sbData(sbCur);
+ if(!d){sbK.textContent='Black Friday Deals';sbN.textContent=LIVE()?'Up to $3,000 off · ends Cyber Monday':'Up to $3,000 off · opens Nov 10';sbP.innerHTML=FSB+'<span class="sbar__fs">XRF and VertiGo</span>';sbA.innerHTML='<a class="btn primary" href="#super">Shop the deals</a>';return}
+ sbK.textContent=d.k;sbN.textContent=d.n;sbP.innerHTML=`<b class="num">${$0(d.p)}</b>${d.m?`<s>${$0(d.m)}</s>`:''}${d.f===0?FSB:''}`;
+ sbA.innerHTML=d.always||LIVE()?`<a class="btn primary" href="${BUY(d.ids)}" data-buy="${d.n}" data-val="${d.p}"><i class="ph-bold ph-lightning"></i>Buy now</a>`:`<button class="btn primary" type="button" data-lead="${d.n}" data-src="sticky_bar"><i class="ph-bold ph-bell-ringing"></i>Notify me</button>`}
+function sbShow(){sbar.classList.toggle('on',!heroIn&&!endIn&&lm.hidden)}
+const sbo=new IntersectionObserver(es=>{es.forEach(e=>ratios.set(e.target,e.isIntersecting?e.intersectionRatio:0));let best=null,br=0;ratios.forEach((r,el)=>{if(r>br){br=r;best=el}});const id=br>.2?best.id:null;if(id!==sbCur){sbCur=id;drawSb()}},{threshold:[0,.2,.4,.6,.8]});
+new IntersectionObserver(es=>{heroIn=es[0].isIntersecting;sbShow()},{rootMargin:'-120px 0px 0px 0px'}).observe(document.querySelector('.kv'));
+const endEls=[document.querySelector('.final'),document.querySelector('.ft')],endMap=new Map();
+new IntersectionObserver(es=>{es.forEach(e=>endMap.set(e.target,e.isIntersecting));endIn=[...endMap.values()].some(Boolean);sbShow()}).observe(endEls[0]);
+new IntersectionObserver(es=>{es.forEach(e=>endMap.set(e.target,e.isIntersecting));endIn=[...endMap.values()].some(Boolean);sbShow()}).observe(endEls[1]);
+new MutationObserver(sbShow).observe(lm,{attributes:true,attributeFilter:['hidden']});
+document.addEventListener('change',e=>{const u=e.target.closest('[data-up]');if(u){upOn[u.dataset.up]=u.checked;const p=ALLP.find(x=>x.id===u.dataset.up),sec=$id('p-'+p.id);sec.innerHTML=apc(p);slide(p.id,0);fitAll(sec);sec.querySelector('[data-up]').focus()}
+ if(e.target.closest('select[data-p],[data-up]'))drawSb()});
+/* flip every button from "notify me" to "buy now" the moment the sale opens */
+let wasLive=LIVE();
+function syncLive(){const live=LIVE();document.querySelectorAll('[data-alt]').forEach(b=>{b.textContent=live?'Talk to a laser expert':'Get early access';if(live)b.dataset.call='1';else delete b.dataset.call});document.querySelectorAll('.lights').forEach(x=>x.classList.toggle('out',live))}
+setInterval(()=>{const l=LIVE();if(l!==wasLive){wasLive=l;renderCards();renderLast();renderFeat();fitAll();ratios.clear();document.querySelectorAll('.apc,#fx').forEach(el=>sbo.observe(el));drawSb();syncLive()}},5000);
+
 const io=new IntersectionObserver(es=>es.forEach(en=>{if(en.isIntersecting){en.target.classList.add('in');en.target.querySelectorAll('[data-count]').forEach(countUp);io.unobserve(en.target)}}),{rootMargin:'0px 0px -10% 0px'});
 
-renderBento();renderCards();renderLast();renderFeat();renderProj();renderA();renderFinder();fitAll();tick();setInterval(()=>{if(!document.hidden)tick()},1000);onScroll();
+renderBento();renderCards();renderLast();renderFeat();renderProj();renderA();renderFinder();fitAll();tick();document.querySelectorAll('.apc,#fx').forEach(el=>sbo.observe(el));drawSb();syncLive();setInterval(()=>{if(!document.hidden)tick()},1000);onScroll();
 document.querySelectorAll('.stag').forEach(g=>[...g.children].forEach((c,i)=>c.style.setProperty('--d',Math.min(i*70,560)+'ms')));
 document.querySelectorAll('.rv,.stag,.apc .stage').forEach(el=>{if(!el.classList.contains('stag'))el.classList.add('rv');io.observe(el)});
 </script>
