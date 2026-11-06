@@ -865,6 +865,19 @@ h1,h2,h3,h4,h5,h6,p{margin:0;text-wrap:pretty}h1,h2,h3,h4,h5,h6{text-wrap:balanc
 .szt td s{color:var(--t3);font-size:12px}
 @media(max-width:1080px){.csz__g{grid-template-columns:1fr}}
 @media(max-width:760px){.csz{padding:var(--s200)}.sz__r span{font-size:9px;right:3px;top:2px}}
+
+/* free gifts with product photos */
+.gifts{flex-direction:column;flex-wrap:nowrap;gap:var(--s75)}
+.gifts__h{display:flex;align-items:center;gap:6px;color:var(--gold);font-size:12px;line-height:16px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;font-style:italic}
+.gifts__h i{font-size:15px}
+.gifts .gifts__l{display:flex;flex-direction:column;align-items:stretch;gap:6px}
+.gifts .gift{display:flex;align-items:center;gap:10px}
+.gift img,.gift>i{flex:none;width:44px;height:44px;border-radius:8px;object-fit:contain;background:#f2f2f2;padding:3px}
+.gift>i{display:grid;place-items:center;font-size:20px;color:#7a5a1e;background:rgba(252,199,123,.9)}
+.gift span{flex:1;display:flex;flex-direction:column;min-width:0}
+.gift b{font-size:14px;line-height:18px;font-weight:600;color:#fff}
+.gift small{font-size:12px;line-height:16px;color:rgba(255,255,255,.6)}
+.gift em{flex:none;padding:2px 8px;border-radius:3px;background:var(--gold);color:#1a1200;font-size:11px;line-height:16px;font-weight:700;font-style:italic;text-transform:uppercase;letter-spacing:.06em}
 </style>
 </head>
 <body>
@@ -1091,7 +1104,7 @@ h1,h2,h3,h4,h5,h6,p{margin:0;text-wrap:pretty}h1,h2,h3,h4,h5,h6{text-wrap:balanc
   <details><summary>When does the sale run?<i class="ph ph-plus"></i></summary><div class="a body-3">Nov 10 through Cyber Monday, Nov 30, 2026, ending at 11:59 PM Pacific Time. Thanksgiving is Nov 26 and Black Friday Nov 27; prices are the same every day of the sale. Early access subscribers can shop the Super Deals 24 hours early. </div></details>
   <details><summary>Do I need a discount code?<i class="ph ph-plus"></i></summary><div class="a body-3">No. Black Friday prices are final and apply automatically. Discount codes, including creator codes, are paused during the sale and cannot be combined with Black Friday prices.</div></details>
   <details><summary>How does the Hydra 7 Pro price work?<i class="ph ph-plus"></i></summary><div class="a body-3">The first 14 units sell at $7,999 (MSRP $10,999, save $3,000). The moment unit 14 sells, the price moves to $8,999 for the remaining units. The counter on the product card shows how many of the first 14 are left.</div></details>
-  <details><summary>What is the difference between the two XRF bundles?<i class="ph ph-plus"></i></summary><div class="a body-3">Starter Bundle ($4,499): XRF 38W RF, a free Air Assist box and free shipping. Maker Bundle ($4,999): everything in the Starter Bundle plus a riser base and two material packs (acrylic and leather). Both are the same machine.</div></details>
+  <details><summary>What is the difference between the two XRF bundles?<i class="ph ph-plus"></i></summary><div class="a body-3">Starter Bundle ($4,499): XRF 38W RF, a free Air Assist Control and free shipping. Maker Bundle ($4,999): everything in the Starter Bundle plus a riser base and two material packs (acrylic and leather). Both are the same machine.</div></details>
   <details><summary>How many units are available?<i class="ph ph-plus"></i></summary><div class="a body-3">Every Black Friday Deal is available in limited quantity. When a model shows a number, that is how many units are in our Lake Forest, California warehouse right now, and we update it as they sell. Once a deal sells out, it is gone.</div></details>
   <details><summary>Why is a clearance machine cheaper, and is it still supported?<i class="ph ph-plus"></i></summary><div class="a body-3">Clearance models are being retired from the catalog to make room for the Gen2 line. They are new, boxed machines with full warranty, technical support and parts. The only thing that changes is that we will not build more of them.</div></details>
   <details><summary>What payment options are available?<i class="ph ph-plus"></i></summary><div class="a body-3">Card, PayPal and the other methods on our <a href="https://www.1laser.com/pages/payment-methods" target="_blank" rel="noopener">payment methods</a> page. Businesses can apply for lease to own financing through Clicklease; approval, rates and terms are set by the financing provider.</div></details>
@@ -1300,10 +1313,10 @@ const STORIES=[['WD5has9K3IY','A six figure laser business','How a firefighter b
 
 /* ===== products: prices from the 2026-11-05 pricing sheet ===== */
 const SUPER=[
- {id:'xrf',tier:'super',th:'red',img:'xrf',rl:'xrf',name:'XRF 38W RF desktop laser engraver and cutter',tag:['gift','Free Air Assist box'],lb:['38W RF tube','24" × 12" bed','1,200 mm/s'],def:1,stock:'xrf',
+ {id:'xrf',tier:'super',th:'red',img:'xrf',rl:'xrf',name:'XRF 38W RF desktop laser engraver and cutter',tag:['gift','Free Air Assist Control'],lb:['38W RF tube','24" × 12" bed','1,200 mm/s'],def:1,stock:'xrf',
   up:{id:'43674371391522',n:'Auto Conveyor Feeder',p:999,u:P+'onelaser-automatic-conveyor-feeder'},
-  v:[{l:'Starter Bundle · XRF + Air Assist box',mn:'XRF 38W RF',p:4499,m:5499,f:0,site:399,vid:'43557890261026',u:U('onelaser-xrf-desktop-laser-machine','43557890261026'),gifts:['Free Air Assist box']},
-     {l:'Maker Bundle · + riser base + 2 material packs',mn:'XRF 38W RF',img:'xrfw',shown:'Shown with Riser Base + Auto Conveyor Feeder',p:4999,m:5499,f:0,site:399,vid:'43972592730146',u:U('onelaser-xrf-desktop-laser-machine','43972592730146'),gifts:['Free Air Assist box','Free riser base','2 free material packs (acrylic + leather)']}]},
+  v:[{l:'Starter Bundle · XRF + Air Assist Control',mn:'XRF 38W RF',p:4499,m:5499,f:0,site:399,vid:'43557890261026',u:U('onelaser-xrf-desktop-laser-machine','43557890261026'),gifts:[{n:'Air Assist Control',val:299.99,img:'lQDPJxo8d4MrtenND4zNE4iwYCxEbs-yL6sITkLfo74fAA_5000_3980.jpg'}]},
+     {l:'Maker Bundle · + riser base + 2 material packs',mn:'XRF 38W RF',img:'xrfw',shown:'Shown with Riser Base + Auto Conveyor Feeder',p:4999,m:5499,f:0,site:399,vid:'43972592730146',u:U('onelaser-xrf-desktop-laser-machine','43972592730146'),gifts:[{n:'Air Assist Control',val:299.99,img:'lQDPJxo8d4MrtenND4zNE4iwYCxEbs-yL6sITkLfo74fAA_5000_3980.jpg'},{n:'Riser Base',val:599,img:'839d9e84510a0900681b9fc541852466.png'},{n:'2 material packs',sub:'Acrylic + leather'}]}]},
  {id:'h07',tier:'super',th:'red',img:'h7g2',rl:'h07',name:'Hydra 7 Pro 70W RF production laser',tag:['fire','First 14 units at $7,999'],lb:['70W RF tube','2,000 mm/s','4G acceleration'],stage:1,stock:'h07',
   v:[{l:'Hydra 7 Pro · 70W RF',mn:'Hydra 7 Pro',p:7999,p2:8999,m:10999,f:499,vid:'44667131822114',u:U('hydra-7-gen-2-70w-rf-co2-dual-laser-machine')}]},
  {id:'cob',tier:'super',th:'red',img:'c8',rl:'cob',name:'Cobra 8, 10 and 14 CO₂ workshop lasers',tag:['tag','Save $2,000 on every size'],lb:['90W to 130W glass','300+ materials','Autofocus'],sizes:1,
@@ -1321,7 +1334,7 @@ const LAST=[{n:'Hydra 7 80W glass tube laser',mn:'Hydra 7 80W',img:'h7g',p:5999,
 const FEAT={name:'Hydra Gen2 Hybrid CO₂ glass + RF industrial laser',desc:'Glass tube cutting and 38W RF fine engraving in one production machine, for batch work across wood, acrylic, leather, glass and coated metal.',lb:['Up to 150W glass','38W RF','2,000 mm/s'],
  v:[{l:'Hydra 9 Hybrid · 100W + 38W RF',mn:'Hydra 9 Hybrid',p:10999,f:599,img:'h9g2',stock:'hy09',vid:'44745765650466',u:U('hydra-9-gen-2-70w-rf-co2-dual-laser-machine','44745765650466')},{l:'Hydra 13 Hybrid · 130W + 38W RF',mn:'Hydra 13 Hybrid',p:12999,f:699,img:'h13g2',stock:'hy13',vid:'44745769156642',u:U('hydra-13-gen-2-70w-rf-co2-dual-laser-machine','44745769156642')},{l:'Hydra 16 Hybrid · 150W + 38W RF',mn:'Hydra 16 Hybrid',p:13999,f:699,img:'h16g2',stock:'hy16',vid:'44745771155490',u:U('hydra-16-gen-2-70w-rf-co2-dual-laser-machine','44745771155490')}]};
 /* [size, tier, $ off, name, note, scene, anchor, model shown in the photo, free shipping] */
-const BENTO=[['big','super',3000,'Hydra 7 Pro','First 14 units','h7g2','#p-h07','Hydra 7 Pro'],['big','super',2000,'Cobra 8 · 10 · 14','From $3,999','c8','#p-cob','Cobra 8 90W'],['big','super',1000,'XRF 38W RF','Plus free Air Assist box','xrfw','#p-xrf','XRF 38W RF',1],
+const BENTO=[['big','super',3000,'Hydra 7 Pro','First 14 units','h7g2','#p-h07','Hydra 7 Pro'],['big','super',2000,'Cobra 8 · 10 · 14','From $3,999','c8','#p-cob','Cobra 8 90W'],['big','super',1000,'XRF 38W RF','Plus free Air Assist Control','xrfw','#p-xrf','XRF 38W RF',1],
  ['sm','deal',2000,'Hydra Gen2 Pro','9, 13 and 16','h9g2','#p-g2p','Hydra 9 Pro'],['sm','deal',2000,'Hydra 9 Dual','Glass + RF','h9d','#p-h09d','Hydra 9 Dual'],['sm','deal',1000,'VertiGo','Drinkware laser','vtgs','#p-vtg','VertiGo 38W RF',1]];
 const PROJ=[['product-walnut-serving-board','Personalized serving board','XRF 38W RF'],['product-rocks-glass','Whiskey glass set','XRF 38W RF'],['home-project-etsy-whiskey-decanter-gift-set','Whiskey decanter gift set','XRF 38W RF'],['home-project-etsy-holiday-ornament-collection','Holiday ornament collection','XRF 38W RF'],['home-project-vertigo-event-tumbler-batch','Event tumbler batch','VertiGo'],['home-project-etsy-realtor-closing-gift-set','Closing gift set','XRF 38W RF'],['home-project-walnut-mountain-wall','Mountain feature wall','Hydra'],['product-custom-tumbler','Custom tumbler','VertiGo'],['home-project-batch-leather-gifts','Batch leather gift set','XRF 38W RF'],['home-project-large-acrylic-sign','Layered acrylic wall sign','Cobra'],['product-leather-patch-cap','Leather patch cap','XRF 38W RF'],['home-project-layered-city-map','Layered city map','Hydra']];
 const ACC={acc:[['OneLaser Air Assist Control, Dual Mode Airflow',299.99,'lQDPJxo8d4MrtenND4zNE4iwYCxEbs-yL6sITkLfo74fAA_5000_3980.jpg','air-assist-for-laser-engraver-cutter'],['Automatic Conveyor Feeder for OneLaser XRF',999,'9beab4683ad286661f4bb3a0568b2f8a.png','onelaser-automatic-conveyor-feeder'],['OneLaser X Series Riser Base',599,'839d9e84510a0900681b9fc541852466.png','onelaser-x-series-riser-base'],['OneLaser Chiller for Hydra and Cobra Glass Tube',699,'CW5200_Industrial_Chiller.png','onelaser-industrial-chiller-for-hydra-laser-engraver'],['PiBurn Lite Rotary for OneLaser',499,'PBL_main.0.png','piburn-lite-for-onelaser'],['FiltraBox Micro Compact Filtration System',1995,'4_9de31b3c-4d90-447f-9ff5-d5901da89c46.png','filtrabox-micro']],
@@ -1343,8 +1356,7 @@ const MP=(n,s,note)=>`<div class="mp${note?' mp--note':''}"><b>${n}</b>${s?`<sma
 const upOn={};
 /* buy buttons: before launch they collect leads instead of sending people to a pre-sale price */
 function acts(o){const sm=o.sm?' sm':'';
- if(o.always||LIVE())return `<div class="acts"><a class="btn primary${sm}" href="${BUY(o.ids)}" data-buy="${o.n}" data-val="${o.v}"><i class="ph-bold ph-lightning"></i>Buy now</a><a class="btn light${sm}" href="${ADD(o.ids)}" data-add="${o.n}" data-val="${o.v}">Add to cart</a></div><div class="help"><a href="${o.u}" ${ext}>Full specs<i class="ph-bold ph-arrow-up-right"></i></a><button type="button" data-lead="${o.n}" data-call="1"><i class="ph ph-headset"></i>Talk to a laser expert</button></div>`;
- return `<div class="acts"><button class="btn primary${sm}" type="button" data-lead="${o.n}"><i class="ph-bold ph-bell-ringing"></i>Notify me Nov 10</button><a class="btn light${sm}" href="${o.u}" ${ext}>Full specs</a></div><div class="help"><span><i class="ph ph-clock"></i>Deal opens Nov 10. Early access gets it 24h sooner.</span></div>`;}
+ return `<div class="acts"><a class="btn primary${sm}" href="${ADD(o.ids)}" data-add="${o.n}" data-val="${o.v}"><i class="ph-bold ph-shopping-cart-simple"></i>Add to cart</a><a class="btn light${sm}" href="${BUY(o.ids)}" data-buy="${o.n}" data-val="${o.v}"><i class="ph-bold ph-lightning"></i>Buy now</a></div><div class="help"><a href="${o.u}" ${ext}>Full specs<i class="ph-bold ph-arrow-up-right"></i></a><button type="button" data-lead="${o.n}" data-call="1"><i class="ph ph-headset"></i>Talk to a laser expert</button></div>`;}
 function stockRow(key){const s=STOCK[key]||{us:0,tr:0};
  if(s.us>0)return `<div><i class="ph ph-package"></i><span><b>${s.us} in stock</b> in Lake Forest, CA · <span class="amb">Limited quantity</span></span></div>`;
  return `<div><i class="ph-fill ph-hourglass-medium"></i><span class="amb"><b>Limited quantity</b></span></div>`;}
@@ -1375,7 +1387,7 @@ function apc(p){
     <div><span class="tiertag ${tier}" style="margin-bottom:8px">${tier==='super'?'<i class="ph-fill ph-fire"></i>Black Friday Super Deal':'<i class="ph-fill ph-tag"></i>Black Friday Deal'}</span><h3 class="heading-6">${p.name}</h3><div class="lbls" style="margin-top:8px">${lb.map(x=>`<span>${x}</span>`).join('')}</div></div>
     <div class="sel"><label class="sr-only" for="v-${p.id}">Model</label><select id="v-${p.id}" data-p="${p.id}" ${p.v.length<2?'disabled':''}>${opts}</select><i class="ph-bold ph-caret-down"></i></div>
     ${price}
-    ${v.gifts?`<div class="gifts">${v.gifts.map(g=>`<div><i class="ph-fill ph-gift"></i>${g}</div>`).join('')}</div>`:''}
+    ${v.gifts?`<div class="gifts"><span class="gifts__h"><i class="ph-fill ph-gift"></i>Free with this bundle${v.gifts.some(g=>g.val)?` · worth ${$0(Math.floor(v.gifts.reduce((a,g)=>a+(g.val||0),0)))}+`:''}</span><div class="gifts__l">${v.gifts.map(g=>`<div class="gift">${g.img?`<img src="${S+g.img}?width=160" alt="${g.n}" loading="lazy">`:'<i class="ph-fill ph-stack"></i>'}<span><b>${g.n}</b><small>${g.val?`${$(g.val)} value`:g.sub||''}</small></span><em>Free</em></div>`).join('')}</div></div>`:''}
     <div class="meta">${stockRow(sk)}${ship(v)}${fin}</div>
     ${p.up?`<label class="up"><input type="checkbox" data-up="${p.id}" ${upOn[p.id]?'checked':''}><span><b>Complete the setup</b>+ ${p.up.n} ${$0(p.up.p)}, regular price${upOn[p.id]?` · total ${$0(price1(p,v)+p.up.p)}`:''}</span></label>`:''}
     ${acts({ids:[v.vid,...(p.up&&upOn[p.id]?[p.up.id]:[])],u:v.u,n:v.mn,v:price1(p,v)+(p.up&&upOn[p.id]?p.up.p:0)})}
@@ -1409,7 +1421,7 @@ function renderW(){const n=new Date();tlne.innerHTML=WK.map(x=>{const live=n>=pd
 
 /* finder */
 const FINDER={
- xrf:{n:'XRF 38W RF',why:'A 38W RF desktop laser at up to 1,200 mm/s with true 3G acceleration, for leather, wood, acrylic, glass and coated metal. $4,499 with a free Air Assist box and free shipping.',img:'xrfw',a:'#p-xrf',p:'$4,499'},
+ xrf:{n:'XRF 38W RF',why:'A 38W RF desktop laser at up to 1,200 mm/s with true 3G acceleration, for leather, wood, acrylic, glass and coated metal. $4,499 with a free Air Assist Control and free shipping.',img:'xrfw',a:'#p-xrf',p:'$4,499'},
  vtg:{n:'VertiGo 38W RF',why:'Built for drinkware. Loads a tumbler upright, focuses itself and engraves around the full cup. $4,999 with free shipping.',img:'vtgs',a:'#p-vtg',p:'$4,999'},
  c08:{n:'Cobra 8 90W',why:'A 90W glass tube for wood and acrylic cutting in a workshop footprint, with autofocus and 300+ supported materials. $3,999, save $2,000.',img:'c8',a:'#p-cob',sel:'cob:0',p:'$3,999'},
  c14:{n:'Cobra 14 130W',why:'A 130W glass tube and a larger bed for big signs and batch cutting. $6,999, save $2,000.',img:'c14',a:'#p-cob',sel:'cob:2',p:'$6,999'},
@@ -1583,7 +1595,7 @@ function sbData(id){if(id==='fx'){const v=FEAT.v[sel.feat??0];return{n:v.mn,k:'B
 function drawSb(){const d=sbCur&&sbData(sbCur);
  if(!d){sbK.textContent='Black Friday Deals';sbN.textContent=LIVE()?'Up to $3,000 off · ends Cyber Monday':'Up to $3,000 off · opens Nov 10';sbP.innerHTML=FSB+'<span class="sbar__fs">XRF and VertiGo</span>';sbA.innerHTML='<a class="btn primary" href="#super">Shop the deals</a>';return}
  sbK.textContent=d.k;sbN.textContent=d.n;sbP.innerHTML=`<b class="num">${$0(d.p)}</b>${d.m?`<s>${$0(d.m)}</s>`:''}${d.f===0?FSB:''}`;
- sbA.innerHTML=d.always||LIVE()?`<a class="btn primary" href="${BUY(d.ids)}" data-buy="${d.n}" data-val="${d.p}"><i class="ph-bold ph-lightning"></i>Buy now</a>`:`<button class="btn primary" type="button" data-lead="${d.n}" data-src="sticky_bar"><i class="ph-bold ph-bell-ringing"></i>Notify me</button>`}
+ sbA.innerHTML=`<a class="btn primary" href="${ADD(d.ids)}" data-add="${d.n}" data-val="${d.p}"><i class="ph-bold ph-shopping-cart-simple"></i>Add to cart</a>`}
 function sbShow(){sbar.classList.toggle('on',!heroIn&&!endIn&&lm.hidden)}
 const sbo=new IntersectionObserver(es=>{es.forEach(e=>ratios.set(e.target,e.isIntersecting?e.intersectionRatio:0));let best=null,br=0;ratios.forEach((r,el)=>{if(r>br){br=r;best=el}});const id=br>.2?best.id:null;if(id!==sbCur){sbCur=id;drawSb()}},{threshold:[0,.2,.4,.6,.8]});
 new IntersectionObserver(es=>{heroIn=es[0].isIntersecting;sbShow()},{rootMargin:'-120px 0px 0px 0px'}).observe(document.querySelector('.kv'));
