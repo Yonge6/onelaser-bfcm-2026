@@ -1303,9 +1303,9 @@ function fitScene(sc){const img=sc.querySelector('img'),m=MPOS[sc.dataset.k];if(
  if(hero){const info=hero.querySelector('.info');if(info&&W>900){tx=(W-info.offsetWidth-48)/2/W;c=mcx}}
  if(sc.dataset.k==='lineup'&&!mob){
   const kc=document.querySelector('.kv__c');let tr=0;kc&&[...kc.children].forEach(e=>{tr=Math.max(tr,e.getBoundingClientRect().right)});tr-=sc.getBoundingClientRect().left;
-  const rx=tr+40,rw=W-rx-24,gw=.59;
-  let iw=Math.min(Math.max(W,H/SCN_AR),rw/gw),ih=iw*SCN_AR;
-  const left=rx+rw/2-gcx*iw,top=Math.min(0,H-ih)+(ih<H?H-ih:0);
+  const rx=tr+40,rw=W-rx-24,gw=.59,LZ=1.1;  /* LZ: hero lineup size, grows left and up from the right edge */
+  let iw=Math.min(Math.max(W,H/SCN_AR),rw/gw*LZ),ih=iw*SCN_AR;
+  const left=Math.min(rx+rw/2-gcx*iw+(LZ-1)*rw/2,W-24-.985*iw),top=Math.min(0,H-ih)+(ih<H?H-ih:0);
   img.style.width=iw+'px';img.style.left=left+'px';img.style.top=(ih<H?H-ih:Math.min(0,.5*H-cy*ih))+'px';
   const m=`linear-gradient(90deg,transparent,#000 14%),linear-gradient(180deg,${ih<H?'transparent,#000 22%':'#000,#000'})`;
   img.style.webkitMaskImage=img.style.maskImage=m;img.style.webkitMaskComposite='source-in';img.style.maskComposite='intersect';
