@@ -449,6 +449,23 @@ h1,h2,h3,h4,h5,h6,p{margin:0;text-wrap:pretty}h1,h2,h3,h4,h5,h6{text-wrap:balanc
 .opts span{display:inline-flex;align-items:center;padding:var(--s75) var(--s200);border-radius:var(--r-full);background:var(--c2);border:1px solid var(--line);color:var(--t2);font-size:14px;line-height:20px;font-weight:500;cursor:pointer;transition:background-color .3s var(--ease),color .3s var(--ease),border-color .3s var(--ease)}
 .opts input:checked+span{background:#fff;color:#000;border-color:#fff}
 .opts input:focus-visible+span{outline:2px solid var(--gold);outline-offset:2px}
+/* finder: tell people the chips are tappable */
+.opts span{transition:transform .25s var(--ease),background-color .3s var(--ease),color .3s var(--ease),border-color .3s var(--ease),box-shadow .3s var(--ease)}
+.opts label:hover input:not(:checked)+span{transform:translateY(-2px);border-color:var(--gold);color:#fff;box-shadow:0 8px 20px rgba(252,199,123,.16)}
+.opts label:active span{transform:scale(.96)}
+.fq legend{display:flex;align-items:center;gap:10px;font-weight:800}
+.stepn{flex:none;display:inline-grid;place-items:center;width:26px;height:26px;border-radius:50%;background:var(--c2);border:1px solid var(--line);font-size:13px;font-weight:900;font-style:italic;color:var(--t2);transition:background-color .3s var(--ease),color .3s var(--ease),border-color .3s var(--ease)}
+.fq fieldset.done .stepn{background:var(--green);border-color:var(--green);color:#000}
+.fq fieldset.nudge .stepn{background:var(--gold);border-color:var(--gold);color:#000}
+.tap{display:none;align-items:center;gap:5px;white-space:nowrap;flex:none;font-size:11px;line-height:16px;font-weight:900;font-style:italic;letter-spacing:.12em;text-transform:uppercase;color:var(--gold)}
+.tap i{font-size:16px;animation:tapb 1.1s ease-in-out infinite}
+.fq fieldset.nudge .tap{display:inline-flex}
+@keyframes tapb{0%,100%{transform:none}50%{transform:translateY(-3px) rotate(-10deg)}}
+.fq.live fieldset.nudge .opts label span{animation:hop 3s var(--ease) infinite;animation-delay:calc(var(--i,0) * .11s + .4s)}
+.fq fieldset.nudge .opts label:nth-child(2) span{--i:1}.fq fieldset.nudge .opts label:nth-child(3) span{--i:2}.fq fieldset.nudge .opts label:nth-child(4) span{--i:3}
+.fq.live fieldset.nudge .opts:hover label span{animation:none}
+@keyframes hop{0%,20%,100%{transform:none;border-color:var(--line);box-shadow:none}7%{transform:translateY(-6px);border-color:var(--gold);color:#fff;box-shadow:0 10px 22px rgba(252,199,123,.22)}13%{transform:translateY(1px)}}
+@media(prefers-reduced-motion:reduce){.fq.live fieldset.nudge .opts label span,.tap i{animation:none}.fq fieldset.nudge .opts span{border-color:rgba(252,199,123,.55)}}
 .fr{display:flex;flex-direction:column;gap:var(--s200);padding:var(--s300);border-radius:var(--r-2xl);background:var(--c2);border:1px solid var(--line)}
 .fr .im{position:relative;aspect-ratio:16/9;border-radius:var(--r-xl);overflow:hidden;background:#000}
 .fr .empty{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:var(--s100);min-height:300px;text-align:center;color:var(--t2)}
@@ -1520,6 +1537,10 @@ function renderFinder(){const f=new FormData(fq),m=f.get('make'),s=f.get('space'
  const k=pick(m,s,b),x=FINDER[k];
  fr.innerHTML=`<div class="im">${SCENE(x.img,'30% 50%',x.n)}${/free shipping/.test(x.why)?FSB:''}${MP(x.n)}</div><div><span class="caption-3 gold">Our pick for you</span><h3 class="heading-5" style="margin-top:4px">${x.n}</h3><p class="body-6 muted" style="margin-top:8px">${x.why}</p></div><div class="acts"><a class="btn primary sm" href="${x.a}"${x.sel?` data-sel="${x.sel}"`:''}>See the deal · ${x.p}</a><a class="btn ghost sm" href="https://www.1laser.com/products/sales-consultation-call" ${ext}>Confirm on a call</a></div>`;}
 fq.addEventListener('change',()=>{renderFinder();fitAll(fr)});
+fq.querySelectorAll('fieldset').forEach((f,i)=>{const l=f.querySelector('legend');l.insertAdjacentHTML('afterbegin',`<b class="stepn" aria-hidden="true">${i+1}</b>`);l.insertAdjacentHTML('beforeend','<em class="tap" aria-hidden="true"><i class="ph-fill ph-hand-pointing"></i>Tap one</em>')});
+const nudgeFq=()=>{let first=true;fq.querySelectorAll('fieldset').forEach(f=>{const d=!!f.querySelector('input:checked');f.classList.toggle('done',d);f.classList.toggle('nudge',!d&&first);if(!d)first=false})};
+nudgeFq();fq.addEventListener('change',nudgeFq);
+new IntersectionObserver(es=>es.forEach(e=>fq.classList.toggle('live',e.isIntersecting)),{rootMargin:'0px 0px -20% 0px'}).observe(fq);
 
 /* countdowns */
 function tick(){const n=new Date(),z=v=>String(v).padStart(2,'0');
