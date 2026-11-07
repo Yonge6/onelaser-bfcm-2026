@@ -96,7 +96,7 @@ h1,h2,h3,h4,h5,h6,p{margin:0;text-wrap:pretty}h1,h2,h3,h4,h5,h6{text-wrap:balanc
 .ann__x:hover{background:#e5e5e8;color:#000}
 @keyframes marq{to{transform:translateX(-50%)}}
 
-.hd{position:sticky;top:0;z-index:60;height:76px;display:grid;grid-template-columns:180px 1fr 132px;align-items:center;padding:0 max(32px,calc((100vw - 1400px)/2));background:rgba(255,255,255,.97);border-bottom:1px solid #ececee;color:#1b1b1d}
+.hd{position:sticky;top:0;z-index:60;height:76px;display:grid;grid-template-columns:180px 1fr 132px;align-items:center;padding:0 max(32px,calc((100vw - var(--wrap))/2 + var(--gut)));background:rgba(255,255,255,.97);border-bottom:1px solid #ececee;color:#1b1b1d}
 .brand{width:154px}.brand img{width:100%;height:auto}
 .nav{display:flex;align-items:center;justify-content:center;gap:clamp(18px,2.2vw,38px)}
 .nav>a{position:relative;display:inline-flex;align-items:center;gap:4px;color:#1b1b1d;font-size:14px;line-height:76px;font-weight:600;white-space:nowrap}
@@ -523,7 +523,7 @@ h1,h2,h3,h4,h5,h6,p{margin:0;text-wrap:pretty}h1,h2,h3,h4,h5,h6{text-wrap:balanc
 .final h2{max-width:680px;text-align:center;background:linear-gradient(90deg,#fff,#9B9B9B);-webkit-background-clip:text;background-clip:text;color:transparent}
 
 /* ===== footer (homepage v3) ===== */
-.ft{padding:0 max(32px,calc((100vw - 1280px)/2)) var(--s300);background:#111214;border-top:1px solid #28292c;color:#fff}
+.ft{padding:0 max(32px,calc((100vw - var(--wrap))/2 + var(--gut))) var(--s300);background:#111214;border-top:1px solid #28292c;color:#fff}
 .ft__lead{display:grid;grid-template-columns:minmax(280px,.75fr) minmax(0,1.55fr);gap:var(--s800);padding:var(--s700) 0;border-bottom:1px solid #303136}
 .ft__lead h2{font-size:30px;line-height:36px;font-weight:600;letter-spacing:-.01em}
 .ft__lead p{margin-top:var(--s100);color:#a4a4aa}
@@ -973,6 +973,32 @@ img.imld{opacity:0}
 .scene.imldh:after{content:"";position:absolute;left:50%;top:50%;z-index:1;width:30px;height:30px;margin:-15px 0 0 -15px;border-radius:50%;border:2px solid rgba(255,255,255,.14);border-top-color:var(--red);animation:imspin .8s linear infinite;pointer-events:none}
 img.imin{animation:imin .5s var(--ease) both}
 @media(prefers-reduced-motion:reduce){.imldh,.scene.imldh:after{animation:none}img.imin{animation:none}}
+/* wide screens: grow the layout instead of floating a 1200px column in empty space */
+@media(min-width:1600px){
+ :root{--wrap:1360px}
+ .kv{height:800px}
+ .kv__h{font-size:96px;line-height:92px}
+ .kv__off{font-size:50px;line-height:54px}
+ .kv .lead{font-size:19px;line-height:30px;max-width:540px}
+ .kv__c>*{max-width:540px}.kv__c>.kv__hw{max-width:none}.kv__c>.kv__trust{max-width:620px}
+ .heading-1{font-size:68px;line-height:68px}.heading-2{font-size:54px;line-height:56px}.heading-3{font-size:40px;line-height:44px}
+ .body-3{font-size:18px;line-height:28px}
+}
+@media(min-width:1900px){
+ :root{--wrap:1480px}
+ .kv{height:860px}
+ .kv__h{font-size:108px;line-height:102px}
+ .kv__off{font-size:56px;line-height:60px}
+ .kv .lead{font-size:20px;line-height:32px;max-width:580px}
+ .kv__c>*{max-width:580px}.kv__c>.kv__hw{max-width:none}.kv__c>.kv__trust{max-width:660px}
+ .heading-2{font-size:60px;line-height:62px}
+}
+@media(min-width:2400px){
+ :root{--wrap:1680px}
+ .kv{height:940px}
+ .kv__h{font-size:124px;line-height:118px}
+ .kv__off{font-size:64px;line-height:68px}
+}
 </style>
 </head>
 <body>
@@ -1334,6 +1360,8 @@ function fitScene(sc){const img=sc.querySelector('img'),m=MPOS[sc.dataset.k];if(
   kc&&[...kc.children].forEach(e=>{const r=e.getBoundingClientRect();tl=Math.min(tl,r.left-sl);if(e.classList.contains('kv__hw')||e.classList.contains('kick'))return;const rg=document.createRange();rg.selectNodeContents(e);tr=Math.max(tr,Math.min(r.right,rg.getBoundingClientRect().right)-sl)});
   const rb=W-Math.max(24,tl),rx=tr+40,GL=.377,GR=.985;
   let iw=Math.min(Math.max(W,H/SCN_AR),(rb-rx)/(GR-GL),H/SCN_AR),ih=iw*SCN_AR;
+  /* keep the tallest pin (26% down the image) below the headline when the group reaches under it */
+  const hw=kc&&kc.querySelector('.kv__hw');if(hw){const h=hw.getBoundingClientRect(),st=sc.getBoundingClientRect().top;if(rb-(GR-GL)*iw<h.right-sl){iw=Math.min(iw,(H-(h.bottom-st)-12)/(.74*SCN_AR));ih=iw*SCN_AR}}
   const left=rb-GR*iw,top=Math.min(0,H-ih)+(ih<H?H-ih:0);
   img.style.width=iw+'px';img.style.left=left+'px';img.style.top=(ih<H?H-ih:Math.min(0,.5*H-cy*ih))+'px';
   const m=`linear-gradient(90deg,transparent,#000 14%,#000 97%,transparent),linear-gradient(180deg,${ih<H?'transparent,#000 22%':'#000,#000'})`;
