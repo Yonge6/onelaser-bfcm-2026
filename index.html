@@ -120,13 +120,13 @@ h1,h2,h3,h4,h5,h6,p{margin:0;text-wrap:pretty}h1,h2,h3,h4,h5,h6{text-wrap:balanc
 .mega__series button:hover,.mega__series button.on{background:#f5f5f7;color:#000}
 .mega__series button.on{font-weight:700}
 .mega__prods{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));grid-auto-rows:150px;align-content:start;gap:12px}
-.mp{display:grid;grid-template-columns:minmax(158px,44%) minmax(0,1fr);align-items:center;overflow:hidden;border:1px solid transparent;border-radius:20px;background:#f5f5f7;transition:border-color .3s var(--ease),background-color .3s var(--ease)}
-.mp:hover{border-color:#d2d2d7;background:#f0f0f2}
-.mp__m{position:relative;height:150px}
-.mp__m img{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;padding:0 4px;transform:scale(.92)}
-.mp>div:last-child{padding:22px 24px 22px 6px}
-.mp h3{font-size:20px;line-height:1.08;font-weight:700;letter-spacing:-.025em}
-.mp p{margin-top:10px;color:#6b6b70;font-size:13px;line-height:1.45}
+.mgp{display:grid;grid-template-columns:minmax(158px,44%) minmax(0,1fr);align-items:center;overflow:hidden;border:1px solid transparent;border-radius:20px;background:#f5f5f7;transition:border-color .3s var(--ease),background-color .3s var(--ease)}
+.mgp:hover{border-color:#d2d2d7;background:#f0f0f2}
+.mgp__m{position:relative;height:150px}
+.mgp__m img{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;padding:0 4px;transform:scale(.92)}
+.mgp>div:last-child{padding:22px 24px 22px 6px}
+.mgp h3{font-size:20px;line-height:1.08;font-weight:700;letter-spacing:-.025em}
+.mgp p{margin-top:10px;color:#6b6b70;font-size:13px;line-height:1.45}
 .mega__res{grid-template-columns:repeat(2,minmax(240px,280px)) minmax(260px,1fr);gap:30px;padding-block:40px}
 .mega__acc{grid-template-columns:repeat(2,minmax(240px,280px));justify-content:center;gap:30px;padding-block:40px}
 .rc{position:relative;height:242px;overflow:hidden;border-radius:22px;background:#141414;color:#fff}
@@ -1304,7 +1304,7 @@ const RES={support:{f:[['Get a Quote','https://www.1laser.com/products/sales-con
 const tm=s=>s.replace('™','<sup>™</sup>');
 let series='x',openMega=null;
 function megaHTML(k){
- if(k==='machines')return `<div class="mega__in"><div class="mega__series" aria-label="Machine series">${Object.entries(MS).map(([id,s])=>`<button type="button" data-series="${id}" class="${id===series?'on':''}">${s.label}<i class="ph-bold ph-caret-right"></i></button>`).join('')}</div><div class="mega__prods">${MS[series].p.map(p=>`<a class="mp" href="${U(p[2])}"><span class="mp__m"><img src="${CDN+p[3]}&width=400" alt=""></span><div><h3>${tm(p[0])}</h3><p>${p[1]}</p></div></a>`).join('')}</div></div>`;
+ if(k==='machines')return `<div class="mega__in"><div class="mega__series" aria-label="Machine series">${Object.entries(MS).map(([id,s])=>`<button type="button" data-series="${id}" class="${id===series?'on':''}">${s.label}<i class="ph-bold ph-caret-right"></i></button>`).join('')}</div><div class="mega__prods">${MS[series].p.map(p=>`<a class="mgp" href="${U(p[2])}"><span class="mgp__m"><img src="${CDN+p[3]}&width=400" alt=""></span><div><h3>${tm(p[0])}</h3><p>${p[1]}</p></div></a>`).join('')}</div></div>`;
  const r=RES[k];return `<div class="mega__in ${k==='accessories'?'mega__acc':'mega__res'}">${r.f.map(f=>`<a class="rc" href="${f[1]}"><img src="${f[2]}" alt=""><span>${f[0]}<i class="ph-bold ph-caret-right"></i></span></a>`).join('')}${r.l?`<nav class="rl">${r.l.map(l=>`<a href="${l[1]}">${l[0]}<i class="ph-bold ph-caret-right"></i></a>`).join('')}</nav>`:''}</div>`;
 }
 function setMega(k){openMega=k;document.querySelectorAll('[data-mega]').forEach(a=>a.setAttribute('aria-expanded',a.dataset.mega===k));if(k){mega.innerHTML=megaHTML(k);mega.hidden=false;megaBd.hidden=false}else{mega.hidden=true;megaBd.hidden=true}}
