@@ -199,8 +199,8 @@ h1,h2,h3,h4,h5,h6,p{margin:0;text-wrap:pretty}h1,h2,h3,h4,h5,h6{text-wrap:balanc
 .cd b{display:block;font-size:24px;line-height:32px;font-weight:600;font-variant-numeric:tabular-nums}
 .cd small{display:block;color:var(--t2);font-size:12px;line-height:16px}
 .kv__proof{display:flex;flex-direction:column;gap:var(--s75)}
-.kv__trust{display:flex;gap:var(--s300);flex-wrap:wrap;color:var(--t2);font-size:14px;line-height:20px}
-.kv__trust span{display:inline-flex;align-items:center;gap:var(--s75)}.kv__trust i{color:var(--gold);font-size:18px}
+.kv__trust{display:flex;gap:var(--s100) 20px;flex-wrap:wrap;color:var(--t2);font-size:14px;line-height:20px}
+.kv__trust span{display:inline-flex;align-items:center;gap:var(--s75);white-space:nowrap}.kv__trust i{color:var(--gold);font-size:18px}
 
 /* ===== scene images (finished product renders) ===== */
 .scene{position:absolute;inset:0;overflow:hidden;background:#0b0b0b}
@@ -946,6 +946,7 @@ h1,h2,.heading-1,.heading-2,.heading-3,.kv__h,.kv__off,.kv__off b,.spd__h,.spd__
 h3,h4,.heading-4,.heading-5,.heading-6,h3.title-1,h3.title-2,h3.title-3,span.title-2,span.title-3{font-weight:800!important}
 .num:not(.ms),.cmp tr.pr td,.szt td b,.saved,.tl .amt .num,.lm__plate b{font-weight:900!important}
 .num.ms{font-weight:600!important}
+.kv__c>.kv__trust{max-width:560px;margin-bottom:14px}
 </style>
 </head>
 <body>
@@ -995,7 +996,7 @@ h3,h4,.heading-4,.heading-5,.heading-6,h3.title-1,h3.title-2,h3.title-3,span.tit
    <div class="kv__cdh"><div class="lights" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></div><span class="caption-4" data-cdl>Black Friday Deals end in</span></div>
    <div class="cd" data-cd="main" role="timer" aria-live="off"><div><b data-u="d">00</b><small>Days</small></div><div><b data-u="h">00</b><small>Hours</small></div><div><b data-u="m">00</b><small>Mins</small></div><div><b data-u="s">00</b><small>Secs</small></div></div>
   </div>
-  <div class="kv__trust"><span><i class="ph ph-map-pin"></i>U.S. company, U.S. warehouse</span><span><i class="ph ph-arrow-counter-clockwise"></i>30 day returns</span><span><i class="ph ph-shield-check"></i>Official warranty</span><span><i class="ph ph-headset"></i>Real technicians</span></div>
+  <div class="kv__trust"><span><i class="ph ph-map-pin"></i>U.S. company, U.S. warehouse</span><span><i class="ph ph-arrow-counter-clockwise"></i>30 day returns</span><span><i class="ph ph-shield-check"></i>Official warranty</span></div>
  </div>
 </section>
 
