@@ -19,6 +19,8 @@
 @font-face{font-family:"Certia";src:url("fonts/Certia-Regular.otf") format("opentype");font-weight:400;font-display:swap}
 @font-face{font-family:"Certia";src:url("fonts/Certia-Medium.otf") format("opentype");font-weight:500;font-display:swap}
 @font-face{font-family:"Certia";src:url("fonts/Certia-Bold.otf") format("opentype");font-weight:600 700;font-display:swap}
+@font-face{font-family:"Certia";src:url("fonts/Certia-ExtraBold.otf") format("opentype");font-weight:800;font-display:swap}
+@font-face{font-family:"Certia";src:url("fonts/Certia-Black.otf") format("opentype");font-weight:900;font-display:swap}
 
 /* ===== tokens ===== */
 :root{
@@ -890,20 +892,44 @@ h1,h2,h3,h4,h5,h6,p{margin:0;text-wrap:pretty}h1,h2,h3,h4,h5,h6{text-wrap:balanc
 .spd__s b{font-size:44px;line-height:44px;font-weight:700;font-style:italic;letter-spacing:-.03em;color:#fff}
 .spd__s span{font-size:13px;line-height:18px;font-weight:600;color:#fff;text-transform:uppercase;letter-spacing:.04em}
 .spd__s small{display:block;margin-top:2px;font-size:11px;font-weight:500;color:var(--t3);text-transform:none;letter-spacing:0}
-.spd__b{grid-column:1/-1;display:flex;flex-direction:column;gap:10px;position:relative}
-.spd__b .row{display:grid;grid-template-columns:170px 1fr 56px;gap:var(--s200);align-items:center}
-.spd__b .row span{font-size:13px;font-weight:700;font-style:italic;text-transform:uppercase;letter-spacing:.04em}
-.spd__b .row em{font-style:italic;font-weight:700;font-size:18px;text-align:right}
-.spd__b .bar{position:relative;height:14px;border-radius:3px;background:rgba(255,255,255,.06);overflow:hidden}
-.spd__b .bar i{position:absolute;left:0;top:0;bottom:0;width:var(--w);transform-origin:left;transform:scaleX(0);transition:transform 1.4s var(--ease)}
-.spd.in .bar i{transform:scaleX(1)}
-.spd__b .bar i.x{background:linear-gradient(90deg,var(--red),#ff7a4d)}
-.spd__b .bar i.t{background:linear-gradient(90deg,rgba(255,255,255,.35) 40%,rgba(255,255,255,.12))}
-.spd__b .bar i.t2{background:rgba(255,255,255,.45)}
-.spd__b small{font-size:11px;line-height:16px;color:var(--t3)}
+.spd__b{grid-column:1/-1;display:flex;flex-direction:column;gap:12px;position:relative}
+.race__hd{display:flex;align-items:center;justify-content:space-between;gap:var(--s200)}
+.race__hd span{font-size:12px;font-weight:800;font-style:italic;letter-spacing:.14em;text-transform:uppercase;color:var(--t2)}
+.race__hd span b{color:var(--red)}
+.lane{display:grid;grid-template-columns:190px minmax(0,1fr) 150px;gap:var(--s200);align-items:center}
+.lane__n{font-size:14px;font-weight:900;font-style:italic;text-transform:uppercase;letter-spacing:.04em;line-height:18px}
+.lane.t .lane__n{color:var(--t2)}
+.trk{position:relative;height:34px;border-radius:4px;overflow:hidden;background:repeating-linear-gradient(90deg,rgba(255,255,255,.05) 0 1px,transparent 1px 10%),rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.08)}
+.trk:after{content:"";position:absolute;right:0;top:0;bottom:0;width:12px;background:repeating-conic-gradient(#fff 0 25%,#111 0 50%) 0 0/6px 6px;opacity:.85}
+.run{position:absolute;inset:0;transform:translateX(-100%);will-change:transform}
+.lane.x .run{background:linear-gradient(90deg,rgba(231,49,14,0) 0%,rgba(231,49,14,.55) 55%,#ff5a2a 92%,#ffd2b8 100%)}
+.lane.t .run{background:linear-gradient(90deg,rgba(255,255,255,0),rgba(255,255,255,.28) 90%,rgba(255,255,255,.6))}
+.run:before{content:"";position:absolute;inset:0;background:repeating-linear-gradient(90deg,transparent 0 22px,rgba(255,255,255,.22) 22px 24px);-webkit-mask-image:linear-gradient(90deg,transparent 30%,#000);mask-image:linear-gradient(90deg,transparent 30%,#000)}
+.lane.x .run:before{animation:streak .35s linear infinite}
+.run:after{content:"";position:absolute;right:-2px;top:50%;width:10px;height:10px;margin-top:-5px;border-radius:50%;background:#fff}
+.lane.x .run:after{box-shadow:0 0 8px 3px #ffd2b8,0 0 22px 8px rgba(231,49,14,.9),0 0 46px 16px rgba(231,49,14,.45)}
+.lane.t .run:after{width:8px;height:8px;margin-top:-4px;box-shadow:0 0 10px 3px rgba(255,255,255,.35)}
+@keyframes streak{to{background-position:24px 0}}
+.flag{position:absolute;right:20px;top:50%;transform:translateY(-50%);display:inline-flex;align-items:center;gap:6px;padding:3px 10px;font-size:11px;font-weight:900;font-style:italic;letter-spacing:.12em;text-transform:uppercase;color:#111;background:#fff;clip-path:polygon(8px 0,100% 0,calc(100% - 8px) 100%,0 100%);opacity:0}
+.lane__m{text-align:right;font-style:italic;font-weight:900;text-transform:uppercase;line-height:1}
+.lane.x .lane__m b{display:block;font-size:40px;letter-spacing:-.03em;color:#fff;text-shadow:0 0 24px rgba(231,49,14,.7)}
+.lane.x .lane__m small{font-size:12px;letter-spacing:.14em;color:var(--red)}
+.lane.t .lane__m b{font-size:24px;color:var(--t2)}
+.lane.t .lane__m small{display:block;margin-top:4px;font-size:10px;letter-spacing:.12em;color:var(--t3)}
+/* one 7s loop keeps both lanes in sync: XRF finishes at 2s, the typical laser takes 3x as long (6s) */
+.spd.in .lane.x .run{animation:rx 7s cubic-bezier(.55,0,.25,1) infinite}
+.spd.in .lane.t .run{animation:rt 7s linear infinite}
+.spd.in .flag{animation:fl 7s var(--ease) infinite}
+.spd.in .lane.x .lane__m b{animation:pop 7s var(--ease) infinite}
+@keyframes rx{0%{transform:translateX(-100%)}28.6%,92%{transform:translateX(0)}100%{transform:translateX(0);opacity:0}}
+@keyframes rt{0%{transform:translateX(-100%)}85.7%,92%{transform:translateX(0)}100%{transform:translateX(0);opacity:0}}
+@keyframes fl{0%,27%{opacity:0;transform:translate(14px,-50%)}31%,90%{opacity:1;transform:translate(0,-50%)}96%,100%{opacity:0}}
+@keyframes pop{0%,27%{transform:none}31%{transform:scale(1.14)}38%,100%{transform:none}}
+.spd__b>small{font-size:11px;line-height:16px;color:var(--t3)}
+@media(prefers-reduced-motion:reduce){.spd .lane.x .run{transform:none;animation:none!important}.spd .lane.t .run{transform:translateX(-67%);animation:none!important}.spd .flag{opacity:1;animation:none!important}.run:before{animation:none!important}}
 .cmp td b{color:#fff}
 @media(max-width:1080px){.spd{grid-template-columns:minmax(0,1fr)}}
-@media(max-width:760px){.spd{padding:var(--s300) var(--s200)}.spd__h{font-size:26px;line-height:30px}.spd__s{gap:6px}.spd__s b{font-size:24px;line-height:28px;white-space:nowrap}.spd__s>div{padding:10px 8px}.spd__s span{font-size:10px;line-height:14px;letter-spacing:.02em}.spd__s small{font-size:10px;line-height:13px}.spd__b .row{grid-template-columns:96px 1fr 44px;gap:var(--s100)}.spd__b .row span{font-size:11px}}
+@media(max-width:760px){.spd{padding:var(--s300) var(--s200)}.spd__h{font-size:26px;line-height:30px}.spd__s{gap:6px}.spd__s b{font-size:24px;line-height:28px;white-space:nowrap}.spd__s>div{padding:10px 8px}.spd__s span{font-size:10px;line-height:14px;letter-spacing:.02em}.spd__s small{font-size:10px;line-height:13px}.lane{grid-template-columns:minmax(0,1fr) auto;gap:6px var(--s100)}.lane__n{grid-column:1;font-size:12px}.lane__m{grid-column:2;grid-row:1}.trk{grid-column:1/-1;height:28px}.lane.x .lane__m b{display:inline;font-size:24px}.lane.x .lane__m small,.lane.t .lane__m small{display:inline;margin:0 0 0 4px;font-size:10px}.lane.t .lane__m b{font-size:18px}.flag{font-size:10px;right:16px}}
 
 /* limited stock urgency */
 .dot{display:inline-block;flex:none;width:8px;height:8px;border-radius:50%;background:#ff3b1f;box-shadow:0 0 0 3px rgba(255,59,31,.25);animation:lsp 1.6s ease-in-out infinite}
@@ -912,6 +938,11 @@ h1,h2,h3,h4,h5,h6,p{margin:0;text-wrap:pretty}h1,h2,h3,h4,h5,h6{text-wrap:balanc
 .tl .media .tag.ls{position:absolute;left:12px;top:12px;z-index:2;font-size:11px;padding:3px 8px}
 .meta .ls{align-items:center}
 .meta .ls .dot{margin:0 5px 0 4px}
+/* Heavier display type: Certia ExtraBold (800) and Black (900) */
+h1,h2,.heading-1,.heading-2,.heading-3,.kv__h,.kv__off,.kv__off b,.spd__h,.spd__s b,.cd b{font-weight:900!important}
+h3,h4,.heading-4,.heading-5,.heading-6,h3.title-1,h3.title-2,h3.title-3,span.title-2,span.title-3{font-weight:800!important}
+.num:not(.ms),.cmp tr.pr td,.szt td b,.saved,.tl .amt .num,.lm__plate b{font-weight:900!important}
+.num.ms{font-weight:600!important}
 </style>
 </head>
 <body>
@@ -1401,8 +1432,8 @@ function stockPill(key,first){const s=STOCK[key]||{us:0,tr:0};
 const price1=(p,v)=>p.stage&&14-H07_SOLD<=0?v.p2:v.p;
 /* XRF speed: the claim, the numbers behind it, job time bars */
 function speedPanel(){return `<div class="spd"><div class="spd__t"><span class="kick"><i class="stripe" aria-hidden="true"></i>XRF performance</span><h3 class="spd__h">Real 3G. 1,200 mm/s.<br><em>2 to 5× faster.</em></h3><p class="body-6 muted">Most desktop lasers lose time slowing down and speeding up at every turn. XRF accelerates at a true 3G (29,430 mm/s²) and runs up to 1,200 mm/s on DSP motion control, so real jobs finish 2 to 5 times sooner than on typical desktop lasers.</p></div>
- <div class="spd__s"><div><b>3G</b><span>True acceleration<small>29,430 mm/s²</small></span></div><div><b>1,200</b><span>mm/s top speed<small>DSP motion control</small></span></div><div><b>2–5×</b><span>Faster job times<small>vs typical desktop lasers</small></span></div></div>
- <div class="spd__b" aria-label="Relative job time"><div class="row"><span>XRF 38W RF</span><div class="bar"><i class="x" style="--w:20%"></i></div><em>1×</em></div><div class="row"><span>Typical desktop laser</span><div class="bar"><i class="t" style="--w:100%"></i><i class="t2" style="--w:40%"></i></div><em>2–5×</em></div><small>Relative job time, shorter is better. Compared with typical G-code driven desktop diode and CO₂ lasers; actual times vary with design and material.</small></div>
+ <div class="spd__s"><div><b data-cu="3" data-sfx="G">3G</b><span>True acceleration<small>29,430 mm/s²</small></span></div><div><b data-cu="1200">1,200</b><span>mm/s top speed<small>DSP motion control</small></span></div><div><b>2–5×</b><span>Faster job times<small>vs typical desktop lasers</small></span></div></div>
+ <div class="spd__b" role="img" aria-label="Same job, side by side: XRF finishes 2 to 5 times faster than a typical desktop laser"><div class="race__hd" aria-hidden="true"><span>Same file · same job · <b>lights out</b></span></div><div class="lane x" aria-hidden="true"><span class="lane__n">XRF 38W RF</span><div class="trk"><i class="run"></i><b class="flag"><i class="ph-fill ph-flag-checkered"></i>Finished</b></div><em class="lane__m"><b>2–5×</b><small>faster</small></em></div><div class="lane t" aria-hidden="true"><span class="lane__n">Typical desktop laser</span><div class="trk"><i class="run"></i></div><em class="lane__m"><b>1×</b><small>baseline</small></em></div><small>Same design, run side by side. Compared with typical G-code driven desktop diode and CO₂ lasers; actual times vary with design and material.</small></div>
 </div>`}
 /* Cobra 8 / 10 / 14: beds drawn to scale, XRF bed for reference */
 function sizeCmp(p,cur){const X=1400,Y=900;
@@ -1617,7 +1648,8 @@ document.addEventListener('click',e=>{const t=e.target;
  const b=t.closest('[data-buy],[data-add]');if(b)dl({event:b.dataset.buy?'begin_checkout':'add_to_cart',ecommerce:{currency:'USD',value:+b.dataset.val||0,items:[{item_name:b.dataset.buy||b.dataset.add,price:+b.dataset.val||0,quantity:1}]}});
 });
 /* XRF speed bars fill when the panel comes into view, including after a re-render */
-const spdIO=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');spdIO.unobserve(e.target)}}),{rootMargin:'0px 0px -15% 0px'});
+const spdCount=el=>el.querySelectorAll('[data-cu]').forEach(b=>{const n=+b.dataset.cu,sf=b.dataset.sfx||'',t0=performance.now(),d=1400;const f=t=>{const k=Math.min(1,(t-t0)/d),v=Math.round(n*(1-Math.pow(1-k,3)));b.textContent=v.toLocaleString('en-US')+sf;if(k<1)requestAnimationFrame(f)};requestAnimationFrame(f)});
+const spdIO=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');spdCount(e.target);spdIO.unobserve(e.target)}}),{rootMargin:'0px 0px -15% 0px'});
 const armSpd=()=>document.querySelectorAll('.spd:not(.armed)').forEach(e=>{e.classList.add('armed');reduce?e.classList.add('in'):spdIO.observe(e)});
 new MutationObserver(armSpd).observe(document.getElementById('main'),{childList:true,subtree:true});
 /* the popup shows itself once per visit at most: exit intent on desktop, deep scroll on phones, or after a minute */
