@@ -673,6 +673,7 @@ h1,h2,h3,h4,h5,h6,p{margin:0;text-wrap:pretty}h1,h2,h3,h4,h5,h6{text-wrap:balanc
 .help{display:flex;align-items:center;justify-content:space-between;gap:var(--s100);flex-wrap:wrap;margin-top:calc(-1 * var(--s100));font-size:13px;line-height:18px;color:rgba(255,255,255,.7)}
 .help a,.help button{display:inline-flex;align-items:center;gap:6px;padding:0;border:0;background:none;color:#fff;cursor:pointer;font-size:13px;line-height:18px;font-weight:500;text-decoration:underline;text-underline-offset:3px;text-decoration-color:rgba(255,255,255,.35)}
 .help span{display:inline-flex;align-items:center;gap:6px}
+.fx__info .acts+.help{margin-top:16px}  /* best seller wraps buttons + links in a plain div with no gap */
 .help i{font-size:15px}
 .up{display:flex;gap:10px;align-items:flex-start;padding:10px 12px;border-radius:var(--r-lg);border:1px dashed rgba(255,255,255,.3);font-size:13px;line-height:18px;color:rgba(255,255,255,.8);cursor:pointer;transition:border-color .3s var(--ease),background-color .3s var(--ease)}
 .up:hover{border-color:rgba(255,255,255,.55)}
@@ -819,6 +820,7 @@ h1,h2,h3,h4,h5,h6,p{margin:0;text-wrap:pretty}h1,h2,h3,h4,h5,h6{text-wrap:balanc
 .vsc{position:relative;overflow:hidden;display:flex;flex-direction:column;gap:var(--s200);padding:var(--s500) var(--s400);border-radius:var(--r-3xl);background:var(--c1);border:1px solid var(--line)}
 .vsc.cobra{border-top:3px solid var(--blue)}.vsc.hydra{border-top:3px solid var(--red);background:linear-gradient(160deg,#1d0c08,#121212 60%)}
 .vsc.cobra .stripe{background:repeating-linear-gradient(110deg,var(--blue) 0 4px,transparent 4px 8px)}
+.vsc__b{font-weight:900}.vsc.cobra .vsc__b{color:var(--blue)}.vsc.hydra .vsc__b{color:var(--red)}
 .vsc__n{position:absolute;right:20px;top:4px;font-size:110px;line-height:110px;font-weight:700;font-style:italic;color:rgba(255,255,255,.05)}
 .vsc h3{font-style:italic;text-transform:uppercase;font-weight:700}
 .vsc ul{margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:10px}
@@ -1076,13 +1078,13 @@ h3,h4,.heading-4,.heading-5,.heading-6,h3.title-1,h3.title-2,h3.title-3,span.tit
  <div class="sh rv" style="margin:var(--s700) 0 var(--s400)"><span class="caption-3 eb">Cobra or Hydra?</span><h3 class="heading-3">Workshop or production</h3><p class="body-3 muted">Both are floor standing CO₂ lasers with big beds. The difference is how hard you will run it and how fine the detail needs to be.</p></div>
  <div class="vs2 rv">
   <div class="vsc cobra">
-   <span class="vsc__n" aria-hidden="true">02</span><span class="kick"><i class="stripe" aria-hidden="true"></i>Cobra · workshop</span><h3 class="heading-4">Choose Cobra if</h3>
+   <span class="vsc__n" aria-hidden="true">02</span><span class="kick"><i class="stripe" aria-hidden="true"></i><b class="vsc__b">Cobra</b> · workshop</span><h3 class="heading-4">Choose <b class="vsc__b">Cobra</b> if</h3>
    <ul><li><i class="ph-bold ph-check"></i>You mostly cut and engrave wood, acrylic and leather</li><li><i class="ph-bold ph-check"></i>You want the most bed for your budget</li><li><i class="ph-bold ph-check"></i>One CO₂ glass tube covers your work</li><li><i class="ph-bold ph-check"></i>You are setting up or growing a workshop</li></ul>
    <dl><div><dt>Laser</dt><dd>90W, 100W or 130W CO₂ glass</dd></div><div><dt>Work area</dt><dd>31.5" × 19.7" to 55.1" × 35.4"</dd></div><div><dt>Black Friday</dt><dd>$3,999 to $6,999 · save $2,000</dd></div></dl>
    <a class="btn light" href="#p-cob">See Cobra deals<i class="ph-bold ph-arrow-up"></i></a>
   </div>
   <div class="vsc hydra">
-   <span class="vsc__n" aria-hidden="true">03</span><span class="kick"><i class="stripe" aria-hidden="true"></i>Hydra · production</span><h3 class="heading-4">Choose Hydra if</h3>
+   <span class="vsc__n" aria-hidden="true">03</span><span class="kick"><i class="stripe" aria-hidden="true"></i><b class="vsc__b">Hydra</b> · production</span><h3 class="heading-4">Choose <b class="vsc__b">Hydra</b> if</h3>
    <ul><li><i class="ph-bold ph-check"></i>Your laser runs orders all day and speed is money</li><li><i class="ph-bold ph-check"></i>You need fine RF detail and cutting in one machine</li><li><i class="ph-bold ph-check"></i>You want a long life RF tube with no chiller</li><li><i class="ph-bold ph-check"></i>You are scaling a production business</li></ul>
    <dl><div><dt>Laser</dt><dd>70W RF, or CO₂ glass + 38W RF</dd></div><div><dt>Motion</dt><dd>2,000 mm/s, 4G, servo motors (Gen2)</dd></div><div><dt>Black Friday</dt><dd>$5,999 to $12,999 · up to $3,000 off</dd></div></dl>
    <a class="btn primary" href="#p-h07">See Hydra deals<i class="ph-bold ph-arrow-up"></i></a>
