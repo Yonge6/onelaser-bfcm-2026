@@ -964,6 +964,16 @@ h3,h4,.heading-4,.heading-5,.heading-6,h3.title-1,h3.title-2,h3.title-3,span.tit
 .num:not(.ms),.cmp tr.pr td,.szt td b,.saved,.tl .amt .num,.lm__plate b{font-weight:900!important}
 .num.ms{font-weight:600!important}
 .kv__c>.kv__trust{max-width:560px;margin-bottom:14px}
+/* image loading: shimmer skeleton until the photo arrives, then fade in */
+@keyframes imsh{from{background-position:160% 0}to{background-position:-60% 0}}
+@keyframes imin{from{opacity:0}to{opacity:1}}
+.imldh{background-image:linear-gradient(100deg,rgba(160,160,160,0) 20%,rgba(160,160,160,.32) 50%,rgba(160,160,160,0) 80%)!important;background-size:220% 100%!important;background-repeat:no-repeat!important;animation:imsh 1.3s linear infinite}
+.imldh:not(.scene):not(img){background-color:rgba(150,150,150,.08)}
+img.imld{opacity:0}
+@keyframes imspin{to{transform:rotate(360deg)}}
+.scene.imldh:after{content:"";position:absolute;left:50%;top:50%;z-index:1;width:30px;height:30px;margin:-15px 0 0 -15px;border-radius:50%;border:2px solid rgba(255,255,255,.14);border-top-color:var(--red);animation:imspin .8s linear infinite;pointer-events:none}
+img.imin{animation:imin .5s var(--ease) both}
+@media(prefers-reduced-motion:reduce){.imldh,.scene.imldh:after{animation:none}img.imin{animation:none}}
 </style>
 </head>
 <body>
@@ -1718,6 +1728,14 @@ setInterval(()=>{const l=LIVE();if(l!==wasLive){wasLive=l;renderCards();renderLa
 
 const io=new IntersectionObserver(es=>es.forEach(en=>{if(en.isIntersecting){en.target.classList.add('in');en.target.querySelectorAll('[data-count]').forEach(countUp);io.unobserve(en.target)}}),{rootMargin:'0px 0px -10% 0px'});
 
+/* image loading states: shimmer on the photo frame while it loads, fade in when ready */
+const imLoad=img=>{if(img.dataset.ld)return;img.dataset.ld=1;if(img.complete&&img.naturalWidth)return;
+ const host=img.closest('.scene')||(img.getBoundingClientRect().height>4||img.getAttribute('height')?img:img.parentElement);
+ host.classList.add('imldh');img.classList.add('imld');
+ const done=()=>{host.classList.remove('imldh');img.classList.remove('imld');if(getComputedStyle(img).animationName==='none'){img.classList.add('imin');setTimeout(()=>img.classList.remove('imin'),600)}};
+ img.addEventListener('load',done,{once:true});img.addEventListener('error',done,{once:true})};
+new MutationObserver(ms=>ms.forEach(m=>m.addedNodes.forEach(n=>{if(n.nodeType!==1)return;if(n.tagName==='IMG')imLoad(n);else n.querySelectorAll('img').forEach(imLoad)}))).observe(document.body,{childList:true,subtree:true});
+document.querySelectorAll('img').forEach(imLoad);
 renderBento();renderCards();renderLast();renderFeat();renderProj();renderA();renderFinder();fitAll();tick();document.querySelectorAll('.apc,#fx').forEach(el=>sbo.observe(el));drawSb();syncLive();armSpd();setInterval(()=>{if(!document.hidden)tick()},1000);onScroll();
 document.querySelectorAll('.stag').forEach(g=>[...g.children].forEach((c,i)=>c.style.setProperty('--d',Math.min(i*70,560)+'ms')));
 document.querySelectorAll('.rv,.stag,.apc .stage').forEach(el=>{if(!el.classList.contains('stag'))el.classList.add('rv');io.observe(el)});
