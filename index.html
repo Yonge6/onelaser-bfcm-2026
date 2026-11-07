@@ -159,7 +159,7 @@ h1,h2,h3,h4,h5,h6,p{margin:0;text-wrap:pretty}h1,h2,h3,h4,h5,h6{text-wrap:balanc
 
 
 /* ===== hero ===== */
-.kv{position:relative;height:720px;overflow:hidden;background:#150000}
+.kv{position:relative;height:748px;overflow:hidden;background:#150000}
 .kv__art.scene{position:absolute;inset:0}
 .kv__art.scene{will-change:transform;transform:translate3d(var(--mx,0px),var(--hy,0px),0)}
 .kv__art.scene img{animation:kb 2.4s var(--ease) both}
@@ -191,7 +191,7 @@ h1,h2,h3,h4,h5,h6,p{margin:0;text-wrap:pretty}h1,h2,h3,h4,h5,h6{text-wrap:balanc
 .kv__h{margin:0;font-size:84px;line-height:80px;font-weight:700;font-style:italic;letter-spacing:-.03em;text-transform:uppercase;color:#fff}
 .kv__off{margin-top:calc(-1 * var(--s50));font-size:44px;line-height:48px;font-weight:700;font-style:italic;text-transform:uppercase;letter-spacing:-.02em;color:#fff}
 .kv__off b{color:var(--gold);font-weight:600}
-.kv .lead{max-width:560px;color:rgba(255,255,255,.8)}
+.kv .lead{max-width:490px;color:rgba(255,255,255,.8)}
 .kv .lead b{color:#fff;font-weight:600}
 .kv__cta{display:flex;align-items:center;gap:var(--s100);flex-wrap:wrap}
 .cd{display:flex;align-items:center;gap:var(--s75)}
@@ -1328,12 +1328,15 @@ function fitScene(sc){const img=sc.querySelector('img'),m=MPOS[sc.dataset.k];if(
  if(sc.dataset.tx&&!mob)tx=+sc.dataset.tx;
  if(hero){const info=hero.querySelector('.info');if(info&&W>900){tx=(W-info.offsetWidth-48)/2/W;c=mcx}}
  if(sc.dataset.k==='lineup'&&!mob){
-  const kc=document.querySelector('.kv__c');let tr=0;kc&&[...kc.children].forEach(e=>{tr=Math.max(tr,e.getBoundingClientRect().right)});tr-=sc.getBoundingClientRect().left;
-  const rx=tr+40,rw=W-rx-24,gw=.59,LZ=1.1;  /* LZ: hero lineup size, grows left and up from the right edge */
-  let iw=Math.min(Math.max(W,H/SCN_AR),rw/gw*LZ),ih=iw*SCN_AR;
-  const left=Math.min(rx+rw/2-gcx*iw+(LZ-1)*rw/2,W-24-.985*iw),top=Math.min(0,H-ih)+(ih<H?H-ih:0);
+  /* balance the hero: the lineup's right edge sits as far from the screen edge as the copy's left edge,
+     and the group (VertiGo .377 to Cobra .985 of the image width) stays 40px clear of the copy beside it */
+  const kc=document.querySelector('.kv__c'),sl=sc.getBoundingClientRect().left;let tr=0,tl=W;
+  kc&&[...kc.children].forEach(e=>{const r=e.getBoundingClientRect();tl=Math.min(tl,r.left-sl);if(e.classList.contains('kv__hw')||e.classList.contains('kick'))return;const rg=document.createRange();rg.selectNodeContents(e);tr=Math.max(tr,Math.min(r.right,rg.getBoundingClientRect().right)-sl)});
+  const rb=W-Math.max(24,tl),rx=tr+40,GL=.377,GR=.985;
+  let iw=Math.min(Math.max(W,H/SCN_AR),(rb-rx)/(GR-GL),H/SCN_AR),ih=iw*SCN_AR;
+  const left=rb-GR*iw,top=Math.min(0,H-ih)+(ih<H?H-ih:0);
   img.style.width=iw+'px';img.style.left=left+'px';img.style.top=(ih<H?H-ih:Math.min(0,.5*H-cy*ih))+'px';
-  const m=`linear-gradient(90deg,transparent,#000 14%),linear-gradient(180deg,${ih<H?'transparent,#000 22%':'#000,#000'})`;
+  const m=`linear-gradient(90deg,transparent,#000 14%,#000 97%,transparent),linear-gradient(180deg,${ih<H?'transparent,#000 22%':'#000,#000'})`;
   img.style.webkitMaskImage=img.style.maskImage=m;img.style.webkitMaskComposite='source-in';img.style.maskComposite='intersect';
   sc.style.setProperty('--fo',`${(gcx*iw+left)/W*100}% 60%`);syncPins(sc,img,iw);return;}
  const iw=Math.max(W,H/SCN_AR)*(z*(sc.closest('.kv')||NOSLACK[sc.dataset.k]?1:1.08)),ih=iw*SCN_AR;
