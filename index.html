@@ -204,7 +204,6 @@ h1,h2,h3,h4,h5,h6,p{margin:0;text-wrap:pretty}h1,h2,h3,h4,h5,h6{text-wrap:balanc
 
 /* ===== scene images (finished product renders) ===== */
 .scene{position:absolute;inset:0;overflow:hidden;background:#0b0b0b}
-.scene.zo:before{content:"";position:absolute;inset:-60px;background:var(--bg) 30% 100%/cover no-repeat;filter:blur(36px) brightness(.5) saturate(1.15);pointer-events:none}
 .scene img.fade{-webkit-mask-image:linear-gradient(90deg,#000 82%,transparent);mask-image:linear-gradient(90deg,#000 82%,transparent)}
 .scene img.fadet{-webkit-mask-image:linear-gradient(180deg,transparent,#000 16%);mask-image:linear-gradient(180deg,transparent,#000 16%)}
 .scene img.fade.fadet{-webkit-mask-image:linear-gradient(90deg,#000 82%,transparent),linear-gradient(180deg,transparent,#000 16%);-webkit-mask-composite:source-in;mask-image:linear-gradient(90deg,#000 82%,transparent),linear-gradient(180deg,transparent,#000 16%);mask-composite:intersect}
@@ -1319,7 +1318,6 @@ const SCENE=(k,op,alt='',inner='')=>`<div class="scene" data-k="${k}"><img src="
 const MPOS={xrf:[.29,.44,.47],xrfm:[.33,.47,.5],vtgs:[.4,.43,.5],h7g2:[.33,.49,.47],c8:[.32,.47,.47],h7g:[.31,.45,.47],h16d:[.32,.45,.47],vtg:[.23,.5,.48],c10:[.33,.48,.47],c14:[.33,.46,.47],h9d:[.33,.46,.47],h9g2:[.33,.44,.47],h13g2:[.34,.49,.47],h16g2:[.37,.49,.47],lineup:[.66,.66,.55]};
 const SCN_AR=941/1672;
 const NOSLACK={xrfm:1};  /* wide scenes shown whole: no parallax zoom */
-const HZ=.8;  /* deal-card photo zoom (1 = fill the card) */
 const EDGE={xrfm:'#100d0e',vtgs:'#644a36',c10:'#081935',c14:'#011333',c8:'#290c07',h13g2:'#081028',h16d:'#190806',h16g2:'#09122d',h7g:'#330c02',h7g2:'#170300',h9d:'#051943',h9g2:'#051335',vtg:'#091531',xrf:'#1f0600',lineup:'#150000'};
 /* size and place each scene so the machine is centered in its frame (or in the open area beside the price panel) */
 function fitScene(sc){const img=sc.querySelector('img'),m=MPOS[sc.dataset.k];if(!img||!m)return;
@@ -1338,16 +1336,9 @@ function fitScene(sc){const img=sc.querySelector('img'),m=MPOS[sc.dataset.k];if(
   const m=`linear-gradient(90deg,transparent,#000 14%),linear-gradient(180deg,${ih<H?'transparent,#000 22%':'#000,#000'})`;
   img.style.webkitMaskImage=img.style.maskImage=m;img.style.webkitMaskComposite='source-in';img.style.maskComposite='intersect';
   sc.style.setProperty('--fo',`${(gcx*iw+left)/W*100}% 60%`);syncPins(sc,img,iw);return;}
- /* deal cards with the info panel beside the photo: zoom out so the machine doesn't fill the card */
- const fxa=!mob&&sc.parentElement.classList.contains('fx__art'),zo=hero&&W>900&&hero.querySelector('.info')?HZ:fxa?.74:0;
- const Hc=zo&&!fxa?Math.min(H,W*.56):H,iw=Math.max(W,Hc/SCN_AR)*(zo||z*(sc.closest('.kv')||NOSLACK[sc.dataset.k]?1:1.08)),ih=iw*SCN_AR,mid=zo&&H-ih>H*.15;
- const left=iw>=W?Math.min(0,Math.max(W-iw,tx*W-c*iw)):Math.max(0,Math.min(W-iw,tx*W-c*iw)),top=ih>=H?Math.min(0,Math.max(H-ih,.5*H-cy*ih)):mid?(H-ih)*.5:H-ih;
- img.style.width=iw+'px';img.style.left=left+'px';img.style.top=top+'px';
- sc.classList.toggle('zo',!!zo);
- if(zo){sc.style.setProperty('--bg',`url("${img.getAttribute('src')}")`);const gl=left>1,gr=left+iw<W-1,gt=top>1;
-  const h=`linear-gradient(90deg,${gl?'transparent':'#000'},#000 9%,#000 91%,${gr?'transparent':'#000'})`,v=`linear-gradient(180deg,${gt?'transparent':'#000'},#000 ${gt?18:0}%,#000 ${mid?82:100}%,${mid?'transparent':'#000'})`;
-  img.style.webkitMaskImage=img.style.maskImage=`${h},${v}`;img.style.webkitMaskComposite='source-in';img.style.maskComposite='intersect';}
- else img.style.webkitMaskImage=img.style.maskImage='';
+ const iw=Math.max(W,H/SCN_AR)*(z*(sc.closest('.kv')||NOSLACK[sc.dataset.k]?1:1.08)),ih=iw*SCN_AR;
+ const left=Math.min(0,Math.max(W-iw,tx*W-c*iw)),top=Math.min(0,Math.max(H-ih,.5*H-cy*ih));
+ img.style.width=iw+'px';img.style.left=left+'px';img.style.top=top+'px';img.style.webkitMaskImage=img.style.maskImage='';
  sc.style.setProperty('--fo',`${(c*iw+left)/W*100}% ${(cy*ih+top)/H*100}%`);syncPins(sc,img,iw);}
 function syncPins(sc,img,iw){const pn=sc.querySelector('.pins');if(pn)pn.style.cssText=`left:${img.style.left};top:${img.style.top};width:${iw}px;height:${iw*SCN_AR}px`}
 const sro=new ResizeObserver(es=>es.forEach(e=>fitScene(e.target)));
