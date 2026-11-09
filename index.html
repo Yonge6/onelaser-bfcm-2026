@@ -235,7 +235,6 @@ h1,h2,h3,h4,h5,h6,p{margin:0;text-wrap:pretty}h1,h2,h3,h4,h5,h6{text-wrap:balanc
 .tiertag{display:inline-flex;align-items:center;white-space:nowrap;flex:none;gap:var(--s75);padding:var(--s50) var(--s100);border-radius:var(--r-full);font-size:12px;line-height:16px;font-weight:600;letter-spacing:.04em;text-transform:uppercase}
 .tiertag.super{background:rgba(231,49,14,.16);color:#FF7A5C;border:1px solid rgba(231,49,14,.4)}
 .tiertag.deal{background:rgba(91,157,255,.14);color:var(--blue);border:1px solid rgba(91,157,255,.4)}
-.tiertag.best{background:rgba(252,199,123,.12);color:var(--gold);border:1px solid rgba(252,199,123,.32)}
 
 /* tiers explainer */
 .tiers{display:grid;grid-template-columns:1fr 1fr;gap:var(--s200)}
@@ -384,7 +383,7 @@ h1,h2,h3,h4,h5,h6,p{margin:0;text-wrap:pretty}h1,h2,h3,h4,h5,h6{text-wrap:balanc
 .rarr button:active,.arr:active{transform:scale(.96)}
 .rarr button:disabled{opacity:.3;cursor:default}
 
-/* compact cards (last units, best seller) */
+/* compact cards (last units) */
 .bg3{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--s300)}
 .bg2{display:grid;grid-template-columns:repeat(2,1fr);gap:var(--s300)}
 .bc{display:flex;flex-direction:column;gap:var(--s300);padding:var(--s300);border-radius:var(--r-3xl);background:var(--c2);transition:transform .5s var(--ease)}
@@ -394,11 +393,7 @@ h1,h2,h3,h4,h5,h6,p{margin:0;text-wrap:pretty}h1,h2,h3,h4,h5,h6{text-wrap:balanc
 .bc .im .tag{position:absolute;left:var(--s200);top:var(--s200)}
 .bc h3{min-height:56px}
 .bc .acts{margin-top:auto}
-.fx{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,1fr);gap:var(--s200);align-items:stretch}
-.fx__art{position:relative;overflow:hidden;min-height:540px;border-radius:var(--r-3xl);background:#000}
 
-.fx__art .tag{position:absolute;left:var(--s300);top:var(--s300)}
-.fx__info{display:flex;flex-direction:column;gap:var(--s300);padding:var(--s400);border-radius:var(--r-3xl);background:var(--c2)}
 
 /* tagline */
 .tagline{padding:var(--s900) 0 calc(var(--s900) + var(--s400))}
@@ -569,7 +564,7 @@ h1,h2,h3,h4,h5,h6,p{margin:0;text-wrap:pretty}h1,h2,h3,h4,h5,h6{text-wrap:balanc
  .strip{grid-template-columns:1fr}
  .dates{grid-template-columns:1fr 1fr}.dates li+li:before{display:none}
  .tlne,.ag,.bg3,.tiers,.fin2{grid-template-columns:1fr 1fr}
- .fx,.finder{grid-template-columns:1fr}
+ .finder{grid-template-columns:1fr}
  .feats{grid-template-columns:1fr 1fr}
  .pw{grid-template-columns:1fr 1fr 1fr}
  .ft__lead,.ft__main{grid-template-columns:1fr;gap:var(--s500)}
@@ -594,7 +589,6 @@ h1,h2,h3,h4,h5,h6,p{margin:0;text-wrap:pretty}h1,h2,h3,h4,h5,h6{text-wrap:balanc
  .tl.big,.tl.sm{grid-column:auto}
  .ea{min-height:0;flex-direction:column;align-items:stretch}.ea>img.bg{position:relative;width:100%;height:220px;order:2}.ea:before{display:none}.ea__c{padding:var(--s400) var(--s300)}
  .form__row{flex-wrap:wrap;border-radius:var(--r-3xl);padding:var(--s75)}.form__row input{flex-basis:100%}.form__row .btn{flex:1}
- .fx__art{min-height:320px}.fx__info{padding:var(--s300)}
  .hero{height:auto;display:flex;flex-direction:column}
  .hero .scene{position:relative;inset:auto;height:auto;aspect-ratio:16/10;flex:none}
  .hero .stk{position:relative;inset:auto;margin:var(--s100) var(--s100) 0;max-width:none}
@@ -662,16 +656,15 @@ h1,h2,h3,h4,h5,h6,p{margin:0;text-wrap:pretty}h1,h2,h3,h4,h5,h6{text-wrap:balanc
 .race__t span{padding:0 22px;font-size:22px;line-height:28px;font-weight:700;font-style:italic;letter-spacing:.01em;text-transform:uppercase;white-space:nowrap}
 .race__t i{width:26px;height:14px;flex:none;background:repeating-linear-gradient(110deg,currentColor 0 4px,transparent 4px 8px);opacity:.55}
 /* headings and tier tags */
-.sh .heading-2,.final h2,.lm__h,#bestseller .heading-2{font-style:italic;text-transform:uppercase;font-weight:700;letter-spacing:-.02em}
+.sh .heading-2,.final h2,.lm__h{font-style:italic;text-transform:uppercase;font-weight:700;letter-spacing:-.02em}
 .sh .eb{display:inline-flex;align-items:center;gap:10px;font-style:italic;font-weight:700;letter-spacing:.14em;text-transform:uppercase}
 .sh .eb:before{content:"";width:30px;height:10px;background:repeating-linear-gradient(110deg,var(--red) 0 4px,transparent 4px 8px)}
 .tiertag{border-radius:3px;font-style:italic;font-weight:700;letter-spacing:.08em;transform:skewX(-10deg)}
 .tiertag.super{background:var(--red);color:#fff;border-color:var(--red)}
 .tiertag.deal{background:var(--blue);color:#04122b;border-color:var(--blue)}
-.tiertag.best{background:var(--gold);color:#1a1200;border-color:var(--gold)}
 .info:after{content:"";position:absolute;left:24px;top:-1px;width:80px;height:3px;background:var(--red);transform:skewX(-30deg)}
 .hero.blue .info:after{background:var(--blue)}
-.info .pb .heading-5:not(.ms),.bc .pb .heading-5:not(.ms),.stg .heading-6,.tl .amt .num,.fx__info .heading-4{font-style:italic;font-weight:700}
+.info .pb .heading-5:not(.ms),.bc .pb .heading-5:not(.ms),.stg .heading-6,.tl .amt .num{font-style:italic;font-weight:700}
 .tl .amt small{font-style:italic;text-transform:uppercase}
 /* free shipping */
 .fsb{display:inline-flex;align-items:center;gap:6px;padding:4px 10px;border-radius:3px;background:var(--green);color:#04210f;font-size:12px;line-height:16px;font-weight:700;font-style:italic;letter-spacing:.06em;text-transform:uppercase;white-space:nowrap}
@@ -689,7 +682,6 @@ h1,h2,h3,h4,h5,h6,p{margin:0;text-wrap:pretty}h1,h2,h3,h4,h5,h6{text-wrap:balanc
 .help{display:flex;align-items:center;justify-content:space-between;gap:var(--s100);flex-wrap:wrap;margin-top:calc(-1 * var(--s100));font-size:13px;line-height:18px;color:rgba(255,255,255,.7)}
 .help a,.help button{display:inline-flex;align-items:center;gap:6px;padding:0;border:0;background:none;color:#fff;cursor:pointer;font-size:13px;line-height:18px;font-weight:500;text-decoration:underline;text-underline-offset:3px;text-decoration-color:rgba(255,255,255,.35)}
 .help span{display:inline-flex;align-items:center;gap:6px}
-.fx__info .acts+.help{margin-top:16px}  /* best seller wraps buttons + links in a plain div with no gap */
 .help i{font-size:15px}
 .up{display:flex;gap:10px;align-items:flex-start;padding:10px 12px;border-radius:var(--r-lg);border:1px dashed rgba(255,255,255,.3);font-size:13px;line-height:18px;color:rgba(255,255,255,.8);cursor:pointer;transition:border-color .3s var(--ease),background-color .3s var(--ease)}
 .up:hover{border-color:rgba(255,255,255,.55)}
@@ -856,7 +848,6 @@ h1,h2,h3,h4,h5,h6,p{margin:0;text-wrap:pretty}h1,h2,h3,h4,h5,h6{text-wrap:balanc
 .vsc dt{color:var(--t3);font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase}
 .vsc dd{margin:0}
 .vsc .btn{align-self:flex-start;margin-top:auto}
-#bestseller{padding-top:var(--s300)}
 @media(max-width:1080px){.ln3{grid-template-columns:1fr}.ser__hd{grid-template-columns:auto 1fr}.ser__fit{grid-column:1/-1}.why4{grid-template-columns:1fr 1fr}.hpick{grid-template-columns:repeat(3,1fr)}}
 @media(max-width:760px){
  .ser{padding-top:var(--s700)}
@@ -1076,7 +1067,7 @@ img.imin{animation:imin .5s var(--ease) both}
 </section>
 
 <nav class="snav" aria-label="Black Friday sections"><div class="snav__in" id="snav">
- <a href="#deals">Deals</a><a href="#super">Super deals</a><a href="#bfcm">BFCM deals</a><a href="#bestseller">Best seller</a><a href="#compare">Compare</a><a href="#projects">Projects</a><a href="#why">Why OneLaser</a><a href="#finder">Find yours</a><a href="#faq">FAQ</a>
+ <a href="#deals">Deals</a><a href="#super">Super deals</a><a href="#bfcm">BFCM deals</a><a href="#last">Last units</a><a href="#compare">Compare</a><a href="#projects">Projects</a><a href="#why">Why OneLaser</a><a href="#finder">Find yours</a><a href="#faq">FAQ</a>
 </div></nav>
 
 <div class="race" role="note" aria-label="Black Friday Deals: up to $3,000 off, free shipping on XRF 38W RF and VertiGo, final prices with no codes, ends Cyber Monday">
@@ -1126,15 +1117,9 @@ img.imin{animation:imin .5s var(--ease) both}
 <section id="bfcm">
  <div class="wrap"><div class="sh rv"><span class="tiertag deal"><i class="ph-fill ph-tag"></i>Limited time</span><h2 class="heading-2">BFCM Deals</h2><p class="body-3 muted">Our Black Friday discount for everyone, on VertiGo, the Cobra line and the Hydra Gen2 Pro line. Ends Cyber Monday, Nov 30.</p></div></div>
  <div id="dealCards"></div>
- <div class="wrap"><div class="sh left rv" style="margin-bottom:var(--s300)"><span class="tiertag super"><i class="ph-fill ph-fire"></i>Black Friday last units</span><h3 class="heading-4">Limited qty. Then they are gone.</h3></div>
+ <div class="wrap" id="last"><div class="sh left rv" style="margin-bottom:var(--s300)"><span class="tiertag super"><i class="ph-fill ph-fire"></i>Black Friday last units</span><h3 class="heading-4">Limited qty. Then they are gone.</h3></div>
  <div class="bg2 stag" id="lastUnits"></div></div>
 </section>
-
-<!-- best seller -->
-<section class="sec" id="bestseller"><div class="wrap">
- <div class="sh left rv"><span class="tiertag best"><i class="ph-fill ph-star"></i>Best seller · not on sale</span><h2 class="heading-2">Hydra Gen2 Hybrid</h2><p class="body-3 muted">The machine most of our production customers choose. It is not discounted this Black Friday, and it is still the one we would buy first: glass tube cutting and 38W RF engraving in one cabinet, in stock, with financing.</p></div>
- <div class="fx rv" id="fx"></div>
-</div></section>
 
 <!-- not sure: compare lines -->
 <section class="sec vs" id="compare"><div class="wrap">
@@ -1245,7 +1230,7 @@ img.imin{animation:imin .5s var(--ease) both}
 <section class="sec" id="faq" style="padding-top:var(--s700)"><div class="wrap faqw">
  <div class="sh rv"><span class="caption-3 eb">FAQ</span><h2 class="heading-2">Questions before you buy</h2></div>
  <div class="fl rv">
-  <details><summary>Which machines are on sale?<i class="ph ph-plus"></i></summary><div class="a body-3">Super Deals are our lowest prices ever and will never come back: XRF 38W RF, Hydra 7 Pro and Hydra 9 Dual. BFCM Deals are our Black Friday discount for everyone: VertiGo, Cobra 8, 10 and 14, and the Hydra Gen2 Pro line (09, 13 and 16). Plus limited last units of the Hydra 7 80W and Hydra 16 Dual. Hydra Gen2 Hybrid stays at its regular price. Accessories, materials and services are not discounted.</div></details>
+  <details><summary>Which machines are on sale?<i class="ph ph-plus"></i></summary><div class="a body-3">Super Deals are our lowest prices ever and will never come back: XRF 38W RF, Hydra 7 Pro and Hydra 9 Dual. BFCM Deals are our Black Friday discount for everyone: VertiGo, Cobra 8, 10 and 14, and the Hydra Gen2 Pro line (09, 13 and 16). Plus limited last units of the Hydra 7 80W and Hydra 16 Dual. Accessories, materials and services are not discounted.</div></details>
   <details><summary>When does the sale run?<i class="ph ph-plus"></i></summary><div class="a body-3">Black Friday Deals are live now and run through Cyber Monday, Nov 30, 2026, ending at 11:59 PM Pacific Time. Prices are the same every day of the sale, but stock is limited and any deal can sell out before then.</div></details>
   <details><summary>Do I need a discount code?<i class="ph ph-plus"></i></summary><div class="a body-3">No. Black Friday prices are final and apply automatically. Discount codes, including creator codes, are paused during the sale and cannot be combined with Black Friday prices.</div></details>
   <details><summary>How does the Hydra 7 Pro price work?<i class="ph ph-plus"></i></summary><div class="a body-3">A limited qty for promotion sells at $7,999 (MSRP $10,999, save $3,000). Once that qty sells out, the price moves to $8,999. It can sell out anytime.</div></details>
@@ -1294,7 +1279,7 @@ img.imin{animation:imin .5s var(--ease) both}
     <p class="body-6 muted" id="lmP">Get a reminder before Black Friday prices end, and a heads up when stock runs low on the machine you want.</p>
     <label class="fld"><span>Email</span><input id="lmE" type="email" autocomplete="email" placeholder="you@business.com" required></label>
     <label class="fld"><span>Phone <em>optional, for a call from a laser expert</em></span><input id="lmPh" type="tel" autocomplete="tel" inputmode="tel" placeholder="(555) 555 0123"></label>
-    <label class="fld"><span>Machine you are looking at</span><span class="sel"><select id="lmI"><option value="">Not sure yet</option><option>XRF 38W RF</option><option>Hydra 7 Pro</option><option>Cobra 8 90W</option><option>VertiGo 38W RF</option><option>Cobra 10 100W</option><option>Cobra 14 130W</option><option>Hydra 9 Dual</option><option>Hydra 9 Pro</option><option>Hydra 13 Pro</option><option>Hydra 16 Pro</option><option>Hydra 9 Hybrid</option><option>Hydra 13 Hybrid</option><option>Hydra 16 Hybrid</option><option>Hydra 7 80W</option><option>Hydra 16 Dual</option></select><i class="ph-bold ph-caret-down"></i></span></label>
+    <label class="fld"><span>Machine you are looking at</span><span class="sel"><select id="lmI"><option value="">Not sure yet</option><option>XRF 38W RF</option><option>Hydra 7 Pro</option><option>Cobra 8 90W</option><option>VertiGo 38W RF</option><option>Cobra 10 100W</option><option>Cobra 14 130W</option><option>Hydra 9 Dual</option><option>Hydra 9 Pro</option><option>Hydra 13 Pro</option><option>Hydra 16 Pro</option><option>Hydra 7 80W</option><option>Hydra 16 Dual</option></select><i class="ph-bold ph-caret-down"></i></span></label>
     <label class="ck"><input id="lmC" type="checkbox"><span>Have a laser expert call me about this deal</span></label>
     <button class="btn primary lg" type="submit" id="lmS">Remind me</button>
     <div class="msg" id="lmM" aria-live="polite"></div>
@@ -1478,8 +1463,6 @@ const DEALS=[
  {id:'g2p',tier:'deal',th:'blue',img:'h9g2',rl:'g2p',name:'Hydra Gen2 Pro 70W RF industrial laser',tag:['tag','Save $2,000'],speed:3,lb:['70W RF tube','2,000 mm/s','4G acceleration','RF: 4× precision vs glass','3–4× speed vs other RF','10× stability'],
   v:[{l:'Hydra 9 Pro',mn:'Hydra 9 Pro',p:9999,m:11999,f:499,site:599,vid:'44745765617698',u:U('hydra-9-gen-2-70w-rf-co2-dual-laser-machine','44745765617698'),img:'h9g2',stock:'h09p'},{l:'Hydra 13 Pro',mn:'Hydra 13 Pro',p:11999,m:13999,f:599,site:699,vid:'44745769123874',u:U('hydra-13-gen-2-70w-rf-co2-dual-laser-machine','44745769123874'),img:'h13g2',stock:'h13p'},{l:'Hydra 16 Pro',mn:'Hydra 16 Pro',p:12999,m:14999,f:699,vid:'44745771122722',u:U('hydra-16-gen-2-70w-rf-co2-dual-laser-machine','44745771122722'),img:'h16g2',stock:'h16p'}]}];
 const LAST=[{n:'Hydra 7 80W glass tube laser',mn:'Hydra 7 80W',img:'h7g',p:5999,m:7999,f:499,vid:'43519835439138',u:U('onelaser-hydra-7-cabinet-dual-laser-system-with-80-glass-tube-and-38w-rf-metal-tube'),stock:'h07g'},{n:'Hydra 16 Dual 150W glass + 38W RF laser',mn:'Hydra 16 Dual',img:'h16d',p:11999,m:13999,f:699,vid:'43551549587490',u:U('onelaser-hydra-16-cabinet-dual-laser-system-with150w-glass-tube-and-38w-rf-metal-tube'),stock:'h16d'}];
-const FEAT={name:'Hydra Gen2 Hybrid CO₂ glass + RF industrial laser',desc:'Glass tube cutting and 38W RF fine engraving in one production machine, for batch work across wood, acrylic, leather, glass and coated metal.',lb:['Up to 150W glass','38W RF','2,000 mm/s','RF: 4× precision vs glass','3–4× speed vs other RF','10× stability'],
- v:[{l:'Hydra 9 Hybrid · 100W + 38W RF',mn:'Hydra 9 Hybrid',p:10999,f:599,img:'h9g2',stock:'hy09',vid:'44745765650466',u:U('hydra-9-gen-2-70w-rf-co2-dual-laser-machine','44745765650466')},{l:'Hydra 13 Hybrid · 130W + 38W RF',mn:'Hydra 13 Hybrid',p:12999,f:699,img:'h13g2',stock:'hy13',vid:'44745769156642',u:U('hydra-13-gen-2-70w-rf-co2-dual-laser-machine','44745769156642')},{l:'Hydra 16 Hybrid · 150W + 38W RF',mn:'Hydra 16 Hybrid',p:13999,f:699,img:'h16g2',stock:'hy16',vid:'44745771155490',u:U('hydra-16-gen-2-70w-rf-co2-dual-laser-machine','44745771155490')}]};
 /* [size, tier, $ off, name, note, scene, anchor, model shown in the photo, free shipping] */
 const BENTO=[['big','super',3000,'Hydra 7 Pro','Limited qty','h7g2','#p-h07','Hydra 7 Pro'],['big','super',2000,'Hydra 9 Dual','Glass + RF','h9d','#p-h09d','Hydra 9 Dual'],['big','super',1000,'XRF 38W RF','True 3G · 1,200 mm/s','xrfm','#p-xrf','XRF 38W RF',1],
  ['sm','deal',2000,'Hydra Gen2 Pro','9, 13 and 16','h9g2','#p-g2p','Hydra 9 Pro'],['sm','deal',2000,'Cobra 8 · 10 · 14','From $3,999','c8','#p-cob','Cobra 8 90W'],['sm','deal',1000,'VertiGo','Drinkware laser','vtgs','#p-vtg','VertiGo 38W RF',1]];
@@ -1549,13 +1532,7 @@ function apc(p){
 const ALLP=[...SUPER,...DEALS];
 const GROUP={superCards:['xrf','h07','h09d'],dealCards:['vtg','cob','g2p']};
 function renderCards(){Object.entries(GROUP).forEach(([c,ids])=>{document.getElementById(c).innerHTML=ids.map(id=>{const p=ALLP.find(x=>x.id===id);return `<section class="apc" id="p-${p.id}">${apc(p)}</section>`}).join('')});ALLP.forEach(p=>slide(p.id,0));}
-function renderLast(){lastUnits.innerHTML=LAST.map(b=>`<div class="bc"><div class="im">${SCENE(b.img,'30% 50%',b.n)}<span class="tag red">Limited stock</span>${MP(b.mn)}</div><div><h3 class="title-2">${b.n}</h3><div class="lbls" style="margin-top:8px"><span>RF: 4× precision vs glass</span><span>3–4× speed vs other RF</span><span>10× stability</span></div><div class="pb" style="margin-top:12px"><div><span class="caption-5 muted">Black Friday price</span><span class="heading-5 num">${$(b.p)}</span><span class="saved">Save ${$(b.m-b.p)}</span></div><div class="sep"></div><div><span class="caption-5 muted">MSRP</span><span class="heading-5 ms num">${$(b.m)}</span></div></div></div><div class="meta">${stockRow(b.stock)}${ship(b)}</div>${acts({ids:[b.vid],u:b.u,n:b.mn,v:b.p,sm:1})}</div>`).join('');}
-function renderFeat(){const i=sel.feat??0,v=FEAT.v[i];fx.innerHTML=`<div class="fx__art">${SCENE(v.img,'30% 50%',v.mn)}<span class="tag"><i class="ph-fill ph-star"></i>Best seller</span>${MP(v.mn,'Glass + 38W RF')}</div>
- <div class="fx__info"><div><h3 class="heading-5">${FEAT.name}</h3><p class="body-6 muted" style="margin-top:8px">${FEAT.desc}</p><div class="lbls" style="margin-top:12px">${FEAT.lb.map(x=>`<span>${x}</span>`).join('')}</div></div>
- <div class="sel"><label class="sr-only" for="v-feat">Model</label><select id="v-feat" data-p="feat">${FEAT.v.map((x,j)=>`<option value="${j}" ${j===i?'selected':''}>${x.l}</option>`).join('')}</select><i class="ph-bold ph-caret-down"></i></div>
- <div><span class="caption-5 muted">Regular price</span><div class="heading-4 num">${$(v.p)}</div><span class="caption-5 muted">Not discounted during Black Friday</span></div>
- <div class="meta">${stockRow(v.stock)}${ship(v)}${fin}</div>
- <div style="margin-top:auto">${acts({ids:[v.vid],u:v.u,n:v.mn,v:v.p,always:1})}</div></div>`;}
+function renderLast(){lastUnits.innerHTML=LAST.map(b=>`<div class="bc"><div class="im">${SCENE(b.img,'30% 50%',b.n)}<span class="tag red">Limited stock</span>${MP(b.mn)}</div><div><h3 class="title-2">${b.n}</h3><div class="lbls" style="margin-top:8px">${/RF/.test(b.n)?'<span>RF: 4× precision vs glass</span>':''}<span>3–4× speed vs other RF</span><span>10× stability</span></div><div class="pb" style="margin-top:12px"><div><span class="caption-5 muted">Black Friday price</span><span class="heading-5 num">${$(b.p)}</span><span class="saved">Save ${$(b.m-b.p)}</span></div><div class="sep"></div><div><span class="caption-5 muted">MSRP</span><span class="heading-5 ms num">${$(b.m)}</span></div></div></div><div class="meta">${stockRow(b.stock)}${ship(b)}</div>${acts({ids:[b.vid],u:b.u,n:b.mn,v:b.p,sm:1})}</div>`).join('');}
 const LINES=[
  {id:'desktop',n:'01',k:'Desktop lasers',t:'XRF 38W RF · VertiGo',img:'xrf',mp:'XRF 38W RF',who:'For home businesses, craft sellers and retail shops.',f:['Fits on a workbench or a shop counter','38W RF, 4× the precision of glass tube','Flat goods or drinkware'],from:'$4,499',off:'Up to $1,000 off',fs:1,cta:'See desktop deals'},
  {id:'cobra',n:'02',k:'Workshop CO₂ lasers',t:'Cobra 8 · 10 · 14',img:'c14',mp:'Cobra 14 130W',who:'For woodworkers, sign makers and growing shops.',f:['Floor standing, 90W to 130W glass tube','Beds up to 55.1" × 35.4"','2× faster than the average CO₂ glass tube'],from:'$3,999',off:'Save $2,000',cta:'See Cobra deals'},
@@ -1576,13 +1553,12 @@ const FINDER={
  c14:{n:'Cobra 14 130W',why:'A 130W glass tube and a larger bed for big signs and batch cutting, 2× faster than the average CO₂ glass tube. $6,999, save $2,000.',img:'c14',a:'#p-cob',sel:'cob:2',p:'$6,999'},
  h07:{n:'Hydra 7 Pro',why:'70W RF with 4× the precision of glass tube, 2,000 mm/s and 4G acceleration, built for leather, patches, tags and production runs. 3–4× faster than other RF lasers, 10× the stability. $7,999 for a limited qty, then $8,999.',img:'h7g2',a:'#p-h07',p:'$7,999'},
  h09d:{n:'Hydra 9 Dual',why:'100W glass for cutting and a 38W RF tube for fine engraving at 4× the precision of glass, in one cabinet. 3–4× faster than other RF lasers, 10× the stability. $8,999, limited stock.',img:'h9d',a:'#p-h09d',p:'$8,999'},
- h09p:{n:'Hydra 9 Pro',why:'A 70W RF Gen2 production platform with 4× the precision of glass tube, 2,000 mm/s and 4G acceleration. 3–4× faster than other RF lasers, 10× the stability. $9,999, save $2,000.',img:'h9g2',a:'#p-g2p',p:'$9,999'},
- hyb:{n:'Hydra 9 Hybrid',why:'Glass cutting plus RF engraving at 4× the precision of glass, current generation, in stock. 3–4× faster than other RF lasers, 10× the stability. Not discounted, and still the machine our production customers buy most.',img:'h9g2',a:'#bestseller',p:'$10,999'}};
+ h09p:{n:'Hydra 9 Pro',why:'A 70W RF Gen2 production platform with 4× the precision of glass tube, 2,000 mm/s and 4G acceleration. 3–4× faster than other RF lasers, 10× the stability. $9,999, save $2,000.',img:'h9g2',a:'#p-g2p',p:'$9,999'}};
 function pick(m,s,b){
  if(m==='drink')return 'vtg';
  if(s==='desk')return 'xrf';
  if(m==='prod'||s==='floor'){return b==='1'?'c08':b==='2'?'h07':'h09p';}
- if(m==='decor')return b==='1'?'c08':b==='2'?'c14':'hyb';
+ if(m==='decor')return b==='1'?'c08':b==='2'?'c14':'h09d';
  return b==='1'?'xrf':b==='2'?'h07':'h09d';}
 function renderFinder(){const f=new FormData(fq),m=f.get('make'),s=f.get('space'),b=f.get('budget');
  if(!m||!s||!b){fr.innerHTML=`<div class="empty"><i class="ph ph-crosshair"></i><span class="title-2">Your match appears here</span><span class="body-6">Answer all three questions.</span></div>`;return;}
@@ -1625,7 +1601,7 @@ document.addEventListener('click',e=>{
 addEventListener('keydown',e=>{
  if((e.key==='Enter'||e.key===' ')&&e.target.matches('.reel,[data-yt],.csz [data-sel]')){e.preventDefault();e.target.click()}
  if(!vv.classList.contains('on'))return;if(e.key==='Escape')closeV();if(e.key==='ArrowRight')vv.querySelector('.nx').click();if(e.key==='ArrowLeft')vv.querySelector('.pv').click()});
-document.addEventListener('change',e=>{const s=e.target.closest('select[data-p]');if(!s)return;sel[s.dataset.p]=+s.value;if(s.dataset.p==='feat'){renderFeat();fitAll(fx);fx.querySelector('select').focus()}else{const p=ALLP.find(x=>x.id===s.dataset.p);const sec=document.getElementById('p-'+p.id);sec.innerHTML=apc(p);slide(p.id,0);fitAll(sec);sec.querySelector('select').focus()}});
+document.addEventListener('change',e=>{const s=e.target.closest('select[data-p]');if(!s)return;sel[s.dataset.p]=+s.value;const p=ALLP.find(x=>x.id===s.dataset.p);const sec=document.getElementById('p-'+p.id);sec.innerHTML=apc(p);slide(p.id,0);fitAll(sec);sec.querySelector('select').focus()});
 
 /* forms: inline signups go to Klaviyo like the popup */
 document.querySelectorAll('[data-form]').forEach(f=>f.addEventListener('submit',async e=>{
@@ -1661,7 +1637,7 @@ function countUp(el){const to=+el.dataset.count,t0=performance.now(),d=1200;if(r
 (()=>{if(reduce)return;
  const kv=document.querySelector('.kv'),art=kv.querySelector('.kv__art'),txt=kv.querySelector('.kv__c'),prog=document.getElementById('progress');
  const vis=new Set();const pio=new IntersectionObserver(es=>es.forEach(e=>e.isIntersecting?vis.add(e.target):vis.delete(e.target)),{rootMargin:'100px'});
- const watch=()=>document.querySelectorAll('.hero .scene,.tl .scene,.ln .scene,.bc .scene,.fx__art .scene,.pj').forEach(el=>{if(!el.dataset.px){el.dataset.px=1;pio.observe(el)}});watch();
+ const watch=()=>document.querySelectorAll('.hero .scene,.tl .scene,.ln .scene,.bc .scene,.pj').forEach(el=>{if(!el.dataset.px){el.dataset.px=1;pio.observe(el)}});watch();
  new MutationObserver(watch).observe(document.getElementById('main'),{childList:true,subtree:true});
  let mx=0,my=0,tick2=false;
  function frame(){tick2=false;const y=scrollY,vh=innerHeight;
@@ -1747,7 +1723,7 @@ let deep=false;addEventListener('scroll',()=>{if(deep||fine)return;if(scrollY>(d
 
 /* sticky deal bar: follows the product in view, one tap to checkout */
 const sbar=$id('sbar'),sbK=$id('sbK'),sbN=$id('sbN'),sbP=$id('sbP'),sbA=$id('sbA');let sbCur=null,heroIn=true,endIn=false;const ratios=new Map();
-function sbData(id){if(id==='fx'){const v=FEAT.v[sel.feat??0];return{n:v.mn,k:'Best seller<span class="sbar__x"> · Regular price</span><span class="sbar__y"> · Limited stock</span>',p:v.p,f:v.f,ids:[v.vid],always:1}}
+function sbData(id){
  const p=ALLP.find(x=>'p-'+x.id===id);if(!p)return null;const v=p.v[sel[p.id]??(p.def||0)],pr=price1(p,v),up=p.up&&upOn[p.id];
  return{n:v.mn+(up?' + Auto Conveyor':''),k:((v.tier||p.tier)==='super'?'Super Deal':'BFCM Deal')+'<span class="sbar__x"> · Limited stock</span>',p:pr+(up?p.up.p:0),m:v.m+(up?p.up.p:0),f:v.f,ids:[v.vid,...(up?[p.up.id]:[])]}}
 const SB_END='<span class="sbar__y">Black Friday · </span>Ends Cyber Monday';
@@ -1767,7 +1743,7 @@ document.addEventListener('change',e=>{const u=e.target.closest('[data-up]');if(
 /* flip every button from "notify me" to "buy now" the moment the sale opens */
 let wasLive=LIVE();
 function syncLive(){const live=LIVE();document.querySelectorAll('[data-alt]').forEach(b=>{b.textContent='Talk to a laser expert';b.dataset.call='1'});document.querySelectorAll('.lights').forEach(x=>x.classList.toggle('out',live))}
-setInterval(()=>{const l=LIVE();if(l!==wasLive){wasLive=l;renderCards();renderLast();renderFeat();fitAll();ratios.clear();document.querySelectorAll('.apc,#fx').forEach(el=>sbo.observe(el));drawSb();syncLive()}},5000);
+setInterval(()=>{const l=LIVE();if(l!==wasLive){wasLive=l;renderCards();renderLast();fitAll();ratios.clear();document.querySelectorAll('.apc').forEach(el=>sbo.observe(el));drawSb();syncLive()}},5000);
 
 const io=new IntersectionObserver(es=>es.forEach(en=>{if(en.isIntersecting){en.target.classList.add('in');en.target.querySelectorAll('[data-count]').forEach(countUp);io.unobserve(en.target)}}),{rootMargin:'0px 0px -10% 0px'});
 
@@ -1779,7 +1755,7 @@ const imLoad=img=>{if(img.dataset.ld)return;img.dataset.ld=1;if(img.complete&&im
  img.addEventListener('load',done,{once:true});img.addEventListener('error',done,{once:true})};
 new MutationObserver(ms=>ms.forEach(m=>m.addedNodes.forEach(n=>{if(n.nodeType!==1)return;if(n.tagName==='IMG')imLoad(n);else n.querySelectorAll('img').forEach(imLoad)}))).observe(document.body,{childList:true,subtree:true});
 document.querySelectorAll('img').forEach(imLoad);
-renderBento();renderCards();renderLast();renderFeat();renderProj();renderA();renderFinder();fitAll();tick();document.querySelectorAll('.apc,#fx').forEach(el=>sbo.observe(el));drawSb();syncLive();armSpd();setInterval(()=>{if(!document.hidden)tick()},1000);onScroll();
+renderBento();renderCards();renderLast();renderProj();renderA();renderFinder();fitAll();tick();document.querySelectorAll('.apc').forEach(el=>sbo.observe(el));drawSb();syncLive();armSpd();setInterval(()=>{if(!document.hidden)tick()},1000);onScroll();
 document.querySelectorAll('.stag').forEach(g=>[...g.children].forEach((c,i)=>c.style.setProperty('--d',Math.min(i*70,560)+'ms')));
 document.querySelectorAll('.rv,.stag,.apc .stage').forEach(el=>{if(!el.classList.contains('stag'))el.classList.add('rv');io.observe(el)});
 </script>
