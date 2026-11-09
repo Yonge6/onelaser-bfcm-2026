@@ -764,8 +764,17 @@ h1,h2,h3,h4,h5,h6,p{margin:0;text-wrap:pretty}h1,h2,h3,h4,h5,h6{text-wrap:balanc
  .sbar__t{grid-area:t}.sbar__call{grid-area:c}.sbar__a{grid-area:a}
  .sbar__p{grid-area:p;flex-direction:row;align-items:center;justify-content:flex-start;gap:8px}
  .sbar__p b{font-size:17px;line-height:22px}
+ .sbar__k{font-size:10px;letter-spacing:.04em}
+ .sbar__y{display:none}
+ .sbar .btn{padding:8px 12px}.sbar__a .btn i{display:none}
+ .info .pb .ms,.bc .pb .ms{font-size:16px}
+ .info .pb,.bc .pb{gap:10px}
  .race__b1{transform:translateY(-50%) rotate(-3.2deg)}.race__b2{transform:translateY(-50%) rotate(3deg)}
 }
+
+@media(max-width:1023px){.sbar__y,.sbar__fs,.sbar__call span{display:none}.sbar__call{width:40px;height:40px;justify-content:center;border:1px solid rgba(255,255,255,.22);border-radius:50%}}
+@media(max-width:820px){.sbar__p s{display:none}}
+@media(max-width:355px){.sbar__x{display:none}.info .pb,.bc .pb{flex-wrap:wrap;row-gap:4px}.info .pb .sep,.bc .pb .sep{display:none}}
 
 .mp{text-align:left;align-items:flex-start}
 @media(max-width:760px){
@@ -1266,7 +1275,7 @@ img.imin{animation:imin .5s var(--ease) both}
 
 <!-- sticky deal bar -->
 <div class="sbar" id="sbar"><div class="sbar__in">
- <div class="sbar__t"><span class="sbar__k" id="sbK">Black Friday Deals</span><span class="sbar__n" id="sbN">Up to $3,000 off</span></div>
+ <div class="sbar__t"><span class="sbar__k" id="sbK"><span class="sbar__y">Black Friday · </span>Ends Cyber Monday</span><span class="sbar__n" id="sbN">Up to $3,000 off</span></div>
  <div class="sbar__p" id="sbP"></div>
  <a class="sbar__call" href="tel:+16268004130" aria-label="Call OneLaser at 626 800 4130"><i class="ph ph-phone"></i><span>626 800 4130</span></a>
  <div class="sbar__a" id="sbA"><a class="btn primary" href="#super">Shop the deals</a></div>
@@ -1738,12 +1747,13 @@ let deep=false;addEventListener('scroll',()=>{if(deep||fine)return;if(scrollY>(d
 
 /* sticky deal bar: follows the product in view, one tap to checkout */
 const sbar=$id('sbar'),sbK=$id('sbK'),sbN=$id('sbN'),sbP=$id('sbP'),sbA=$id('sbA');let sbCur=null,heroIn=true,endIn=false;const ratios=new Map();
-function sbData(id){if(id==='fx'){const v=FEAT.v[sel.feat??0];return{n:v.mn,k:'Best seller · regular price',p:v.p,f:v.f,ids:[v.vid],always:1}}
+function sbData(id){if(id==='fx'){const v=FEAT.v[sel.feat??0];return{n:v.mn,k:'Best seller<span class="sbar__x"> · Regular price</span><span class="sbar__y"> · Limited stock</span>',p:v.p,f:v.f,ids:[v.vid],always:1}}
  const p=ALLP.find(x=>'p-'+x.id===id);if(!p)return null;const v=p.v[sel[p.id]??(p.def||0)],pr=price1(p,v),up=p.up&&upOn[p.id];
- return{n:v.mn+(up?' + Auto Conveyor':''),k:(v.tier||p.tier)==='super'?'Super Deal':'BFCM Deal',p:pr+(up?p.up.p:0),m:v.m+(up?p.up.p:0),f:v.f,ids:[v.vid,...(up?[p.up.id]:[])]}}
+ return{n:v.mn+(up?' + Auto Conveyor':''),k:((v.tier||p.tier)==='super'?'Super Deal':'BFCM Deal')+'<span class="sbar__x"> · Limited stock</span>',p:pr+(up?p.up.p:0),m:v.m+(up?p.up.p:0),f:v.f,ids:[v.vid,...(up?[p.up.id]:[])]}}
+const SB_END='<span class="sbar__y">Black Friday · </span>Ends Cyber Monday';
 function drawSb(){const d=sbCur&&sbData(sbCur);
- if(!d){sbK.textContent='Black Friday Deals';sbN.textContent='Up to $3,000 off · ends Cyber Monday';sbP.innerHTML=FSB+'<span class="sbar__fs">XRF and VertiGo</span>';sbA.innerHTML='<a class="btn primary" href="#super">Shop the deals</a>';return}
- sbK.textContent=d.k+' · Limited stock';sbN.textContent=d.n;sbP.innerHTML=`<b class="num">${$0(d.p)}</b>${d.m?`<s>${$0(d.m)}</s>`:''}${d.f===0?FSB:''}`;
+ if(!d){sbK.innerHTML=SB_END;sbN.textContent='Up to $3,000 off';sbP.innerHTML=FSB+'<span class="sbar__fs">XRF and VertiGo</span>';sbA.innerHTML='<a class="btn primary" href="#super">Shop the deals</a>';return}
+ sbK.innerHTML=d.k;sbN.textContent=d.n;sbP.innerHTML=`<b class="num">${$0(d.p)}</b>${d.m?`<s>${$0(d.m)}</s>`:''}${d.f===0?FSB:''}`;
  sbA.innerHTML=`<a class="btn primary" href="${ADD(d.ids)}" data-add="${d.n}" data-val="${d.p}"><i class="ph-bold ph-shopping-cart-simple"></i>Add to cart</a>`}
 function sbShow(){sbar.classList.toggle('on',!heroIn&&!endIn&&lm.hidden)}
 const sbo=new IntersectionObserver(es=>{es.forEach(e=>ratios.set(e.target,e.isIntersecting?e.intersectionRatio:0));let best=null,br=0;ratios.forEach((r,el)=>{if(r>br){br=r;best=el}});const id=br>.2?best.id:null;if(id!==sbCur){sbCur=id;drawSb()}},{threshold:[0,.2,.4,.6,.8]});
