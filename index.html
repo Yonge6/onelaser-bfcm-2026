@@ -746,6 +746,7 @@ h1,h2,h3,h4,h5,h6,p{margin:0;text-wrap:pretty}h1,h2,h3,h4,h5,h6{text-wrap:balanc
 .help{display:flex;align-items:center;justify-content:space-between;gap:var(--s100);flex-wrap:wrap;margin-top:calc(-1 * var(--s100));font-size:13px;line-height:18px;color:rgba(255,255,255,.7)}
 .help a,.help button{display:inline-flex;align-items:center;gap:6px;padding:0;border:0;background:none;color:#fff;cursor:pointer;font-size:13px;line-height:18px;font-weight:500;text-decoration:underline;text-underline-offset:3px;text-decoration-color:rgba(255,255,255,.35)}
 .help span{display:inline-flex;align-items:center;gap:6px}
+.rhead__t{display:flex;flex-direction:column;gap:4px}.rhead__t .heading-5{font-style:italic;font-weight:800}
 .help i{font-size:15px}
 .up{display:flex;gap:10px;align-items:flex-start;padding:10px 12px;border-radius:var(--r-lg);border:1px dashed rgba(255,255,255,.3);font-size:13px;line-height:18px;color:rgba(255,255,255,.8);cursor:pointer;transition:border-color .3s var(--ease),background-color .3s var(--ease)}
 .up:hover{border-color:rgba(255,255,255,.55)}
@@ -1108,6 +1109,9 @@ img.imin{animation:imin .5s var(--ease) both}
  .link{padding:12px 0;margin:-12px 0}
  .help{margin-top:calc(-1 * var(--s200))}
  .help a,.help button{min-height:44px}
+ .help{display:grid;grid-template-columns:repeat(3,1fr);gap:6px;margin-top:0}
+ .help a,.help button{flex-direction:column;justify-content:center;gap:4px;min-height:58px;padding:8px 4px;border-radius:12px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);text-decoration:none;font-size:12px;line-height:16px;text-align:center}
+ .help i{font-size:19px}
  .info .sel.multi{display:none}
  .sel select:disabled{padding-right:var(--s200);text-overflow:ellipsis}
  .vch{display:grid;grid-auto-flow:column;grid-auto-columns:minmax(0,1fr);gap:4px;padding:4px;border-radius:var(--r-xl);background:rgba(0,0,0,.28);border:1px solid rgba(255,255,255,.16)}
@@ -1567,9 +1571,10 @@ const vt=s=>`${Math.floor(s/60)}:${String(s%60).padStart(2,'0')}`;
 const vthumb=(x,q)=>`<img src="https://i.ytimg.com/vi/${x[0]}/${q}.jpg" onerror="this.onerror=null;this.src='https://i.ytimg.com/vi/${x[0]}/hqdefault.jpg'" alt="" loading="lazy"><span class="pl"><i class="ph-fill ph-play"></i></span><span class="vdur">${vt(x[4])}</span>`;
 const vch=x=>`<div class="us caption-4">${AV[x[2]]?`<img src="assets/yt/${AV[x[2]]}.jpg" width="24" height="24" alt="" loading="lazy">`:`<i>${ini(x[2])}</i>`}<span>${x[2].replace('&','&amp;')}</span></div>`;
 const vcard=(set,x,k,c)=>`<div class="reel ${c}" data-set="${set}" data-k="${k}" role="button" tabindex="0" aria-label="Play video: ${x[1].replace(/"/g,'')} (${vt(x[4])})"><div class="thumb">${vthumb(x,c==='row'?'mqdefault':'maxresdefault')}</div><div class="cp">${x[5]?`<span class="vtag">${x[5]}</span>`:''}<p class="vttl">${x[1]}</p>${vch(x)}</div></div>`;
+const RLN={xrf:'XRF 38W RF',h07:'Hydra',h09d:'Hydra',g2p:'Hydra',cob:'Cobra',c08:'Cobra',vtg:'VertiGo'};
 function vreels(set,r){const n=r.length;if(!n)return'';const rest=c=>r.slice(1).map((x,i)=>vcard(set,x,i+1,c)).join('');
  const body=n<3?r.map((x,k)=>vcard(set,x,k,'big')).join(''):n===3?vcard(set,r[0],0,'big')+`<div class="vst">${rest('')}</div>`:vcard(set,r[0],0,'big')+`<div class="vls"><div class="vls__h"><b>Up next</b><span>${n-1} more videos</span></div><div class="vls__s" tabindex="-1">${rest('row')}</div></div>`;
- return `<div class="reels"><div class="rhead"><span class="title-2">Reviews and real projects</span><button class="rentry" data-set="${set}" data-k="0"><i class="ph-fill ph-play"></i>Watch all ${n}</button></div><div class="vf ${n<3?'n2':n===3?'n3':'nx'}">${body}</div></div>`}
+ return `<div class="reels"><div class="rhead"><span class="rhead__t"><span class="caption-3 gold">Owner reviews and real projects</span><span class="heading-5">See what they say about ${RLN[set]||"OneLaser"}</span></span><button class="rentry" data-set="${set}" data-k="0"><i class="ph-fill ph-play"></i>Watch all ${n}</button></div><div class="vf ${n<3?'n2':n===3?'n3':'nx'}">${body}</div></div>`}
 
 /* ===== products: prices from the 2026-11-05 pricing sheet ===== */
 const SUPER=[
@@ -1586,9 +1591,9 @@ const SUPER=[
 const DEALS=[
  {id:'vtg',tier:'deal',th:'blue',img:'vtgs',rl:'vtg',name:'VertiGo 38W RF vertical laser for drinkware',tag:['coffee','Built for tumblers and bottles'],lb:['Cylindrical engraving','38W RF tube','Smart autofocus','RF: 4× precision vs glass'],stock:'vtg',
   v:[{l:'VertiGo · 38W RF',mn:'VertiGo 38W RF',p:4999,m:5999,f:0,site:399,vid:'44483820224546',u:U('vertigo-vertical-laser-engraver')}]},
- {id:'h09d',tier:'super',th:'red',img:'h9d',rl:'h09d',name:'Hydra 9 Dual 100W glass + 38W RF laser',tag:['fire','Lowest price ever'],lb:['100W glass cutting','38W RF engraving','Dual tube','RF: 4× precision vs glass','3–4× speed vs other RF','10× stability'],stock:'h09d',
+ {id:'h09d',tier:'super',th:'red',img:'h9d',rl:'',name:'Hydra 9 Dual 100W glass + 38W RF laser',tag:['fire','Lowest price ever'],lb:['100W glass cutting','38W RF engraving','Dual tube','RF: 4× precision vs glass','3–4× speed vs other RF','10× stability'],stock:'h09d',
   v:[{l:'Hydra 9 Dual · 100W + 38W RF',mn:'Hydra 9 Dual',p:8999,m:10999,f:499,site:599,vid:'43784477573154',u:U('onelaser-hydra-9-laser-engraving-machine')}]},
- {id:'g2p',tier:'deal',th:'blue',img:'h9g2',rl:'g2p',name:'Hydra Gen2 Pro 70W RF industrial laser',tag:['tag','Save $2,000'],speed:3,lb:['70W RF tube','2,000 mm/s','4G acceleration','RF: 4× precision vs glass','3–4× speed vs other RF','10× stability'],
+ {id:'g2p',tier:'deal',th:'blue',img:'h9g2',rl:'',name:'Hydra Gen2 Pro 70W RF industrial laser',tag:['tag','Save $2,000'],speed:3,lb:['70W RF tube','2,000 mm/s','4G acceleration','RF: 4× precision vs glass','3–4× speed vs other RF','10× stability'],
   v:[{l:'Hydra 9 Pro',mn:'Hydra 9 Pro',p:9999,m:11999,f:499,site:599,vid:'44745765617698',u:U('hydra-9-gen-2-70w-rf-co2-dual-laser-machine','44745765617698'),img:'h9g2',stock:'h09p'},{l:'Hydra 13 Pro',mn:'Hydra 13 Pro',p:11999,m:13999,f:599,site:699,vid:'44745769123874',u:U('hydra-13-gen-2-70w-rf-co2-dual-laser-machine','44745769123874'),img:'h13g2',stock:'h13p'},{l:'Hydra 16 Pro',mn:'Hydra 16 Pro',p:12999,m:14999,f:699,vid:'44745771122722',u:U('hydra-16-gen-2-70w-rf-co2-dual-laser-machine','44745771122722'),img:'h16g2',stock:'h16p'}]}];
 const LAST=[{n:'Hydra 7 80W glass tube laser',mn:'Hydra 7 80W',img:'h7g',p:5999,m:7999,f:499,vid:'43519835439138',u:U('onelaser-hydra-7-cabinet-dual-laser-system-with-80-glass-tube-and-38w-rf-metal-tube'),stock:'h07g'},{n:'Hydra 16 Dual 150W glass + 38W RF laser',mn:'Hydra 16 Dual',img:'h16d',p:11999,m:13999,f:699,vid:'43551549587490',u:U('onelaser-hydra-16-cabinet-dual-laser-system-with150w-glass-tube-and-38w-rf-metal-tube'),stock:'h16d'}];
 /* [size, tier, $ off, name, note, scene, anchor, model shown in the photo, free shipping] */
@@ -1612,8 +1617,10 @@ const FSB='<span class="fsb"><i class="ph-fill ph-truck"></i>Free shipping</span
 const MP=(n,s,note)=>`<div class="mp${note?' mp--note':''}"><b>${n}</b>${s?`<small>${s}</small>`:''}</div>`;
 const upOn={};
 /* buy buttons: before launch they collect leads instead of sending people to a pre-sale price */
+/* free 30 min sales consultation (Appointo booking on 1laser.com) */
+const BOOK='https://www.1laser.com/products/sales-consultation-call#book';
 function acts(o){const sm=o.sm?' sm':'';
- return `<div class="acts"><a class="btn primary${sm}" href="${ADD(o.ids)}" data-add="${o.n}" data-val="${o.v}"><i class="ph-bold ph-shopping-cart-simple"></i>Add to cart</a><a class="btn light${sm}" href="${BUY(o.ids)}" data-buy="${o.n}" data-val="${o.v}"><i class="ph-bold ph-lightning"></i>Buy now</a></div><div class="help"><a href="${o.u}" ${ext}>Full specs<i class="ph-bold ph-arrow-up-right"></i></a><button type="button" data-lead="${o.n}" data-call="1"><i class="ph ph-headset"></i>Talk to a laser expert</button></div>`;}
+ return `<div class="acts"><a class="btn primary${sm}" href="${ADD(o.ids)}" data-add="${o.n}" data-val="${o.v}"><i class="ph-bold ph-shopping-cart-simple"></i>Add to cart</a><a class="btn light${sm}" href="${BUY(o.ids)}" data-buy="${o.n}" data-val="${o.v}"><i class="ph-bold ph-lightning"></i>Buy now</a></div><div class="help"><a href="${o.u}" ${ext}><i class="ph ph-file-text"></i>Full specs</a><a href="${BOOK}" ${ext} data-book="${o.n}"><i class="ph ph-calendar-check"></i>Book a free call</a><button type="button" data-lead="${o.n}" data-call="1"><i class="ph ph-chat-circle-text"></i>Leave your info</button></div>`;}
 const stockRow=()=>`<div class="ls"><i class="dot" aria-hidden="true"></i><span><b>Limited stock,</b> <span class="amb">can sell out anytime</span></span></div>`;
 const price1=(p,v)=>p.stage&&!H07_PROMO_OPEN?v.p2:v.p;
 /* XRF speed: the claim, the numbers behind it, job time bars */
