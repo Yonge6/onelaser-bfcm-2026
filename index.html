@@ -297,7 +297,7 @@ h1,h2,h3,h4,h5,h6,p{margin:0;text-wrap:pretty}h1,h2,h3,h4,h5,h6{text-wrap:balanc
 .chips{display:flex;gap:var(--s75);flex-wrap:wrap;justify-content:center;margin-bottom:var(--s600)}
 .chips a{padding:var(--s75) var(--s200);border-radius:var(--r-full);background:var(--c2);border:1px solid var(--line);color:var(--t2);font-size:14px;line-height:20px;font-weight:500;transition:background-color .3s var(--ease),color .3s var(--ease)}
 .chips a:hover{background:var(--c3);color:#fff}
-.apc{overflow:hidden;padding-bottom:var(--s800);content-visibility:auto;contain-intrinsic-size:auto 760px}
+.apc{overflow:hidden;padding-bottom:var(--s800)}
 .stage{display:flex;flex-direction:column;gap:var(--s300);max-width:var(--wrap);margin:0 auto;padding:0 var(--gut)}
 .hero{width:100%;min-height:600px;border-radius:var(--r-3xl);position:relative;overflow:hidden;background:#0b0b0b;display:flex;justify-content:flex-end}
 .hero:hover .scene img{--sc:1.03}
@@ -1071,6 +1071,39 @@ img.imin{animation:imin .5s var(--ease) both}
 @keyframes rh{0%{transform:translateX(-100%)}85.7%,92%{transform:translateX(-14%)}100%{transform:translateX(-14%);opacity:0}}
 @media(max-width:760px){.spd.hy .spd__s b{font-size:22px;line-height:28px}}
 @media(prefers-reduced-motion:reduce){.spd .lane.t.h3 .run{transform:translateX(-71%)}}
+/* mobile UX pass */
+.vch,.vch__d,.cmph{display:none}.sbar__g{display:contents}html.mopen .sbar{transform:translateY(130%)}
+@media(max-width:1023px){.sbar__g{display:none}}
+@media(max-width:760px){
+ .kv__c{transform:none;opacity:1;will-change:auto}
+ .hd{background:#fff;transition:transform .35s var(--ease)}.snav{transition:top .35s var(--ease)}
+ html.hup{scroll-padding-top:72px}html.hup .hd{transform:translateY(-100%)}html.hup .snav{top:8px}
+ .snav a{padding:10px var(--s200)}
+ .ann__x{width:44px;height:34px;right:0;border-radius:0}
+ .link{padding:12px 0;margin:-12px 0}
+ .help{margin-top:calc(-1 * var(--s200))}
+ .help a,.help button{min-height:44px}
+ .info .sel.multi{display:none}
+ .sel select:disabled{padding-right:var(--s200);text-overflow:ellipsis}
+ .vch{display:grid;grid-auto-flow:column;grid-auto-columns:minmax(0,1fr);gap:4px;padding:4px;border-radius:var(--r-xl);background:rgba(0,0,0,.28);border:1px solid rgba(255,255,255,.16)}
+ .vch button{min-height:44px;padding:0 4px;border:0;border-radius:calc(var(--r-xl) - 4px);background:transparent;color:rgba(255,255,255,.8);font:inherit;font-size:14px;line-height:18px;font-weight:600;cursor:pointer;transition:background-color .3s var(--ease),color .3s var(--ease)}
+ .vch button[aria-pressed="true"]{background:#fff;color:#000}
+ .vch__d{display:block;margin-top:calc(-1 * var(--s100));font-size:13px;line-height:18px;color:rgba(255,255,255,.78)}
+ .cmph{display:flex;align-items:center;gap:6px;margin-top:var(--s300);color:var(--t2);font-size:13px;line-height:18px}.cmph i{font-size:16px;color:var(--gold)}
+ .cmpw{margin-top:var(--s100);margin-right:calc(var(--gut) * -1);border-radius:var(--r-2xl) 0 0 var(--r-2xl);border-right:0;scrollbar-width:none}.cmpw::-webkit-scrollbar{display:none}
+ .cmp{table-layout:fixed;min-width:668px;font-size:13px;line-height:18px}
+ .cmp th,.cmp td{padding:12px}
+ .cmp thead th{font-size:13px;line-height:18px}.cmp thead th:first-child{width:92px}
+ .cmp tbody th{width:92px;white-space:normal}
+ .cmp tr.pr td{font-size:17px;line-height:24px}
+ .ag{display:flex;gap:var(--s100);overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;margin-right:calc(var(--gut) * -1);padding-right:var(--gut)}.ag::-webkit-scrollbar{display:none}
+ .ac{flex:0 0 80%;scroll-snap-align:start;padding:var(--s200);border-radius:var(--r-2xl)}.ac:hover{transform:none}.ac .im{padding:var(--s200)}
+ .bc h3{min-height:0}
+ .opts label{display:inline-flex}.opts span{padding:11px var(--s200)}.brand{padding:12px 0}
+ .ft__links>div{gap:0}.ft__links a{padding:8px 0;font-size:13px;line-height:18px}.ft__links strong{margin-bottom:var(--s50)}.ft__bot a{display:inline-block;padding:8px 0}
+ .fc2{flex-direction:column;padding:var(--s300)}
+ .spd__s span{font-size:11px}.spd__s small{font-size:11px;line-height:14px}.lane.x .lane__m small,.lane.t .lane__m small,.flag{font-size:11px}
+}
 </style>
 </head>
 <body>
@@ -1182,7 +1215,8 @@ img.imin{animation:imin .5s var(--ease) both}
 <!-- not sure: compare lines -->
 <section class="sec vs" id="compare"><div class="wrap">
  <div class="sh rv"><span class="caption-3 eb">Not sure which one?</span><h2 class="heading-2">Compare before you buy</h2><p class="body-3 muted">XRF 38W RF and VertiGo are desktop lasers. Cobra and Hydra are floor standing. Here is how they differ, and how to choose between Cobra and Hydra.</p></div>
- <div class="cmpw rv"><table class="cmp" aria-label="Compare OneLaser lines">
+ <p class="cmph rv"><i class="ph-bold ph-hand-swipe-left" aria-hidden="true"></i>Swipe to compare all four</p>
+ <div class="cmpw rv" tabindex="0"><table class="cmp" aria-label="Compare OneLaser lines">
   <thead><tr><th scope="col"><span class="sr-only">Spec</span></th><th scope="col">XRF 38W RF<small>Desktop</small></th><th scope="col">VertiGo<small>Desktop</small></th><th scope="col">Cobra 8 · 10 · 14<small>Glass tube · business essential</small></th><th scope="col">Hydra series<small>RF · high precision</small></th></tr></thead>
   <tbody>
    <tr><th scope="row">Where it lives</th><td>On a workbench</td><td>On a shop counter</td><td>Floor standing</td><td>Floor standing</td></tr>
@@ -1489,7 +1523,7 @@ ${['support','community'].map(k=>`<details class="mnav__g"><summary>${k[0].toUpp
 <a class="mnav__d" href="https://www.1laser.com/account/login">Log in<i class="ph ph-user-circle"></i></a>`;
 [...mnav.children].forEach((c,i)=>c.style.animationDelay=Math.min(i*60,400)+'ms');
 function setMTop(){document.documentElement.style.setProperty('--mtop',hd.getBoundingClientRect().bottom+'px');mnav.style.top=hd.getBoundingClientRect().bottom+'px'}
-burger.onclick=()=>{const o=burger.getAttribute('aria-expanded')!=='true';burger.setAttribute('aria-expanded',o);burger.querySelector('.sr-only').textContent=o?'Close menu':'Open menu';setMTop();mnav.hidden=!o;document.body.style.overflow=o?'hidden':''};
+burger.onclick=()=>{const o=burger.getAttribute('aria-expanded')!=='true';burger.setAttribute('aria-expanded',o);burger.querySelector('.sr-only').textContent=o?'Close menu':'Open menu';setMTop();mnav.hidden=!o;document.body.style.overflow=o?'hidden':'';document.documentElement.classList.toggle('mopen',o)};
 mnav.addEventListener('click',e=>{if(e.target.closest('a')){burger.click()}});
 
 
@@ -1578,6 +1612,7 @@ function sizeCmp(p,cur){const X=1400,Y=900;
 function apc(p){
  const i=sel[p.id]??(p.def||0),v=p.v[i],r=RL[p.rl]||[],img=v.img||p.img,sk=v.stock||p.stock,tier=v.tier||p.tier,th=v.th||p.th,tg=v.tag||p.tag,lb=v.lb||p.lb;
  const opts=p.v.map((x,j)=>`<option value="${j}" ${j===i?'selected':''}>${x.l}</option>`).join('');
+ const vs=x=>x.l.split(' · '),chips=p.v.length>1?`<div class="vch" role="group" aria-label="Choose a model">${p.v.map((x,j)=>`<button type="button" data-sel="${p.id}:${j}" aria-pressed="${j===i}">${vs(x)[0]}</button>`).join('')}</div>${vs(v).length>1?`<p class="vch__d">${vs(v).slice(1).join(' · ')}</p>`:''}`:'';
  let price;
  if(p.stage){const s1=H07_PROMO_OPEN;
   price=`<div class="stg"><div class="${s1?'on':''}"><span class="caption-4 muted">Limited qty for promotion</span><div class="heading-6 num">${$(v.p)}</div></div><div class="${s1?'':'on'}"><span class="caption-4 muted">After promo qty sells out</span><div class="heading-6 num">${$(v.p2)}</div></div></div>
@@ -1587,7 +1622,7 @@ function apc(p){
   <div class="hero ${th}">${SCENE(img,'22% 50%',v.mn+(v.shown?' '+v.shown.toLowerCase():''),MP(v.mn,v.shown||lb.slice(0,2).join(' · '),!!v.shown))}<div class="tags"><span class="tag ${tier==='super'?'':'blue'}"><i class="ph-fill ph-${tg[0]}"></i>${tg[1]}</span><span class="tag ls"><i class="dot" aria-hidden="true"></i>Limited stock</span>${v.f===0?FSB:''}</div>
    <div class="info">
     <div><div class="tierrow"><span class="tiertag ${tier}">${tier==='super'?'<i class="ph-fill ph-fire"></i>Super Deal':'<i class="ph-fill ph-tag"></i>BFCM Deal'}</span><span class="tiermean ${tier}">${tier==='super'?'Lowest price ever. Never coming back.':'Black Friday discount for everyone'}</span></div><h3 class="heading-6">${p.name}</h3><div class="lbls" style="margin-top:8px">${lb.map(x=>`<span>${x}</span>`).join('')}</div></div>
-    <div class="sel"><label class="sr-only" for="v-${p.id}">Model</label><select id="v-${p.id}" data-p="${p.id}" ${p.v.length<2?'disabled':''}>${opts}</select><i class="ph-bold ph-caret-down"></i></div>
+    <div class="sel${p.v.length>1?' multi':''}"><label class="sr-only" for="v-${p.id}">Model</label><select id="v-${p.id}" data-p="${p.id}" ${p.v.length<2?'disabled':''}>${opts}</select><i class="ph-bold ph-caret-down"></i></div>${chips}
     ${price}
     ${v.gifts?`<div class="gifts"><span class="gifts__h"><i class="ph-fill ph-gift"></i>Free with this bundle${v.gifts.some(g=>g.val)?` · worth ${$0(Math.floor(v.gifts.reduce((a,g)=>a+(g.val||0),0)))}+`:''}</span><div class="gifts__l">${v.gifts.map(g=>`<div class="gift">${g.img?`<img src="${S+g.img}?width=160" alt="${g.n}" loading="lazy">`:'<i class="ph-fill ph-stack"></i>'}<span><b>${g.n}</b><small>${g.val?`${$(g.val)} value`:g.sub||''}</small></span><em>Free</em></div>`).join('')}</div></div>`:''}
     <div class="meta">${stockRow(sk)}${ship(v)}${fin}</div>
@@ -1611,7 +1646,7 @@ function renderBento(){bento.innerHTML=BENTO.map(b=>`<a class="tl ${b[0]}" href=
 function renderProj(){pw.innerHTML=PROJ.slice(0,8).map(p=>`<figure class="pj" style="margin:0"><div class="ph"><img src="assets/projects/${p[0]}.webp" alt="${p[1]}" loading="lazy"></div><figcaption><span class="title-3" style="display:block">${p[1]}</span><span class="mk caption-4"><i class="ph-fill ph-lightning"></i>Made on ${p[2]}</span></figcaption></figure>`).join('');}
 function renderStories(){vg.innerHTML=RL.co.map((c,k)=>`<div class="vc" data-set="co" data-k="${k}" role="button" tabindex="0" aria-label="Play video: ${c[1]} (${vt(c[4])})"><div class="im">${vthumb(c,'maxresdefault')}</div><div class="bd"><h3 class="title-2">${c[1]}</h3><p class="body-6 muted">${c[6]}</p></div></div>`).join('');}
 let aSel='acc';
-function renderA(){document.querySelectorAll('[data-a]').forEach(b=>{b.classList.toggle('on',b.dataset.a===aSel);b.setAttribute('aria-selected',b.dataset.a===aSel)});ag.innerHTML=ACC[aSel].map(a=>`<div class="ac"><div class="im"><img src="${S+a[2]}?width=500" alt="${a[0].replace(/"/g,'')}" loading="lazy"></div><h3 class="title-3">${a[0]}</h3><div class="heading-6 num">${a[1]?$(a[1]):'Free'}</div><div class="acts"><a class="btn dark sm" href="${P+a[3]}" ${ext}>${a[1]?'Add to cart':'Book a call'}</a><a class="btn soft sm" href="${P+a[3]}" ${ext}>Details</a></div></div>`).join('');}
+function renderA(){document.querySelectorAll('[data-a]').forEach(b=>{b.classList.toggle('on',b.dataset.a===aSel);b.setAttribute('aria-selected',b.dataset.a===aSel)});ag.innerHTML=ACC[aSel].map(a=>`<div class="ac"><div class="im"><img src="${S+a[2]}?width=500" alt="${a[0].replace(/"/g,'')}" loading="lazy"></div><h3 class="title-3">${a[0]}</h3><div class="heading-6 num">${a[1]?$(a[1]):'Free'}</div><div class="acts"><a class="btn dark sm" href="${P+a[3]}" ${ext}>${a[1]?'Add to cart':'Book a call'}</a><a class="btn soft sm" href="${P+a[3]}" ${ext}>Details</a></div></div>`).join('');ag.scrollLeft=0}
 const pd=s=>new Date(s+'T00:00:00-08:00');
 
 /* finder */
@@ -1691,7 +1726,14 @@ const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
 const snLinks=[...snav.querySelectorAll('a')].map(a=>[a,document.querySelector(a.getAttribute('href'))]);
 let tagOn=false,curNav=null,ticking=false;
 new IntersectionObserver(es=>{tagOn=es[0].isIntersecting}).observe(tl);
+const mqM=matchMedia('(max-width:760px)');let lastY=scrollY;
+/* in-page links: pick the header state the scroll will end in, then re-aim once it settles (late images can move the target) */
+let aimT;const padTop=()=>parseFloat(getComputedStyle(document.documentElement).scrollPaddingTop)||0;
+function aim(el,n){clearTimeout(aimT);let last=-1,still=0;const tick=()=>{const y=scrollY;if(Math.abs(y-last)<1){if(++still>1){const off=el.getBoundingClientRect().top-padTop();if(n>0&&Math.abs(off)>6&&!(off>0&&y+innerHeight>=document.documentElement.scrollHeight-2)){scrollBy({top:off,behavior:'smooth'});aim(el,n-1)}return}}else still=0;last=y;aimT=setTimeout(tick,120)};aimT=setTimeout(tick,250)}
+document.addEventListener('click',e=>{const a=e.target.closest('a[href^="#"]');if(!a||a.getAttribute('href').length<2)return;const el=document.querySelector(a.getAttribute('href'));if(!el)return;if(mqM.matches){const down=el.getBoundingClientRect().top>padTop()+1;lastY=scrollY;document.documentElement.classList.toggle('hup',down&&el.id!=='top')}aim(el,3)});
+['wheel','touchstart','keydown'].forEach(t=>addEventListener(t,()=>clearTimeout(aimT),{passive:true}));
 function onScroll(){ticking=false;
+ {const yy=scrollY,d=yy-lastY;if(Math.abs(d)>8){lastY=yy;document.documentElement.classList.toggle('hup',mqM.matches&&d>0&&yy>320&&burger.getAttribute('aria-expanded')!=='true')}}
  const y=200;let c=null;for(const [a,sec] of snLinks){if(sec&&sec.getBoundingClientRect().top<y)c=a;else break}
  if(c!==curNav){curNav?.classList.remove('on');c?.classList.add('on');curNav=c;if(c){const box=snav,left=c.offsetLeft-box.clientWidth/2+c.clientWidth/2;box.scrollTo({left,behavior:'smooth'})}}
  if(tagOn&&!reduce){const line=innerHeight*.62;for(const w of words)w.classList.toggle('on',w.getBoundingClientRect().top<line)}
@@ -1769,7 +1811,7 @@ addEventListener('keydown',e=>{if(lm.hidden)return;if(e.key==='Escape')return cl
  if(e.key==='Tab'){const f=[...lm.querySelectorAll('button,input,select,a[href]')].filter(x=>x.offsetParent);const a=f[0],z=f[f.length-1];if(e.shiftKey&&document.activeElement===a){e.preventDefault();z.focus()}else if(!e.shiftKey&&document.activeElement===z){e.preventDefault();a.focus()}}});
 document.addEventListener('click',e=>{const t=e.target;
  if(t.closest('[data-lmx]'))return closeLead();
- const ds=t.closest('[data-sel]');if(ds){const [id,ix]=ds.dataset.sel.split(':'),p=ALLP.find(x=>x.id===id),sec=$id('p-'+id);sel[id]=+ix;sec.innerHTML=apc(p);fitAll(sec);drawSb()}
+ const ds=t.closest('[data-sel]');if(ds){const [id,ix]=ds.dataset.sel.split(':'),p=ALLP.find(x=>x.id===id),sec=$id('p-'+id);sel[id]=+ix;sec.innerHTML=apc(p);fitAll(sec);drawSb();if(ds.closest('.vch'))sec.querySelector('.vch [aria-pressed="true"]')?.focus({preventScroll:true})}
  const l=t.closest('[data-lead]');if(l){e.preventDefault();return openLead({n:l.dataset.lead,call:l.dataset.call,src:l.dataset.src||(l.closest('#sbar')?'sticky_bar':'card')})}
  const b=t.closest('[data-buy],[data-add]');if(b)dl({event:b.dataset.buy?'begin_checkout':'add_to_cart',ecommerce:{currency:'USD',value:+b.dataset.val||0,items:[{item_name:b.dataset.buy||b.dataset.add,price:+b.dataset.val||0,quantity:1}]}});
 });
@@ -1793,7 +1835,7 @@ function sbData(id){
  return{n:v.mn+(up?' + Auto Conveyor':''),k:((v.tier||p.tier)==='super'?'Super Deal':'BFCM Deal')+'<span class="sbar__x"> · Limited stock</span>',p:pr+(up?p.up.p:0),m:v.m+(up?p.up.p:0),f:v.f,ids:[v.vid,...(up?[p.up.id]:[])]}}
 const SB_END='<span class="sbar__y">Black Friday · </span>Ends Cyber Monday';
 function drawSb(){const d=sbCur&&sbData(sbCur);
- if(!d){sbK.innerHTML=SB_END;sbN.textContent='Up to $3,000 off';sbP.innerHTML=FSB+'<span class="sbar__fs">XRF 38W RF and VertiGo</span>';sbA.innerHTML='<a class="btn primary" href="#super">Shop the deals</a>';return}
+ if(!d){sbK.innerHTML=SB_END;sbN.textContent='Up to $3,000 off';sbP.innerHTML='<span class="sbar__g">'+FSB+'</span><span class="sbar__fs">XRF 38W RF and VertiGo</span>';sbA.innerHTML='<a class="btn primary" href="#super">Shop the deals</a>';return}
  sbK.innerHTML=d.k;sbN.textContent=d.n;sbP.innerHTML=`<b class="num">${$0(d.p)}</b>${d.m?`<s>${$0(d.m)}</s>`:''}${d.f===0?FSB:''}`;
  sbA.innerHTML=`<a class="btn primary" href="${ADD(d.ids)}" data-add="${d.n}" data-val="${d.p}"><i class="ph-bold ph-shopping-cart-simple"></i>Add to cart</a>`}
 function sbShow(){sbar.classList.toggle('on',!heroIn&&!endIn&&lm.hidden)}
