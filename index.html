@@ -284,6 +284,12 @@ h1,h2,h3,h4,h5,h6,p{margin:0;text-wrap:pretty}h1,h2,h3,h4,h5,h6{text-wrap:balanc
 .form input::placeholder{color:var(--t3)}
 .form .msg{min-height:20px;padding-left:var(--s200);font-size:14px;line-height:20px}
 .form .msg.err{color:#ff8a7a}.form .msg.ok{color:var(--gold)}
+.gw__f{display:grid;grid-template-columns:1fr 1fr;gap:var(--s75)}
+.gw__f input{height:52px;padding:0 var(--s250,20px);border-radius:var(--r-full);background:rgba(0,0,0,.4);border:1px solid rgba(255,255,255,.2);transition:border-color .3s var(--ease)}
+.gw__f input:focus{border-color:var(--gold)}.gw__f input[aria-invalid=true]{border-color:#ff6b57}
+.gw .btn{align-self:flex-start}.gw .msg{padding-left:0}
+.gw__fine{font-size:12px;line-height:16px;color:var(--t3)}
+@media(max-width:760px){.gw__f{grid-template-columns:1fr}.gw .btn{align-self:stretch;justify-content:center}}
 
 /* timeline */
 .tlne{display:grid;grid-template-columns:repeat(4,1fr);gap:var(--s200)}
@@ -1206,12 +1212,12 @@ img.imin{animation:imin .5s var(--ease) both}
  <div class="ea rv">
   <img class="bg" src="assets/gift.jpg" alt="" aria-hidden="true" loading="lazy">
   <div class="ea__c">
-   <span class="kick"><i class="stripe" aria-hidden="true"></i>Limited stock · can sell out anytime</span>
-   <h2 class="heading-3">Get a stock alert<br>before it sells out</h2>
-   <p class="body-6 muted">Limited qty for promotion on Hydra 7 Pro at $7,999, XRF 38W RF and every other deal. Leave your email and we will tell you when the model you want is running low, and remind you before Black Friday prices end.</p>
+   <span class="kick"><i class="stripe" aria-hidden="true"></i>Black Friday giveaway · free to enter</span>
+   <h2 class="heading-3">Win a free<br>material pack</h2>
+   <p class="body-6 muted">We are giving away MakerDepot material packs this Black Friday. Enter with your email and phone number for a chance to win.</p>
    <div><span class="caption-4 muted">Black Friday Deals end in</span>
     <div class="cd" data-cd="early" style="margin-top:8px"><div><b data-u="d">00</b><small>Days</small></div><div><b data-u="h">00</b><small>Hours</small></div><div><b data-u="m">00</b><small>Mins</small></div><div><b data-u="s">00</b><small>Secs</small></div></div></div>
-   <form class="form" data-form data-src="stock_alert" novalidate><label class="sr-only" for="eaEmail">Email address</label><div class="form__row"><input id="eaEmail" type="email" autocomplete="email" placeholder="Your email address" required><button class="btn primary" type="submit">Get stock alerts</button></div><div class="msg" aria-live="polite"></div></form>
+   <form class="form gw" data-gw data-src="giveaway" novalidate><div class="gw__f"><label class="sr-only" for="gwEmail">Email address</label><input id="gwEmail" name="email" type="email" autocomplete="email" placeholder="Email address" required><label class="sr-only" for="gwPhone">Phone number</label><input id="gwPhone" name="phone" type="tel" autocomplete="tel" inputmode="tel" placeholder="Phone number" required></div><button class="btn primary" type="submit"><i class="ph-fill ph-gift"></i>Enter the giveaway</button><div class="msg" aria-live="polite"></div><p class="gw__fine">No purchase necessary. By entering you agree to receive Black Friday emails from OneLaser. Unsubscribe anytime.</p></form>
   </div>
  </div>
 </div></section>
@@ -1718,6 +1724,16 @@ addEventListener('keydown',e=>{
  if(!vv.classList.contains('on'))return;if(e.key==='Escape')closeV();if(e.key==='ArrowRight')vv.querySelector('.nx').click();if(e.key==='ArrowLeft')vv.querySelector('.pv').click()});
 document.addEventListener('change',e=>{const s=e.target.closest('select[data-p]');if(!s)return;sel[s.dataset.p]=+s.value;const p=ALLP.find(x=>x.id===s.dataset.p);const sec=document.getElementById('p-'+p.id);sec.innerHTML=apc(p);fitAll(sec);sec.querySelector('select').focus()});
 
+/* giveaway: email + phone to the Klaviyo list, plus a "BFCM 2026 Giveaway" event (route that event to Pipedrive) */
+document.querySelectorAll('[data-gw]').forEach(f=>f.addEventListener('submit',async e=>{
+ e.preventDefault();const em=f.elements.email,ph=f.elements.phone,msg=f.querySelector('.msg'),btn=f.querySelector('button'),ev=em.value.trim(),pv=ph.value.trim();
+ const be=!ev?'Enter your email address.':!EMAIL.test(ev)?'That email looks incomplete. Check the address and try again.':'',bp=!pv?'Enter your phone number.':!normPhone(pv)?'Enter a 10 digit U.S. phone number.':'';
+ em.setAttribute('aria-invalid',!!be);ph.setAttribute('aria-invalid',!be&&!!bp);const bad=be||bp;msg.className='msg '+(bad?'err':'ok');
+ if(bad){msg.textContent=bad;(be?em:ph).focus();return}
+ btn.disabled=true;msg.textContent='Sending…';const ok=await submitLead({email:ev,phone:pv,src:'giveaway',interest:'material pack giveaway',metric:'BFCM 2026 Giveaway'});btn.disabled=false;
+ msg.className='msg '+(ok?'ok':'err');msg.textContent=ok?`You are entered. We will contact the winners by email or phone.`:'We could not save that just now. Try again, or call us at 626 800 4130.';
+ if(ok)f.reset();
+}));
 /* forms: inline signups go to Klaviyo like the popup */
 document.querySelectorAll('[data-form]').forEach(f=>f.addEventListener('submit',async e=>{
  e.preventDefault();const inp=f.querySelector('input'),row=f.querySelector('.form__row'),msg=f.querySelector('.msg'),btn=f.querySelector('button'),v=inp.value.trim();
@@ -1798,7 +1814,7 @@ async function submitLead(d){
  const h={'Content-Type':'application/json',accept:'application/json',revision:KL.rev},ph=normPhone(d.phone);
  const post=(path,body)=>fetch(`https://a.klaviyo.com/client/${path}/?company_id=${KL.co}`,{method:'POST',headers:h,body:JSON.stringify(body)}).then(r=>r.ok).catch(()=>false);
  const sub=post('subscriptions',{data:{type:'subscription',attributes:{custom_source:'BFCM 2026 landing page',profile:{data:{type:'profile',attributes:{email:d.email}}}},relationships:{list:{data:{type:'list',id:KL.list}}}}});
- const ev=post('events',{data:{type:'event',attributes:{properties:{source:d.src||'page',interest:d.interest||'',wants_call:!!d.call,phone:d.phone||'',page:location.origin+location.pathname},metric:{data:{type:'metric',attributes:{name:'BFCM 2026 Lead'}}},profile:{data:{type:'profile',attributes:{email:d.email,...(ph?{phone_number:ph}:{}),properties:{bfcm2026_interest:d.interest||'',bfcm2026_wants_call:!!d.call}}}}}}});
+ const ev=post('events',{data:{type:'event',attributes:{properties:{source:d.src||'page',interest:d.interest||'',wants_call:!!d.call,phone:d.phone||'',page:location.origin+location.pathname},metric:{data:{type:'metric',attributes:{name:d.metric||'BFCM 2026 Lead'}}},profile:{data:{type:'profile',attributes:{email:d.email,...(ph?{phone_number:ph}:{}),properties:{bfcm2026_interest:d.interest||'',bfcm2026_wants_call:!!d.call}}}}}}});
  const [a,b]=await Promise.all([sub,ev]),ok=a||b;
  if(ok){try{localStorage.setItem('ol_bfcm_lead','1')}catch(e){}dl({event:'generate_lead',lead_source:d.src||'page',interest:d.interest||''})}
  return ok;}
