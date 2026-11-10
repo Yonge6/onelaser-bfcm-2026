@@ -745,6 +745,8 @@ h1,h2,h3,h4,h5,h6,p{margin:0;text-wrap:pretty}h1,h2,h3,h4,h5,h6{text-wrap:balanc
 .up:hover{border-color:rgba(255,255,255,.55)}
 .up:has(input:checked){border-style:solid;border-color:var(--gold);background:rgba(252,199,123,.08)}
 .up input{accent-color:var(--red);width:18px;height:18px;margin:0;flex:none}
+.up:has(img){align-items:center}
+.up img{flex:none;width:52px;height:52px;border-radius:8px;object-fit:contain;background:#f2f2f2;padding:4px}
 .up b{display:block;color:#fff;font-size:12px;font-style:italic;letter-spacing:.06em;text-transform:uppercase}
 /* sticky deal bar */
 .sbar{position:fixed;left:0;right:0;bottom:0;z-index:90;display:flex;justify-content:center;padding:0 16px 16px;pointer-events:none;transform:translateY(130%);transition:transform .5s var(--ease)}
@@ -1548,7 +1550,7 @@ function vreels(set,r){const n=r.length;if(!n)return'';const rest=c=>r.slice(1).
 /* ===== products: prices from the 2026-11-05 pricing sheet ===== */
 const SUPER=[
  {id:'xrf',tier:'super',th:'red',img:'xrf',rl:'xrf',name:'XRF 38W RF desktop laser engraver and cutter',tag:['gift','Free Air Assist Control'],lb:['True 3G acceleration','1,200 mm/s','38W RF tube','RF: 4× precision vs glass'],speed:1,def:1,stock:'xrf',
-  up:{id:'43674371391522',n:'Auto Conveyor Feeder',p:999,u:P+'onelaser-automatic-conveyor-feeder'},
+  up:{id:'43674371391522',n:'Auto Conveyor Feeder',p:999,img:'9beab4683ad286661f4bb3a0568b2f8a.png',u:P+'onelaser-automatic-conveyor-feeder'},
   v:[{l:'Starter Bundle · XRF 38W RF + Air Assist Control',mn:'XRF 38W RF',p:4499,m:5499,f:0,site:399,vid:'43557890261026',u:U('onelaser-xrf-desktop-laser-machine','43557890261026'),gifts:[{n:'Air Assist Control',val:299.99,img:'lQDPJxo8d4MrtenND4zNE4iwYCxEbs-yL6sITkLfo74fAA_5000_3980.jpg'}]},
      {l:'Maker Bundle · + riser base + 2 material packs',mn:'XRF 38W RF',img:'xrfm',shown:'Shown with Riser Base + Auto Conveyor Feeder',p:4999,m:5499,f:0,site:399,vid:'43972592730146',u:U('onelaser-xrf-desktop-laser-machine','43972592730146'),gifts:[{n:'Air Assist Control',val:299.99,img:'lQDPJxo8d4MrtenND4zNE4iwYCxEbs-yL6sITkLfo74fAA_5000_3980.jpg'},{n:'Riser Base',val:599,img:'839d9e84510a0900681b9fc541852466.png'},{n:'MakerDepot leatherette pack',sub:'5 sheets · 12"\u00a0×\u00a020"',img:'1_f1669e61-793f-4441-977e-3efacfb5eacb.webp'},{n:'MakerDepot acrylic pack',sub:'4 sheets · 1/8"\u00a0×\u00a012"\u00a0×\u00a012"',img:'32_ca0658c8-9a39-49be-a5a7-6f8f345a1d07.webp'}]}]},
  {id:'h07',tier:'super',th:'red',img:'h7g2',rl:'h07',name:'Hydra 7 Pro 70W RF production laser',tag:['fire','Limited qty at $7,999'],lb:['70W RF tube','2,000 mm/s','4G acceleration','RF: 4× precision vs glass','3–4× speed vs other RF','10× stability'],speed:3,stage:1,stock:'h07',
@@ -1625,7 +1627,7 @@ function apc(p){
     ${price}
     ${v.gifts?`<div class="gifts"><span class="gifts__h"><i class="ph-fill ph-gift"></i>Free with this bundle${v.gifts.some(g=>g.val)?` · worth ${$0(Math.floor(v.gifts.reduce((a,g)=>a+(g.val||0),0)))}+`:''}</span><div class="gifts__l">${v.gifts.map(g=>`<div class="gift">${g.img?`<img src="${S+g.img}?width=160" alt="${g.n}" loading="lazy">`:'<i class="ph-fill ph-stack"></i>'}<span><b>${g.n}</b><small>${g.val?`${$(g.val)} value`:g.sub||''}</small></span><em>Free</em></div>`).join('')}</div></div>`:''}
     <div class="meta">${stockRow(sk)}${ship(v)}${fin}</div>
-    ${p.up?`<label class="up"><input type="checkbox" data-up="${p.id}" ${upOn[p.id]?'checked':''}><span><b>Complete the setup</b>+ ${p.up.n} ${$0(p.up.p)}, regular price${upOn[p.id]?` · total ${$0(price1(p,v)+p.up.p)}`:''}</span></label>`:''}
+    ${p.up?`<label class="up"><input type="checkbox" data-up="${p.id}" ${upOn[p.id]?'checked':''}>${p.up.img?`<img src="${CDN+p.up.img}?width=200" alt="${p.up.n}" width="52" height="52" loading="lazy">`:''}<span><b>Complete the setup</b>+ ${p.up.n} ${$0(p.up.p)}, regular price${upOn[p.id]?` · total ${$0(price1(p,v)+p.up.p)}`:''}</span></label>`:''}
     ${acts({ids:[v.vid,...(p.up&&upOn[p.id]?[p.up.id]:[])],u:v.u,n:v.mn,v:price1(p,v)+(p.up&&upOn[p.id]?p.up.p:0)})}
    </div></div>
   ${p.speed===3?hydraSpeed():p.speed===2?cobraSpeed():p.speed?speedPanel():''}${p.sizes?sizeCmp(p,i):''}
