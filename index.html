@@ -961,6 +961,13 @@ h1,h2,h3,h4,h5,h6,p{margin:0;text-wrap:pretty}h1,h2,h3,h4,h5,h6{text-wrap:balanc
 .szt td b{display:block;font-size:16px;font-style:italic}
 .szt td s{color:var(--t3);font-size:12px}
 @media(max-width:1080px){.csz__g{grid-template-columns:1fr}}
+.za__t{display:inline-flex;padding:4px;border-radius:var(--r-full);background:rgba(255,255,255,.06);border:1px solid var(--line)}
+.za__t button{padding:8px 16px;border-radius:var(--r-full);font-size:13px;line-height:18px;font-weight:700;color:var(--t2);background:none;border:0;cursor:pointer;transition:background-color .3s var(--ease),color .3s var(--ease)}
+.za__t button.on{background:#fff;color:#000}
+.sz--hy .sz__r{border-color:rgba(231,49,14,.75);background:rgba(231,49,14,.06)}.sz--hy .sz__r:hover{background:rgba(231,49,14,.14)}
+.sz--hy .sz__r.on{border-color:#fff;background:rgba(231,49,14,.24)}
+.za .szt table{min-width:480px}.za .szt td b small{display:inline;margin-right:4px;font-size:11px;font-style:normal;color:var(--t3)}
+.za .szt td small a{color:var(--t2);text-decoration:underline;text-decoration-color:rgba(255,255,255,.3);text-underline-offset:2px}.za .szt td small a:hover{color:#fff}
 @media(max-width:760px){.csz{padding:var(--s200)}.sz__r span{font-size:9px;right:3px;top:2px}}
 
 /* free gifts with product photos */
@@ -1263,6 +1270,7 @@ img.imin{animation:imin .5s var(--ease) both}
   </div>
  </div>
 
+ <div class="rv" id="szAll" style="margin-top:var(--s400)"></div>
 </div></section>
 
 <!-- tagline -->
@@ -1393,7 +1401,7 @@ img.imin{animation:imin .5s var(--ease) both}
     <label class="fld"><span>Email</span><input id="lmE" type="email" autocomplete="email" placeholder="you@business.com" required></label>
     <label class="fld"><span>Phone <em>optional, for a call from a laser expert</em></span><input id="lmPh" type="tel" autocomplete="tel" inputmode="tel" placeholder="(555) 555 0123"></label>
     <label class="fld"><span>Machine you are looking at</span><span class="sel"><select id="lmI"><option value="">Not sure yet</option><option>XRF 38W RF</option><option>Hydra 7 Pro</option><option>Cobra 8 90W</option><option>VertiGo 38W RF</option><option>Cobra 10 100W</option><option>Cobra 14 130W</option><option>Hydra 9 Dual</option><option>Hydra 9 Pro</option><option>Hydra 13 Pro</option><option>Hydra 16 Pro</option><option>Hydra 7 80W</option><option>Hydra 16 Dual</option></select><i class="ph-bold ph-caret-down"></i></span></label>
-    <label class="ck"><input id="lmC" type="checkbox"><span>Have a laser expert call me about this deal</span></label>
+    <label class="ck"><input id="lmC" type="checkbox"><span>Have a laser expert help me to choose</span></label>
     <button class="btn primary lg" type="submit" id="lmS">Remind me</button>
     <div class="msg" id="lmM" aria-live="polite"></div>
     <p class="caption-5 muted">By signing up you agree to receive marketing emails from OneLaser. Unsubscribe anytime. We never sell your details. <a href="https://www.1laser.com/pages/privacy-policy" target="_blank" rel="noopener">Privacy Policy</a></p>
@@ -1626,6 +1634,22 @@ function sizeCmp(p,cur){const X=1400,Y=900;
   <div class="sz"><div class="sz__in">${p.v.map((x,k)=>({x,k})).reverse().map(({x,k})=>box(x.sz.w,x.sz.h,k===cur?'on':'',`${x.mn.split(' ').slice(0,2).join(' ')} · ${x.sz.bed}`,k)).join('')}${box(610,305,'ref','XRF bed 24" × 12"',null)}</div></div>
   <div class="szt"><table><thead><tr><th scope="col">Model</th><th scope="col">Work area</th><th scope="col">Z travel</th><th scope="col">Machine W × D × H</th><th scope="col">Weight</th><th scope="col">Black Friday</th></tr></thead><tbody>${p.v.map((x,k)=>`<tr class="${k===cur?'on':''}" data-sel="${p.id}:${k}" tabindex="0"><th scope="row">${x.mn}</th><td>${x.sz.bed}<small>${x.sz.mm}</small></td><td>${x.sz.z}</td><td>${x.sz.m}</td><td>${x.sz.wt}</td><td><b>${$0(x.p)}</b><s>${$0(x.m)}</s></td></tr>`).join('')}</tbody></table></div>
  </div></div>`;}
+/* Compare: work areas of every Hydra and Cobra size, one scale (1600 × 1000 mm) */
+const HSZ=[[7,700,500,'27.6" × 19.7"'],[9,900,600,'35.4" × 23.6"'],[13,1300,900,'51.2" × 35.4"'],[16,1600,1000,'63" × 39.4"']];
+let zaLine='hy',zaOn=null;
+function zaRows(){
+ if(zaLine==='co'){const c=ALLP.find(x=>x.id==='cob');return c.v.map((x,k)=>({k:'c'+k,n:x.mn,w:x.sz.w,h:x.sz.h,bed:x.sz.bed,mm:x.sz.mm,z:x.sz.z,from:x.p,ms:[[x.mn,x.p,'#p-cob']]}))}
+ const all=[];ALLP.forEach(p=>p.v.forEach(v=>all.push([v.mn,price1(p,v),'#p-'+p.id])));LAST.forEach(b=>all.push([b.mn,b.p,'#last']));
+ return HSZ.map(([n,w,h,bed])=>{const ms=all.filter(m=>new RegExp('^Hydra '+n+'\\b').test(m[0])).sort((a,b)=>a[1]-b[1]);return{k:'h'+n,n:'Hydra '+n,w,h,bed,mm:`${w.toLocaleString('en-US')} × ${h.toLocaleString('en-US')} mm`,z:'8.9" (225 mm)',from:ms[0]?.[1],ms}})}
+function renderZa(){const el=$id('szAll');if(!el)return;const R=zaRows(),X=1600,Y=1000;
+ const box=(r,cls,lab)=>`<div class="sz__r ${cls}" style="width:${r.w/X*100}%;height:${r.h/Y*100}%"${r.k?` data-za="${r.k}" role="button" tabindex="0" aria-label="Highlight ${lab}"`:''}><span>${lab}</span></div>`;
+ el.innerHTML=`<div class="csz za"><div class="csz__h"><span class="title-2">Compare work areas</span><div class="za__t" role="tablist" aria-label="Laser line">${[['hy','Hydra · 4 sizes'],['co','Cobra · 3 sizes']].map(([k,l])=>`<button type="button" role="tab" data-zl="${k}" aria-selected="${zaLine===k}" class="${zaLine===k?'on':''}">${l}</button>`).join('')}</div></div>
+ <div class="csz__g"><div class="sz ${zaLine==='hy'?'sz--hy':''}"><div class="sz__in" style="aspect-ratio:1600/1000">${R.slice().reverse().map(r=>box(r,r.k===zaOn?'on':'',r.n.replace(/ \d+W$/,''))).join('')}${box({w:610,h:305},'ref','XRF bed 24" × 12"')}</div></div>
+ <div class="szt"><table><thead><tr><th scope="col">Model</th><th scope="col">Work area</th><th scope="col">Z travel</th><th scope="col">Black Friday</th></tr></thead><tbody>${R.map(r=>`<tr class="${r.k===zaOn?'on':''}" data-za="${r.k}" tabindex="0"><th scope="row">${r.n}</th><td>${r.bed}<small>${r.mm}</small></td><td>${r.z}</td><td>${r.from?`<b>${r.ms.length>1?'<small>From</small>':''}${$0(r.from)}</b><small>${r.ms.map(m=>`<a href="${m[2]}">${m[0]}${r.ms.length>1?' '+$0(m[1]):''}</a>`).join(' · ')}</small>`:'—'}</td></tr>`).join('')}</tbody></table></div></div>
+ <p class="caption-4 muted">Work areas drawn to scale against the XRF 38W RF desktop bed. Tap a size to highlight it.</p></div>`}
+document.addEventListener('click',e=>{const t=e.target.closest('[data-zl]');if(t){zaLine=t.dataset.zl;zaOn=null;renderZa();return}
+ const z=e.target.closest('[data-za]');if(z&&!e.target.closest('a')){zaOn=zaOn===z.dataset.za?null:z.dataset.za;renderZa();$id('szAll').querySelector(`${z.tagName==='TR'?'tr':'.sz__r'}[data-za="${z.dataset.za}"]`)?.focus()}});
+addEventListener('keydown',e=>{if((e.key==='Enter'||e.key===' ')&&e.target.matches('[data-za]')){e.preventDefault();e.target.click()}});
 /* total savings: MSRP discount + free gifts + material packs + free shipping, so the customer sees the whole number */
 function tsv(v,pay){const L=[[`Off MSRP`,v.m-pay]];(v.gifts||[]).forEach(g=>{if(g.val)L.push([`Free ${g.n}`,g.val])});if(v.mat)L.push([`Free ${v.mat.n}`,v.mat.val]);if(v.f===0&&v.site)L.push(['Free shipping',v.site]);if(L.length<2)return'';const t=Math.round(L.reduce((a,x)=>a+x[1],0)*100)/100;
  return `<div class="tsv"><div class="tsv__h"><span><i class="ph-fill ph-piggy-bank"></i>Your total savings</span><b class="num">${$(t)}</b></div><ul class="tsv__l">${L.map(x=>`<li><span>${x[0]}</span><b>${$(x[1])}</b></li>`).join('')}</ul><p class="tsv__f">Worth <s>${$(Math.round((pay+t)*100)/100)}</s> if bought separately. Yours for <b>${$(pay)}</b>.</p></div>`}
@@ -1824,7 +1848,7 @@ let lmLast=null,lmSrc='page';
 function openLead(o={}){if(!lm.hidden)return;lmLast=document.activeElement;lmSrc=o.src||'page';const n=o.n||'',call=!!o.call;
  lmF.hidden=false;lmOk.hidden=true;lmM.textContent='';lmM.className='msg';lmS.disabled=false;
  lmI.value=[...lmI.options].some(x=>x.text===n)?n:'';lmC.checked=call;
- if(call){lmK.textContent='Free advice, no pressure';lmT.textContent='Talk to a laser expert';lmP.textContent=`Leave your number and a OneLaser laser expert will call you${n?' about the '+n:''}. Prefer to call now? 626 800 4130.`;lmS.textContent='Request a call'}
+ if(call){lmK.textContent='Free advice, no pressure';lmT.textContent='Talk to a laser expert';lmP.textContent=`Leave your number and a OneLaser laser expert will call you${n?' about the '+n:''}. Prefer to call now? 626 800 4130.`;lmS.textContent='Grab your deal now'}
 
  else{lmK.textContent='Limited stock · can sell out anytime';lmT.textContent=n?`Hold off on the ${n}?`:'Not ready today?';lmP.textContent='Get a reminder before Black Friday prices end, and a heads up when stock runs low on the machine you want.';lmS.textContent='Remind me'}
  lm.hidden=false;document.body.style.overflow='hidden';requestAnimationFrame(()=>requestAnimationFrame(()=>lm.classList.add('on')));setTimeout(()=>(call?lmPh:lmE).focus(),80);dl({event:'bfcm_lead_open',lead_source:lmSrc})}
@@ -1906,7 +1930,7 @@ document.querySelectorAll('img').forEach(imLoad);
  new IntersectionObserver(es=>{inView=es[0].isIntersecting;sync()}).observe(host);
  document.addEventListener('visibilitychange',sync);new MutationObserver(sync).observe(vv,{attributes:true,attributeFilter:['class']});
 })();
-renderBento();renderCards();renderLast();renderProj();renderStories();renderA();renderFinder();fitAll();tick();document.querySelectorAll('.apc').forEach(el=>sbo.observe(el));drawSb();syncLive();armSpd();setInterval(()=>{if(!document.hidden)tick()},1000);onScroll();
+renderZa();renderBento();renderCards();renderLast();renderProj();renderStories();renderA();renderFinder();fitAll();tick();document.querySelectorAll('.apc').forEach(el=>sbo.observe(el));drawSb();syncLive();armSpd();setInterval(()=>{if(!document.hidden)tick()},1000);onScroll();
 document.querySelectorAll('.stag').forEach(g=>[...g.children].forEach((c,i)=>c.style.setProperty('--d',Math.min(i*70,560)+'ms')));
 document.querySelectorAll('.rv,.stag,.apc .stage').forEach(el=>{if(!el.classList.contains('stag'))el.classList.add('rv');io.observe(el)});
 </script>
