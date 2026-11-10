@@ -96,7 +96,7 @@ h1,h2,h3,h4,h5,h6,p{margin:0;text-wrap:pretty}h1,h2,h3,h4,h5,h6{text-wrap:balanc
 .ann__x:hover{background:#e5e5e8;color:#000}
 @keyframes marq{to{transform:translateX(-50%)}}
 
-.hd{position:sticky;top:0;z-index:60;height:76px;display:grid;grid-template-columns:180px 1fr 132px;align-items:center;padding:0 max(32px,calc((100vw - var(--wrap))/2 + var(--gut)));background:rgba(255,255,255,.97);border-bottom:1px solid #ececee;color:#1b1b1d}
+.hd{position:sticky;top:0;z-index:60;height:76px;display:grid;grid-template-columns:180px 1fr auto;column-gap:16px;align-items:center;padding:0 max(32px,calc((100vw - var(--wrap))/2 + var(--gut)));background:rgba(255,255,255,.97);border-bottom:1px solid #ececee;color:#1b1b1d}
 .brand{width:154px}.brand img{width:100%;height:auto}
 .nav{display:flex;align-items:center;justify-content:center;gap:clamp(18px,2.2vw,38px)}
 .nav>a{position:relative;display:inline-flex;align-items:center;gap:4px;color:#1b1b1d;font-size:14px;line-height:76px;font-weight:600;white-space:nowrap}
@@ -108,6 +108,13 @@ h1,h2,h3,h4,h5,h6,p{margin:0;text-wrap:pretty}h1,h2,h3,h4,h5,h6{text-wrap:balanc
 .hd__act{justify-self:end;display:flex;align-items:center;gap:4px}
 .hd__act a{width:38px;height:38px;display:grid;place-items:center;border-radius:50%;color:#1d1d1f;font-size:20px;transition:background-color .3s var(--ease),color .3s var(--ease)}
 .hd__act a:hover{background:#f2f2f4;color:var(--action)}
+.hd__act a.hd__tel,.hd__act a.hd__book{width:auto;border-radius:var(--r-full);font-size:14px;line-height:18px;font-weight:700;white-space:nowrap;display:inline-flex;gap:8px}
+.hd__act a.hd__tel{height:38px;padding:0 10px;color:#1b1b1d}.hd__act a.hd__tel i{font-size:18px;color:var(--action)}
+.hd__act a.hd__book{height:40px;padding:0 18px;margin:0 6px 0 2px;background:var(--action);color:#fff;box-shadow:0 6px 18px rgba(217,45,13,.25)}
+.hd__act a.hd__book i{font-size:18px}.hd__act a.hd__book:hover{background:#b8260b;color:#fff}
+@media(max-width:1640px){.hd__srch,.hd__acct{display:none!important}}
+@media(max-width:1520px){.hd{grid-template-columns:160px 1fr auto}.nav{gap:18px}.nav>a[href$='contact-us'],.hd__cart{display:none!important}}
+@media(max-width:1240px){.nav{gap:16px}.hd__tel span{display:none}.hd__act a.hd__tel{width:38px;padding:0;justify-content:center}}
 .burger{display:none;width:44px;height:44px;border:0;background:transparent;cursor:pointer;position:relative;padding:0}
 .burger span{position:absolute;left:12px;width:20px;height:2px;border-radius:2px;background:#000;transition:transform .5s var(--ease),opacity .3s var(--ease)}
 .burger span:nth-child(1){top:16px}.burger span:nth-child(2){top:26px}
@@ -608,7 +615,7 @@ h1,h2,h3,h4,h5,h6,p{margin:0;text-wrap:pretty}h1,h2,h3,h4,h5,h6{text-wrap:balanc
  .vg{grid-template-columns:1fr 1fr}
 }
 @media(max-width:1080px){
- .hd{grid-template-columns:44px 1fr 132px}.brand{justify-self:center;grid-column:2}.nav{display:none}.burger{display:block;grid-column:1;grid-row:1}
+ .hd{grid-template-columns:44px 1fr auto}.brand{justify-self:center;grid-column:2}.nav{display:none}.burger{display:block;grid-column:1;grid-row:1}
  .tl.big{grid-column:span 6}.tl.sm{grid-column:span 6}
  .strip{grid-template-columns:1fr}
  .dates{grid-template-columns:1fr 1fr}.dates li+li:before{display:none}
@@ -623,7 +630,7 @@ h1,h2,h3,h4,h5,h6,p{margin:0;text-wrap:pretty}h1,h2,h3,h4,h5,h6{text-wrap:balanc
  html{scroll-padding-top:136px}
  .heading-1{font-size:36px;line-height:40px}.heading-2{font-size:30px;line-height:36px}.heading-3{font-size:24px;line-height:32px}
  .sec{padding:var(--s800) 0}
- .hd{height:64px;padding:0 var(--s200)}.brand{width:132px}.hd__act a:not(:nth-child(2)){display:none}.hd{grid-template-columns:44px 1fr 44px}
+ .hd{height:64px;padding:0 var(--s200)}.brand{width:132px}.hd__cart{display:none!important}.hd{grid-template-columns:44px 1fr auto;column-gap:8px}.brand{justify-self:start}.hd__act a.hd__book{width:40px;padding:0;margin:0;justify-content:center}.hd__book span{display:none}
  .snav{top:72px}
  .kv{height:auto}
  .kv__art.scene{position:relative;inset:auto;height:300px}
@@ -1156,9 +1163,11 @@ img.imin{animation:imin .5s var(--ease) both}
   <a href="https://www.1laser.com/pages/contact-us">Contact</a>
  </nav>
  <div class="hd__act">
-  <a href="https://www.1laser.com/search" aria-label="Search OneLaser"><i class="ph ph-magnifying-glass"></i></a>
-  <a href="https://www.1laser.com/cart" aria-label="View cart"><i class="ph ph-shopping-bag"></i></a>
-  <a href="https://www.1laser.com/account/login" aria-label="Log in"><i class="ph ph-user-circle"></i></a>
+  <a class="hd__tel" href="tel:+16268004130" aria-label="Call OneLaser at 626 800 4130"><i class="ph ph-phone"></i><span>626 800 4130</span></a>
+  <a class="hd__book" href="https://www.1laser.com/products/sales-consultation-call#book" target="_blank" rel="noopener" data-book="header" aria-label="Schedule a free sales call"><i class="ph-bold ph-calendar-check"></i><span>Schedule a Sales Call</span></a>
+  <a class="hd__ic hd__srch" href="https://www.1laser.com/search" aria-label="Search OneLaser"><i class="ph ph-magnifying-glass"></i></a>
+  <a class="hd__ic hd__cart" href="https://www.1laser.com/cart" aria-label="View cart"><i class="ph ph-shopping-bag"></i></a>
+  <a class="hd__ic hd__acct" href="https://www.1laser.com/account/login" aria-label="Log in"><i class="ph ph-user-circle"></i></a>
  </div>
  <div class="mega" id="mega" hidden></div>
 </header>
