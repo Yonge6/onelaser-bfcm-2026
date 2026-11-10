@@ -454,7 +454,7 @@ h1,h2,h3,h4,h5,h6,p{margin:0;text-wrap:pretty}h1,h2,h3,h4,h5,h6{text-wrap:balanc
 .trust:before{content:"";position:absolute;inset:0;z-index:1;background:linear-gradient(90deg,rgba(0,0,0,.88) 0%,rgba(0,0,0,.6) 38%,transparent 66%),linear-gradient(0deg,rgba(0,0,0,.7) 0%,transparent 45%)}
 .trust__v{position:absolute;inset:0;overflow:hidden;container-type:size;opacity:0;transition:opacity 1.2s var(--ease);pointer-events:none}
 .trust__v.on{opacity:1}
-.trust__v iframe{position:absolute;left:50%;top:50%;width:100%;height:100%;width:max(100cqw,177.78cqh);height:max(100cqh,56.25cqw);transform:translate(-50%,-50%) scale(1.2);border:0}
+.trust__v video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block}
 .trust__ctl{position:absolute;z-index:3;right:var(--s300);bottom:var(--s300);display:flex;align-items:center;gap:var(--s75)}
 .trust__ctl .rentry,.trust__ctl .arr{background:rgba(0,0,0,.45);border:1px solid rgba(255,255,255,.24);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px)}
 .trust__ctl .rentry:hover,.trust__ctl .arr:hover{background:rgba(0,0,0,.65)}
@@ -1536,7 +1536,6 @@ const RL={
  cob:COBV,c08:COBV,
  vtg:[['CwMCGw1aPTA','VertiGo is the world\'s best tumbler machine','LensDigital',0,54,'Creator review'],['G9fXsZAbUXs','If you sell tumblers, buy this laser','Make or Break Shop',22,1079,'Creator review']],
  co:[['seseyuxIZt4','As seen on FOX and Discovery','OneLaser',3,357,'','A product showcase of the OneLaser lineup.'],['_dv0xXmHSiA','Engineered in the USA','OneLaser',0,68,'','What makes OneLaser different.'],['KAtO7_wkmMk','OneLaser at the APA Show','OneLaser',353,562,'','International Personalization Expo 2025 recap.'],['waBw5gDMPIM','Makers test the new machines','OneLaser',0,62,'','Hands on at the Next Level Maker Conference.']]};
-const TRUSTV='tSroh4OUkX4';
 const AV={'OneLaser':'onelaser','Make or Break Shop':'makeorbreak','ESENTL LASERHYDE':'esentl','Ash&Ember Woodshop':'ashember','Rise N Grind Workshop':'risengrind','LensDigital':'lensdigital'};
 const vt=s=>`${Math.floor(s/60)}:${String(s%60).padStart(2,'0')}`;
 const vthumb=(x,q)=>`<img src="https://i.ytimg.com/vi/${x[0]}/${q}.jpg" onerror="this.onerror=null;this.src='https://i.ytimg.com/vi/${x[0]}/hqdefault.jpg'" alt="" loading="lazy"><span class="pl"><i class="ph-fill ph-play"></i></span><span class="vdur">${vt(x[4])}</span>`;
@@ -1750,7 +1749,7 @@ function countUp(el){const to=+el.dataset.count,t0=performance.now(),d=1200;if(r
  function frame(){tick2=false;const y=scrollY,vh=innerHeight;
   const hh=kv.offsetHeight;if(y<hh){art.style.setProperty('--hy',(y*.35)+'px');art.style.setProperty('--mx',(mx*-14)+'px');txt.style.setProperty('--ty',(y*.18)+'px');txt.style.setProperty('--to',Math.max(0,1-y/(hh*.75)).toFixed(3))}
   prog.style.setProperty('--p',(y/Math.max(1,document.documentElement.scrollHeight-vh)).toFixed(4));
-  vis.forEach(el=>{const r=el.getBoundingClientRect(),c=(r.top+r.height/2-vh/2)/(vh/2+r.height/2);
+  vis.forEach(el=>{const r=el.getBoundingClientRect(),c=Math.max(-1,Math.min(1,(r.top+r.height/2-vh/2)/(vh/2+r.height/2)));
    if(el.classList.contains('pj')){const col=[...el.parentElement.children].indexOf(el)%4;el.style.transform=`translate3d(0,${(c*(col%2?-18:12)).toFixed(1)}px,0)`;return}
    const img=el.querySelector('img');if(!img)return;const slack=Math.max(0,img.offsetHeight-el.clientHeight);img.style.setProperty('--py',(-c*Math.min(slack*.45,40)).toFixed(1)+'px')});}
  const req=()=>{if(!tick2){tick2=true;requestAnimationFrame(frame)}};
@@ -1864,16 +1863,14 @@ new MutationObserver(ms=>ms.forEach(m=>m.addedNodes.forEach(n=>{if(n.nodeType!==
 document.querySelectorAll('img').forEach(imLoad);
 /* team block: a muted factory video plays behind the copy; the photo stays as poster and fallback */
 (()=>{const box=$id('trustv'),host=box.closest('.trust'),btn=$id('trustp');if(reduce||navigator.connection?.saveData)return;
- let f=null,ready=false,paused=false,inView=false,shown=false,rt;
- const post=o=>f?.contentWindow?.postMessage(JSON.stringify(o),'*');
- const sync=()=>{if(ready)post({event:'command',func:inView&&!paused&&!document.hidden&&!vv.classList.contains('on')?'playVideo':'pauseVideo',args:[]})};
- const load=()=>{f=document.createElement('iframe');f.title='OneLaser production facility';f.tabIndex=-1;f.allow='autoplay; encrypted-media';
-  f.src=`https://www.youtube-nocookie.com/embed/${TRUSTV}?autoplay=1&mute=1&controls=0&loop=1&playlist=${TRUSTV}&playsinline=1&rel=0&modestbranding=1&disablekb=1&fs=0&iv_load_policy=3&enablejsapi=1&origin=${encodeURIComponent(location.origin)}`;
-  f.addEventListener('load',()=>{let n=0;const hs=setInterval(()=>{if(ready||++n>40)return clearInterval(hs);post({event:'listening',id:'trustv',channel:'widget'})},250)});box.appendChild(f)};
- addEventListener('message',e=>{if(!f||e.source!==f.contentWindow)return;let d;try{d=JSON.parse(e.data)}catch(_){return}
-  if(!ready){ready=true;sync()}const st=d.info?.playerState;if(st===undefined)return;
-  if(st===1){clearTimeout(rt);rt=setTimeout(()=>{if(paused)return;box.classList.add('on');host.classList.add('vid');shown=true},shown?200:1200)}});
- btn.addEventListener('click',()=>{paused=!paused;btn.firstElementChild.className=paused?'ph-fill ph-play':'ph-fill ph-pause';btn.setAttribute('aria-label',paused?'Play background video':'Pause background video');if(paused){clearTimeout(rt);box.classList.remove('on')}sync()});
+ let v=null,paused=false,inView=false,rt;
+ const want=()=>inView&&!paused&&!document.hidden&&!vv.classList.contains('on');
+ const sync=()=>{if(!v)return;if(want()){const p=v.play();p&&p.catch(()=>{})}else v.pause()};
+ const load=()=>{v=document.createElement('video');v.muted=v.defaultMuted=true;v.loop=v.playsInline=true;v.setAttribute('muted','');v.setAttribute('playsinline','');v.preload='auto';v.tabIndex=-1;v.disablePictureInPicture=true;
+  v.src=matchMedia('(max-width:760px)').matches?'assets/trust-960.mp4':'assets/trust-1600.mp4';
+  v.addEventListener('playing',()=>{clearTimeout(rt);rt=setTimeout(()=>{if(paused||v.paused)return;box.classList.add('on');host.classList.add('vid')},150)});
+  box.appendChild(v);sync()};
+ btn.addEventListener('click',()=>{paused=!paused;btn.firstElementChild.className=paused?'ph-fill ph-play':'ph-fill ph-pause';btn.setAttribute('aria-label',paused?'Play background video':'Pause background video');sync()});
  new IntersectionObserver((es,o)=>{if(es[0].isIntersecting){o.disconnect();load()}},{rootMargin:'500px'}).observe(host);
  new IntersectionObserver(es=>{inView=es[0].isIntersecting;sync()}).observe(host);
  document.addEventListener('visibilitychange',sync);new MutationObserver(sync).observe(vv,{attributes:true,attributeFilter:['class']});
