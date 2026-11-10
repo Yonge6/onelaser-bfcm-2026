@@ -670,7 +670,7 @@ h1,h2,h3,h4,h5,h6,p{margin:0;text-wrap:pretty}h1,h2,h3,h4,h5,h6{text-wrap:balanc
 .fsb{display:inline-flex;align-items:center;gap:6px;padding:4px 10px;border-radius:3px;background:var(--green);color:#04210f;font-size:12px;line-height:16px;font-weight:700;font-style:italic;letter-spacing:.06em;text-transform:uppercase;white-space:nowrap}
 .fsb i{font-size:14px}
 .tl .media .fsb,.fr .im .fsb{position:absolute;right:12px;top:12px;z-index:2}
-.fsl{align-self:flex-start;display:inline-flex;align-items:center;gap:4px;color:var(--green);font-size:12px;line-height:16px;font-weight:700;letter-spacing:.04em;text-transform:uppercase}
+
 .meta .fsr,.meta .fsr i,.meta .fsr b{color:var(--green)}
 /* model nameplate on every product photo */
 .mp{position:absolute;left:var(--s300);bottom:var(--s300);z-index:3;display:flex;flex-direction:column;gap:2px;max-width:calc(100% - 48px);padding:8px 24px 8px 12px;background:rgba(0,0,0,.68);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);border-left:3px solid var(--red);clip-path:polygon(0 0,100% 0,calc(100% - 14px) 100%,0 100%);pointer-events:none}
@@ -1513,7 +1513,7 @@ function apc(p){
  if(p.stage){const s1=H07_PROMO_OPEN;
   price=`<div class="stg"><div class="${s1?'on':''}"><span class="caption-4 muted">Limited qty for promotion</span><div class="heading-6 num">${$(v.p)}</div></div><div class="${s1?'':'on'}"><span class="caption-4 muted">After promo qty sells out</span><div class="heading-6 num">${$(v.p2)}</div></div></div>
   <div class="pb"><div><span class="caption-5 muted">You save</span><span class="saved">${$(v.m-(s1?v.p:v.p2))} off MSRP</span></div><div class="sep"></div><div><span class="caption-5 muted">MSRP</span><span class="title-2 ms num">${$(v.m)}</span></div></div>`;
- }else price=`<div class="pb"><div><span class="caption-5 muted">Black Friday price</span><span class="heading-5 num">${$(v.p)}</span><span class="saved">Save ${$(v.m-v.p)}${v.gifts&&v.gifts.length>1?' + gifts':''}</span>${v.f===0?'<span class="fsl"><i class="ph-fill ph-truck"></i>+ Free shipping</span>':''}</div><div class="sep"></div><div><span class="caption-5 muted">MSRP</span><span class="heading-5 ms num">${$(v.m)}</span></div></div>`;
+ }else price=`<div class="pb"><div><span class="caption-5 muted">Black Friday price</span><span class="heading-5 num">${$(v.p)}</span><span class="saved">Save ${$(v.m-v.p)}${v.gifts&&v.gifts.length>1?' + gifts':''}</span></div><div class="sep"></div><div><span class="caption-5 muted">MSRP</span><span class="heading-5 ms num">${$(v.m)}</span></div></div>`;
  return `${p.ttl?`<h3 class="heading-3" style="text-align:center;margin-bottom:var(--s400)">${p.ttl}</h3>`:''}<div class="stage">
   <div class="hero ${th}">${SCENE(img,'22% 50%',v.mn+(v.shown?' '+v.shown.toLowerCase():''),MP(v.mn,v.shown||lb.slice(0,2).join(' · '),!!v.shown))}<div class="tags"><span class="tag ${tier==='super'?'':'blue'}"><i class="ph-fill ph-${tg[0]}"></i>${tg[1]}</span><span class="tag ls"><i class="dot" aria-hidden="true"></i>Limited stock</span>${v.f===0?FSB:''}</div>
    <div class="info">
