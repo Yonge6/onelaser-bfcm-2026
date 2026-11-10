@@ -1568,7 +1568,9 @@ const RL={
  co:[['seseyuxIZt4','As seen on FOX and Discovery','OneLaser',3,357,'','A product showcase of the OneLaser lineup.'],['KAtO7_wkmMk','OneLaser at the APA Show','OneLaser',353,562,'','International Personalization Expo 2025 recap.'],['waBw5gDMPIM','Makers test the new machines','OneLaser',0,62,'','Hands on at the Next Level Maker Conference.'],['tSroh4OUkX4','Inside our production facility','OneLaser',0,42,'','A walk through OneLaser\'s expanded production floor.']]};
 const AV={'OneLaser':'onelaser','Make or Break Shop':'makeorbreak','ESENTL LASERHYDE':'esentl','Ash&Ember Woodshop':'ashember','Rise N Grind Workshop':'risengrind','LensDigital':'lensdigital'};
 const vt=s=>`${Math.floor(s/60)}:${String(s%60).padStart(2,'0')}`;
-const vthumb=(x,q)=>`<img src="https://i.ytimg.com/vi/${x[0]}/${q}.jpg" onerror="this.onerror=null;this.src='https://i.ytimg.com/vi/${x[0]}/hqdefault.jpg'" alt="" loading="lazy"><span class="pl"><i class="ph-fill ph-play"></i></span><span class="vdur">${vt(x[4])}</span>`;
+/* sharper local covers where YouTube's own thumbnail is soft */
+const COV={'8tn7O69iCnQ':'assets/covers/8tn7O69iCnQ.webp'};
+const vthumb=(x,q)=>`<img src="${COV[x[0]]||`https://i.ytimg.com/vi/${x[0]}/${q}.jpg`}" onerror="this.onerror=null;this.src='https://i.ytimg.com/vi/${x[0]}/hqdefault.jpg'" alt="" loading="lazy"><span class="pl"><i class="ph-fill ph-play"></i></span><span class="vdur">${vt(x[4])}</span>`;
 const vch=x=>`<div class="us caption-4">${AV[x[2]]?`<img src="assets/yt/${AV[x[2]]}.jpg" width="24" height="24" alt="" loading="lazy">`:`<i>${ini(x[2])}</i>`}<span>${x[2].replace('&','&amp;')}</span></div>`;
 const vcard=(set,x,k,c)=>`<div class="reel ${c}" data-set="${set}" data-k="${k}" role="button" tabindex="0" aria-label="Play video: ${x[1].replace(/"/g,'')} (${vt(x[4])})"><div class="thumb">${vthumb(x,c==='row'?'mqdefault':'maxresdefault')}</div><div class="cp">${x[5]?`<span class="vtag">${x[5]}</span>`:''}<p class="vttl">${x[1]}</p>${vch(x)}</div></div>`;
 const RLN={xrf:'XRF 38W RF',h07:'Hydra',h09d:'Hydra',g2p:'Hydra',cob:'Cobra',c08:'Cobra',vtg:'VertiGo'};
