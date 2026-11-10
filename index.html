@@ -671,7 +671,12 @@ h1,h2,h3,h4,h5,h6,p{margin:0;text-wrap:pretty}h1,h2,h3,h4,h5,h6{text-wrap:balanc
 .fsb i{font-size:14px}
 .tl .media .fsb,.fr .im .fsb{position:absolute;right:12px;top:12px;z-index:2}
 
-.meta .fsr,.meta .fsr i,.meta .fsr b{color:var(--green)}
+.meta .fsr{align-self:flex-start;align-items:center;flex-wrap:nowrap;padding:8px 12px;border-radius:10px;background:rgba(74,222,128,.1);border:1px solid rgba(74,222,128,.38);color:var(--green);font-size:15px;line-height:20px}
+.meta .fsr i{color:var(--green);font-size:20px;margin-top:0}
+.meta .fsr>span{display:inline-flex;align-items:center;flex-wrap:wrap;gap:4px 8px;min-width:0;flex:1}
+.meta .fsr b{color:var(--green);font-weight:800;letter-spacing:.04em}
+.meta .fsr s{color:rgba(255,255,255,.75);text-decoration-thickness:1.5px}
+.meta .fsr em{font-style:normal;font-weight:800;font-size:13px;line-height:18px;padding:2px 8px;border-radius:999px;background:var(--green);color:#06210f}
 /* model nameplate on every product photo */
 .mp{position:absolute;left:var(--s300);bottom:var(--s300);z-index:3;display:flex;flex-direction:column;gap:2px;max-width:calc(100% - 48px);padding:8px 24px 8px 12px;background:rgba(0,0,0,.68);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);border-left:3px solid var(--red);clip-path:polygon(0 0,100% 0,calc(100% - 14px) 100%,0 100%);pointer-events:none}
 .mp b{color:#fff;font-size:18px;line-height:22px;font-weight:700;font-style:italic;letter-spacing:.01em;text-transform:uppercase;white-space:nowrap}
@@ -1234,7 +1239,7 @@ img.imin{animation:imin .5s var(--ease) both}
   <details><summary>When does the sale run?<i class="ph ph-plus"></i></summary><div class="a body-3">Black Friday Deals are live now and run through Cyber Monday, Nov 30, 2026, ending at 11:59 PM Pacific Time. Prices are the same every day of the sale, but stock is limited and any deal can sell out before then.</div></details>
   <details><summary>Do I need a discount code?<i class="ph ph-plus"></i></summary><div class="a body-3">No. Black Friday prices are final and apply automatically. Discount codes, including creator codes, are paused during the sale and cannot be combined with Black Friday prices.</div></details>
   <details><summary>How does the Hydra 7 Pro price work?<i class="ph ph-plus"></i></summary><div class="a body-3">A limited qty for promotion sells at $7,999 (MSRP $10,999, save $3,000). Once that qty sells out, the price moves to $8,999. It can sell out anytime.</div></details>
-  <details><summary>What is the difference between the two XRF bundles?<i class="ph ph-plus"></i></summary><div class="a body-3">Starter Bundle ($4,499): XRF 38W RF, a free Air Assist Control and free shipping. Maker Bundle ($4,999): everything in the Starter Bundle plus a riser base and two material packs (acrylic and leather). Both are the same machine.</div></details>
+  <details><summary>What is the difference between the two XRF bundles?<i class="ph ph-plus"></i></summary><div class="a body-3">Starter Bundle ($4,499): XRF 38W RF, a free Air Assist Control and free shipping. Maker Bundle ($4,999): everything in the Starter Bundle plus a riser base and two MakerDepot material packs: acrylic (4 sheets, 1/8" × 12" × 12") and leatherette (5 sheets, 12" × 20"). Both are the same machine.</div></details>
   <details><summary>How many units are available?<i class="ph ph-plus"></i></summary><div class="a body-3">Every Black Friday Deal is limited qty for promotion. Stock is limited and can sell out anytime. Once a deal sells out, it is gone.</div></details>
   <details><summary>Why is a clearance machine cheaper, and is it still supported?<i class="ph ph-plus"></i></summary><div class="a body-3">Clearance models are being retired from the catalog to make room for the Gen2 line. They are new, boxed machines with full warranty, technical support and parts. The only thing that changes is that we will not build more of them.</div></details>
   <details><summary>What payment options are available?<i class="ph ph-plus"></i></summary><div class="a body-3">Card, PayPal and the other methods on our <a href="https://www.1laser.com/pages/payment-methods" target="_blank" rel="noopener">payment methods</a> page. Businesses can apply for lease to own financing through Clicklease; approval, rates and terms are set by the financing provider.</div></details>
@@ -1448,7 +1453,7 @@ const SUPER=[
  {id:'xrf',tier:'super',th:'red',img:'xrf',rl:'xrf',name:'XRF 38W RF desktop laser engraver and cutter',tag:['gift','Free Air Assist Control'],lb:['True 3G acceleration','1,200 mm/s','38W RF tube','RF: 4× precision vs glass'],speed:1,def:1,stock:'xrf',
   up:{id:'43674371391522',n:'Auto Conveyor Feeder',p:999,u:P+'onelaser-automatic-conveyor-feeder'},
   v:[{l:'Starter Bundle · XRF + Air Assist Control',mn:'XRF 38W RF',p:4499,m:5499,f:0,site:399,vid:'43557890261026',u:U('onelaser-xrf-desktop-laser-machine','43557890261026'),gifts:[{n:'Air Assist Control',val:299.99,img:'lQDPJxo8d4MrtenND4zNE4iwYCxEbs-yL6sITkLfo74fAA_5000_3980.jpg'}]},
-     {l:'Maker Bundle · + riser base + 2 material packs',mn:'XRF 38W RF',img:'xrfm',shown:'Shown with Riser Base + Auto Conveyor Feeder',p:4999,m:5499,f:0,site:399,vid:'43972592730146',u:U('onelaser-xrf-desktop-laser-machine','43972592730146'),gifts:[{n:'Air Assist Control',val:299.99,img:'lQDPJxo8d4MrtenND4zNE4iwYCxEbs-yL6sITkLfo74fAA_5000_3980.jpg'},{n:'Riser Base',val:599,img:'839d9e84510a0900681b9fc541852466.png'},{n:'2 material packs',sub:'Acrylic + leather'}]}]},
+     {l:'Maker Bundle · + riser base + 2 material packs',mn:'XRF 38W RF',img:'xrfm',shown:'Shown with Riser Base + Auto Conveyor Feeder',p:4999,m:5499,f:0,site:399,vid:'43972592730146',u:U('onelaser-xrf-desktop-laser-machine','43972592730146'),gifts:[{n:'Air Assist Control',val:299.99,img:'lQDPJxo8d4MrtenND4zNE4iwYCxEbs-yL6sITkLfo74fAA_5000_3980.jpg'},{n:'Riser Base',val:599,img:'839d9e84510a0900681b9fc541852466.png'},{n:'MakerDepot leatherette pack',sub:'5 sheets · 12"\u00a0×\u00a020"',img:'1_f1669e61-793f-4441-977e-3efacfb5eacb.webp'},{n:'MakerDepot acrylic pack',sub:'4 sheets · 1/8"\u00a0×\u00a012"\u00a0×\u00a012"',img:'32_ca0658c8-9a39-49be-a5a7-6f8f345a1d07.webp'}]}]},
  {id:'h07',tier:'super',th:'red',img:'h7g2',rl:'h07',name:'Hydra 7 Pro 70W RF production laser',tag:['fire','Limited qty at $7,999'],lb:['70W RF tube','2,000 mm/s','4G acceleration','RF: 4× precision vs glass','3–4× speed vs other RF','10× stability'],speed:3,stage:1,stock:'h07',
   v:[{l:'Hydra 7 Pro · 70W RF',mn:'Hydra 7 Pro',p:7999,p2:8999,m:10999,f:499,vid:'44667131822114',u:U('hydra-7-gen-2-70w-rf-co2-dual-laser-machine')}]},
  {id:'cob',tier:'deal',th:'blue',img:'c8',rl:'cob',name:'Cobra 8, 10 and 14 CO₂ workshop lasers',tag:['tag','Save $2,000 on every size'],lb:['90W to 130W glass','300+ materials','Autofocus'],sizes:1,speed:2,
@@ -1474,7 +1479,7 @@ const ACC={acc:[['OneLaser Air Assist Control, Dual Mode Airflow',299.99,'lQDPJx
 /* ===== render helpers ===== */
 const sel={};
 const fin=`<div><i class="ph ph-credit-card"></i><span>Lease to own financing with <a href="https://www.1laser.com/pages/financing" ${ext}>Clicklease</a></span></div>`;
-const ship=v=>`<div${v.f===0?' class="fsr"':''}><i class="ph${v.f===0?'-fill':''} ph-truck"></i><span>${v.f===0?'<b>FREE SHIPPING</b>':'Shipping '+$(v.f)}${v.site&&v.site>v.f?` <s style="opacity:.5">${$(v.site)}</s>`:''}</span></div>`;
+const ship=v=>v.f===0?`<div class="fsr"><i class="ph-fill ph-truck"></i><span><b>FREE SHIPPING</b>${v.site?`<s>${$(v.site)}</s><em>You save ${$(v.site)}</em>`:''}</span></div>`:`<div><i class="ph ph-truck"></i><span>Shipping ${$(v.f)}${v.site&&v.site>v.f?` <s style="opacity:.5">${$(v.site)}</s>`:''}</span></div>`;
 /* quick checkout: Shopify cart links. BUY goes straight to checkout, ADD drops it in the cart */
 const SHOP='https://www.1laser.com';
 const BUY=ids=>`${SHOP}/cart/${ids.map(i=>i+':1').join(',')}`;
